@@ -13,7 +13,7 @@ import webRoutes from "@routes/web";
 import mobileRoutes from "@routes/mobile";
 
 import db from "@config/database";
-import license from "@utils/sippp.util";
+import license from "@utils/sippp";
 import getConfig from "@config/dotenv";
 import { initSocketIO } from "@config/socket";
 import limiter from "@middleware/rate-limit";
