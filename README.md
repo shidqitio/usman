@@ -34,6 +34,7 @@ STRUKTURE
 
 ===============================================
 
+```
 my-app/
 ├── logs/
 ├── public/
@@ -58,7 +59,7 @@ my-app/
 │       ├── ebudgeting/
 │   └── utils/
 └── package.json
-
+```
 
 # My App
 
@@ -73,22 +74,22 @@ The project structure is organized as follows:
 * **src/** : The source code of the application is stored in this directory.
 * **certificate/** : Contains certificates or related files.
 * **controllers/** : This directory is further divided into subdirectories based on the type of controllers.
-  *  **api/** : Controllers responsible for handling API-related logic.
-  *  **web/** : Controllers specific to web-related functionality.
-  *  **mobile/** : Controllers for handling mobile-specific logic.
+  * **api/** : Controllers responsible for handling API-related logic.
+  * **web/** : Controllers specific to web-related functionality.
+  * **mobile/** : Controllers for handling mobile-specific logic.
 * **middleware/** : Middleware components that can be used in the application.
 * **models/** : Database models or other data models are stored in this directory.
 * **routes/** : Defines the routes of the application.
 * **schema/** : Contains database schemas or other schema-related files.
 * **services/** : The business logic of the application is organized into service modules. Subdirectories represent different modules or components of the application.
-  *  **api/** : Services related to API functionality.
-  *  **hrd/** : Services specific to the Human Resources Department.
-  *  **web/** : Services for web-related functionality.
-  *  **pevita/** : Services related to the "pevita" module.
-  *  **siakun/** : Services specific to the "siakun" module.
-  *  **usman/** : Services for the "usman" module.
-  *  **panutan/** : Services related to the "panutan" module.
-  *  **ebudgeting/** : Services for the "ebudgeting" module.
+  * **api/** : Services related to API functionality.
+  * **hrd/** : Services specific to the Human Resources Department.
+  * **web/** : Services for web-related functionality.
+  * **pevita/** : Services related to the "pevita" module.
+  * **siakun/** : Services specific to the "siakun" module.
+  * **usman/** : Services for the "usman" module.
+  * **panutan/** : Services related to the "panutan" module.
+  * **ebudgeting/** : Services for the "ebudgeting" module.
 * **utils/** : Utility functions or helper modules are stored here.
 * **package.json** : The package.json file contains metadata about the project and its dependencies.
 
@@ -100,10 +101,6 @@ The project structure is organized as follows:
 4. Install dependencies: `npm install / yarn install`
 5. Start the application: `npm start / yarn start`
 
-
-
 ## Acknowledgments
 
 Happy coding by renwidjaya
-
----
