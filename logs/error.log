@@ -1,1 +1,5 @@
 [2024-01-31T13:43:53.984] [ERROR] error - testing error debugger [object Object],[object Object],[object Object],[object Object],[object Object]
+[2024-01-31T23:09:18.448] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
+[2024-01-31T23:09:38.676] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
+[2024-01-31T23:35:27.688] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
+[2024-01-31T23:36:05.703] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT

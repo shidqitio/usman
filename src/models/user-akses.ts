@@ -13,6 +13,8 @@ interface IUserAksesAttributes {
   status: StatusUserActive;
 }
 
+export type UserOutput = Required<IUserAksesAttributes>;
+
 class UserAkses
   extends Model<IUserAksesAttributes>
   implements IUserAksesAttributes
