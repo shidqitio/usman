@@ -59,4 +59,46 @@ my-app/
 │   └── utils/
 └── package.json
 
+
+
+# My App
+
+This is the README file for the "my-app" project.
+
+## Project Structure
+
+The project structure is organized as follows:
+
+* **logs/** : This directory is intended for storing log files related to the application.
+* **public/** : This directory is meant for public assets such as images, stylesheets, and client-side JavaScript files.
+* **src/** : The source code of the application is stored in this directory.
+* **certificate/** : Contains certificates or related files.
+* **controllers/** : This directory is further divided into subdirectories based on the type of controllers.
+  *  **api/** : Controllers responsible for handling API-related logic.
+  *  **web/** : Controllers specific to web-related functionality.
+  *  **mobile/** : Controllers for handling mobile-specific logic.
+* **middleware/** : Middleware components that can be used in the application.
+* **models/** : Database models or other data models are stored in this directory.
+* **routes/** : Defines the routes of the application.
+* **schema/** : Contains database schemas or other schema-related files.
+* **services/** : The business logic of the application is organized into service modules. Subdirectories represent different modules or components of the application.
+  *  **api/** : Services related to API functionality.
+  *  **hrd/** : Services specific to the Human Resources Department.
+  *  **web/** : Services for web-related functionality.
+  *  **pevita/** : Services related to the "pevita" module.
+  *  **siakun/** : Services specific to the "siakun" module.
+  *  **usman/** : Services for the "usman" module.
+  *  **panutan/** : Services related to the "panutan" module.
+  *  **ebudgeting/** : Services for the "ebudgeting" module.
+* **utils/** : Utility functions or helper modules are stored here.
+* **package.json** : The package.json file contains metadata about the project and its dependencies.
+
+## Getting Started
+
+1. Clone the repository: `git clone <repository-url>`
+2. Navigate to the project directory: `cd my-app`
+3. Create file `.env`
+4. Install dependencies: `npm install / yarn install`
+5. Start the application: `npm start / yarn start`
+
 ---
