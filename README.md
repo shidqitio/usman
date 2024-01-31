@@ -104,6 +104,6 @@ The project structure is organized as follows:
 
 ## Acknowledgments
 
-Happy coding by [Renwidjaya](https://github.com/Renwidjaya)!
+Happy coding by renwidjaya
 
 ---
