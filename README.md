@@ -26,4 +26,52 @@ LISTING LIBRARY
 
 ===============================================
 
+STRUKTURE
+
+===============================================
+
+
+--src
+
+----certificate
+
+----controllers
+
+--------fitur 1
+
+--------fitur 2
+
+--------fitur 3
+
+--------fitur 4
+
+----middleware
+
+----models
+
+----routes
+
+----schema
+
+----services
+
+--------usman
+
+--------hrd
+
+--------ebudgeting
+
+--------siakun
+
+--------pevita
+
+--------panutan
+
+--------api
+
+--------web
+
+----utils
+
+
 ---

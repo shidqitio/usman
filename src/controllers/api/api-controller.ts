@@ -1,5 +1,4 @@
 import { httpCode } from "@utils/prefix";
-import { UserData } from "@middleware/authorization";
 import { NextFunction, Request, Response } from "express";
 import { responseSuccess } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
@@ -39,9 +38,9 @@ const lists = async (
     ];
 
     debugLogger.debug(`testing debug debugger ${books}`);
-    errorLogger.error(`testing error debugger ${books}`);
     responseSuccess(res, httpCode.ok, books);
   } catch (error) {
+    errorLogger.error(`testing error debugger ${error}`);
     next(error);
   }
 };
