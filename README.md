@@ -26,61 +26,37 @@ LIBRARY
 - tsconfig-paths: version 4.2.0,
 - zod: version 3.22.4
 
-
-
 ===============================================
 
 STRUKTURE
 
 ===============================================
 
---logs
-
---public
-
---src
-
-----certificate
-
-----controllers
-
---------api
-
---------web
-
---------mobile
-
-----middleware
-
-----models
-
-----routes
-
-----schema
-
-----services
-
---------api
-
---------hrd
-
---------web
-
---------pevita
-
---------siakun
-
---------usman
-
---------panutan
-
---------ebudgeting
-
-----utils
-
-
+my-app/
+├── logs/
+├── public/
+├── src/
+│   ├── certificate/
+│   ├── controllers/
+│   │   ├── api/
+│   │   ├── web/
+│   │   └── mobile/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── schema/
+│   └── services/
+│       ├── api/
+│       ├── hrd/
+│       ├── web/
+│       ├── pevita/
+│       ├── siakun/
+│       ├── usman/
+│       ├── panutan/
+│       ├── ebudgeting/
+│   └── utils/
+└── package.json
 
     @dev-sippp - 2024
-
 
 ---
