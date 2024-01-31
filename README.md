@@ -1,3 +1,5 @@
+@sippp - 2024
+
 ==============================================
 
 LIBRARY
@@ -56,7 +58,5 @@ my-app/
 │       ├── ebudgeting/
 │   └── utils/
 └── package.json
-
-    @dev-sippp - 2024
 
 ---
