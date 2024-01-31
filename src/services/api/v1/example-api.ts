@@ -22,7 +22,7 @@ const exampleApi = async (
       offset = (pages - 1) * limits;
     }
 
-    const aplikasi: UserAkses[] = await UserAkses.findAll({
+    const user: UserAkses[] = await UserAkses.findAll({
       where: {
         status: StatusUserActive.Active,
       },
@@ -31,7 +31,7 @@ const exampleApi = async (
       offset: offset,
     });
 
-    return aplikasi;
+    return user;
   } catch (error: any) {
     if (error instanceof CustomError) {
       throw new CustomError(error.code, error.message);
