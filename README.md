@@ -2,6 +2,8 @@
 
 LISTING LIBRARY
 
+==============================================
+
 - @types/luxon : version 3.3.4,
 - luxon: 3.4.4,
 - axios: version 1.5.1,
@@ -24,12 +26,13 @@ LISTING LIBRARY
 - tsconfig-paths: version 4.2.0,
 - zod: version 3.22.4
 
+
+
 ===============================================
 
 STRUKTURE
 
 ===============================================
-
 
 --src
 
@@ -37,13 +40,11 @@ STRUKTURE
 
 ----controllers
 
---------fitur 1
+--------api
 
---------fitur 2
+--------web
 
---------fitur 3
-
---------fitur 4
+--------mobile
 
 ----middleware
 
@@ -72,6 +73,10 @@ STRUKTURE
 --------web
 
 ----utils
+
+
+
+@dev-sippp
 
 
 ---
