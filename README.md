@@ -60,7 +60,6 @@ my-app/
 └── package.json
 
 
-
 # My App
 
 This is the README file for the "my-app" project.
@@ -100,5 +99,11 @@ The project structure is organized as follows:
 3. Create file `.env`
 4. Install dependencies: `npm install / yarn install`
 5. Start the application: `npm start / yarn start`
+
+
+
+## Acknowledgments
+
+Happy coding by [Renwidjaya](https://github.com/Renwidjaya)!
 
 ---
