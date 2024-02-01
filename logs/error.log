@@ -1,7 +1,1 @@
-[2024-02-01T00:25:08.960] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
-[2024-02-01T00:25:58.908] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
-[2024-02-01T00:28:50.650] [ERROR] error - SERVER ERROR: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:5432
-[2024-02-01T00:29:34.435] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
-[2024-02-01T00:30:18.861] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
-[2024-02-01T00:30:45.493] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
-[2024-02-01T00:31:43.079] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
+[2024-02-01T09:13:09.443] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT

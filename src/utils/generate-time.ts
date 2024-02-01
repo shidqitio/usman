@@ -1,13 +1,5 @@
-import { DateTime } from 'luxon';
 import moment from "moment-timezone";
 moment.tz.setDefault("Asia/Jakarta");
-
-const generateDateIso = (): string => {
-  const now = DateTime.now();
-  const formattedDate : any = now.toISO();
-
-  return formattedDate;
-}
 
 const generateDate = (): string => {
   const formattedDateTime = moment().format("YYYY-MM-DDTHH:mm:ssZ");
@@ -55,10 +47,4 @@ const generateTanggal = (time: string) => {
   return formattedTime;
 };
 
-export { 
-  generateDateIso, 
-  generateDate, 
-  generateTime, 
-  generateYearMonth, 
-  generateTanggal 
-};
+export { generateDate, generateTime, generateYearMonth, generateTanggal };

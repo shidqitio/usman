@@ -6,8 +6,6 @@ LIBRARY
 
 ==============================================
 
-- @types/luxon : version 3.3.4,
-- luxon: 3.4.4,
 - axios: version 1.5.1,
 - body-parse:  version 1.20.2,
 - bwip-js: version 4.1.1,
