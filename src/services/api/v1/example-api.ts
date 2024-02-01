@@ -21,7 +21,7 @@ const exampleApi = async (
       where: {
         status: StatusUserActive.Active,
       },
-      order: [["udch", "DESC"]],
+      order: [["created_at", "DESC"]],
       limit: limits,
       offset: offset,
     });
