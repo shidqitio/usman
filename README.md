@@ -19,7 +19,7 @@ LIBRARY
 - og4js: version 6.9.1,
 - moment-timezone: version 0.5.43,
 - multer: version 1.4.5-lts.1,
-- mysql2: version 3.6.1,
+- mysql2: version 3.6.1, // posgress version xxx
 - puppeteer: version 21.3.7,
 - sequelize: version 6.33.0,
 - socket.io: version 4.7.2,
@@ -96,8 +96,8 @@ The project structure is organized as follows:
 1. Clone the repository: `git clone <repository-url>`
 2. Navigate to the project directory: `cd my-app`
 3. Create file `.env`
-4. Install dependencies: `npm install / yarn install`
-5. Start the application: `npm start / yarn start`
+4. Install dependencies: `npm install`
+5. Start the application: `npm start`
 
 ## Acknowledgments
 

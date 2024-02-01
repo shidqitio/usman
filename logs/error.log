@@ -1,1 +1,101 @@
 [2024-02-01T09:13:09.443] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
+[2024-02-01T15:16:45.111] [ERROR] error - SERVER ERROR: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[2024-02-01T15:39:02.405] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:39:02.406] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:40:11.044] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:40:11.045] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:40:57.197] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:40:57.197] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:41:20.231] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:41:20.231] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:41:23.580] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:41:23.581] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:41:24.455] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:41:24.455] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:46:22.051] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:46:22.052] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:37:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:47:04.846] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:47:04.847] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:36:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:47:08.261] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:47:08.261] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:36:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:51:05.916] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:51:05.917] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:41:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-01T15:53:29.135] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-01T15:53:29.136] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:44:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}

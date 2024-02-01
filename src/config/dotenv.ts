@@ -7,9 +7,13 @@ const MODE = process.env.NODE_ENV || process.env.MODE;
 const getConfig = (key: string): string => {
   let envKey;
   if (MODE === mode.development) {
+
     envKey = `${modePrefix.dev_}${key}`;
+
   } else if (MODE === mode.production) {
+
     envKey = `${modePrefix.prod_}${key}`;
+    
   }
 
   if (envKey === undefined) {

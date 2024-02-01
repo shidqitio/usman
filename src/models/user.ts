@@ -6,9 +6,9 @@ export enum StatusUserActive {
   Active = "1",
 }
 
-interface IUserAksesAttributes {
+interface IUserAttributes {
   id: number;
-  nama: string;
+  name: string;
   email: string;
   status: StatusUserActive;
   address: string;
@@ -16,14 +16,11 @@ interface IUserAksesAttributes {
   updated_at: string;
 }
 
-export type UserOutput = Required<IUserAksesAttributes>;
+export type UserOutput = Required<IUserAttributes>;
 
-class Users
-  extends Model<IUserAksesAttributes>
-  implements IUserAksesAttributes
-{
+class Users extends Model<IUserAttributes> implements IUserAttributes {
   public id!: number;
-  public nama!: string;
+  public name!: string;
   public email!: string;
   public status!: StatusUserActive;
   public address!: string;
@@ -38,7 +35,7 @@ Users.init(
       primaryKey: true,
       allowNull: false,
     },
-    nama: {
+    name: {
       type: DataTypes.STRING(255),
       allowNull: false,
     },

@@ -1,4 +1,6 @@
 import { httpCode } from "@utils/prefix";
+import { UserOutput } from "@models/user";
+import example from "@services/api/v1/example-api";
 import { NextFunction, Request, Response } from "express";
 import { responseSuccess } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
@@ -9,36 +11,12 @@ const lists = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    let books = [
-      {
-        id: 1,
-        name: "indrawan",
-        email: "indrawan@ecampus.ut.ac.id",
-      },
-      {
-        id: 2,
-        name: "tio",
-        email: "tio@ecampus.ut.ac.id",
-      },
-      {
-        id: 3,
-        name: "rendi",
-        email: "rendi@ecampus.ut.ac.id",
-      },
-      {
-        id: 4,
-        name: "dholi",
-        email: "dholi@ecampus.ut.ac.id",
-      },
-      {
-        id: 5,
-        name: "Rido",
-        email: "rido@ecampus.ut.ac.id",
-      },
-    ];
+    const page = req.query.page as string;
+    const limit = req.query.limit as string;
 
-    debugLogger.debug(`testing debug debugger ${books}`);
-    responseSuccess(res, httpCode.ok, books);
+    const response: UserOutput[] = await example.exampleApi(page, limit);
+
+    responseSuccess(res, httpCode.ok, response);
   } catch (error) {
     errorLogger.error(`testing error debugger ${error}`);
     next(error);
