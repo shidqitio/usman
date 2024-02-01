@@ -67,8 +67,8 @@ This is the README file for the "my-app" project.
 
 The project structure is organized as follows:
 
-* **logs/** : This directory is intended for storing log files related to the application.
-* **public/** : This directory is meant for public assets such as images, stylesheets, and client-side JavaScript files.
+* **logs/** : This directory is intended for storing log files related to the application or path logs this server.
+* **public/** : This directory is meant for public assets such as images, stylesheets, and client-side JavaScript files or monthing folder.
 * **src/** : The source code of the application is stored in this directory.
 * **certificate/** : Contains certificates or related files.
 * **controllers/** : This directory is further divided into subdirectories based on the type of controllers.
