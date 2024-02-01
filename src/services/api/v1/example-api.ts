@@ -1,5 +1,5 @@
 import CustomError from "@middleware/error-handler";
-import UserAkses, { StatusUserActive, UserOutput } from "@models/user-akses";
+import Users, { StatusUserActive, UserOutput } from "@models/user";
 
 const exampleApi = async (
   page: string,
@@ -7,11 +7,6 @@ const exampleApi = async (
 ): Promise<UserOutput[]> => {
   /**
    * variabel
-   * fungsi model
-   * logic
-   * return
-   * handle response
-   * sebelum ke controller data harus clean
    */
   try {
     let pages: number = parseInt(page);
@@ -22,7 +17,7 @@ const exampleApi = async (
       offset = (pages - 1) * limits;
     }
 
-    const user: UserAkses[] = await UserAkses.findAll({
+    const user: Users[] = await Users.findAll({
       where: {
         status: StatusUserActive.Active,
       },
