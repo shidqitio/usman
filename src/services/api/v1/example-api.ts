@@ -26,15 +26,8 @@ const exampleApi = async (
       offset: offset,
     });
 
-    console.log("====================================");
-    console.log(user);
-    console.log("====================================");
-
     return user;
   } catch (error: any) {
-    console.log("====================================");
-    console.log(error);
-    console.log("====================================");
     if (error instanceof CustomError) {
       throw new CustomError(error.code, error.message);
     } else {
