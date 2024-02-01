@@ -26,6 +26,10 @@ const exampleApi = async (
       offset: offset,
     });
 
+    console.log("====================================");
+    console.log();
+    console.log("====================================");
+    
     return user;
   } catch (error: any) {
     if (error instanceof CustomError) {
