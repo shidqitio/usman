@@ -2,6 +2,7 @@ import express from "express";
 import validate from "@schema/validate";
 import apiController from "@controllers/api/api-controller";
 import {
+  destroyExampleSchema,
   getExampleSchema,
   payloadExampleSchema,
   searchExampleSchema,
@@ -14,8 +15,8 @@ routes.get("/example/:id", validate(getExampleSchema), apiController.detail);
 routes.post("/example", validate(payloadExampleSchema), apiController.store);
 routes.put("/example", validate(updatedExampleSchema), apiController.updated);
 routes.delete(
-  "/example/:id",
-  validate(getExampleSchema),
+  "/example",
+  validate(destroyExampleSchema),
   apiController.destroy
 );
 

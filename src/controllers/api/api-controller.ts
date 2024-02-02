@@ -5,6 +5,7 @@ import { NextFunction, Request, Response } from "express";
 import { responseSuccess } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
 import {
+  DestroyExampleRequest,
   GetExampleRequest,
   PayloadExampleRequest,
   SearchExampleRequest,
@@ -88,7 +89,7 @@ const destroy = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const id: GetExampleRequest["params"]["id"] = req.params.id as string;
+    const id: DestroyExampleRequest["body"]["id"] = req.body.id;
 
     const response: UserOutput = await example.destroyExampleApi(id);
 

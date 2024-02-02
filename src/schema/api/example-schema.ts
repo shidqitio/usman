@@ -59,6 +59,15 @@ const updated = {
   }),
 };
 
+const destroy = {
+  body: object({
+    id: number({
+      required_error: "Data tidak boleh kosong",
+      invalid_type_error: "Data harus number",
+    }),
+  }),
+};
+
 const params = {
   params: object({
     id: string({
@@ -97,7 +106,12 @@ export const updatedExampleSchema = object({
   ...updated,
 });
 
+export const destroyExampleSchema = object({
+  ...destroy,
+});
+
 export type GetExampleRequest = TypeOf<typeof getExampleSchema>;
 export type SearchExampleRequest = TypeOf<typeof searchExampleSchema>;
 export type PayloadExampleRequest = TypeOf<typeof payloadExampleSchema>;
 export type UpdatedExampleRequest = TypeOf<typeof updatedExampleSchema>;
+export type DestroyExampleRequest = TypeOf<typeof destroyExampleSchema>;

@@ -1,6 +1,7 @@
 import CustomError from "@middleware/error-handler";
 import Users, { StatusUserActive, UserInput, UserOutput } from "@models/user";
 import {
+  DestroyExampleRequest,
   GetExampleRequest,
   PayloadExampleRequest,
   SearchExampleRequest,
@@ -125,24 +126,22 @@ const updatedExampleApi = async (
 };
 
 const destroyExampleApi = async (
-  id: GetExampleRequest["params"]["id"]
+  id: DestroyExampleRequest["body"]["id"]
 ): Promise<UserOutput | any> => {
   /**
    * variabel
    */
   try {
-    let data = parseInt(id);
-
     const exists = await Users.findOne({
       where: {
-        id: data,
+        id: id,
       },
     });
     if (!exists) throw new CustomError(httpCode.found, "User tidak ditemukan!");
 
     const user = await Users.destroy({
       where: {
-        id: data,
+        id: id,
       },
     });
     if (!user)

@@ -178,3 +178,66 @@
   code: 302,
   status: 'error'
 }
+[2024-02-02T16:08:04.469] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:08:04.470] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:154:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:38:48.391] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:38:48.392] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:153:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:38:49.962] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:38:49.962] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:153:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:39:06.823] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:39:06.823] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:65:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:39:24.815] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:39:24.816] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:65:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:39:26.088] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:39:26.088] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:65:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:39:32.828] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:39:32.828] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:153:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
