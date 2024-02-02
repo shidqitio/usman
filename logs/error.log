@@ -1,101 +1,180 @@
-[2024-02-01T09:13:09.443] [ERROR] error - SERVER ERROR: SequelizeConnectionError: connect ETIMEDOUT
-[2024-02-01T15:16:45.111] [ERROR] error - SERVER ERROR: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
-[2024-02-01T15:39:02.405] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:39:02.406] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+[2024-02-02T15:44:19.622] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-02T15:44:19.623] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:42:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-02-01T15:40:11.044] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:40:11.045] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+[2024-02-02T15:44:24.353] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-02T15:44:24.353] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:42:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-02-01T15:40:57.197] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:40:57.197] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+[2024-02-02T15:44:29.810] [ERROR] error - testing error debugger Error: Internal server error.
+[2024-02-02T15:44:29.810] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:42:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-02-01T15:41:20.231] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:41:20.231] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+[2024-02-02T15:51:04.534] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T15:51:04.535] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:64:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T15:51:05.925] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T15:51:05.925] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:64:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T15:51:07.557] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T15:51:07.557] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:64:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T15:51:11.451] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T15:51:11.451] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:64:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T15:51:27.428] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T15:51:27.429] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:64:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T15:58:00.104] [ERROR] error - testing error updated Error: Internal server error.
+[2024-02-02T15:58:00.105] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:122:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-02-01T15:41:23.580] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:41:23.581] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+[2024-02-02T15:58:01.683] [ERROR] error - testing error updated Error: Internal server error.
+[2024-02-02T15:58:01.684] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:122:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-02-01T15:41:24.455] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:41:24.455] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:34:13
+[2024-02-02T15:58:15.526] [ERROR] error - testing error updated Error: Internal server error.
+[2024-02-02T15:58:15.526] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:122:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-02-01T15:46:22.051] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:46:22.052] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:37:13
+[2024-02-02T15:58:16.249] [ERROR] error - testing error updated Error: Internal server error.
+[2024-02-02T15:58:16.249] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:122:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-02-01T15:47:04.846] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:47:04.847] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:36:13
-    at Generator.throw (<anonymous>)
-    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-02-01T15:47:08.261] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:47:08.261] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:36:13
-    at Generator.throw (<anonymous>)
-    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-02-01T15:51:05.916] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:51:05.917] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:41:13
+[2024-02-02T16:01:13.147] [ERROR] error - testing error updated Error: Internal server error.
+[2024-02-02T16:01:13.148] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:122:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-02-01T15:53:29.135] [ERROR] error - testing error debugger Error: Internal server error.
-[2024-02-01T15:53:29.136] [ERROR] error - CustomError: Internal server error.
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:44:13
+[2024-02-02T16:01:38.794] [ERROR] error - testing error updated Error: Internal server error.
+[2024-02-02T16:01:38.795] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:122:13
     at Generator.throw (<anonymous>)
     at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
+  status: 'error'
+}
+[2024-02-02T16:02:08.364] [ERROR] error - testing error updated Error: Internal server error.
+[2024-02-02T16:02:08.364] [ERROR] error - CustomError: Internal server error.
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:122:13
+    at Generator.throw (<anonymous>)
+    at rejected (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-02-02T16:04:32.584] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:04:32.585] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:64:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:04:53.670] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:04:53.670] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:154:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:04:55.572] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:04:55.573] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:154:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:04:56.065] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:04:56.065] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:154:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-02-02T16:04:59.005] [ERROR] error - testing error debugger Error: User tidak ditemukan!
+[2024-02-02T16:04:59.005] [ERROR] error - CustomError: User tidak ditemukan!
+    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:64:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
   status: 'error'
 }

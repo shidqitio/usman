@@ -1,6 +1,7 @@
-import { Request, Response, NextFunction } from "express";
 import { AnyZodObject } from "zod";
 import { removeFile } from "@utils/remove-file";
+import { httpCode, responseStatus } from "@utils/prefix";
+import { Request, Response, NextFunction } from "express";
 
 const validate =
   (schema: AnyZodObject) =>
@@ -20,8 +21,8 @@ const validate =
 
       const message = e.errors.map((error: any) => error.message).join(", ");
       return res.status(422).json({
-        code: 422,
-        status: "error",
+        code: httpCode.unprocessableEntity,
+        status: responseStatus.error,
         message: message,
       });
     }

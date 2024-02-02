@@ -1,4 +1,4 @@
-import { DataTypes, Model } from "sequelize";
+import { CreateOptions, DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
 
 export enum StatusUserActive {
@@ -17,8 +17,15 @@ interface IUserAttributes {
 }
 
 export type UserOutput = Required<IUserAttributes>;
+export type UserInput = Optional<
+  IUserAttributes,
+  "id" | "created_at" | "updated_at"
+>;
 
-class Users extends Model<IUserAttributes> implements IUserAttributes {
+class Users
+  extends Model<IUserAttributes, UserInput>
+  implements IUserAttributes
+{
   public id!: number;
   public name!: string;
   public email!: string;
@@ -31,7 +38,8 @@ class Users extends Model<IUserAttributes> implements IUserAttributes {
 Users.init(
   {
     id: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
@@ -65,7 +73,8 @@ Users.init(
     tableName: "users",
     modelName: "Users",
     underscored: true,
-    timestamps: false,
+    createdAt: "created_at",
+    updatedAt: "updated_at",
   }
 );
 
