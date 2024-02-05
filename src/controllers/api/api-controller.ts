@@ -11,6 +11,7 @@ import {
   SearchExampleRequest,
   UpdatedExampleRequest,
 } from "@schema/api/example-schema";
+import { getSocketIO } from "@config/socket";
 
 const lists = async (
   req: Request,
@@ -18,6 +19,8 @@ const lists = async (
   next: NextFunction
 ): Promise<void> => {
   try {
+    const ioInstance = getSocketIO();
+
     const page: SearchExampleRequest["query"]["page"] = req.query
       .page as string;
     const limit: SearchExampleRequest["query"]["limit"] = req.query
@@ -25,7 +28,12 @@ const lists = async (
 
     const response: UserOutput[] = await example.searchExampleApi(page, limit);
 
-    responseSuccess(res, httpCode.ok, response);
+    if (ioInstance) {
+      ioInstance.emit("user", response);
+      responseSuccess(res, httpCode.ok, response);
+    } else {
+      res.status(500).send("Socket.IO not initialized");
+    }
   } catch (error) {
     errorLogger.error(`testing error debugger ${error}`);
     next(error);
@@ -38,11 +46,18 @@ const detail = async (
   next: NextFunction
 ): Promise<void> => {
   try {
+    const ioInstance = getSocketIO();
+
     const id: GetExampleRequest["params"]["id"] = req.params.id as string;
 
     const response: UserOutput = await example.getExampleApi(id);
 
-    responseSuccess(res, httpCode.ok, response);
+    if (ioInstance) {
+      ioInstance.emit("user", response);
+      responseSuccess(res, httpCode.ok, response);
+    } else {
+      res.status(500).send("Socket.IO not initialized");
+    }
   } catch (error) {
     errorLogger.error(`testing error debugger ${error}`);
     next(error);

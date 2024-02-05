@@ -21,6 +21,11 @@ export const initSocketIO = (server: any) => {
       ioInstance?.emit("chat message", message);
     });
 
+     socket.on("user", (data: string) => {
+       console.log(`Received data user: ${data}`);
+       ioInstance?.emit("user", data);
+     });
+
     socket.on("disconnect", () => {
       console.log("A user disconnected.");
     });
