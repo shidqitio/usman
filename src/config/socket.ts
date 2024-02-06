@@ -12,19 +12,13 @@ export const initSocketIO = (server: any) => {
   });
 
   ioInstance.on("connection", (socket: Socket) => {
-    console.log("A user connected.", socket.id);
+   console.log("====================================");
+   console.log("socket connect server");
+   console.log("====================================");
 
-    socket.emit("welcome", "Welcome to the server!");
-
-    socket.on("chat message", (message: string) => {
-      console.log(`Received message: ${message}`);
-      ioInstance?.emit("chat message", message);
-    });
-
-     socket.on("user", (data: string) => {
-       console.log(`Received data user: ${data}`);
-       ioInstance?.emit("user", data);
-     });
+   socket.on("user", (data: string) => {
+     ioInstance?.emit("user", data);
+   });
 
     socket.on("disconnect", () => {
       console.log("A user disconnected.");
