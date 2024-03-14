@@ -78,6 +78,15 @@ const updated = {
     })
 }
 
+const parameter = {
+    params : z.object({
+        id : string({
+            required_error : "Data Tidak Boleh Kosong",
+            invalid_type_error : "Data Harus String"
+        })
+    })
+}
+
 export const postRefAplikasiSchema = z.object({
     ...payload
 })
@@ -86,5 +95,10 @@ export const updatedRefAplikasiSchema = z.object({
     ...updated
 })
 
+export const getRefAplikasiSchema = z.object({
+    ...parameter
+})
+
 export type PostRefAplikasiSchema = z.infer<typeof postRefAplikasiSchema>;
-export type UpdatedRefAplikasiSchema = z.infer<typeof updatedRefAplikasiSchema>
+export type UpdatedRefAplikasiSchema = z.infer<typeof updatedRefAplikasiSchema>;
+export type GetRefAplikasiSchema = z.infer<typeof getRefAplikasiSchema>

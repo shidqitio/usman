@@ -2,13 +2,21 @@ import CustomError from "@middleware/error-handler";
 import RefAplikasi, {Status,RefAplikasiInput, RefAplikasiOutput} from "@models/refAplikasi-model";
 import {
     PostRefAplikasiSchema,
-    UpdatedRefAplikasiSchema
+    UpdatedRefAplikasiSchema,
+    GetRefAplikasiSchema
 } from "@schema/api/refAplikasi-schema"
 import { httpCode } from "@utils/prefix";
 import generateKodePrimary from "@utils/generate_auto_code"
 import dotenv from "dotenv"
 dotenv.config()
 
+// const index = async () : Promise<RefAplikasiOutput> => {
+//     try {
+//         const refAplikas : RefAplikasi = await RefAplikasi.findAll
+//     } catch (error : any) {
+        
+//     }
+// }
 
 const store = async (
     request:PostRefAplikasiSchema["body"], 
@@ -53,6 +61,32 @@ const store = async (
     }
 }
 
+const getByKodeAPlikasi = async (
+    id:GetRefAplikasiSchema["params"]["id"]) : 
+    Promise<RefAplikasiOutput> => {
+    try {
+        const refAplikasi : RefAplikasi | null = await RefAplikasi.findOne({
+            where : {
+                kode_aplikasi : id
+            }
+        })
+
+        if(!refAplikasi) {
+            throw new CustomError(httpCode.found, "Aplikasi Tidak Ada")
+        }
+
+        return refAplikasi
+
+    } catch (error : any) {
+        if (error instanceof CustomError) {
+            throw new CustomError(error.code, error.message);
+          } else {
+            throw new CustomError(500, "Internal server error.");
+          }
+    }
+}
+
 export default {
-    store
+    store,
+    getByKodeAPlikasi
 }
