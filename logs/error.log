@@ -1,12 +1,985 @@
-[2024-02-05T09:14:35.574] [ERROR] error - SERVER ERROR: SequelizeConnectionError: Unknown database 'db_academy'
-[2024-02-05T09:28:36.293] [ERROR] error - SERVER ERROR: SequelizeConnectionError: Unknown database 'db_academy'
-[2024-02-05T09:33:37.971] [ERROR] error - SERVER ERROR: SequelizeConnectionError: Unknown database 'db_academy'
-[2024-02-05T15:15:17.581] [ERROR] error - testing error debugger Error: User tidak ditemukan!
-[2024-02-05T15:15:17.595] [ERROR] error - CustomError: User tidak ditemukan!
-    at /home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:65:13
-    at Generator.next (<anonymous>)
-    at fulfilled (/home/ut-dev/Documents/Backend/project-sippp/boilerplate-express-ts/src/services/api/v1/example-api.ts:28:58)
+[2024-03-12T00:06:09.384] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:06:09.386] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:52:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 302,
+  code: 500,
   status: 'error'
+}
+[2024-03-12T00:10:19.217] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:10:19.219] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:52:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:12:14.982] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:12:14.984] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:16:21.457] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:16:21.460] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:17:11.701] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:17:11.701] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:17:37.928] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:17:37.928] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:18:08.251] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:18:08.251] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:18:16.939] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:18:16.940] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:18:24.278] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:18:24.278] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:18:40.507] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:18:40.507] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:23:13.995] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:23:13.995] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:24:20.703] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:24:20.703] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:24:23.794] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:24:23.794] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:24:29.791] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:24:29.792] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:24:33.168] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:24:33.168] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:31:20.879] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:31:20.880] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:31:26.690] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:31:26.691] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:31:33.568] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:31:33.568] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:31:44.780] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:31:44.780] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:31:57.586] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:31:57.587] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:34:34.972] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:34:34.973] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:34:36.123] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:34:36.123] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:34:36.782] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:34:36.783] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:34:37.239] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:34:37.240] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:34:37.676] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:34:37.676] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:34:38.119] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:34:38.119] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:34:42.323] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:34:42.323] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:40:11.969] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:40:11.969] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:40:19.285] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:40:19.286] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:40:32.892] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:40:32.893] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:40:37.725] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:40:37.725] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:40:42.576] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:40:42.576] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:40:53.750] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:40:53.750] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:40:57.886] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:40:57.887] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:43:17.315] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:43:17.315] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:43:38.050] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:43:38.051] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:43:57.821] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:43:57.821] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:43:58.440] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:43:58.440] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:43:58.797] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:43:58.797] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:45:32.063] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:45:32.064] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:45:38.291] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:45:38.291] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:53:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:50:08.099] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:50:08.100] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:50:22.997] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:50:22.998] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:51:02.082] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:51:02.084] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:51:08.580] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:51:08.580] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:51:27.372] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:51:27.372] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:51:52.058] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:51:52.058] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:59:09.141] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:59:09.141] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T00:59:09.613] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T00:59:09.613] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:04:20.111] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:04:20.113] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:07:03.516] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:07:03.517] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:07:11.794] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:07:11.795] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:07:21.000] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:07:21.000] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:07:27.110] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:07:27.110] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:07:39.848] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:07:39.849] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:07:54.275] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:07:54.275] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:08:37.061] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:08:37.062] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:09:14.190] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:09:14.190] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:09:34.755] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:09:34.755] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:09:39.135] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:09:39.135] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:09:47.188] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:09:47.188] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:09:52.465] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:09:52.466] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:10:20.443] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:10:20.443] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:10:33.906] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:10:33.906] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:10:46.699] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:10:46.699] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:11:02.976] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:11:02.976] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:11:32.236] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:11:32.236] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:11:48.401] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:11:48.401] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T01:12:26.100] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T01:12:26.100] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:54:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:09:40.005] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:09:40.006] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:10:22.103] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:10:22.105] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:10:31.718] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:10:31.719] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:10:40.353] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:10:40.353] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:10:45.395] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:10:45.395] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:11:40.409] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:11:40.409] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:12:55.113] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:12:55.115] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:13:10.427] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:13:10.429] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:14:35.086] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:14:35.088] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:15:06.057] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:15:06.058] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:15:10.150] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:15:10.150] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:15:51.080] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:15:51.080] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:18:11.200] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:18:11.200] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:19:08.708] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:19:08.709] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:24:02.220] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:24:02.220] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:24:05.246] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:24:05.246] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:24:16.178] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:24:16.180] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:24:43.760] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:24:43.761] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:24:50.579] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:24:50.579] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:25:15.702] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:25:15.702] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:26:42.880] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:26:42.883] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:26:50.238] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:26:50.238] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:27:22.819] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:27:22.821] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:39:28.174] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:39:28.175] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:39:36.663] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:39:36.663] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:39:41.394] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:39:41.394] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:39:52.313] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:39:52.313] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:40:24.097] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:40:24.097] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:55:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:40:51.570] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:40:51.573] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:56:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:41:47.615] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:41:47.616] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:56:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:42:25.309] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:42:25.311] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:56:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:42:48.893] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:42:48.895] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:56:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T14:43:19.442] [ERROR] error - testing error store Error: Internal Server Error
+[2024-03-12T14:43:19.444] [ERROR] error - CustomError: Internal Server Error
+    at D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:56:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\kerja\PMO\Usman\src\services\api\v1\refAplikasi-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-12T23:40:10.298] [ERROR] error - MulterError: Unexpected field
+    at wrappedFileFilter (D:\kerja\PMO\Usman\node_modules\multer\index.js:40:19)
+    at Multipart.<anonymous> (D:\kerja\PMO\Usman\node_modules\multer\lib\make-middleware.js:107:7)
+    at Multipart.emit (node:events:518:28)
+    at Multipart.emit (node:domain:488:12)
+    at HeaderParser.cb (D:\kerja\PMO\Usman\node_modules\busboy\lib\types\multipart.js:358:14)
+    at HeaderParser.push (D:\kerja\PMO\Usman\node_modules\busboy\lib\types\multipart.js:162:20)
+    at SBMH.ssCb [as _cb] (D:\kerja\PMO\Usman\node_modules\busboy\lib\types\multipart.js:394:37)
+    at feed (D:\kerja\PMO\Usman\node_modules\streamsearch\lib\sbmh.js:200:10)
+    at SBMH.push (D:\kerja\PMO\Usman\node_modules\streamsearch\lib\sbmh.js:104:16)
+    at Multipart._write (D:\kerja\PMO\Usman\node_modules\busboy\lib\types\multipart.js:567:19) {
+  code: 'LIMIT_UNEXPECTED_FILE',
+  field: 'filename',
+  storageErrors: []
+}
+[2024-03-12T23:40:25.260] [ERROR] error - Error: Type harus di isi.
+    at D:\kerja\PMO\Usman\src\middleware\upload.ts:26:23
+    at Generator.next (<anonymous>)
+    at D:\kerja\PMO\Usman\src\middleware\upload.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\kerja\PMO\Usman\src\middleware\upload.ts:4:12)
+    at DiskStorage.destination [as getDestination] (D:\kerja\PMO\Usman\src\middleware\upload.ts:23:46)
+    at DiskStorage._handleFile (D:\kerja\PMO\Usman\node_modules\multer\storage\disk.js:31:8)
+    at D:\kerja\PMO\Usman\node_modules\multer\lib\make-middleware.js:137:17
+    at fileFilterImage (D:\kerja\PMO\Usman\src\middleware\upload.ts:69:5)
+    at wrappedFileFilter (D:\kerja\PMO\Usman\node_modules\multer\index.js:44:7) {
+  storageErrors: []
+}
+[2024-03-12T23:40:33.688] [ERROR] error - Error: Type harus di isi.
+    at D:\kerja\PMO\Usman\src\middleware\upload.ts:26:23
+    at Generator.next (<anonymous>)
+    at D:\kerja\PMO\Usman\src\middleware\upload.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\kerja\PMO\Usman\src\middleware\upload.ts:4:12)
+    at DiskStorage.destination [as getDestination] (D:\kerja\PMO\Usman\src\middleware\upload.ts:23:46)
+    at DiskStorage._handleFile (D:\kerja\PMO\Usman\node_modules\multer\storage\disk.js:31:8)
+    at D:\kerja\PMO\Usman\node_modules\multer\lib\make-middleware.js:137:17
+    at fileFilterImage (D:\kerja\PMO\Usman\src\middleware\upload.ts:69:5)
+    at wrappedFileFilter (D:\kerja\PMO\Usman\node_modules\multer\index.js:44:7) {
+  storageErrors: []
+}
+[2024-03-12T23:40:37.928] [ERROR] error - Error: Type harus di isi.
+    at D:\kerja\PMO\Usman\src\middleware\upload.ts:26:23
+    at Generator.next (<anonymous>)
+    at D:\kerja\PMO\Usman\src\middleware\upload.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\kerja\PMO\Usman\src\middleware\upload.ts:4:12)
+    at DiskStorage.destination [as getDestination] (D:\kerja\PMO\Usman\src\middleware\upload.ts:23:46)
+    at DiskStorage._handleFile (D:\kerja\PMO\Usman\node_modules\multer\storage\disk.js:31:8)
+    at D:\kerja\PMO\Usman\node_modules\multer\lib\make-middleware.js:137:17
+    at fileFilterImage (D:\kerja\PMO\Usman\src\middleware\upload.ts:69:5)
+    at wrappedFileFilter (D:\kerja\PMO\Usman\node_modules\multer\index.js:44:7) {
+  storageErrors: []
+}
+[2024-03-12T23:42:06.959] [ERROR] error - Error: Type harus di isi.
+    at D:\kerja\PMO\Usman\src\middleware\upload.ts:26:23
+    at Generator.next (<anonymous>)
+    at D:\kerja\PMO\Usman\src\middleware\upload.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\kerja\PMO\Usman\src\middleware\upload.ts:4:12)
+    at DiskStorage.destination [as getDestination] (D:\kerja\PMO\Usman\src\middleware\upload.ts:23:46)
+    at DiskStorage._handleFile (D:\kerja\PMO\Usman\node_modules\multer\storage\disk.js:31:8)
+    at D:\kerja\PMO\Usman\node_modules\multer\lib\make-middleware.js:137:17
+    at fileFilterImage (D:\kerja\PMO\Usman\src\middleware\upload.ts:69:5)
+    at wrappedFileFilter (D:\kerja\PMO\Usman\node_modules\multer\index.js:44:7) {
+  storageErrors: []
 }

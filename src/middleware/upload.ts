@@ -6,13 +6,13 @@ import { httpCode } from "@utils/prefix";
 
 // jenis file
 enum FileType {
-  Giro = "giro",
+  Aplikasi = "aplikasi",
   Invoice = "invoice",
 }
 
 // path file
 const destinationMap: Record<FileType, string> = {
-  [FileType.Giro]: "./public/giro",
+  [FileType.Aplikasi]: "./public/aplikasi",
   [FileType.Invoice]: "./public/invoice",
 };
 
