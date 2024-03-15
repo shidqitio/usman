@@ -8,7 +8,7 @@ const db: Sequelize = new Sequelize(
   {
     host: getConfig("DB_HOST") as string,
     port: parseInt(getConfig("DB_PORT") as string, 10),
-    dialect: "mysql",
+    dialect: "postgres",
     logging: false,
     pool: {
       max: 100,
@@ -16,7 +16,7 @@ const db: Sequelize = new Sequelize(
       acquire: 5000,
       idle: 60000,
     },
-  }
+  },
 );
 
 export default db;

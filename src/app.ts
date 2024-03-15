@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path";
 import cors from "cors";
 import https from "https";
+import http from "http";
 import log4js from "log4js";
 import helmet from "helmet";
 import bodyParser from "body-parser";
@@ -31,7 +32,7 @@ log4js.configure(logger);
 var key = fs.readFileSync("src/certificate/ut.key", "utf-8");
 var cert = fs.readFileSync("src/certificate/full-bundle.crt", "utf-8");
 
-var options = { key: key, cert: cert };
+// var options = { key: key, cert: cert };
 
 /**
  * body parser
@@ -70,7 +71,7 @@ app.use(
 /**
  * routes
  */
-app.use("/expenditure/api", apiRoutes);
+app.use("/user-management/api", apiRoutes);
 app.use("/expenditure/web", authorization, webRoutes);
 app.use("/expenditure/mobile", authorization, mobileRoutes);
 
@@ -89,13 +90,13 @@ app.use(errorhandler);
  */
 db.sync()
   .then(() => {
-    const server = https.createServer(options, app);
+    const server = http.createServer(app);
     server.listen(getConfig("PORT_SERVER"), () => {
       console.log(license);
       console.log(
         `${String.fromCodePoint(
           0x1f525
-        )} SERVER EXPENDITURE ON PORT : ${getConfig(
+        )} SERVER USMAN ON PORT : ${getConfig(
           "PORT_SERVER"
         )} ${String.fromCodePoint(0x1f525)}`
       );
