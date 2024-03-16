@@ -19,6 +19,9 @@ const payload = {
                 return false;
             }
         }),
+        keterangan : z.string({
+            invalid_type_error : "Keterangan harus huruf"
+        }).nullable(),
         url : z.string({
             required_error : "url tidak boleh kosong",
             invalid_type_error : "url harus huruf"
@@ -75,6 +78,12 @@ const updated = {
             required_error : "url_tte tidak boleh kosong",
             invalid_type_error : "url_tte harus huruf"
         }),
+    }),
+    params : z.object({
+        id : z.string({
+            required_error : "id tidak boleh kosong",
+            invalid_type_error : "id harus string"
+        })
     })
 }
 

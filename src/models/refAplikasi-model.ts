@@ -25,11 +25,16 @@ export type RefAplikasiOutput = Required<IRefAplikasiAttributes>
 export type RefAplikasiInput = Optional <
     IRefAplikasiAttributes,
     "kode_aplikasi" | 
-	"keterangan"|
+	// "keterangan" |
 	"udcr" | 
 	"udch" | 
 	"ucr" | 
 	"uch" 
+>;
+export type RefAplikasiInputUpdate = Optional <
+	IRefAplikasiAttributes, 
+	"ucr" | 
+	"kode_aplikasi"
 >;
 
 // export type RefAplikasiInsert = {

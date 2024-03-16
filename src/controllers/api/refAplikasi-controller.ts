@@ -17,7 +17,6 @@ const store = async (
     next:NextFunction) => {
     try {
         const request : PostRefAplikasiSchema["body"] = req.body
-        console.log("TES : ", req.body.nama_aplikasi)
         // const tes : string = req.body.nama_aplikasi
 
         // console.log("TES REQUEST  ",request)
