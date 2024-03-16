@@ -2,10 +2,10 @@ import { DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
 
 interface IRefLevelAttributes {
-    kode_level : number  ,
-	nama_level : string | null ,
-	udcr : Date | undefined ,
-	udch : Date | undefined ,
+	kode_level: number,
+	nama_level: string | null,
+	udcr      : Date | undefined,
+	udch      : Date | undefined,
 }
 
 export type RefLevelInput = Optional<

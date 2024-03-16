@@ -11,7 +11,7 @@ interface IRefAplikasiAttributes {
     nama_aplikasi : string | null;
     keterangan : string | null; 
 	status : string | null;
-	image : string | null; 
+	images : string | null; 
 	url : string | null; 
 	url_token : string | null; 
 	url_tte : string | null; 
@@ -50,7 +50,7 @@ class RefAplikasi
     declare nama_aplikasi : string | null;
     declare keterangan : string | null; 
 	declare status : string | null;
-	declare image : string | null; 
+	declare images : string | null; 
 	declare url : string | null; 
 	declare url_token : string | null; 
 	declare url_tte : string | null; 
@@ -79,7 +79,7 @@ RefAplikasi.init(
 			type : DataTypes.STRING(), 
 			allowNull : true
 		},
-		image : {
+		images : {
 			type : DataTypes.STRING(), 
 			allowNull : true
 		},

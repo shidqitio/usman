@@ -6,7 +6,9 @@ import db from "@config/database";
 import CustomError from "@middleware/error-handler";
 import { httpCode } from "@utils/prefix";
 import {
-    PayloadRefGroupSchema
+    PayloadRefGroupSchema,
+    ParamRefGroupSchema,
+    UpdatedRefGroupSchema
 } from "@schema/api/refGroup-schema"
 
 
@@ -45,7 +47,7 @@ const store = async (
             }
         })
 
-        if(cekAplikasi) throw new CustomError(httpCode.found, "Aplikasi Tidak Ada")
+        if(!cekAplikasi) throw new CustomError(httpCode.found, "Aplikasi Tidak Ada")
 
         const cekGroup : RefGroup[] = await RefGroup.findAll({
             attributes : ["kode_group"],
@@ -54,8 +56,8 @@ const store = async (
             }
         })
 
-        const kodeGroup : any = generateAutoCode.generateKodeGroup(cekGroup, request.kode_aplikasi)
-
+        const kodeGroup : any = await generateAutoCode.generateKodeGroup(cekGroup, request.kode_aplikasi)
+        // console.log(kodeGroup)
         const dataGroup : RefGroupInput = {
             kode_group : kodeGroup,
             nama_group : request.nama_group,
@@ -69,6 +71,7 @@ const store = async (
         return createGroup
 
     } catch (error : any) {
+        console.log(error)
         if (error instanceof CustomError) {
             throw new CustomError(error.code, error.message);
           } else {
@@ -77,7 +80,73 @@ const store = async (
     }
 }
 
+const show = async (
+    id:ParamRefGroupSchema["params"]["id"]) : Promise<RefGroupOutput> => {
+    try {
+        const refGroup : RefGroup | null = await RefGroup.findOne({
+            where : {
+                kode_group : id
+            }, 
+            include : [
+                {
+                    model : RefLevel, 
+                    as : "Level", 
+                    attributes : {exclude : ["udcr", "udch"]}
+                },
+                {
+                    model : RefAplikasi, 
+                    as : "Aplikasi", 
+                    attributes : {exclude : ["kode_aplikasi", "ucr", "uch", "udcr", "udch"]}
+                }
+            ]
+        })
+
+        if (!refGroup) throw new CustomError(httpCode.found, "Data Tidak Ada")
+
+        return refGroup
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+const update = async (
+    id:UpdatedRefGroupSchema["params"]["id"],
+    request:UpdatedRefGroupSchema["body"]) : Promise<RefGroupOutput> => {
+    try {
+        const refGroup : RefGroup | null = await RefGroup.findByPk(id) 
+
+        if (!refGroup) throw new CustomError(httpCode.found, "Data Tidak Ada")
+
+        refGroup.nama_group = request.nama_group 
+        refGroup.kode_level = request.kode_level
+        refGroup.ucr = request.ucr 
+        refGroup.kode_aplikasi = request.kode_aplikasi
+
+        const response = await refGroup.save()
+
+        if(!response) throw new CustomError(httpCode.ok, "Data Gagal Update")
+
+        return response
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+
+
 export default {
     index,
-    store
+    store,
+    show,
+    update
 }

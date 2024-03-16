@@ -33,11 +33,10 @@ const payload = {
         url_tte : z.string({
             required_error : "url_tte tidak boleh kosong",
             invalid_type_error : "url_tte harus huruf"
-        }),
+        }).nullable(),
         ucr :  z.string({
-            required_error : "url_tte tidak boleh kosong",
             invalid_type_error : "url_tte harus huruf"
-        }),
+        }).nullable(),
     }),
 };
 

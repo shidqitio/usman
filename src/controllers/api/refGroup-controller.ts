@@ -4,7 +4,9 @@ import refGroupService from "@services/api/v1/refGroup-api"
 import { Request, Response, NextFunction } from "express";
 import { responseSuccess } from "@utils/response-success";
 import {
-    PayloadRefGroupSchema
+    PayloadRefGroupSchema,
+    UpdatedRefGroupSchema, 
+    ParamRefGroupSchema
 } from "@schema/api/refGroup-schema"
 import { errorLogger } from "@config/logger";
 import { getSocketIO } from "@config/socket";
@@ -50,7 +52,41 @@ const store = async (
     }
 }
 
+const show = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_group : ParamRefGroupSchema["params"]["id"] = req.params.id
+
+        const response : RefGroupOutput = await refGroupService.show(kode_group)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        next(error)
+    }
+}
+
+const update = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const request : UpdatedRefGroupSchema["body"] = req.body
+        const kode_group : UpdatedRefGroupSchema["params"]["id"] = req.params.id
+
+
+        const response : RefGroupOutput = await refGroupService.update(kode_group, request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        next(error)
+    }
+}
+
 export default {
     index, 
-    store
+    store,
+    show,
+    update
 }

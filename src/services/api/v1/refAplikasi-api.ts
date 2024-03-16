@@ -66,7 +66,7 @@ const store = async (
             url : request.url,
             url_token : request.url_token,
             url_tte : request.url_tte,
-            image : publicFileImages,
+            images : publicFileImages,
             ucr : request.ucr,
         }
 
@@ -81,7 +81,7 @@ const store = async (
             throw new CustomError(error.code, error.message)
         }
         else {
-            // console.log(error)
+            console.log(error)
             throw new CustomError(500, "Internal Server Error")
         }
     }
@@ -130,14 +130,14 @@ const updateAplikasi = async (
         refAplikasi.url_tte = request.url_tte
         refAplikasi.uch = request.uch
 
-        const existFile : string | null = refAplikasi.image
+        const existFile : string | null = refAplikasi.images
 
         if (file && file.filename) {
             const PUBLIC_FILE_GIRO = `${getConfig("PUBLIC_FILE_IMAGE")}/${
               file.filename
             }`;
       
-            refAplikasi.image = PUBLIC_FILE_GIRO;
+            refAplikasi.images = PUBLIC_FILE_GIRO;
           }
 
           const response : RefAplikasiOutput = await refAplikasi.save()
