@@ -1,5 +1,5 @@
 import {nativeEnum, object, z} from "zod";
-import { statusOn } from "@models/refMenu1-model";
+import { statusOn } from "@models/refMenu2-model";
 
 const payload = {
     body : z.object({
@@ -11,11 +11,7 @@ const payload = {
             required_error : "kode_menu1 tidak boleh kosong",
             invalid_type_error : "kode_menu1 harus huruf"
         }),
-        kode_level : z.number({
-            required_error : "kode_level tidak boleh kosong",
-            invalid_type_error : "kode_level harus angka"
-        }),
-        nama_menu1 : z.string({
+        nama_menu2 : z.string({
             required_error : "nama_menu1 tidak boleh kosong",
             invalid_type_error : "nama_menu1 harus huruf"
         }),
@@ -99,11 +95,11 @@ const updated = {
             required_error : "kode_aplikasi tidak boleh kosong",
             invalid_type_error : "kode_aplikasi harus huruf"
         }),
-        kode_level : z.number({
-            required_error : "kode_level tidak boleh kosong",
-            invalid_type_error : "kode_level harus Angka"
+        kode_menu1 : z.string({
+            required_error : "kode_menu1 tidak boleh kosong",
+            invalid_type_error : "kode_menu1 harus huruf"
         }),
-        nama_menu1 : z.string({
+        nama_menu2 : z.string({
             required_error : "nama_menu1 tidak boleh kosong",
             invalid_type_error : "nama_menu1 harus huruf"
         }),
@@ -191,7 +187,7 @@ const destroy = {
     params: z.object({
       id: z.string({
         required_error: "Data tidak boleh kosong",
-        invalid_type_error: "Data harus string",
+        invalid_type_error: "Data harus number",
       }),
     }),
   };
@@ -219,28 +215,28 @@ const query = {
   };
 
 
-export const payloadRefMenu1Schema = object({
+export const payloadRefMenu2Schema = object({
     ...payload
 })
 
-export const updatedRefMenu1Schema = object({
+export const updatedRefMenu2Schema = object({
   ...updated
 })
 
-export const destroyRefMenu1Schema = object({
+export const destroyRefMenu2Schema = object({
 ...destroy
 })
 
-export const searchRefMenu1Schema = object({
+export const searchRefMenu2Schema = object({
     ...query
 })
 
-export const getRefMenu1Schema = object({
+export const getRefMenu2Schema = object({
     ...params
 })
 
-export type PayloadRefMenu1Schema = z.infer<typeof payloadRefMenu1Schema>
-export type UpdatedRefMenu1Schema = z.infer<typeof updatedRefMenu1Schema>
-export type DestroyRefMenu1Schema = z.infer<typeof destroyRefMenu1Schema>
-export type SearchRefMenu1Schema = z.infer<typeof searchRefMenu1Schema>
-export type GetRefMenu1Schema = z.infer<typeof getRefMenu1Schema>
+export type PayloadRefMenu2Schema = z.infer<typeof payloadRefMenu2Schema>
+export type UpdatedRefMenu2Schema = z.infer<typeof updatedRefMenu2Schema>
+export type DestroyRefMenu2Schema = z.infer<typeof destroyRefMenu2Schema>
+export type SearchRefMenu2Schema = z.infer<typeof searchRefMenu2Schema>
+export type GetRefMenu2Schema = z.infer<typeof getRefMenu2Schema>

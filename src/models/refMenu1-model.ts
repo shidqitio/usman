@@ -4,14 +4,14 @@ import RefAplikasi from "./refAplikasi-model";
 import RefLevel from "./refLevel-model";
 
 export enum statusOn {
-    Tampil = "0",
-    Tidak_Tampil = "1",
+    Tampil = "1",
+    Tidak_Tampil = "0",
 }
 
 interface IRefMenu1Attributes {
 	kode_aplikasi  : string | null,
 	kode_menu1     : string | any ,
-    kode_level  : string | null
+    kode_level  : number,
 	nama_menu1     : string | null,
 	keterangan_menu: string | null,
 	icon           : string | null,
@@ -23,8 +23,8 @@ interface IRefMenu1Attributes {
 	on_view        : statusOn,
 	ucr            : string | null,
 	uch            : string | null,
-	udcr           : Date | null,
-	udch           : Date | null,
+	udcr           : Date | undefined,
+	udch           : Date | undefined,
 }
 
 export type RefMenu1Output = Required<IRefMenu1Attributes>;
@@ -34,7 +34,8 @@ export type RefMenu1Input = Optional<
     "kode_menu1" |
     "udch" | 
     "udcr"|
-    "ucr"
+    "ucr" |
+    "uch"
 >
 
 
@@ -44,7 +45,7 @@ class RefMenu1
 {
     declare kode_aplikasi  : string | null;
     declare kode_menu1     : string | any ;
-    declare kode_level  : string | null;
+    declare kode_level  : number;
     declare nama_menu1     : string | null;
     declare keterangan_menu: string | null;
     declare icon           : string | null;
@@ -56,8 +57,8 @@ class RefMenu1
     declare on_view        : statusOn;
     declare ucr            : string | null;
     declare uch            : string | null;
-    declare udcr           : Date | null;
-    declare udch           : Date | null;
+    declare udcr           : Date | undefined;
+    declare udch           : Date | undefined;
 }
 
 RefMenu1.init(
@@ -72,7 +73,7 @@ RefMenu1.init(
             primaryKey : true
         },
         kode_level : {
-            type : DataTypes.STRING(),
+            type : DataTypes.INTEGER(),
             allowNull : true
         },
         nama_menu1 : {
@@ -120,11 +121,11 @@ RefMenu1.init(
             allowNull : true
         },
         udcr : {
-            type : DataTypes.STRING(),
+            type : DataTypes.DATE(),
             allowNull : true
         },
         udch : {
-            type : DataTypes.STRING(),
+            type : DataTypes.DATE(),
             allowNull : true
         },
     }, 

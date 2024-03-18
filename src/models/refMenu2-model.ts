@@ -2,7 +2,7 @@ import { DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
 import RefMenu1 from "./refMenu1-model";
 
-export enum Status {
+export enum statusOn {
     Tampil = "1",
     Tidak_Tampil = "2"
 }
@@ -15,11 +15,11 @@ interface IRefMenu2Attributes {
 	keterangan_menu: string | null,
 	icon           : string | null,
 	link           : string | null,
-	status         : Status,
-	on_update      : Status,
-	on_create      : Status,
-	on_delete      : Status,
-	on_view        : Status,
+	status         : statusOn,
+	on_update      : statusOn,
+	on_create      : statusOn,
+	on_delete      : statusOn,
+	on_view        : statusOn,
 	ucr            : string | null,
 	uch            : string | null,
 	udcr           : Date | undefined,
@@ -47,11 +47,11 @@ class RefMenu2
     declare keterangan_menu: string | null;
     declare icon           : string | null;
     declare link           : string | null;
-    declare status         : Status;
-    declare on_update      : Status;
-    declare on_create      : Status;
-    declare on_delete: Status;
-    declare on_view        : Status;
+    declare status         : statusOn;
+    declare on_update      : statusOn;
+    declare on_create      : statusOn;
+    declare on_delete: statusOn;
+    declare on_view        : statusOn;
     declare ucr            : string | null;
     declare uch            : string | null;
     declare udcr           : Date | undefined;
