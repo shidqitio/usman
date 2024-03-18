@@ -1,81 +1,78 @@
-import { DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
-import RefAplikasi from "./refAplikasi-model";
-import RefLevel from "./refLevel-model";
+import { DataTypes, Model, Optional  } from "sequelize";
+import RefMenu2 from "./refMenu2-model";
 
-export enum statusOn {
+export enum Status {
     Tampil = "0",
-    Tidak_Tampil = "1",
+    Tidak_Tampil = "1"
 }
 
-interface IRefMenu1Attributes {
+export interface IRefMenu3Attributes {
 	kode_aplikasi  : string | null,
-	kode_menu1     : string | any ,
-    kode_level  : string | null
-	nama_menu1     : string | null,
+	kode_menu2     : string | null,
+	kode_menu3     : string,
+	nama_menu3     : string | null,
 	keterangan_menu: string | null,
 	icon           : string | null,
 	link           : string | null,
-	status         : statusOn,
-	on_update      : statusOn,
-	on_create      : statusOn,
-	on_delete      : statusOn,
-	on_view        : statusOn,
+	status         : Status,
+	on_update      : Status,
+	on_create      : Status,
+	on_delete      : Status,
+	on_view        : Status,
 	ucr            : string | null,
 	uch            : string | null,
-	udcr           : Date | null,
-	udch           : Date | null,
+	udcr           : Date | undefined,
+	udch           : Date | undefined,
 }
 
-export type RefMenu1Output = Required<IRefMenu1Attributes>;
-export type RefMenu1Input = Optional<
-    IRefMenu1Attributes, 
-    "kode_aplikasi" |
-    "kode_menu1" |
-    "udch" | 
-    "udcr"|
-    "ucr"
+export type RefMenu3Output = Required<IRefMenu3Attributes>;
+export type RefMenu3Input = Optional<
+    IRefMenu3Attributes, 
+    "uch"|
+    "ucr"|
+    "udch"|
+    "udcr"
 >
 
-
-class RefMenu1 
-    extends Model<IRefMenu1Attributes, RefMenu1Input>
-    implements IRefMenu1Attributes
+class RefMenu3 
+    extends Model<IRefMenu3Attributes, RefMenu3Input>
+    implements IRefMenu3Attributes
 {
     declare kode_aplikasi  : string | null;
-    declare kode_menu1     : string | any ;
-    declare kode_level  : string | null;
-    declare nama_menu1     : string | null;
+    declare kode_menu2     : string | null;
+    declare kode_menu3     : string;
+    declare nama_menu3     : string | null;
     declare keterangan_menu: string | null;
     declare icon           : string | null;
     declare link           : string | null;
-    declare status         : statusOn;
-    declare on_update      : statusOn;
-    declare on_create      : statusOn;
-    declare on_delete      : statusOn;
-    declare on_view        : statusOn;
+    declare status         : Status;
+    declare on_update      : Status;
+    declare on_create      : Status;
+    declare on_delete      : Status;
+    declare on_view        : Status;
     declare ucr            : string | null;
     declare uch            : string | null;
-    declare udcr           : Date | null;
-    declare udch           : Date | null;
+    declare udcr           : Date | undefined;
+    declare udch           : Date | undefined;
 }
 
-RefMenu1.init(
+RefMenu3.init(
     {
         kode_aplikasi : {
             type : DataTypes.STRING(),
             allowNull : true
         },
-        kode_menu1 : {
-            type : DataTypes.STRING(),
-            allowNull : false, 
-            primaryKey : true
-        },
-        kode_level : {
+        kode_menu2 : {
             type : DataTypes.STRING(),
             allowNull : true
         },
-        nama_menu1 : {
+        kode_menu3 : {
+            type : DataTypes.STRING(),
+            allowNull : false,
+            primaryKey : true
+        },
+        nama_menu3 : {
             type : DataTypes.STRING(),
             allowNull : true
         },
@@ -120,42 +117,33 @@ RefMenu1.init(
             allowNull : true
         },
         udcr : {
-            type : DataTypes.STRING(),
+            type : DataTypes.DATE(),
             allowNull : true
         },
         udch : {
-            type : DataTypes.STRING(),
+            type : DataTypes.DATE(),
             allowNull : true
         },
     }, 
     {
         sequelize : db, 
 		schema : "public",
-		tableName : "ref_menu1",
-		modelName : "RefMenu1",
+		tableName : "ref_menu3",
+		modelName : "RefMenu3",
 		createdAt : "udcr",
 		updatedAt : "udch"
     }
 )
 
-RefMenu1.belongsTo(RefAplikasi, {
-    foreignKey : "kode_aplikasi",
-    as : "Aplikasi",
+RefMenu3.belongsTo(RefMenu2, {
+    foreignKey : "kode_menu2",
+    as : "Menu2",
 })
 
-RefAplikasi.hasMany(RefMenu1, {
-    foreignKey : "kode_aplikasi",
-    as : "Menu1",
+RefMenu2.hasMany(RefMenu3, {
+    foreignKey : "kode_menu2",
+    as : "Menu3",
 })
 
-RefMenu1.hasMany(RefLevel, {
-    foreignKey : "kode_level",
-    as : "Level",
-})
 
-RefLevel.hasMany(RefMenu1, {
-    foreignKey : "kode_level",
-    as : "Menu1",
-})
-
-export default RefMenu1
+export default RefMenu3;

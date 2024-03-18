@@ -83,6 +83,31 @@ const generateKodeGroup = async (
     }
 }
 
+const generateMenu1 = async (
+    kode : any, 
+    kodeAplikasi : any) => {
+    try {
+        const init = "M";
+        const app = kodeAplikasi;
+        const m1 = "01";
+        let urut = String(kode + 1);
+      
+        if (urut.length === 1) {
+          urut = "0" + String(kode + 1);
+        }
+      
+        const kode_menu1 = init + app + "." + m1 + "." + urut;
+      
+        return kode_menu1
+    } catch (error) {
+        if (error instanceof CustomError) {
+            throw new CustomError(error.code, error.message);
+          } else {
+            throw new CustomError(500, "Internal server error.");
+          }
+    }
+}
+
   
 //   exports.generateKodeGroup = (exGroup : any, kodeAplikasi : any) => {
 //     let kode_group;
@@ -126,5 +151,6 @@ const generateKodeGroup = async (
 
 export default {
     generateKodeAplikasi,
-    generateKodeGroup
+    generateKodeGroup,
+    generateMenu1
 }
