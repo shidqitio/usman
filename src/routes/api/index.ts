@@ -10,6 +10,8 @@ import refGroup from "@routes/api/refGroup-route"
 import refMenu1 from "@routes/api/refMenu1-route"
 import refMenu2 from "@routes/api/refMenu2-route"
 import refMenu3 from "@routes/api/refMenu3-route"
+import trxGroupUser from "@routes/api/trxGroupUser-route"
+import trxGroupMenu from "@routes/api/trxGroupMenu-route"
 
 // routes.use("/v1", example);
 
@@ -22,5 +24,9 @@ routes.use(vers + "/menu1", refMenu1);
 routes.use(vers + "/menu2", refMenu2);
 
 routes.use(vers + "/menu3", refMenu3);
+
+routes.use(vers + "/trx-groupuser", trxGroupUser)
+
+routes.use(vers + "/trx-groupmenu", trxGroupMenu)
 
 export default routes;

@@ -3,9 +3,9 @@ import db from "@config/database";
 
 export interface IRefUserAttributes {
 	id       : number ,
-	email    : string | null,
+	email    : string ,
 	password : string | null,
-	api_token: string | null,
+	api_token: any | null,
 	is_login : string | null,
 	ucr      : string | null,
 	uch      : string | null,
@@ -16,6 +16,7 @@ export interface IRefUserAttributes {
 export type RefUserOutput = Required<IRefUserAttributes>
 export type RefUserInput = Optional<
 IRefUserAttributes, 
+"id" |
 "uch" | 
 "ucr" | 
 "udch"|
@@ -27,9 +28,9 @@ class RefUser
     implements IRefUserAttributes
 {
     declare id       : number ;
-    declare email    : string | null;
+    declare email    : string ;
     declare password : string | null;
-    declare api_token: string | null;
+    declare api_token: any | null;
     declare is_login : string | null;
     declare ucr      : string | null;
     declare uch      : string | null;

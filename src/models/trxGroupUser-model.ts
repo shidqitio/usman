@@ -3,11 +3,16 @@ import db from "@config/database";
 import RefUser from "./refUser-model";
 import RefGroup from "./refGroup-model";
 
+export enum statusGroupUser {
+    Aktif = "1",
+    TidakAktif = "0"
+}
+
 export interface ITrxGroupUserAttributes {
 	kode_group_user: number,
 	kode_group     : string | null,
 	id_user        : number,
-	status         : string | null,
+	status         : statusGroupUser,
 	ucr            : string | null,
 	uch            : string | null,
 	udcr           : Date | undefined,
@@ -31,7 +36,7 @@ class TrxGroupUser
         declare kode_group_user: number;
         declare kode_group     : string | null;
         declare id_user        : number;
-        declare status         : string | null;
+        declare status         : statusGroupUser;
         declare ucr            : string | null;
         declare uch            : string | null;
         declare udcr           : Date | undefined;
@@ -61,7 +66,8 @@ TrxGroupUser.init (
             onDelete : 'cascade'
         },
         status : {
-            type : DataTypes.STRING(),
+            type : DataTypes.ENUM("1", "0"),
+            defaultValue : "1",
             allowNull : true
         },
         ucr : {
