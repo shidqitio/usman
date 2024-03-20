@@ -24,7 +24,7 @@ const index = async (
         const limit : SearchRefMenu1Schema["query"]["limit"] = req.query.limit as string
 
         const response: RefMenu1Output[] = await refMenu1Service.index(page, limit)
-        console.log("TESS");
+        // console.log("TESS");
         // responseSuccess(res, httpCode.ok, response)
         if(ioInstance) {
             ioInstance.emit("refMenu1", response)

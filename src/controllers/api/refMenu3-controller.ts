@@ -1,16 +1,16 @@
 import { httpCode } from "@utils/prefix";
-import { RefMenu2Output } from "@models/refMenu2-model";
-import refMenu2Service from "@services/api/v1/refMenu2-api"
+import { RefMenu3Output } from "@models/refMenu3-model";
+import refMenu3Service from "@services/api/v1/refMenu3-api"
 
 import { Request, Response, NextFunction } from "express";
 
 import {
-    PayloadRefMenu2Schema, 
-    UpdatedRefMenu2Schema, 
-    SearchRefMenu2Schema,
-    GetRefMenu2Schema,
-    DestroyRefMenu2Schema
-} from "@schema/api/refMenu2-schema"
+    PayloadRefMenu3Schema, 
+    UpdatedRefMenu3Schema, 
+    SearchRefMenu3Schema,
+    GetRefMenu3Schema,
+    DestroyRefMenu3Schema
+} from "@schema/api/refMenu3-schema"
 
 import { getSocketIO } from "@config/socket";
 import { responseSuccess } from "@utils/response-success";
@@ -19,14 +19,14 @@ import { debugLogger, errorLogger } from "@config/logger";
 const index = async (
     req : Request,
     res : Response, 
-    next : NextFunction) => {
+    next : NextFunction) : Promise<void> => {
     try {
         const ioInstance = getSocketIO()
 
-        const page: SearchRefMenu2Schema["query"]["page"] = req.query.page as string
-        const limit : SearchRefMenu2Schema["query"]["limit"] = req.query.limit as string
+        const page: SearchRefMenu3Schema["query"]["page"] = req.query.page as string
+        const limit : SearchRefMenu3Schema["query"]["limit"] = req.query.limit as string
 
-        const response: RefMenu2Output[] = await refMenu2Service.index(page, limit)
+        const response: RefMenu3Output[] = await refMenu3Service.index(page, limit)
 
         if(ioInstance) {
             ioInstance.emit("refMenu2", response)
@@ -45,9 +45,9 @@ const store = async (
     res:Response,
     next:NextFunction) : Promise<void> => {
         try {
-            const request : PayloadRefMenu2Schema["body"] = await req.body
+            const request : PayloadRefMenu3Schema["body"] = await req.body
 
-            const response : RefMenu2Output = await refMenu2Service.store(request)
+            const response : RefMenu3Output = await refMenu3Service.store(request)
 
             responseSuccess(res, httpCode.ok, response)
         } catch (error) {
@@ -56,14 +56,15 @@ const store = async (
         }
 }
 
+
 const show = async (
     req:Request, 
     res:Response,
     next:NextFunction) : Promise<void> => {
         try {
-            const kode_menu2 : GetRefMenu2Schema["params"]["id"] = req.params.id 
+            const kode_menu3 : GetRefMenu3Schema["params"]["id"] = req.params.id 
 
-            const response = await refMenu2Service.show(kode_menu2)
+            const response = await refMenu3Service.show(kode_menu3)
 
             responseSuccess(res, httpCode.ok, response)
         } catch (error) {
@@ -77,10 +78,10 @@ const update = async (
     res:Response,
     next:NextFunction) : Promise<void> => {
         try {
-            const kode_menu2 : UpdatedRefMenu2Schema["params"]["id"] = req.params.id
-            const request : UpdatedRefMenu2Schema["body"] = req.body
+            const kode_menu3 : UpdatedRefMenu3Schema["params"]["id"] = req.params.id
+            const request : UpdatedRefMenu3Schema["body"] = req.body
 
-            const response : RefMenu2Output = await refMenu2Service.update(request, kode_menu2)
+            const response : RefMenu3Output = await refMenu3Service.update(request, kode_menu3)
             
             responseSuccess(res, httpCode.ok, response)
 
@@ -95,9 +96,9 @@ const destroy = async (
     res:Response,
     next:NextFunction) : Promise<void> => {
         try {
-            const kode_menu2 : DestroyRefMenu2Schema["params"]["id"] = req.params.id
+            const kode_menu3 : DestroyRefMenu3Schema["params"]["id"] = req.params.id
 
-            const destroyMenu = await refMenu2Service.destroy(kode_menu2)
+            const destroyMenu = await refMenu3Service.destroy(kode_menu3)
 
             responseSuccess(res, httpCode.ok, destroyMenu)
         } catch (error) {

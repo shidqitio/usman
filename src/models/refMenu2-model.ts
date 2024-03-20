@@ -4,7 +4,7 @@ import RefMenu1 from "./refMenu1-model";
 
 export enum statusOn {
     Tampil = "1",
-    Tidak_Tampil = "2"
+    Tidak_Tampil = "0"
 }
 
 interface IRefMenu2Attributes {

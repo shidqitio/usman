@@ -187,7 +187,7 @@ const destroy = {
     params: z.object({
       id: z.string({
         required_error: "Data tidak boleh kosong",
-        invalid_type_error: "Data harus number",
+        invalid_type_error: "Data harus string",
       }),
     }),
   };

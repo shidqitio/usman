@@ -25,7 +25,7 @@ const index = async (
         const refMenu2 : RefMenu2[] = await RefMenu2.findAll({
             attributes : {exclude : ["ucr", "udcr", "uch", "udch"]},
             limit : limits, 
-            offset : pages
+            offset : offset
         })
 
         return refMenu2
@@ -52,7 +52,7 @@ const store = async (
             }
         })
 
-        if(!cekMenu1) throw new CustomError(httpCode.found, "Menu1 Tidak Ada")
+        if(!cekMenu1) throw new CustomError(httpCode.found, "Menu 1 Tidak Ada")
 
         const kodeMenu2Count : number = await RefMenu2.count({
             where : {
