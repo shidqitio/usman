@@ -11,16 +11,16 @@ export enum Akses {
 }
 
 export interface ITrxGroupMenuAttributes {
-    kode_group_menu : number,
-	kode_group : string | null,
-	kode_menu1 : string | null,
-	kode_menu2 : string | null,
-	kode_menu3 : string | null,
-	akses : Akses,
-	ucr : string | null,
-	uch : string | null,
-	udcr : Date | undefined,
-	udch : Date | undefined,
+	kode_group_menu: number | undefined,
+	kode_group     : string | null,
+	kode_menu1     : string | null,
+	kode_menu2     : string | null,
+	kode_menu3     : string | null,
+	akses          : Akses,
+	ucr            : string | null,
+	uch            : string | null,
+	udcr           : Date | undefined,
+	udch           : Date | undefined,
 }
 
 export type TrxGroupMenuOutput = Required<ITrxGroupMenuAttributes>
@@ -37,7 +37,7 @@ class TrxGroupMenu
 	extends Model<ITrxGroupMenuAttributes>
 	implements ITrxGroupMenuAttributes
 {
-	declare kode_group_menu: number ;
+	declare kode_group_menu: number | undefined ;
 	declare kode_group     : string | null ;
 	declare kode_menu1     : string | null ;
 	declare kode_menu2     : string | null ;
