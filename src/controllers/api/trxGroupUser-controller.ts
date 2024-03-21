@@ -46,8 +46,9 @@ const store = async (
     next:NextFunction) : Promise<void> => {
     try {
         const request : PayloadTrxGroupUserSchema["body"] = req.body
+        const token : string = String(req.user.token)
 
-        const response : TrxGroupUserOutput = await trxGroupUserService.store(request)
+        const response : TrxGroupUserOutput = await trxGroupUserService.store(request, token)
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error : any) {

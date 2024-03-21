@@ -1,9 +1,380 @@
-[2024-03-19T13:36:02.096] [ERROR] error - testing error store Error: Menu 1 Tidak Ada
-[2024-03-19T13:36:02.099] [ERROR] error - CustomError: Menu 1 Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:100:19
+[2024-03-21T12:06:50.401] [ERROR] error - SERVER ERROR: SequelizeDatabaseError: default untuk kolom « status » tidak dapat meng-otomatisasi tipe enum_trx_group_user_status
+[2024-03-21T12:09:42.949] [ERROR] error - SERVER ERROR: SequelizeDatabaseError: default untuk kolom « status » tidak dapat meng-otomatisasi tipe enum_trx_group_user_status
+[2024-03-21T12:10:37.465] [ERROR] error - SERVER ERROR: SequelizeDatabaseError: default untuk kolom « status » tidak dapat meng-otomatisasi tipe enum_trx_group_user_status
+[2024-03-21T12:12:29.728] [ERROR] error - SERVER ERROR: SequelizeDatabaseError: default untuk kolom « status » tidak dapat meng-otomatisasi tipe enum_trx_group_user_status
+[2024-03-21T12:14:21.183] [ERROR] error - SERVER ERROR: SequelizeDatabaseError: default untuk kolom « akses » tidak dapat meng-otomatisasi tipe enum_trx_group_menu_akses
+[2024-03-21T12:42:05.484] [ERROR] error - testing error store Error: Internal server error.
+[2024-03-21T12:42:05.486] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:79:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T12:42:18.407] [ERROR] error - testing error store Error: Internal server error.
+[2024-03-21T12:42:18.409] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:79:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T12:42:29.942] [ERROR] error - testing error store Error: Internal server error.
+[2024-03-21T12:42:29.943] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:79:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T12:43:25.723] [ERROR] error - testing error store Error: Internal server error.
+[2024-03-21T12:43:25.724] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:80:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T13:04:05.038] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'apiToken')
+[2024-03-21T13:04:05.039] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'apiToken')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupUser-controller.ts:49:48
     at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:5:58)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupUser-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupUser-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupUser-controller.ts:46:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-03-21T13:06:00.346] [ERROR] error - testing error login Error: Internal server error.
+[2024-03-21T13:06:00.348] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:143:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T13:06:57.148] [ERROR] error - testing error login Error: Internal server error.
+[2024-03-21T13:06:57.151] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:144:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T13:08:09.993] [ERROR] error - testing error login Error: User Tidak Memiliki Akses Ke Aplikasi
+[2024-03-21T13:08:09.994] [ERROR] error - CustomError: User Tidak Memiliki Akses Ke Aplikasi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:142:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 302,
+  status: 'error'
+}
+[2024-03-21T13:08:48.736] [ERROR] error - testing error login Error: User Tidak Memiliki Akses Ke Aplikasi
+[2024-03-21T13:08:48.737] [ERROR] error - CustomError: User Tidak Memiliki Akses Ke Aplikasi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:142:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 302,
+  status: 'error'
+}
+[2024-03-21T14:05:29.123] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:05:29.124] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:209:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:06:38.140] [ERROR] error - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:399:5)
+    at ServerResponse.setHeader (node:_http_outgoing:645:11)
+    at ServerResponse.header (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\response.js:278:15)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:26:24
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2024-03-21T14:07:16.105] [ERROR] error - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:399:5)
+    at ServerResponse.setHeader (node:_http_outgoing:645:11)
+    at ServerResponse.header (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.send (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\response.js:174:12)
+    at ServerResponse.json (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\response.js:278:15)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:26:24
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2024-03-21T14:09:47.731] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-21T14:10:08.791] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-21T14:10:36.824] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-21T14:10:46.836] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-21T14:13:45.945] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-21T14:13:52.621] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-21T14:17:15.533] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-21T14:19:17.711] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:19:17.713] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:34:33.949] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:34:33.951] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:34:34.797] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:34:34.797] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:34:35.613] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:34:35.613] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:34:44.734] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:34:44.735] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:34:46.042] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:34:46.043] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:34:46.734] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:34:46.734] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:35:13.953] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:35:13.953] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:35:19.918] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:35:19.918] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:36:22.690] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:36:22.690] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:37:21.551] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:37:21.553] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:38:03.407] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:38:03.409] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:42:20.666] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:42:20.668] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:46:41.453] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:46:41.455] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:50:59.464] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:50:59.465] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:51:10.309] [ERROR] error - testing error PostToken Error: Internal server error.
+[2024-03-21T14:51:10.309] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-03-21T14:58:14.177] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
   status: 'error'
 }

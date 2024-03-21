@@ -72,6 +72,7 @@ const store = async (
 
         return insert
     } catch (error) {
+        console.log(error)
         if(error instanceof CustomError) {
             throw new CustomError(error.code, error.message)
         } 
@@ -85,7 +86,7 @@ const show = async (id : GetTrxGroupMenuSchema["params"]["id"]) : Promise <TrxGr
     try {
         const trxGroupMenu : TrxGroupMenu | null = await TrxGroupMenu.findOne({
             where : {
-                kode_group_menu : id
+                id_group_menu : id
             }, 
             include : [
                 {
@@ -147,7 +148,7 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
 
         const hapusData = await TrxGroupMenu.destroy({
             where : {
-                kode_group_menu : id
+                id_group_menu : id
             }
         })
 

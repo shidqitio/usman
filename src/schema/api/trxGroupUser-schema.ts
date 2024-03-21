@@ -7,10 +7,6 @@ const payload = {
             required_error : "kode_group Tidak Boleh Kosong",
             invalid_type_error : "kode_group Harus String"
         }),
-        id_user : z.number({
-            required_error : "id_user Tidak Boleh Kosong",
-            invalid_type_error : "id_user Harus Angka"
-        }),
         email : z.string({
             required_error : "email Tidak Boleh Kosong",
             invalid_type_error : "email Harus Huruf"
@@ -23,10 +19,12 @@ const payload = {
             required_error : "status Tidak Boleh Kosong",
             invalid_type_error : "status Harus String"
         }),
-        token : z.string({
-            required_error : "Token Tidak Boleh Kosong",
-            invalid_type_error : "Token Harus String"
-        })
+    })
+}
+
+const payloadUser = {
+    body : z.object({
+
     })
 }
 

@@ -9,7 +9,7 @@ export enum statusGroupUser {
 }
 
 export interface ITrxGroupUserAttributes {
-	kode_group_user: number,
+	id_group_user: number,
 	kode_group     : string | null,
 	id_user        : number,
 	status         : statusGroupUser,
@@ -22,7 +22,7 @@ export interface ITrxGroupUserAttributes {
 export type TrxGroupUserOutput = Required<ITrxGroupUserAttributes>
 export type TrxGroupUserInput = Optional <
 ITrxGroupUserAttributes, 
-"kode_group_user" |
+"id_group_user" |
 "uch" | 
 "ucr" | 
 "udch" | 
@@ -33,7 +33,7 @@ class TrxGroupUser
     extends Model <ITrxGroupUserAttributes, TrxGroupUserInput>
     implements ITrxGroupUserAttributes
     {
-        declare kode_group_user: number;
+        declare id_group_user: number;
         declare kode_group     : string | null;
         declare id_user        : number;
         declare status         : statusGroupUser;
@@ -45,7 +45,7 @@ class TrxGroupUser
 
 TrxGroupUser.init (
     {
-        kode_group_user : {
+        id_group_user : {
             type : DataTypes.STRING(),
             allowNull : false,
             primaryKey : true,
@@ -67,7 +67,6 @@ TrxGroupUser.init (
         },
         status : {
             type : DataTypes.ENUM("1", "0"),
-            defaultValue : "1",
             allowNull : true
         },
         ucr : {

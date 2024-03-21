@@ -11,7 +11,7 @@ export enum Akses {
 }
 
 export interface ITrxGroupMenuAttributes {
-	kode_group_menu: number | undefined,
+	id_group_menu: number | undefined,
 	kode_group     : string | null,
 	kode_menu1     : string | null,
 	kode_menu2     : string | null,
@@ -26,7 +26,7 @@ export interface ITrxGroupMenuAttributes {
 export type TrxGroupMenuOutput = Required<ITrxGroupMenuAttributes>
 export type TrxGroupMenuInput = Optional<
 ITrxGroupMenuAttributes, 
-"kode_group_menu" | 
+"id_group_menu" | 
 "uch" | 
 "ucr" |
 "udch" | 
@@ -37,7 +37,7 @@ class TrxGroupMenu
 	extends Model<ITrxGroupMenuAttributes>
 	implements ITrxGroupMenuAttributes
 {
-	declare kode_group_menu: number | undefined ;
+	declare id_group_menu: number | undefined ;
 	declare kode_group     : string | null ;
 	declare kode_menu1     : string | null ;
 	declare kode_menu2     : string | null ;
@@ -51,7 +51,7 @@ class TrxGroupMenu
 
 TrxGroupMenu.init (
 	{
-		kode_group_menu : {
+		id_group_menu : {
 			type : DataTypes.INTEGER(),
 			allowNull : false,
 			primaryKey : true,
@@ -75,7 +75,6 @@ TrxGroupMenu.init (
 		},
 		akses : {
 			type : DataTypes.ENUM("0", "1"),
-			defaultValue : "1",
 			allowNull : false
 		},
 		ucr : {

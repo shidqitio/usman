@@ -57,7 +57,7 @@ const index = async (
     }
 }
 
-const store = async (require:PayloadTrxGroupUserSchema["body"]) : Promise<TrxGroupUserOutput> => {
+const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) : Promise<TrxGroupUserOutput> => {
     try {
         const kodeGroup = require.kode_group
         const email = require.email
@@ -82,7 +82,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"]) : Promise<TrxGro
                 const newUser : RefUser = await RefUser.create({
                     email : email,
                     password : newPassword,
-                    api_token : require.token,
+                    api_token : token,
                     is_login : "Y"
                 }, {
                     transaction : t
@@ -170,7 +170,7 @@ const show = async (id:GetTrxGroupUserSchema["params"]["id"]) : Promise<TrxGroup
     try {
         const trxGroupUser : TrxGroupUser | null = await TrxGroupUser.findOne({
             where : {
-                kode_group_user : id
+                id_group_user : id
             }, 
             include : [
                 {

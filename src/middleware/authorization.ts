@@ -15,8 +15,8 @@ interface HeaderAuth extends IncomingHttpHeaders {
 type UserAuth = {
   id: number;
   email: string;
-  api_token: string;
-  is_login: boolean;
+  token: string;
+  is_login: string | null;
 };
 
 type PegawaiAuth = {
@@ -31,14 +31,10 @@ type PegawaiAuth = {
 };
 
 export type UserData = {
-  idUser: number;
-  nip: string;
+  id: number;
   email: string;
-  apiToken: string;
-  isLogin: boolean;
-  kodeUnit: string;
-  kodeUnitLama: string;
-  namaUnit: string;
+  token: string;
+  is_login: string | null;
 };
 
 declare global {
@@ -96,19 +92,19 @@ const authorization = async (
       throw new CustomError(httpCode.unauthorized, errorHrd);
     }
 
-    const userData: UserData = {
-      idUser: user.id,
-      nip: pegawai.nip,
-      email: user.email,
-      apiToken: user.api_token,
-      isLogin: user.is_login,
-      kodeUnit: pegawai.TrxUnitKerjaPegawais[0].Unit.kode_unit_baru,
-      kodeUnitLama: pegawai.TrxUnitKerjaPegawais[0].Unit.kode_unit,
-      namaUnit: pegawai.TrxUnitKerjaPegawais[0].Unit.nama_unit,
-      // ...pegawai,
-    };
+    // const userData: UserData = {
+    //   idUser: user.id,
+    //   nip: pegawai.nip,
+    //   email: user.email,
+    //   apiToken: user.api_token,
+    //   isLogin: user.is_login,
+    //   kodeUnit: pegawai.TrxUnitKerjaPegawais[0].Unit.kode_unit_baru,
+    //   kodeUnitLama: pegawai.TrxUnitKerjaPegawais[0].Unit.kode_unit,
+    //   namaUnit: pegawai.TrxUnitKerjaPegawais[0].Unit.nama_unit,
+    //   // ...pegawai,
+    // };
 
-    req.user = userData;
+    // req.user = userData;
 
     next();
   } catch (err) {
