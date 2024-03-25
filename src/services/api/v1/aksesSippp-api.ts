@@ -15,6 +15,8 @@ import getConfig from "@config/dotenv"
 import pysha256enc from "@utils/pyencrypt"
 import generateHeaderWithSignature from "@utils/signature"
 import moment from "moment"
+import CryptoJS from "crypto-js"
+import decryptData from "@middleware/decrypt/token"
 
 import {
     PayloadAksesSchema,
@@ -213,19 +215,32 @@ const postToken = async (
 }
 
 const getMenuApp = async (
-    require : PayloadUserGroupSchema["body"]) : Promise<any | null> => {
+    require : PayloadUserGroupSchema["body"], token_user : string) : Promise<any | null> => {
     try {
         const id_user = require.id_user
         const kode_group = require.kode_group
 
-        const groupUser = await TrxGroupUser.findOne({
+        const groupUser : any  = await TrxGroupUser.findOne({
             where : {
                 id_user : id_user, 
                 kode_group : kode_group
-            }
-        })
+            },
+            include : [
+              {
+                model : RefGroup, 
+                as : "Group", 
+                attributes : ["kode_group", "kode_level"]
+              }
+            ],
+        }) 
+
+
+
 
         if(!groupUser) throw new CustomError(httpCode.found, "Group User Tidak Ada")
+
+        
+
 
         const token_app = await bcrypt.hash(String(groupUser.id_user), 12)
 
@@ -244,6 +259,37 @@ const getMenuApp = async (
                 }
             })
         }
+
+        //CEK USER LEVEL 
+        const UserLevel = groupUser.Group?.kode_level
+
+        //CEK LEVEL TO ENCRYPT DATA 
+        let sendHash
+        let hash : any
+        if(UserLevel === 1) {
+          hash  = CryptoJS.AES.encrypt(token_app, getConfig("SECRET_KEY_LVL1"))
+          sendHash = hash.toString()
+          
+        }
+        if (UserLevel === 2) {
+          hash  = CryptoJS.AES.encrypt(token_app, getConfig("SECRET_KEY_LVL2"))
+          sendHash = hash.toString()
+        }
+
+        // //#################### GENERATED DECRYPT ########################
+
+        // let decrypt : any = CryptoJS.AES.decrypt(hash, getConfig("SECRET_KEY_LVL1"))
+        
+        // // Convert decrypted ciphertext to a WordArray
+        // let decryptedWordArray = CryptoJS.lib.WordArray.create(decrypt.words, decrypt.sigBytes);
+
+        // // Convert WordArray to string
+        // let decryptedText = CryptoJS.enc.Utf8.stringify(decryptedWordArray);
+
+        // console.log(decryptedText)
+
+        // //############################################################################
+                
 
         const newId = `${id_user}${kode_group}`
         const newToken = await RefTokenApp.create({
@@ -428,12 +474,14 @@ const getMenuApp = async (
                 kode_group : dataGroup?.kode_group,
                 nama_groupp : dataGroup?.nama_group
             }, 
-            token : token_app
+            token_old : token_user,
+            token : sendHash
           }
 
           return params
 
     } catch (error : any) {
+      console.log(error)
         if (error instanceof CustomError) {
             throw new CustomError(error.code, error.message);
           } else {
@@ -448,12 +496,21 @@ const checkToken = async (
       const idUser = require.id_user
       const kodeGroup = require.kode_group
       const token = require.token
+      const level = require.level
+
+      const token_final = await decryptData(token, level)
+      
+      console.log( "TES TOKEN FINAL :", token_final)
+
+      if(!token_final) {
+        throw new CustomError(401, "User Not Authenticate")
+      }
 
       const exTokenApp : RefTokenApp | null = await RefTokenApp.findOne({
         where : {
           id_user : idUser,
           kode_group : kodeGroup,
-          token : token
+          token : token_final,
         }
       })
 
@@ -469,6 +526,8 @@ const checkToken = async (
       })
 
       if(!exUser) throw new CustomError(httpCode.found, "User Tidak Terdaftar")
+
+      return exUser
 
     } catch (error : any) {
       if (error instanceof CustomError) {

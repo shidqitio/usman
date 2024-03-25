@@ -39,6 +39,10 @@ const payloadCheckToken = {
         token : z.string({
             required_error : "token Tidak Boleh Kosong",
             invalid_type_error : "token Harus String"
+        }), 
+        level : z.number({
+            required_error : "Level Tidak Boleh Kosong",
+            invalid_type_error : "Level Harus Angka"
         })
     })
 }

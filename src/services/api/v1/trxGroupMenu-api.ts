@@ -9,6 +9,7 @@ import {
     DestroyTrxGroupMenuSchema,
     SearchTrxGroupMenuSchema
 } from "@schema/api/trxGroupMenu-schema"
+import RefMenu1 from "@models/refMenu1-model";
 
 const index = async (
     page:SearchTrxGroupMenuSchema["query"]["page"],
@@ -56,6 +57,24 @@ const store = async (
         })
 
         if(!cekGroup) throw new CustomError(httpCode.found, "Kode Group Tidak Ada")
+
+        console.log(cekGroup.kode_level)
+
+        const cekMenu1 : RefMenu1 | null = await RefMenu1.findOne({
+            where : {
+                kode_menu1 : kodeMenu1, 
+                kode_aplikasi : kodeAplikasi
+            }
+        })
+
+        console.log(cekMenu1?.kode_level)
+
+        if(!cekMenu1) throw new CustomError(httpCode.found, "Kode Menu Tidak Ada")
+
+        if (cekGroup.kode_level !== cekMenu1.kode_level) {
+            throw new CustomError(422, "Kode Tidak Tepat")
+        }
+
 
         const data_insert : TrxGroupMenuInput = {
             kode_group : kodeGroup, 

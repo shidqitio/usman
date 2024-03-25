@@ -70,8 +70,9 @@ const getMenuApp = async (
     next:NextFunction) : Promise<void> => {
         try {
             const require : PayloadUserGroupSchema["body"] = req.body
+            const token_old : string = req.user.token
         
-            const response = await aksesService.getMenuApp(require)
+            const response = await aksesService.getMenuApp(require, token_old)
             
             responseSuccess(res, httpCode.ok, response)
         } catch (error) {
@@ -87,7 +88,7 @@ const checkToken = async (
     try {
         const require : PayloadCheckToken["body"] = req.body
 
-        const response = await aksesService.getMenuApp(require)
+        const response = await aksesService.checkToken(require)
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {

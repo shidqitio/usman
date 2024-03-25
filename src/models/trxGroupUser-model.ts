@@ -3,6 +3,7 @@ import db from "@config/database";
 import RefUser from "./refUser-model";
 import RefGroup from "./refGroup-model";
 
+
 export enum statusGroupUser {
     Aktif = "1",
     TidakAktif = "0"
