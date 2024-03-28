@@ -54,7 +54,7 @@ const store = async (
             }
         })
 
-        if(!cekMenu2) throw new CustomError (httpCode.found, "Menu 2 Tidak Ada")
+        if(!cekMenu2) throw new CustomError (httpCode.unprocessableEntity, "Menu 2 Tidak Ada")
 
         const kodeMenu3Count : number = await RefMenu3.count({
             where : {
@@ -94,7 +94,7 @@ const store = async (
 
         const insertRefMenu3 : RefMenu3Output = await RefMenu3.create(inputRefMenu3)
 
-        if(!insertRefMenu3) throw new CustomError(httpCode.found, "Gagal Memasukkan Data")
+        if(!insertRefMenu3) throw new CustomError(httpCode.unprocessableEntity, "Gagal Memasukkan Data")
 
         return insertRefMenu3
 
@@ -112,7 +112,7 @@ const show = async (
     id:GetRefMenu3Schema["params"]["id"]) : Promise<RefMenu3Output> => {
     try {
         const refMenu3 : RefMenu3 | null = await RefMenu3.findByPk(id)
-        if(!refMenu3) throw new CustomError(httpCode.found, "Data Tidak Ada")
+        if(!refMenu3) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
 
         return refMenu3
     } catch (error : any) {
@@ -131,7 +131,7 @@ const update = async (
         try {
             const refMenu3 = await RefMenu3.findByPk(id)
 
-            if (!refMenu3) throw new CustomError(httpCode.found, "RefMenu1 Tidak Ditemukan")
+            if (!refMenu3) throw new CustomError(httpCode.unprocessableEntity, "RefMenu1 Tidak Ditemukan")
 
             refMenu3.nama_menu3 = require.nama_menu3
             refMenu3.keterangan_menu = require.keterangan_menu
@@ -145,7 +145,7 @@ const update = async (
 
             const response = await refMenu3.save()
 
-            if(!response) throw new CustomError(httpCode.found, "Gagal Update Data")
+            if(!response) throw new CustomError(httpCode.unprocessableEntity, "Gagal Update Data")
 
             return response
 
@@ -164,7 +164,7 @@ const destroy = async (
         try {
             const refMenu3  = await RefMenu3.findByPk(id)
 
-             if (!refMenu3) throw new CustomError(httpCode.found, "RefMenu3 Tidak Ditemukan")
+             if (!refMenu3) throw new CustomError(httpCode.unprocessableEntity, "RefMenu3 Tidak Ditemukan")
 
              const hapusData = await RefMenu3.destroy({
                  where : {
@@ -173,7 +173,7 @@ const destroy = async (
              })
 
              if(hapusData === 0) {
-                throw new CustomError(httpCode.found, "Data Gagal Hapus")
+                throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
              }
 
              return refMenu3

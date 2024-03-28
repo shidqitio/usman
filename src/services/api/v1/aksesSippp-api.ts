@@ -41,7 +41,7 @@ const register = async (
             password : pw
         })
 
-        if(!registUser) throw new CustomError(httpCode.found, "User Gagal Dibuat")
+        if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Dibuat")
 
         return registUser
     } catch (error) {
@@ -66,7 +66,7 @@ const login = async (
             }
         })
 
-        if(!existUser) throw new CustomError(httpCode.found, "Email Tidak Ditemukan")
+        if(!existUser) throw new CustomError(httpCode.unprocessableEntity, "Email Tidak Ditemukan")
 
         const passwordExist : any = existUser.password
 
@@ -86,7 +86,7 @@ const login = async (
             type : QueryTypes.SELECT
         })
 
-        if(exist.length === 0) throw new CustomError(httpCode.found, "User Tidak Memiliki Akses Ke Aplikasi")
+        if(exist.length === 0) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Memiliki Akses Ke Aplikasi")
 
         const ids = exist.map((i : any) => i.kode_aplikasi)
         const aps = await RefAplikasi.findAll({
@@ -161,7 +161,7 @@ const postToken = async (
             }
         })
 
-        if(!groupUser) throw new CustomError(httpCode.found, "[1]User Tidak Memiliki Group User")
+        if(!groupUser) throw new CustomError(httpCode.unprocessableEntity, "[1]User Tidak Memiliki Group User")
 
         const app : RefAplikasi[] = await db.query(`
           SELECT c.url_token
@@ -174,7 +174,7 @@ const postToken = async (
             replacements: { user: groupUser.id_user, group: groupUser.kode_group },
             type: QueryTypes.SELECT,
         })
-        if(app.length === 0) throw new CustomError (httpCode.found, "[2]User Tidak Memiliki Group Aplikasi")
+        if(app.length === 0) throw new CustomError (httpCode.unprocessableEntity, "[2]User Tidak Memiliki Group Aplikasi")
         
         const url_token  = app[0].url_token
         const token = token_input
@@ -187,7 +187,7 @@ const postToken = async (
 
         const resToken = await postTokenApp(url_token, data)
 
-        if(!resToken) throw new CustomError(httpCode.found, "[1]Gagal Post Token")
+        if(!resToken) throw new CustomError(httpCode.unprocessableEntity, "[1]Gagal Post Token")
 
         const response = resToken.data
         let result
@@ -237,7 +237,7 @@ const getMenuApp = async (
 
 
 
-        if(!groupUser) throw new CustomError(httpCode.found, "Group User Tidak Ada")
+        if(!groupUser) throw new CustomError(httpCode.unprocessableEntity, "Group User Tidak Ada")
 
         
 
@@ -299,7 +299,7 @@ const getMenuApp = async (
             token : token_app
         })
 
-        if(!newToken) throw new CustomError(httpCode.found, "Gagal Membuat Token")
+        if(!newToken) throw new CustomError(httpCode.unprocessableEntity, "Gagal Membuat Token")
 
         const app : RefAplikasi[] = await db.query(
             `
@@ -431,7 +431,7 @@ const getMenuApp = async (
             }
           );
 
-          if(akses.length === 0) throw new CustomError(httpCode.found, "User Tidak Memiliki Akses Aplikasi")
+          if(akses.length === 0) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Memiliki Akses Aplikasi")
 
           const ids = akses.map((i) => i.kode_aplikasi)
           const aps = await RefAplikasi.findAll({
@@ -525,7 +525,7 @@ const checkToken = async (
         }
       })
 
-      if(!exUser) throw new CustomError(httpCode.found, "User Tidak Terdaftar")
+      if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Terdaftar")
 
       return exUser
 
@@ -548,7 +548,7 @@ const logout = async (
       const exUser : RefUser | null =  await RefUser.findOne({
         where : {id : id_user}
       })
-      if(!exUser) throw new CustomError(httpCode.found, "User Tidak Ada")
+      if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Ada")
 
       const update = await RefUser.update({
         is_login : "Y"
@@ -574,7 +574,7 @@ const logout = async (
         })
       }
 
-      if(update[0] === 0) throw new CustomError(httpCode.notFound, "Data Gagal Update")
+      if(update[0] === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Update")
 
       return RefUser
   } catch (error) {

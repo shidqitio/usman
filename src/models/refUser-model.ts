@@ -7,8 +7,9 @@ export interface IRefUserAttributes {
 	password : string | null,
 	api_token: any | null,
 	is_login : string | null,
-	ucr      : string | null,
-	uch      : string | null,
+    user_photo : string | null | undefined,
+	ucr      : string | null | undefined,
+	uch      : string | null | undefined,
 	udcr     : Date | undefined,
 	udch     : Date | undefined,
 }
@@ -32,8 +33,9 @@ class RefUser
     declare password : string | null;
     declare api_token: any | null;
     declare is_login : string | null;
-    declare ucr      : string | null;
-    declare uch      : string | null;
+    declare user_photo: string | null | undefined;
+    declare ucr      : string | null | undefined;
+    declare uch      : string | null | undefined;
     declare udcr     : Date | undefined;
     declare udch     : Date | undefined;
 }
@@ -59,6 +61,10 @@ RefUser.init(
             allowNull : true
         },
         is_login : {
+            type : DataTypes.STRING(), 
+            allowNull : true
+        },
+        user_photo : {
             type : DataTypes.STRING(), 
             allowNull : true
         },

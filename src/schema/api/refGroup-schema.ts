@@ -35,9 +35,9 @@ const updated = {
             required_error : "kode_level tidak boleh kosong",
             invalid_type_error : "kode_level harus huruf"
         }),
-        ucr : z.string({
-            required_error : "kode_level tidak boleh kosong",
-            invalid_type_error : "kode_level harus huruf"
+        uch : z.string({
+            required_error : "uch tidak boleh kosong",
+            invalid_type_error : "uch harus huruf"
         }).nullable(),
     }),
     params : z.object({

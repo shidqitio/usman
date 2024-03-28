@@ -9,12 +9,11 @@ export enum Status {
 interface IRefAplikasiAttributes {
     kode_aplikasi : string | any; 
     nama_aplikasi : string | null;
-    keterangan : string | null; 
+    keterangan : string | null | undefined; 
 	status : string | null;
 	images : string | null; 
 	url : string | null; 
-	url_token : string | null; 
-	url_tte : string | null; 
+	url_token : string | null | undefined; 
 	ucr : string | null; 
 	uch : string | null; 
 	udcr : Date | null; 
@@ -48,12 +47,11 @@ class RefAplikasi
 {
 	declare kode_aplikasi : string | any; 
     declare nama_aplikasi : string | null;
-    declare keterangan : string | null; 
+    declare keterangan :  string | null | undefined; 
 	declare status : string | null;
 	declare images : string | null; 
 	declare url : string | null; 
-	declare url_token : string | null; 
-	declare url_tte : string | null; 
+	declare url_token :  string | null | undefined; 
 	declare ucr : string | null; 
 	declare uch : string | null; 
 	declare udcr : Date | null; 
@@ -88,10 +86,6 @@ RefAplikasi.init(
 			allowNull : true
 		},
 		url_token : {
-			type : DataTypes.STRING(), 
-			allowNull : true
-		},
-		url_tte : {
 			type : DataTypes.STRING(), 
 			allowNull : true
 		},

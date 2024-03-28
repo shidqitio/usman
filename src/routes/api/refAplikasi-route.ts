@@ -3,10 +3,15 @@ import validate from "@schema/validate";
 import refAplikasiController from "@controllers/api/refAplikasi-controller";
 import {
     postRefAplikasiSchema, 
-    updatedRefAplikasiSchema
+    updatedRefAplikasiSchema,
+    getRefAplikasiSchema
 } from "@schema/api/refAplikasi-schema"
 import { uploadImage } from "@middleware/upload";
 const routes = express.Router()
+
+routes.get("/", refAplikasiController.index)
+
+routes.get("/:id", validate(getRefAplikasiSchema) ,refAplikasiController.getByKodeAplikasi)
 
 routes.post(
     "/post-aplikasi",
@@ -14,5 +19,7 @@ routes.post(
     validate(postRefAplikasiSchema), 
      refAplikasiController.store
      );
+
+routes.put("/:id", uploadImage.single("file"), validate(updatedRefAplikasiSchema), refAplikasiController.updateAplikasi)
 
 export default routes

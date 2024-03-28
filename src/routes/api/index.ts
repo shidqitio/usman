@@ -13,6 +13,7 @@ import refMenu3 from "@routes/api/refMenu3-route"
 import trxGroupUser from "@routes/api/trxGroupUser-route"
 import trxGroupMenu from "@routes/api/trxGroupMenu-route"
 import akses from "@routes/api/akses-route"
+import auth from "@middleware/auth";
 // routes.use("/v1", example);
 
 routes.use(vers + "/aplikasi", refAplikasi)

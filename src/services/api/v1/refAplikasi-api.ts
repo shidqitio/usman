@@ -30,7 +30,7 @@ const index = async () : Promise<RefAplikasiOutput[]> => {
         })
 
         if (refAplikasi.length === 0) {
-            throw new CustomError(httpCode.found, "Data Tidak Ada")
+            throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
         }
 
         return refAplikasi
@@ -54,9 +54,11 @@ const store = async (
 
         let publicFileImages : string = ""
         if(file && file.filename) {
-            publicFileImages = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}/${file.filename}`
+            publicFileImages = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}${file.filename}`
             console.log(publicFileImages)
         }
+
+        console.log(publicFileImages)
        
         const aplikasiInput : RefAplikasiInput = {
             kode_aplikasi : kodeAplikasi,
@@ -65,14 +67,12 @@ const store = async (
             status : Status.Tampil, //Default
             url : request.url,
             url_token : request.url_token,
-            url_tte : request.url_tte,
             images : publicFileImages,
-            ucr : request.ucr,
         }
 
         const insertAplikasi : RefAplikasiOutput = await RefAplikasi.create(aplikasiInput);
 
-        if(!insertAplikasi) throw new CustomError(httpCode.found, "Gagal Membuat Aplikasi")
+        if(!insertAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Gagal Membuat Aplikasi")
 
         return insertAplikasi
 
@@ -98,7 +98,7 @@ const getByKodeAPlikasi = async (
         })
 
         if(!refAplikasi) {
-            throw new CustomError(httpCode.found, "Aplikasi Tidak Ada")
+            throw new CustomError(httpCode.unprocessableEntity, "Aplikasi Tidak Ada")
         }
 
         return refAplikasi
@@ -114,28 +114,26 @@ const getByKodeAPlikasi = async (
 
 const updateAplikasi = async (
     id:UpdatedRefAplikasiSchema["params"]["id"],
-    request : RefAplikasiInputUpdate, 
+    request : UpdatedRefAplikasiSchema["body"], 
     file : any) :
     Promise<RefAplikasiOutput> => {
     try {
         const refAplikasi : RefAplikasi | null = await RefAplikasi.findByPk(id)
 
-        if(!refAplikasi) throw new CustomError(httpCode.found, "Data Tidak Ada")
+        if(!refAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
 
         refAplikasi.nama_aplikasi = request.nama_aplikasi,
         refAplikasi.keterangan = request.keterangan
         refAplikasi.status = request.status
         refAplikasi.url = request.url
         refAplikasi.url_token = request.url_token
-        refAplikasi.url_tte = request.url_tte
-        refAplikasi.uch = request.uch
+        // refAplikasi.uch = request.uch
 
         const existFile : string | null = refAplikasi.images
 
+        console.log(file)
         if (file && file.filename) {
-            const PUBLIC_FILE_GIRO = `${getConfig("PUBLIC_FILE_IMAGE")}/${
-              file.filename
-            }`;
+            const PUBLIC_FILE_GIRO = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}${file.filename}`;
       
             refAplikasi.images = PUBLIC_FILE_GIRO;
           }
@@ -144,7 +142,7 @@ const updateAplikasi = async (
 
 
           if(!response) {
-            throw new CustomError(httpCode.found, "Gagal Menambah Data")
+            throw new CustomError(httpCode.unprocessableEntity, "Gagal Menambah Data")
           }
           let part 
           let lastPart
@@ -153,7 +151,7 @@ const updateAplikasi = async (
             lastPart = part[part.length - 1]
 
             if(file && file.path) {
-                let unlink = await fs.unlink(path.join(__dirname, `../../../public/image/${lastPart}`))
+                let unlink = await fs.unlink(path.join(__dirname, `../../../../public/aplikasi/${lastPart}`))
                 console.log(unlink)
             }
           }

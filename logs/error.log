@@ -1,77 +1,79 @@
-[2024-03-25T11:09:02.853] [ERROR] error - testing error CheckTOken Error: Token Not Match
-[2024-03-25T11:09:02.856] [ERROR] error - CustomError: Token Not Match
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:534:15
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 401,
-  status: 'error'
-}
-[2024-03-25T11:10:08.268] [ERROR] error - testing error CheckTOken Error: Token Not Match
-[2024-03-25T11:10:08.269] [ERROR] error - CustomError: Token Not Match
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:534:15
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 401,
-  status: 'error'
-}
-[2024-03-25T11:10:52.859] [ERROR] error - testing error CheckTOken Error: Token Not Match
-[2024-03-25T11:10:52.861] [ERROR] error - CustomError: Token Not Match
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:534:15
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 401,
-  status: 'error'
-}
-[2024-03-25T11:19:46.653] [ERROR] error - CustomError: [2] Token Unauthorized
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:25:19
+[2024-03-26T09:57:19.927] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
     at Generator.next (<anonymous>)
     at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
     at new Promise (<anonymous>)
     at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
     at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
     at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
-    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
-    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
   code: 401,
   status: 'error'
 }
-[2024-03-25T11:42:19.727] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-03-25T11:42:19.727] [ERROR] error - CustomError: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:536:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+[2024-03-26T13:58:01.213] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-26T13:58:02.743] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-26T13:58:03.468] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-03-26T14:27:19.803] [ERROR] error - CustomError: Data Tidak Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:165:15
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-03-25T11:46:12.706] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-03-25T11:46:12.706] [ERROR] error - CustomError: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:536:15
+[2024-03-26T14:39:54.156] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\src\public\image\aplikasi-1711438270745.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:169:19
     at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65) {
   code: 500,
   status: 'error'
 }
-[2024-03-25T11:47:15.308] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-03-25T11:47:15.308] [ERROR] error - CustomError: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:536:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+[2024-03-26T14:51:08.140] [ERROR] error - CustomError: Data Tidak Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:109:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:5:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-03-25T11:50:22.048] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-03-25T11:50:22.049] [ERROR] error - CustomError: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:536:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+  code: 422,
   status: 'error'
 }

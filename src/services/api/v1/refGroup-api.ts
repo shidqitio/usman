@@ -25,7 +25,7 @@ const index = async () : Promise<RefGroupOutput[]> => {
             ]
         })
 
-        if (refGroup.length === 0 ) throw new CustomError(httpCode.found, "Data Tidak Ada")
+        if (refGroup.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
 
         return refGroup
     } catch (error : any) {
@@ -47,7 +47,7 @@ const store = async (
             }
         })
 
-        if(!cekAplikasi) throw new CustomError(httpCode.found, "Aplikasi Tidak Ada")
+        if(!cekAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Aplikasi Tidak Ada")
 
         const cekGroup : RefGroup[] = await RefGroup.findAll({
             attributes : ["kode_group"],
@@ -101,7 +101,7 @@ const show = async (
             ]
         })
 
-        if (!refGroup) throw new CustomError(httpCode.found, "Data Tidak Ada")
+        if (!refGroup) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
 
         return refGroup
     } catch (error : any) {
@@ -120,11 +120,11 @@ const update = async (
     try {
         const refGroup : RefGroup | null = await RefGroup.findByPk(id) 
 
-        if (!refGroup) throw new CustomError(httpCode.found, "Data Tidak Ada")
+        if (!refGroup) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
 
         refGroup.nama_group = request.nama_group 
         refGroup.kode_level = request.kode_level
-        refGroup.ucr = request.ucr 
+        refGroup.ucr = request.uch
         refGroup.kode_aplikasi = request.kode_aplikasi
 
         const response = await refGroup.save()

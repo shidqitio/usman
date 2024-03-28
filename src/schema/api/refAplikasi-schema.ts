@@ -27,25 +27,14 @@ const payload = {
             invalid_type_error : "url harus huruf"
         }),
         url_token : z.string({
-            required_error : "url_token tidak boleh kosong",
-            invalid_type_error : "url_token harus huruf"
-        }),
-        url_tte : z.string({
-            required_error : "url_tte tidak boleh kosong",
-            invalid_type_error : "url_tte harus huruf"
-        }).nullable(),
-        ucr :  z.string({
-            invalid_type_error : "url_tte harus huruf"
-        }).nullable(),
-    }),
+            required_error : "url tidak boleh kosong",
+            invalid_type_error : "url harus huruf"
+        })
+    }).partial({url_token:true, keterangan:true}),
 };
 
 const updated = {
     body : z.object({
-        kode_aplikasi : z.string({
-            required_error : "kode_aplikasi tidak boleh kosong",
-            invalid_type_error : "kode_aplikasi harus huruf"
-        }),
         nama_aplikasi : z.string({
             required_error : "nama_aplikasi tidak boleh kosong",
             invalid_type_error : "nama_aplikasi harus huruf"
@@ -72,10 +61,6 @@ const updated = {
         url_token : z.string({
             required_error : "url_token tidak boleh kosong",
             invalid_type_error : "url_token harus huruf"
-        }),
-        url_tte : z.string({
-            required_error : "url_tte tidak boleh kosong",
-            invalid_type_error : "url_tte harus huruf"
         }),
     }),
     params : z.object({

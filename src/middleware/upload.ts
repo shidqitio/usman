@@ -6,6 +6,7 @@ import { httpCode } from "@utils/prefix";
 
 // jenis file
 enum FileType {
+  UserPhoto = "userphoto",
   Aplikasi = "aplikasi",
   Invoice = "invoice",
 }
@@ -14,6 +15,7 @@ enum FileType {
 const destinationMap: Record<FileType, string> = {
   [FileType.Aplikasi]: "./public/aplikasi",
   [FileType.Invoice]: "./public/invoice",
+  [FileType.UserPhoto] : "D:/Dev SIPPP/PMO/public/images/userphoto"
 };
 
 const allowedMimeTypesImage = ["image/jpeg", "image/png", "image/jpg"];

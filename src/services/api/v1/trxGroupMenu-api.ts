@@ -56,7 +56,7 @@ const store = async (
             }
         })
 
-        if(!cekGroup) throw new CustomError(httpCode.found, "Kode Group Tidak Ada")
+        if(!cekGroup) throw new CustomError(httpCode.unprocessableEntity, "Kode Group Tidak Ada")
 
         console.log(cekGroup.kode_level)
 
@@ -69,7 +69,7 @@ const store = async (
 
         console.log(cekMenu1?.kode_level)
 
-        if(!cekMenu1) throw new CustomError(httpCode.found, "Kode Menu Tidak Ada")
+        if(!cekMenu1) throw new CustomError(httpCode.unprocessableEntity, "Kode Menu Tidak Ada")
 
         if (cekGroup.kode_level !== cekMenu1.kode_level) {
             throw new CustomError(422, "Kode Tidak Tepat")
@@ -87,7 +87,7 @@ const store = async (
 
         const insert : TrxGroupMenuOutput = await TrxGroupMenu.create(data_insert)
 
-        if(!insert) throw new CustomError(httpCode.found, "Data Gagal Insert")
+        if(!insert) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Insert")
 
         return insert
     } catch (error) {
@@ -115,7 +115,7 @@ const show = async (id : GetTrxGroupMenuSchema["params"]["id"]) : Promise <TrxGr
             ]
         })
 
-        if(!trxGroupMenu) throw new CustomError(httpCode.found, "Data Group Menu Tidak Ada")
+        if(!trxGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Data Group Menu Tidak Ada")
 
         return trxGroupMenu
     } catch (error : any) {
@@ -135,7 +135,7 @@ const update = async (
     try {
         const groupMenu : TrxGroupMenu | null = await TrxGroupMenu.findByPk(id)
 
-        if(!groupMenu) throw new CustomError(httpCode.found, "Group Menu Tidak Ada")
+        if(!groupMenu) throw new CustomError(httpCode.unprocessableEntity, "Group Menu Tidak Ada")
 
         groupMenu.kode_group = require.kode_group
         groupMenu.kode_menu1 = require.kode_menu1
@@ -146,7 +146,7 @@ const update = async (
 
         const response = await groupMenu.save()
 
-        if(!response) throw new CustomError(httpCode.found, "Data Gagal Update")
+        if(!response) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Update")
 
         return response
     } catch (error : any) {
@@ -163,7 +163,7 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
     try {
         const groupMenu : TrxGroupMenu | null = await TrxGroupMenu.findByPk(id)
 
-        if(!groupMenu) throw new CustomError(httpCode.found, "Data Group Menu Tidak Ada")
+        if(!groupMenu) throw new CustomError(httpCode.unprocessableEntity, "Data Group Menu Tidak Ada")
 
         const hapusData = await TrxGroupMenu.destroy({
             where : {
@@ -171,7 +171,7 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
             }
         })
 
-        if(hapusData === 0) throw new CustomError(httpCode.found, "Data Gagal Hapus")
+        if(hapusData === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
 
         return groupMenu
     } catch (error) {

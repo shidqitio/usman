@@ -88,7 +88,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                     transaction : t
                 })
     
-                if(!newUser) throw new CustomError(httpCode.found, "[1]Create User Gagal")
+                if(!newUser) throw new CustomError(httpCode.unprocessableEntity, "[1]Create User Gagal")
     
                 const fUser : RefUser | null = await RefUser.findOne({
                     where : {
@@ -97,7 +97,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                     transaction : t
                 })
     
-                if(!fUser) throw new CustomError(httpCode.found, "[2]Create User Gagal")
+                if(!fUser) throw new CustomError(httpCode.unprocessableEntity, "[2]Create User Gagal")
     
                 user = fUser
                 const idUser = fUser.id
@@ -110,7 +110,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                     transaction : t
                 })
     
-                if(exGroupUser) throw new CustomError(httpCode.found, "User Sudah Terdaftar di Group yang Sama")
+                if(exGroupUser) throw new CustomError(httpCode.unprocessableEntity, "User Sudah Terdaftar di Group yang Sama")
     
                 const newGroupUser : any | null = await TrxGroupUser.create({
                     kode_group : kodeGroup,
@@ -134,7 +134,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                     kode_group : kodeGroup
                 }
             })
-            if (!exGroup) throw new CustomError(httpCode.found, "Data Group Tidak Ada")
+            if (!exGroup) throw new CustomError(httpCode.unprocessableEntity, "Data Group Tidak Ada")
 
             const idUser = exUser.id
 
@@ -151,7 +151,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                 status : statusGroupUser.Aktif,
             })
 
-            if(!createGroupUser) throw new CustomError(httpCode.found, "Data Group Gagal Dibuat")
+            if(!createGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Dibuat")
 
             return createGroupUser
         }
@@ -181,7 +181,7 @@ const show = async (id:GetTrxGroupUserSchema["params"]["id"]) : Promise<TrxGroup
             ]
         })
 
-        if (!trxGroupUser) throw new CustomError(httpCode.found, "Data Group UserTidak Ada")
+        if (!trxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group UserTidak Ada")
 
         return trxGroupUser
     } catch (error : any) {
