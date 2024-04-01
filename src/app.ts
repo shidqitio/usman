@@ -64,14 +64,18 @@ app.use(limiter);
  * dokumen path
  */
 app.use(
-  "/public/dokumen",
-  express.static(path.resolve(__dirname, "../public/dokumen"))
+  "/user-management/public/image/",
+  express.static(path.join(__dirname, "../public/aplikasi"))
 );
 
+app.use(
+  "/user-management/public/image/profil",
+  express.static(`D:/Dev SIPPP/PMO/public/images/userphoto`)
+)
 /**
  * routes
  */
-app.use("/user-management/api", apiRoutes);
+app.use("/user-management/api", apiRoutes)
 app.use("/expenditure/web", authorization, webRoutes);
 app.use("/expenditure/mobile", authorization, mobileRoutes);
 

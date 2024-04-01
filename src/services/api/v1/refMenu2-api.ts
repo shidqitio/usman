@@ -122,6 +122,35 @@ const show = async (
     }
 }
 
+const getByKodeMenu1 = async (
+    id:GetRefMenu2Schema["params"]["id"]) : Promise<RefMenu2Output[]> => {
+    try {
+        const refMenu1 : RefMenu1 | null = await RefMenu1.findOne({
+            where : {
+                kode_menu1 : id
+            }
+        })
+
+        if(!refMenu1) throw new CustomError(httpCode.unprocessableEntity, "Data Menu1 Tidak Ada")
+
+        const refMenu2 : RefMenu2[] = await RefMenu2.findAll({
+            where : {
+                kode_menu1 : id
+            }, 
+            attributes : {exclude : ["ucr","uch","udcr","udch"]}
+        })
+
+        return refMenu2
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 const update = async (
     require:UpdatedRefMenu2Schema["body"],
     id:GetRefMenu2Schema["params"]["id"]) : Promise<RefMenu2Output> => {
@@ -189,5 +218,6 @@ export default {
     store,
     show,
     update,
+    getByKodeMenu1,
     destroy
 }

@@ -16,6 +16,8 @@ routes.get("/show/:id", validate(getRefMenu3Schema), refMenu3Controller.show)
 
 routes.post("/", validate(payloadRefMenu3Schema), refMenu3Controller.store)
 
+routes.get("/get-menu2/:id", validate(getRefMenu3Schema), refMenu3Controller.getByMenu2);
+
 routes.put("/:id", validate(updatedRefMenu3Schema), refMenu3Controller.update)
 
 routes.delete("/:id", validate(destroyRefMenu3Schema), refMenu3Controller.destroy)

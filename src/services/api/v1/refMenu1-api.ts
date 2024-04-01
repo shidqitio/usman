@@ -108,6 +108,36 @@ const show = async (
     }
 }
 
+const dataByAplikasi = async (id:GetRefMenu1Schema["params"]["id"]) : Promise<RefMenu1Output[]> => {
+    try {
+        const exAplikasi : RefAplikasi | null = await RefAplikasi.findOne({
+            where : {
+                kode_aplikasi : id
+            }
+        })
+
+        if(!exAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Data Aplikasi Tidak Ada")
+        
+        const refMenu : RefMenu1[] = await RefMenu1.findAll({
+            where : {
+                kode_aplikasi : id
+            }, 
+            attributes : {exclude : ["udcr", "udch", "ucr", "uch"]}
+        })
+
+
+        return refMenu
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+
 const update = async (
     require:UpdatedRefMenu1Schema["body"],
     id:GetRefMenu1Schema["params"]["id"]) : Promise<RefMenu1Output> => {
@@ -175,5 +205,6 @@ export default {
     store,
     update,
     show,
+    dataByAplikasi,
     destroy
 }

@@ -12,25 +12,42 @@ const updateUserPhoto = async (
     file : any
     ) => {
     try {
-        const refUser : RefUser | null = await RefUser.findByPk(id)
+        const refUser : RefUser | null = await RefUser.findByPk(id, {
+            attributes : ["id","email","user_photo"]
+        })
 
         if(!refUser) {
             throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
         }
 
-        const existFile : string | null | undefined = refUser.user_photo
+        let data_photo
 
         if(file && file.filename) {
-            const PUBLIC_FILE_GIRO = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}${file.filename}`;
+            const PUBLIC_FILE_GIRO = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE_PROFIL")}${file.filename}`;
       
-            refUser.user_photo = PUBLIC_FILE_GIRO;
+            data_photo = PUBLIC_FILE_GIRO;
         }
 
         console.log("TES FILE PATH : ", file.path)
 
-        const response : RefUserOutput | null | undefined = await refUser.save()
+        const [update, [updateUser]] = await RefUser.update({
+            user_photo : data_photo
+        }, {
+            
+            where : {
+                id : id
+            },
+            returning : true
+        })
+
+        const updatedRefUser : RefUser | null = await RefUser.findByPk(id, {
+            attributes : ["id","email","user_photo"]
+        })
         
-        return response
+        if(update === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Update")
+
+
+        return updatedRefUser
     } catch (error : any) {
         if (error instanceof CustomError) {
             if (file && file.path) {
@@ -42,4 +59,8 @@ const updateUserPhoto = async (
             throw new CustomError(500, error.message)
         }
     }
+}
+
+export default {
+    updateUserPhoto
 }

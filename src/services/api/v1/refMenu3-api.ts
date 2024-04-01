@@ -159,6 +159,37 @@ const update = async (
         }
 }
 
+const getByMenu2 = async (
+    id:GetRefMenu3Schema["params"]["id"]) : Promise<RefMenu3Output[]> => {
+    try {
+        const refMenu2 = await RefMenu2.findOne({
+            where : {
+                kode_menu2 : id
+            }
+        })
+
+        if(!refMenu2) throw new CustomError(httpCode.unprocessableEntity, "Data Menu 2 Tidak Ada")
+        
+        const refMenu3 = await RefMenu3.findAll({
+            where : {
+                kode_menu2 : id
+            }, 
+            attributes : {exclude : ["ucr","uch","udcr","udch"]}
+        })
+
+
+        return refMenu3
+    } catch (error : any) {
+        console.log(error)
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 const destroy = async (
     id:DestroyRefMenu3Schema["params"]["id"]) : Promise<RefMenu3Output> => {
         try {
@@ -193,5 +224,6 @@ export default {
     store,
     show,
     update,
+    getByMenu2,
     destroy,
 }

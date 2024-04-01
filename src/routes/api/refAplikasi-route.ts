@@ -15,11 +15,14 @@ routes.get("/:id", validate(getRefAplikasiSchema) ,refAplikasiController.getByKo
 
 routes.post(
     "/post-aplikasi",
+    
     uploadImage.single("file"),
     validate(postRefAplikasiSchema), 
      refAplikasiController.store
      );
 
 routes.put("/:id", uploadImage.single("file"), validate(updatedRefAplikasiSchema), refAplikasiController.updateAplikasi)
+
+routes.delete("/:id", validate(getRefAplikasiSchema), refAplikasiController.deleteAplikasi)
 
 export default routes

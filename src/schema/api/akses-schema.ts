@@ -10,7 +10,7 @@ const payloadEmailPassword = {
             required_error : "Password Tidak Boleh Kosong",
             invalid_type_error : "Password Harus String"
         }), 
-    })
+    }), 
 }
 
 const payloadUserGroup = {
@@ -60,6 +60,15 @@ const payloadUserAplikasi = {
     })
 }
 
+const payloadEmail = {
+    body : z.object({
+        email : z.string({
+            required_error : "Email Tidak Boleh Kosong",
+            invalid_type_error : "Email Harus Email"
+        }).email()
+    })
+}
+
 export const payloadAksesSchema = z.object({
     ...payloadEmailPassword
 }) 
@@ -76,7 +85,12 @@ export const payloadUserAplikasiAksesSchema = z.object({
     ...payloadUserAplikasi
 })
 
+export const payloadEmailAksesSchema = z.object({
+    ...payloadEmail
+})
+
 export type PayloadAksesSchema = z.infer<typeof payloadAksesSchema>
 export type PayloadUserGroupSchema = z.infer<typeof payloadUserGroupAksesSchema>
 export type PayloadCheckToken = z.infer<typeof payloadCheckTokenAksesSchema>
 export type PayloadUserAplikasiAksesSchema = z.infer<typeof payloadUserAplikasiAksesSchema>
+export type PayloadEmailAksesSchema = z.infer<typeof payloadEmailAksesSchema>

@@ -8,8 +8,8 @@ interface IRefGroupAttributes {
 	nama_group : string | null 
 	kode_aplikasi : string | null 
     kode_level : number
-	ucr : string | null 
-	uch : string | null 
+	ucr : string | null | undefined
+	uch : string | null | undefined
 	udcr : Date | undefined 
 	udch : Date | undefined 
 }
@@ -34,8 +34,8 @@ class RefGroup
     declare nama_group: string | null;
     declare kode_group: string ;
     declare kode_level: number
-    declare ucr: string | null;
-    declare uch: string | null;
+    declare ucr: string | null | undefined;
+    declare uch: string | null | undefined;
     declare udcr: Date | undefined ;
     declare udch: Date | undefined;
 }

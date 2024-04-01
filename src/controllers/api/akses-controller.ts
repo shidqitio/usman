@@ -5,7 +5,8 @@ import { debugLogger, errorLogger } from "@config/logger";
 import {
     PayloadAksesSchema,
     PayloadCheckToken,
-    PayloadUserGroupSchema
+    PayloadUserGroupSchema,
+    PayloadEmailAksesSchema
 } from "@schema/api/akses-schema"
 
 import aksesService from "@services/api/v1/aksesSippp-api"
@@ -41,6 +42,21 @@ const login = async (
     } catch (error) {
         errorLogger.error(`testing error login ${error}`);
         next(error);
+    }
+}
+
+const getAplikasiByEmail = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const email : PayloadEmailAksesSchema["body"] = req.body
+
+        const response = await aksesService.getAplikasiByEmail(email)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error : any) {
+        next(error)
     }
 }
 
@@ -118,6 +134,7 @@ export default {
     login,
     postToken,
     getMenuApp,
+    getAplikasiByEmail,
     checkToken,
     logout,
 }

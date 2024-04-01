@@ -14,8 +14,8 @@ interface IRefAplikasiAttributes {
 	images : string | null; 
 	url : string | null; 
 	url_token : string | null | undefined; 
-	ucr : string | null; 
-	uch : string | null; 
+	ucr : string | null | undefined; 
+	uch : string | null | undefined; 
 	udcr : Date | null; 
 	udch : Date | null; 
 }
@@ -52,8 +52,8 @@ class RefAplikasi
 	declare images : string | null; 
 	declare url : string | null; 
 	declare url_token :  string | null | undefined; 
-	declare ucr : string | null; 
-	declare uch : string | null; 
+	declare ucr : string | null | undefined; 
+	declare uch : string | null | undefined; 
 	declare udcr : Date | null; 
 	declare udch : Date | null; 
 }

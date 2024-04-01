@@ -17,7 +17,7 @@ const payload = {
         ucr : z.string({
             required_error : "kode_level tidak boleh kosong",
             invalid_type_error : "kode_level harus huruf"
-        }).nullable(),
+        }).optional(),
     }),
 };
 
@@ -38,7 +38,7 @@ const updated = {
         uch : z.string({
             required_error : "uch tidak boleh kosong",
             invalid_type_error : "uch harus huruf"
-        }).nullable(),
+        }).optional(),
     }),
     params : z.object({
         id : z.string({

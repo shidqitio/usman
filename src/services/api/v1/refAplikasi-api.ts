@@ -13,7 +13,7 @@ dotenv.config()
 import fs from "fs/promises"
 
 import getConfig from "@config/dotenv";
-import { removeFile, removeFileName } from "@utils/remove-file";
+import { removeFile, removeFileName, removeByLastNameAplikasi } from "@utils/remove-file";
 import path from "path";
 
 const index = async () : Promise<RefAplikasiOutput[]> => {
@@ -68,6 +68,7 @@ const store = async (
             url : request.url,
             url_token : request.url_token,
             images : publicFileImages,
+            ucr : request.ucr
         }
 
         const insertAplikasi : RefAplikasiOutput = await RefAplikasi.create(aplikasiInput);
@@ -127,7 +128,7 @@ const updateAplikasi = async (
         refAplikasi.status = request.status
         refAplikasi.url = request.url
         refAplikasi.url_token = request.url_token
-        // refAplikasi.uch = request.uch
+        refAplikasi.uch = request.uch
 
         const existFile : string | null = refAplikasi.images
 
@@ -142,8 +143,9 @@ const updateAplikasi = async (
 
 
           if(!response) {
-            throw new CustomError(httpCode.unprocessableEntity, "Gagal Menambah Data")
+            throw new CustomError(httpCode.unprocessableEntity, "Gagal Mengubah Data")
           }
+
           let part 
           let lastPart
           if(existFile) {
@@ -154,9 +156,11 @@ const updateAplikasi = async (
                 let unlink = await fs.unlink(path.join(__dirname, `../../../../public/aplikasi/${lastPart}`))
                 console.log(unlink)
             }
+            return response
           }
-
-          return response
+          else {
+            return response
+          }
 
     } catch (error : any) {
         if (error instanceof CustomError) {
@@ -171,11 +175,47 @@ const updateAplikasi = async (
     }
 }
 
+const deleteAplikasi = async (id:GetRefAplikasiSchema["params"]["id"]) : Promise<any | null> => {
+    try {
+        const exRefAplikasi : RefAplikasi |  null = await RefAplikasi.findOne({
+            where : {
+                kode_aplikasi : id
+            }
+        })
+
+        if(!exRefAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
+
+      
+
+        const removeAplikasi = await RefAplikasi.destroy({
+            where : {
+                kode_aplikasi : id
+            }
+        })
+        console.log("TES REMOVE : ", removeAplikasi)
+
+        if(removeAplikasi === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
+
+        if(exRefAplikasi.images !== null) {
+            await removeByLastNameAplikasi(exRefAplikasi.images)
+        }
+    
+        return exRefAplikasi
+    } catch (error : any) {
+        if (error instanceof CustomError) {
+        throw new CustomError(500, error.message)
+    }
+        else {
+            throw new CustomError(500, error.message)
+        }
+    }
+}
 
 
 export default {
     index,
     store,
     getByKodeAPlikasi, 
-    updateAplikasi
+    updateAplikasi,
+    deleteAplikasi
 }

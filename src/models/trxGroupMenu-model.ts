@@ -17,8 +17,8 @@ export interface ITrxGroupMenuAttributes {
 	kode_menu2     : string | null,
 	kode_menu3     : string | null,
 	akses          : Akses,
-	ucr            : string | null,
-	uch            : string | null,
+	ucr            : string | null | undefined,
+	uch            : string | null | undefined,
 	udcr           : Date | undefined,
 	udch           : Date | undefined,
 }
@@ -43,8 +43,8 @@ class TrxGroupMenu
 	declare kode_menu2     : string | null ;
 	declare kode_menu3     : string | null ;
 	declare akses          : Akses ;
-	declare ucr            : string | null ;
-	declare uch            : string | null ;
+	declare ucr            : string | null | undefined;
+	declare uch            : string | null | undefined;
 	declare udcr           : Date | undefined ;
 	declare udch           : Date | undefined ;
 }

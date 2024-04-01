@@ -20,8 +20,8 @@ interface IRefMenu2Attributes {
 	on_create      : statusOn,
 	on_delete      : statusOn,
 	on_view        : statusOn,
-	ucr            : string | null,
-	uch            : string | null,
+	ucr            : string | null | undefined,
+	uch            : string | null | undefined,
 	udcr           : Date | undefined,
 	udch           : Date | undefined,
 }
@@ -52,8 +52,8 @@ class RefMenu2
     declare on_create      : statusOn;
     declare on_delete: statusOn;
     declare on_view        : statusOn;
-    declare ucr            : string | null;
-    declare uch            : string | null;
+    declare ucr            : string | null | undefined;
+    declare uch            : string | null | undefined;
     declare udcr           : Date | undefined;
     declare udch           : Date | undefined;
 }

@@ -37,7 +37,7 @@ const payload = {
         ucr  : z.string({
             required_error : "ucr Tidak Boleh Kosong",
             invalid_type_error : "ucr Harus String"
-        }),
+        }).optional(),
     })
 }
 
@@ -73,7 +73,7 @@ const updated = {
         uch  : z.string({
             required_error : "uch Tidak Boleh Kosong",
             invalid_type_error : "uch Harus String"
-        }),
+        }).optional(),
     }),
     params : z.object({
         id : z.number({

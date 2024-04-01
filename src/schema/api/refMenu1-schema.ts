@@ -86,10 +86,10 @@ const payload = {
         }),
         ucr : z.string({
            invalid_type_error : "ucr harus huruf" 
-        }).nullable(),
+        }).optional(),
         uch : z.string({
            invalid_type_error : "uch harus huruf" 
-        }).nullable(),
+        }).optional(),
     })
 }
 
@@ -174,10 +174,10 @@ const updated = {
         }),
         ucr : z.string({
            invalid_type_error : "ucr harus huruf" 
-        }).nullable(),
+        }).optional(),
         uch : z.string({
            invalid_type_error : "uch harus huruf" 
-        }).nullable(),
+        }).optional(),
     }), 
     params : z.object({
         id : z.string({
@@ -204,6 +204,7 @@ const params = {
       }),
     }),
 };
+
 
 const query = {
     query: z.object({

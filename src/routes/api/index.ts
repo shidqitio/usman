@@ -13,6 +13,7 @@ import refMenu3 from "@routes/api/refMenu3-route"
 import trxGroupUser from "@routes/api/trxGroupUser-route"
 import trxGroupMenu from "@routes/api/trxGroupMenu-route"
 import akses from "@routes/api/akses-route"
+import refUser from "@routes/api/refUser-route"
 import auth from "@middleware/auth";
 // routes.use("/v1", example);
 
@@ -31,5 +32,7 @@ routes.use(vers + "/trx-groupuser", trxGroupUser)
 routes.use(vers + "/trx-groupmenu", trxGroupMenu)
 
 routes.use(vers + "/akses", akses)
+
+routes.use(vers + "/users", refUser)
 
 export default routes;

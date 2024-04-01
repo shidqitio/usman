@@ -22,7 +22,7 @@ const allowedMimeTypesImage = ["image/jpeg", "image/png", "image/jpg"];
 const allowedMimeTypesPdf = ["application/pdf"];
 
 const storage = multer.diskStorage({
-  destination: async (req, file, callback) => {
+  destination: async (req , file, callback) => {
     const type: FileType = req.body.type;
     if (!type) {
       return callback(new Error("Type harus di isi."), "");
@@ -46,7 +46,7 @@ const storage = multer.diskStorage({
     }
     callback(null, folderPath);
   },
-  filename: async (req, file, callback) => {
+  filename: async (req , file, callback) => {
     const type: FileType = req.body.type;
     const name = Date.now();
 

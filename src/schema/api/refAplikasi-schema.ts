@@ -29,7 +29,10 @@ const payload = {
         url_token : z.string({
             required_error : "url tidak boleh kosong",
             invalid_type_error : "url harus huruf"
-        })
+        }), 
+        ucr : z.string({
+            invalid_type_error : "ucr Harus String"
+        }).optional()
     }).partial({url_token:true, keterangan:true}),
 };
 
@@ -62,6 +65,9 @@ const updated = {
             required_error : "url_token tidak boleh kosong",
             invalid_type_error : "url_token harus huruf"
         }),
+        uch : z.string({
+            invalid_type_error : "UCH Harus String"
+        }).optional()
     }),
     params : z.object({
         id : z.string({

@@ -92,10 +92,25 @@ const updateAplikasi = async (
     }
 }
 
+const deleteAplikasi = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_aplikasi : GetRefAplikasiSchema["params"]["id"] = req.params.id
+
+        const response : RefAplikasiOutput = await refAplikasiService.deleteAplikasi(kode_aplikasi)
+
+        responseSuccess(res,httpCode.ok, response)
+    } catch (error : any) {
+        next(error)
+    }
+}
 
 export default {
     store,
     index,
     getByKodeAplikasi,
-    updateAplikasi
+    updateAplikasi,
+    deleteAplikasi
 }

@@ -4,7 +4,7 @@ import db from "@config/database";
 export interface IRefUserAttributes {
 	id       : number ,
 	email    : string ,
-	password : string | null,
+	password : string | null | undefined,
 	api_token: any | null,
 	is_login : string | null,
     user_photo : string | null | undefined,
@@ -30,7 +30,7 @@ class RefUser
 {
     declare id       : number ;
     declare email    : string ;
-    declare password : string | null;
+    declare password : string | null | undefined;
     declare api_token: any | null;
     declare is_login : string | null;
     declare user_photo: string | null | undefined;

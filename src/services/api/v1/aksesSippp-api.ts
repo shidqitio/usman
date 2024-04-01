@@ -4,7 +4,7 @@ import axios from "axios"
 import { QueryTypes, Op } from "sequelize"
 
 import db from "@config/database"
-import RefAplikasi, {Status} from "@models/refAplikasi-model"
+import RefAplikasi, {RefAplikasiOutput, Status} from "@models/refAplikasi-model"
 import RefUser, { RefUserOutput } from "@models/refUser-model"
 import TrxGroupUser from "@models/trxGroupUser-model"
 import RefGroup from "@models/refGroup-model"
@@ -21,7 +21,8 @@ import decryptData from "@middleware/decrypt/token"
 import {
     PayloadAksesSchema,
     PayloadUserGroupSchema,
-    PayloadCheckToken
+    PayloadCheckToken, 
+    PayloadEmailAksesSchema
 } from "@schema/api/akses-schema"
 import { httpCode } from "@utils/prefix"
 import RefMenu1 from "@models/refMenu1-model"
@@ -34,7 +35,7 @@ const register = async (
         const email = require.email
         const password = require.password
 
-        const pw = await  bcrypt.hash(password, 12)
+        const pw  = await  bcrypt.hash(password, 12)
 
         const registUser = await RefUser.create({
             email : email, 
@@ -147,6 +148,67 @@ const login = async (
           }
     }
 }
+
+const getAplikasiByEmail = async (
+  require:PayloadEmailAksesSchema["body"]) : Promise<any | null> => {
+  try {
+    const email = require.email
+
+    const exUser = await RefUser.findOne({
+      where : {
+        email : email
+      }
+    })
+
+    if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Ada")
+
+    const akses = await db.query(`
+              SELECT a.kode_aplikasi, a.nama_aplikasi, a.kode_aplikasi, a.keterangan, d."status", a.images, a.url
+              FROM ref_aplikasi  a
+              JOIN ref_group  b ON b.kode_aplikasi = a.kode_aplikasi
+              JOIN trx_group_user d ON d.kode_group = b.kode_group
+              WHERE d.id_user = (:id)
+              AND d."status" = '1'
+              GROUP BY a.kode_aplikasi, d."status"
+    `, {
+      replacements : {id : exUser.id},
+      type : QueryTypes.SELECT
+    })
+
+    if(akses.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Memiliki Akses");
+
+    const ids  = akses.map((i : any) => i.kode_aplikasi);
+    const aps = await RefAplikasi.findAll({
+      where: {
+        kode_aplikasi: {
+          [Op.notIn]: ids,
+        },
+      },
+    });
+
+    const newAps = aps.map((ap) => {
+      return {
+        kode_aplikasi : ap.kode_aplikasi,
+        nama_aplikasi : ap.nama_aplikasi, 
+        keterangan : ap.keterangan, 
+        status : "0", 
+        images : ap.images
+      }
+    })
+
+    const aksesApp = [...akses, ...newAps]
+
+    return aksesApp
+  } catch (error : any) {
+    if (error instanceof CustomError) {
+      throw new CustomError(500, error.message)
+}
+  else {
+      throw new CustomError(500, error.message)
+  }
+  }
+}
+
 
 const postToken = async (
     require:PayloadUserGroupSchema["body"], token_input : string) : Promise <any | null> => {
@@ -606,6 +668,7 @@ export default {
   register,
   login,
   postToken,
+  getAplikasiByEmail,
   getMenuApp,
   checkToken,
   logout

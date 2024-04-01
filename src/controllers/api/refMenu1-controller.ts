@@ -70,6 +70,21 @@ const show = async (
         }
 }
 
+const getByKodeAPlikasi = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) => {
+    try {
+        const kode_menu1 : GetRefMenu1Schema["params"]["id"] = req.params.id
+
+        const response = await refMenu1Service.dataByAplikasi(kode_menu1)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        next(error)
+    }
+}
+
 const update = async (
     req:Request, 
     res:Response,
@@ -109,5 +124,6 @@ export default {
     store,
     show,
     update,
+    getByKodeAPlikasi,
     destroy
 }

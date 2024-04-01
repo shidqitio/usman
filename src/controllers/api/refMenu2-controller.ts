@@ -72,6 +72,22 @@ const show = async (
         }
 }
 
+const getByKodeMenu1 = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) => {
+    try {
+        const id : GetRefMenu2Schema["params"]["id"] = req.params.id
+
+        const response = await refMenu2Service.getByKodeMenu1(id)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error Get Kode Menu ${error}`);
+        next(error);
+    }
+}
+
 const update = async (
     req:Request, 
     res:Response,
@@ -111,5 +127,6 @@ export default {
     store,
     show,
     update,
+    getByKodeMenu1,
     destroy
 }
