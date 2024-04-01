@@ -8,7 +8,8 @@ import { httpCode } from "@utils/prefix";
 import {
     PayloadRefGroupSchema,
     ParamRefGroupSchema,
-    UpdatedRefGroupSchema
+    UpdatedRefGroupSchema,
+    DeletedRefGroupSchema
 } from "@schema/api/refGroup-schema"
 
 
@@ -142,11 +143,43 @@ const update = async (
     }
 }
 
+const destroy = async (
+    id:DeletedRefGroupSchema["params"]["id"]) : Promise<RefGroup> => {
+    try {
+        const refGroup : RefGroup | null = await RefGroup.findOne({
+            where : {
+                kode_group : id
+            }, 
+            attributes : {exclude : ["udcr", "udch", "ucr", "uch"]}
+        })
+
+        if(!refGroup) throw new CustomError(httpCode.unprocessableEntity, "Data Group Tidak Ada")
+
+        const deleteGroup = await RefGroup.destroy({
+            where : {
+                kode_group : id
+            }
+        })
+
+        if(deleteGroup === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Hapus")
+
+        return refGroup
+    } catch (error) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 
 
 export default {
     index,
     store,
     show,
-    update
+    update,
+    destroy
 }

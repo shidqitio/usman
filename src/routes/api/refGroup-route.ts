@@ -4,7 +4,8 @@ import refGroupController from "@controllers/api/refGroup-controller";
 import {
     payloadRefGroupSchema,
     paramRefGroupSchema, 
-    updatedRefGroupSchema
+    updatedRefGroupSchema,
+    deletedRefGroupSchema
 } from "@schema/api/refGroup-schema"
 
 const routes = express.Router()
@@ -21,5 +22,6 @@ routes.put("/:id",
             validate(updatedRefGroupSchema), 
             refGroupController.update);
 
+routes.delete("/:id", validate(deletedRefGroupSchema), refGroupController.destroy)
 
 export default routes

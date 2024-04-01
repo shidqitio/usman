@@ -57,6 +57,15 @@ const param = {
     })
 }
 
+const deleted = {
+    params : z.object({
+        id : z.string({
+            required_error : "Id Tidak Boleh Kosong",
+            invalid_type_error : "Id Harus String"
+        })
+    })
+}
+
 
 
 export const payloadRefGroupSchema = z.object({
@@ -71,6 +80,11 @@ export const paramRefGroupSchema = z.object({
     ...param
 })
 
+export const deletedRefGroupSchema = z.object({
+    ...deleted
+})
+
 export type PayloadRefGroupSchema = z.infer<typeof payloadRefGroupSchema>
 export type UpdatedRefGroupSchema = z.infer<typeof updatedRefGroupSchema>
 export type ParamRefGroupSchema = z.infer<typeof paramRefGroupSchema>
+export type DeletedRefGroupSchema = z.infer<typeof deletedRefGroupSchema>

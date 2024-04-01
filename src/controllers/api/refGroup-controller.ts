@@ -6,7 +6,8 @@ import { responseSuccess } from "@utils/response-success";
 import {
     PayloadRefGroupSchema,
     UpdatedRefGroupSchema, 
-    ParamRefGroupSchema
+    ParamRefGroupSchema,
+    DeletedRefGroupSchema
 } from "@schema/api/refGroup-schema"
 import { errorLogger } from "@config/logger";
 import { getSocketIO } from "@config/socket";
@@ -84,9 +85,25 @@ const update = async (
     }
 }
 
+const destroy = async (
+    req:Request, 
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_group : DeletedRefGroupSchema["params"]["id"] = req.params.id
+
+        const response = await refGroupService.destroy(kode_group)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error : any) {
+        next(error)
+    }
+}
+
 export default {
     index, 
     store,
     show,
-    update
+    update,
+    destroy
 }

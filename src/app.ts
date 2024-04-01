@@ -69,8 +69,8 @@ app.use(
 );
 
 app.use(
-  "/user-management/public/image/profil",
-  express.static(`D:/Dev SIPPP/PMO/public/images/userphoto`)
+  "/user-management/public/image/profil/",
+  express.static(path.join(`D:/Dev SIPPP/PMO/public/images/userphoto`))
 )
 /**
  * routes

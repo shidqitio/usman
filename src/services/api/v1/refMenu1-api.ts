@@ -125,7 +125,6 @@ const dataByAplikasi = async (id:GetRefMenu1Schema["params"]["id"]) : Promise<Re
             attributes : {exclude : ["udcr", "udch", "ucr", "uch"]}
         })
 
-
         return refMenu
     } catch (error : any) {
         if(error instanceof CustomError) {
