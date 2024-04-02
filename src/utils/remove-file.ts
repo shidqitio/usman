@@ -25,11 +25,12 @@ const removeByLastNameAplikasi = async (fileName:string) => {
   try {
     let part = fileName.split("/")
     let lastPart = part[part.length - 1]
-    console.log(__dirname)
-    await fs.unlink(path.join(__dirname, `../../public/aplikasi/${lastPart}`))
+    return lastPart
   } catch (error) {
     errorLogger.error(`ERROR REMOVE FILE BY NAME: ${error}`)
   }
 }
+
+
 
 export { removeFile, removeFileName, removeByLastNameAplikasi };

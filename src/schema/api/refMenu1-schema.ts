@@ -7,10 +7,6 @@ const payload = {
             required_error : "kode_aplikasi tidak boleh kosong",
             invalid_type_error : "kode_aplikasi harus huruf"
         }),
-        kode_menu1 : z.string({
-            required_error : "kode_menu1 tidak boleh kosong",
-            invalid_type_error : "kode_menu1 harus huruf"
-        }),
         kode_level : z.number({
             required_error : "kode_level tidak boleh kosong",
             invalid_type_error : "kode_level harus angka"

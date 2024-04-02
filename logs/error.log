@@ -1,173 +1,162 @@
-[2024-04-01T10:21:32.343] [ERROR] error - ERROR REMOVE FILE BY NAME: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\aplikasi'
-[2024-04-01T10:21:41.450] [ERROR] error - ERROR REMOVE FILE BY NAME: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\aplikasi\aplikasi-1711908688909.png'
-[2024-04-01T10:22:03.625] [ERROR] error - ERROR REMOVE FILE BY NAME: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\aplikasi\aplikasi-1711908809256.png'
-[2024-04-01T10:29:24.169] [ERROR] error - ERROR REMOVE FILE BY NAME: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\aplikasi\aplikasi-1711942119220.png'
-[2024-04-01T10:33:11.816] [ERROR] error - CustomError: Data Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:206:15
+[2024-04-02T09:55:48.186] [ERROR] error - testing error ChangePassword Error: User Tidak Terdaftar
+[2024-04-02T09:55:48.188] [ERROR] error - CustomError: User Tidak Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:702:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 422,
+  status: 'error'
+}
+[2024-04-02T09:56:57.069] [ERROR] error - testing error ChangePassword Error: Password Tidak Sesuai
+[2024-04-02T09:56:57.070] [ERROR] error - CustomError: Password Tidak Sesuai
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:702:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 422,
+  status: 'error'
+}
+[2024-04-02T10:07:30.978] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-04-02T10:07:52.793] [ERROR] error - CustomError: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+}
+[2024-04-02T10:48:22.112] [ERROR] error - testing error login Error: Password Salah
+[2024-04-02T10:48:22.113] [ERROR] error - CustomError: Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:149:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}
+[2024-04-02T10:48:35.363] [ERROR] error - testing error login Error: Password Salah
+[2024-04-02T10:48:35.364] [ERROR] error - CustomError: Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:149:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}
+[2024-04-02T11:14:03.934] [ERROR] error - testing error show Error: Internal server error.
+[2024-04-02T11:14:03.935] [ERROR] error - CustomError: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupUser-api.ts:192:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupUser-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-02T12:43:11.913] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\src\services\public\aplikasi'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-02T12:46:16.053] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\src\services\public\aplikasi\aplikasi-1712036758755.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-02T12:49:22.932] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\src\public\aplikasi\aplikasi-1712036958149.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:210:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-02T12:51:51.554] [ERROR] error - CustomError: Data Tidak Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:207:15
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-01T10:33:20.547] [ERROR] error - ERROR REMOVE FILE BY NAME: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\aplikasi\aplikasi-1711942134112.png'
-[2024-04-01T10:36:27.180] [ERROR] error - ERROR REMOVE FILE BY NAME: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\public\aplikasi\aplikasi-1711942555985.png'
-[2024-04-01T10:55:22.138] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711943722132.png'
-[2024-04-01T10:58:27.315] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711943907309.png'
-[2024-04-01T10:59:43.256] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711943983250.png'
-[2024-04-01T11:00:02.477] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944002474.png'
-[2024-04-01T11:00:03.903] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944003899.png'
-[2024-04-01T11:00:04.424] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944004422.png'
-[2024-04-01T11:00:04.841] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944004839.png'
-[2024-04-01T11:00:05.662] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944005660.png'
-[2024-04-01T11:00:06.080] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944006076.png'
-[2024-04-01T11:00:06.477] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944006475.png'
-[2024-04-01T11:02:30.562] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944150558.png'
-[2024-04-01T11:02:34.898] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944154897.png'
-[2024-04-01T11:04:27.819] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944267814.png'
-[2024-04-01T11:04:30.594] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944270592.png'
-[2024-04-01T11:04:30.981] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944270979.png'
-[2024-04-01T11:04:31.657] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944271654.png'
-[2024-04-01T11:04:32.251] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944272249.png'
-[2024-04-01T11:04:33.322] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944273321.png'
-[2024-04-01T11:04:34.371] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944274369.png'
-[2024-04-01T11:04:46.893] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944286889.png'
-[2024-04-01T11:04:47.567] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944287564.png'
-[2024-04-01T11:04:48.076] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944288074.png'
-[2024-04-01T11:04:48.539] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944288538.png'
-[2024-04-01T11:07:19.040] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944439037.png'
-[2024-04-01T11:07:27.959] [ERROR] error - Error: Type harus di isi.
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:28:23
-    at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:4:12)
-    at DiskStorage.destination [as getDestination] (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:25:46)
-    at DiskStorage._handleFile (D:\Dev SIPPP\PMO\usman\node_modules\multer\storage\disk.js:31:8)
-    at D:\Dev SIPPP\PMO\usman\node_modules\multer\lib\make-middleware.js:137:17
-    at fileFilterImage (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:71:5)
-    at wrappedFileFilter (D:\Dev SIPPP\PMO\usman\node_modules\multer\index.js:44:7) {
-  storageErrors: []
-}
-[2024-04-01T11:07:36.267] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944456265.png'
-[2024-04-01T11:09:14.807] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944554806.png'
-[2024-04-01T11:10:09.586] [ERROR] error - ERROR REMOVE FILE: Error: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711944609584.png'
-[2024-04-01T12:16:41.265] [ERROR] error - Error: Type file harus salah satu dari userphoto|aplikasi|invoice
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:33:9
-    at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:4:12)
-    at DiskStorage.destination [as getDestination] (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:25:58)
-    at DiskStorage._handleFile (D:\Dev SIPPP\PMO\usman\node_modules\multer\storage\disk.js:31:8)
-    at D:\Dev SIPPP\PMO\usman\node_modules\multer\lib\make-middleware.js:137:17
-    at fileFilterImage (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:71:5)
-    at wrappedFileFilter (D:\Dev SIPPP\PMO\usman\node_modules\multer\index.js:44:7) {
-  storageErrors: []
-}
-[2024-04-01T12:26:04.255] [ERROR] error - Error: Type file harus salah satu dari userphoto|aplikasi|invoice
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:33:9
-    at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:4:12)
-    at DiskStorage.destination [as getDestination] (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:25:58)
-    at DiskStorage._handleFile (D:\Dev SIPPP\PMO\usman\node_modules\multer\storage\disk.js:31:8)
-    at D:\Dev SIPPP\PMO\usman\node_modules\multer\lib\make-middleware.js:137:17
-    at fileFilterImage (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:71:5)
-    at wrappedFileFilter (D:\Dev SIPPP\PMO\usman\node_modules\multer\index.js:44:7) {
-  storageErrors: []
-}
-[2024-04-01T12:26:06.619] [ERROR] error - Error: Type file harus salah satu dari userphoto|aplikasi|invoice
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:33:9
-    at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:4:12)
-    at DiskStorage.destination [as getDestination] (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:25:58)
-    at DiskStorage._handleFile (D:\Dev SIPPP\PMO\usman\node_modules\multer\storage\disk.js:31:8)
-    at D:\Dev SIPPP\PMO\usman\node_modules\multer\lib\make-middleware.js:137:17
-    at fileFilterImage (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:71:5)
-    at wrappedFileFilter (D:\Dev SIPPP\PMO\usman\node_modules\multer\index.js:44:7) {
-  storageErrors: []
-}
-[2024-04-01T12:26:19.731] [ERROR] error - Error: Type file harus salah satu dari userphoto|aplikasi|invoice
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:33:9
-    at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:4:12)
-    at DiskStorage.destination [as getDestination] (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:25:58)
-    at DiskStorage._handleFile (D:\Dev SIPPP\PMO\usman\node_modules\multer\storage\disk.js:31:8)
-    at D:\Dev SIPPP\PMO\usman\node_modules\multer\lib\make-middleware.js:137:17
-    at fileFilterImage (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:71:5)
-    at wrappedFileFilter (D:\Dev SIPPP\PMO\usman\node_modules\multer\index.js:44:7) {
-  storageErrors: []
-}
-[2024-04-01T12:26:52.656] [ERROR] error - Error: Type file harus salah satu dari userphoto|aplikasi|invoice
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:33:9
-    at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:4:12)
-    at DiskStorage.destination [as getDestination] (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:25:58)
-    at DiskStorage._handleFile (D:\Dev SIPPP\PMO\usman\node_modules\multer\storage\disk.js:31:8)
-    at D:\Dev SIPPP\PMO\usman\node_modules\multer\lib\make-middleware.js:137:17
-    at fileFilterImage (D:\Dev SIPPP\PMO\usman\src\middleware\upload.ts:71:5)
-    at wrappedFileFilter (D:\Dev SIPPP\PMO\usman\node_modules\multer\index.js:44:7) {
-  storageErrors: []
-}
-[2024-04-01T14:27:59.972] [ERROR] error - testing error GetByMenu2 Error: Internal server error.
-[2024-04-01T14:27:59.973] [ERROR] error - CustomError: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:180:19
+[2024-04-02T13:09:21.397] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\[object Promise]'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
     at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
   code: 500,
   status: 'error'
 }
-[2024-04-01T14:28:03.850] [ERROR] error - testing error GetByMenu2 Error: Internal server error.
-[2024-04-01T14:28:03.851] [ERROR] error - CustomError: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:180:19
+[2024-04-02T13:11:54.964] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
     at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
   code: 500,
   status: 'error'
 }
-[2024-04-01T14:30:45.967] [ERROR] error - testing error GetByMenu2 Error: Internal server error.
-[2024-04-01T14:30:45.968] [ERROR] error - CustomError: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:181:19
+[2024-04-02T13:11:59.338] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
     at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
   code: 500,
   status: 'error'
 }
-[2024-04-01T14:32:39.481] [ERROR] error - testing error GetByMenu2 Error: Data Sudah Ada
-[2024-04-01T14:32:39.482] [ERROR] error - CustomError: Data Sudah Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:178:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:5:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 422,
+[2024-04-02T13:12:16.556] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+  code: 500,
   status: 'error'
 }
-[2024-04-01T14:36:29.160] [ERROR] error - testing error GetByMenu2 Error: Data Tidak Ada
-[2024-04-01T14:36:29.161] [ERROR] error - CustomError: Data Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:178:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:5:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 422,
+[2024-04-02T13:12:18.820] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+  code: 500,
   status: 'error'
 }
-[2024-04-01T14:36:46.118] [ERROR] error - testing error GetByMenu2 Error: Data Tidak Ada
-[2024-04-01T14:36:46.119] [ERROR] error - CustomError: Data Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:178:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:5:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 422,
+[2024-04-02T13:27:12.480] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:70:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-02T13:29:31.953] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:70:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-02T13:29:37.271] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:70:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-02T13:32:27.760] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:70:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+  code: 500,
   status: 'error'
 }

@@ -22,7 +22,9 @@ import {
     PayloadAksesSchema,
     PayloadUserGroupSchema,
     PayloadCheckToken, 
-    PayloadEmailAksesSchema
+    PayloadEmailAksesSchema, 
+    PayloadChangePasswordSchema,
+    PayloadLogoutSchema
 } from "@schema/api/akses-schema"
 import { httpCode } from "@utils/prefix"
 import RefMenu1 from "@models/refMenu1-model"
@@ -71,7 +73,8 @@ const login = async (
 
         const passwordExist : any = existUser.password
 
-        const credential = bcrypt.compare(password, passwordExist)
+        const credential = await bcrypt.compare(password, passwordExist)
+
 
         if(!credential) throw new CustomError(httpCode.notAcceptable, "Password Salah")
 
@@ -601,7 +604,7 @@ const checkToken = async (
 }
 
 const logout = async (
-  require:PayloadCheckToken["body"]) : Promise<any | null> => {
+  require:PayloadLogoutSchema["body"]) : Promise<any | null> => {
   try {
       const id_user = require.id_user
       const kode_group = require.kode_group
@@ -662,6 +665,48 @@ const postTokenApp = async (url_token : any, data : any) => {
       headers: headers,
     });
   };
+
+const changePassword = async (
+  request:PayloadChangePasswordSchema["body"]) : Promise<RefUser> => {
+try {
+  const email = request.email
+  const password_lama = request.password_lama
+  const password_baru = request.password_baru
+
+  const exUser : RefUser | null = await RefUser.findOne({
+    where : {
+      email : email
+    }
+  })
+
+  if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Terdaftar")
+
+  const validasi = await bcrypt.compare(password_lama, String(exUser.password))
+
+  if(!validasi) throw new CustomError(httpCode.unprocessableEntity, "Password Tidak Sesuai")
+
+  let newPassword = await bcrypt.hash(password_baru, 12);
+
+  const [updatedRows, [updateResult]] = await RefUser.update({
+    password : newPassword
+  }, {
+    where : {
+      email : email
+    },
+    returning : true
+  })
+
+  if(updatedRows === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Password Gagal Update")
+
+  return updateResult
+} catch (error) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code, error.message);
+    } else {
+      throw new CustomError(500, "Internal server error.");
+    }
+  }
+}
   
 
 export default {
@@ -671,5 +716,6 @@ export default {
   getAplikasiByEmail,
   getMenuApp,
   checkToken,
-  logout
+  logout,
+  changePassword
 }

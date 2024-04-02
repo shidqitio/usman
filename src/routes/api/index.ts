@@ -14,6 +14,7 @@ import trxGroupUser from "@routes/api/trxGroupUser-route"
 import trxGroupMenu from "@routes/api/trxGroupMenu-route"
 import akses from "@routes/api/akses-route"
 import refUser from "@routes/api/refUser-route"
+import refLevel from "@routes/api/refLevel-routes"
 import auth from "@middleware/auth";
 // routes.use("/v1", example);
 
@@ -30,6 +31,8 @@ routes.use(vers + "/menu3", refMenu3);
 routes.use(vers + "/trx-groupuser", trxGroupUser)
 
 routes.use(vers + "/trx-groupmenu", trxGroupMenu)
+
+routes.use(vers + "/level", refLevel )
 
 routes.use(vers + "/akses", akses)
 

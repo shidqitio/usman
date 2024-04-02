@@ -299,7 +299,7 @@ const storeGroups = async (
 
 
 const userByGroup = async (
-    id:GetTrxGroupUserSchema["params"]["id_group"]) : Promise<any | null> => {
+    id:GetTrxGroupUserSchema["params"]["id"]) : Promise<any | null> => {
     try {
         const kode_group = id
 

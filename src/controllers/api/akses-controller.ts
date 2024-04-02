@@ -6,7 +6,9 @@ import {
     PayloadAksesSchema,
     PayloadCheckToken,
     PayloadUserGroupSchema,
-    PayloadEmailAksesSchema
+    PayloadEmailAksesSchema,
+    PayloadChangePasswordSchema,
+    PayloadLogoutSchema
 } from "@schema/api/akses-schema"
 
 import aksesService from "@services/api/v1/aksesSippp-api"
@@ -129,6 +131,22 @@ const logout = async (
     }
 }
 
+const changePassword = async (
+    req:Request,
+    res:Response,
+    next:NextFunction)  : Promise<void>=> {
+    try {
+        const request : PayloadChangePasswordSchema["body"] = req.body
+
+        const response = await aksesService.changePassword(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error ChangePassword ${error}`);
+        next(error);
+    }
+}
+
 export default {
     register,
     login,
@@ -137,4 +155,5 @@ export default {
     getAplikasiByEmail,
     checkToken,
     logout,
+    changePassword
 }

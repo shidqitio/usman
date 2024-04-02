@@ -29,8 +29,8 @@ log4js.configure(logger);
 /**
  * certificate keys
  */
-var key = fs.readFileSync("src/certificate/ut.key", "utf-8");
-var cert = fs.readFileSync("src/certificate/full-bundle.crt", "utf-8");
+// var key = fs.readFileSync("src/certificate/ut.key", "utf-8");
+// var cert = fs.readFileSync("src/certificate/full-bundle.crt", "utf-8");
 
 // var options = { key: key, cert: cert };
 
@@ -76,8 +76,8 @@ app.use(
  * routes
  */
 app.use("/user-management/api", apiRoutes)
-app.use("/expenditure/web", authorization, webRoutes);
-app.use("/expenditure/mobile", authorization, mobileRoutes);
+// app.use("/expenditure/web", authorization, webRoutes);
+// app.use("/expenditure/mobile", authorization, mobileRoutes);
 
 /**
  * not found
@@ -110,4 +110,21 @@ db.sync()
   .catch((error) => {
     errorLogger.error(`SERVER ERROR: ${error}`);
   });
+
+  // try {
+  //   const server = http.createServer(app);
+  //   server.listen(getConfig("PORT_SERVER"), () => {
+  //     console.log(license);
+  //     console.log(
+  //       `${String.fromCodePoint(
+  //         0x1f525
+  //       )} SERVER USMAN ON PORT : ${getConfig(
+  //         "PORT_SERVER"
+  //       )} ${String.fromCodePoint(0x1f525)}`
+  //     );
+  //     initSocketIO(server);
+  //   });
+  // } catch (error) {
+  //     errorLogger.error(`SERVER ERROR: ${error}`);
+  // }
 

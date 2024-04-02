@@ -62,7 +62,7 @@ const show = async (
     res:Response,
     next:NextFunction) : Promise<void> => {
     try {
-        const kode_group_user : GetTrxGroupUserSchema["params"]["id"] = parseInt(req.params.id)
+        const kode_group_user : GetTrxGroupUserSchema["params"]["id"] = req.params.id
 
         const response : TrxGroupUserOutput = await trxGroupUserService.show(kode_group_user)
 
@@ -94,7 +94,7 @@ const userByGroup = async (
     res:Response,
     next:NextFunction) : Promise<void> => {
     try {
-        const kode_group : GetTrxGroupUserSchema["params"]["id_group"] = req.params.id
+        const kode_group : GetTrxGroupUserSchema["params"]["id"] = req.params.id
 
         const response : any = await trxGroupUserService.userByGroup(kode_group)
 

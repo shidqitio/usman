@@ -196,8 +196,9 @@ const deleteAplikasi = async (id:GetRefAplikasiSchema["params"]["id"]) : Promise
 
         if(removeAplikasi === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
 
-        if(exRefAplikasi.images !== null) {
-            await removeByLastNameAplikasi(exRefAplikasi.images)
+        if(exRefAplikasi.images !== null || exRefAplikasi.images === "") {
+           const lastData = await removeByLastNameAplikasi(exRefAplikasi.images)
+           await fs.unlink(path.join(__dirname, `../../../../public/aplikasi/${lastData}`))
         }
     
         return exRefAplikasi

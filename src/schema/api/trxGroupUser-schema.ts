@@ -22,11 +22,7 @@ const payload = {
     })
 }
 
-const payloadUser = {
-    body : z.object({
 
-    })
-}
 
 const payloadUsersSchema = {
     body : z.object({
@@ -81,14 +77,10 @@ const destroy = {
 
 const parameter = {
     params : z.object({
-        id : z.number({
+        id : z.string({
             required_error : "Id Tidak Boleh Kosong",
             invalid_type_error : "Id harus Integer"
         }), 
-        id_group : z.string({
-            required_error : "Id_Group Tidak Boleh Kosong",
-            invalid_type_error : "Id_Group harus Integer"
-        })
     })
 } 
 

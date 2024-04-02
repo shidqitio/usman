@@ -5,7 +5,9 @@ import {
     payloadAksesSchema, 
     payloadCheckTokenAksesSchema,
     payloadUserGroupAksesSchema,
-    payloadEmailAksesSchema
+    payloadEmailAksesSchema,
+    payloadChangePasswordSchema,
+    payloadLogoutSchema
 } from "@schema/api/akses-schema"
 
 import auth from "@middleware/auth"
@@ -18,7 +20,8 @@ routes.post("/aplikasi", validate(payloadEmailAksesSchema), aksesController.getA
 routes.post("/post-token", auth, validate(payloadUserGroupAksesSchema), aksesController.postToken)
 routes.post("/get-menu", auth, validate(payloadUserGroupAksesSchema), aksesController.getMenuApp)
 routes.post("/check-token", auth, validate(payloadUserGroupAksesSchema), aksesController.checkToken)
-routes.post("/logout", auth, validate(payloadCheckTokenAksesSchema), aksesController.logout)
+routes.post("/logout", validate(payloadLogoutSchema), aksesController.logout)
+routes.post("/change-password",validate(payloadChangePasswordSchema), aksesController.changePassword)
 
 
 export default routes

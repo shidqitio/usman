@@ -69,6 +69,40 @@ const payloadEmail = {
     })
 }
 
+const payloadChangePassword = {
+    body : z.object({
+        email : z.string({
+            required_error : "Email Tidak Boleh Kosong",
+            invalid_type_error : "Email harus email"
+        }).email(),
+        password_lama : z.string({
+            required_error : "password_lama Tidak Boleh Kosong",
+            invalid_type_error : "password_lama harus password_lama"
+        }),
+        password_baru : z.string({
+            required_error : "password_baru Tidak Boleh Kosong",
+            invalid_type_error : "password_baru harus password_baru"
+        })
+    })
+}
+
+const payloadLogout = {
+    body : z.object({
+        id_user : z.number({
+            required_error : "Id User Tidak Boleh Kosong",
+            invalid_type_error : "Id User Harus Angka"
+        }),
+        kode_group : z.string({
+            required_error : "Kode_Group Tidak Boleh Kosong",
+            invalid_type_error : "Kode_group Harus String"
+        }),
+        token : z.string({
+            required_error : "token Tidak Boleh Kosong",
+            invalid_type_error : "token Harus String"
+        }), 
+    })
+}
+
 export const payloadAksesSchema = z.object({
     ...payloadEmailPassword
 }) 
@@ -89,8 +123,18 @@ export const payloadEmailAksesSchema = z.object({
     ...payloadEmail
 })
 
+export const payloadChangePasswordSchema = z.object({
+    ...payloadChangePassword
+})
+
+export const payloadLogoutSchema = z.object({
+    ...payloadLogout
+})
+
 export type PayloadAksesSchema = z.infer<typeof payloadAksesSchema>
 export type PayloadUserGroupSchema = z.infer<typeof payloadUserGroupAksesSchema>
 export type PayloadCheckToken = z.infer<typeof payloadCheckTokenAksesSchema>
 export type PayloadUserAplikasiAksesSchema = z.infer<typeof payloadUserAplikasiAksesSchema>
 export type PayloadEmailAksesSchema = z.infer<typeof payloadEmailAksesSchema>
+export type PayloadLogoutSchema = z.infer<typeof payloadLogoutSchema>
+export type PayloadChangePasswordSchema = z.infer<typeof payloadChangePasswordSchema>
