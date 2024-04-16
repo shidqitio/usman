@@ -22,6 +22,6 @@ routes.post("/get-menu", auth, validate(payloadUserGroupAksesSchema), aksesContr
 routes.post("/check-token", auth, validate(payloadUserGroupAksesSchema), aksesController.checkToken)
 routes.post("/logout", validate(payloadLogoutSchema), aksesController.logout)
 routes.post("/change-password",validate(payloadChangePasswordSchema), aksesController.changePassword)
-
+routes.post("/forget-password", validate(payloadEmailAksesSchema), aksesController.forgetPassword)
 
 export default routes

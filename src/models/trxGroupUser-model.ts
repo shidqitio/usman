@@ -79,11 +79,11 @@ TrxGroupUser.init (
             allowNull : true
         },
         udcr : {
-            type : DataTypes.STRING(),
+            type : DataTypes.DATE(),
             allowNull : true
         },
         udch : {
-            type : DataTypes.STRING(),
+            type : DataTypes.DATE(),
             allowNull : true
         },
     }, 

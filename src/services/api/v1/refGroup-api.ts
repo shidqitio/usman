@@ -2,6 +2,8 @@ import RefAplikasi from "@models/refAplikasi-model";
 import RefGroup, {RefGroupInput, RefGroupOutput} from "@models/refGroup-model";
 import RefLevel from "@models/refLevel-model";
 import generateAutoCode from "@utils/generate_auto_code"
+import TrxGroupMenu from "@models/trxGroupMenu-model";
+import TrxGroupUser from "@models/trxGroupUser-model";
 import db from "@config/database";
 import CustomError from "@middleware/error-handler";
 import { httpCode } from "@utils/prefix";
@@ -115,6 +117,43 @@ const show = async (
     }
 }
 
+const getRoleByAplikasi = async (
+    id:ParamRefGroupSchema["params"]["id"]) : Promise<RefGroup[]> => {
+    try {
+        const exRefAplikasi : RefAplikasi | null = await RefAplikasi.findOne({
+            where : {
+                kode_aplikasi : id
+            }
+        })
+
+        if(!exRefAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Kode Aplikasi Tidak Ada")
+
+
+        const refGroup : RefGroup[] = await RefGroup.findAll({
+            where : {
+                kode_aplikasi : id
+            },
+            attributes : {exclude : ["udcr","udch","ucr","uch"]},
+            include : [
+                {
+                    model : RefLevel, 
+                    as : "Level"
+                }
+            ]
+        })
+
+        return refGroup
+
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 const update = async (
     id:UpdatedRefGroupSchema["params"]["id"],
     request:UpdatedRefGroupSchema["body"]) : Promise<RefGroupOutput> => {
@@ -161,6 +200,24 @@ const destroy = async (
             }
         })
 
+        
+        const extrxGroupUser : TrxGroupUser | null  = await TrxGroupUser.findOne({
+            where : {
+                kode_group : id 
+            }
+        })
+
+        if(extrxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Role Sudah Terpakai")
+
+
+        const extrxGroupMenu : TrxGroupMenu | null = await TrxGroupMenu.findOne({
+            where : {
+                kode_group : id
+            }
+        })
+
+        if(extrxGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Role Sudah Terintegrasi dengan Menu")
+
         if(deleteGroup === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Hapus")
 
         return refGroup
@@ -181,5 +238,6 @@ export default {
     store,
     show,
     update,
-    destroy
+    destroy,
+    getRoleByAplikasi
 }

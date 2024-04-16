@@ -147,6 +147,22 @@ const changePassword = async (
     }
 }
 
+const forgetPassword = async (
+    req:Request, 
+    res:Response, 
+    next:NextFunction) : Promise<void> => {
+    try {
+        const request : PayloadEmailAksesSchema["body"] = req.body
+
+        const response = await aksesService.forgetPassword(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error ForgetPassword ${error}`);
+        next(error);
+    }
+}
+
 export default {
     register,
     login,
@@ -155,5 +171,6 @@ export default {
     getAplikasiByEmail,
     checkToken,
     logout,
-    changePassword
+    changePassword,
+    forgetPassword
 }

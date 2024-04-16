@@ -26,18 +26,13 @@ const updateUserPhoto = async (
 
         let data_photo
 
-        console.log(refUser.user_photo);
-        
-        if(file && file.path) {
-            if(refUser.user_photo !== null || refUser.user_photo !== "") {
-                let lastName = await removeByLastNameAplikasi(String(refUser.user_photo))
-                console.log("TES DATA :", refUser.user_photo);
-                
-                await fs.unlink(`D:/Dev SIPPP/PMO/public/images/userphoto/${lastName}`)
-            }
-        }
 
         if(file && file.filename) {
+            if(refUser.user_photo !== null ) {
+                let lastName = await removeByLastNameAplikasi(String(refUser.user_photo)) 
+                await fs.unlink(`D:/Dev SIPPP/PMO/public/images/userphoto/${lastName}`)
+            }
+
             const PUBLIC_FILE_GIRO = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE_PROFIL")}${file.filename}`;
       
             data_photo = PUBLIC_FILE_GIRO;

@@ -9,6 +9,7 @@ import {
     GetRefMenu3Schema,
     DestroyRefMenu3Schema
 } from "@schema/api/refMenu3-schema"
+import TrxGroupMenu from "@models/trxGroupMenu-model";
 
 const index = async (
     page:SearchRefMenu3Schema["query"]["page"],
@@ -131,8 +132,9 @@ const update = async (
         try {
             const refMenu3 = await RefMenu3.findByPk(id)
 
-            if (!refMenu3) throw new CustomError(httpCode.unprocessableEntity, "RefMenu1 Tidak Ditemukan")
+            if (!refMenu3) throw new CustomError(httpCode.unprocessableEntity, "RefMenu3 Tidak Ditemukan")
 
+            
             refMenu3.nama_menu3 = require.nama_menu3
             refMenu3.keterangan_menu = require.keterangan_menu
             refMenu3.icon = require.icon
@@ -196,6 +198,14 @@ const destroy = async (
             const refMenu3  = await RefMenu3.findByPk(id)
 
              if (!refMenu3) throw new CustomError(httpCode.unprocessableEntity, "RefMenu3 Tidak Ditemukan")
+
+             const exTrxGroupMenu : TrxGroupMenu | null = await TrxGroupMenu.findOne({
+                where : {
+                    kode_menu3 : id
+                }
+             })
+
+             if(exTrxGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Menu Sudah Terdaftar Oleh User")
 
              const hapusData = await RefMenu3.destroy({
                  where : {

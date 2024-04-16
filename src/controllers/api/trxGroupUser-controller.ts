@@ -7,6 +7,7 @@ import {
     StoresTrxGroupsUserSchema,
     SearchTrxGroupUserSchema,
     PayloadTrxGroupUserSchema,
+    DestroyTrxGroupUserSchema,
 
 
 } from "@schema/api/trxGroupUser-schema"
@@ -105,10 +106,28 @@ const userByGroup = async (
     }
 }
 
+const destroy = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const id_user : DestroyTrxGroupUserSchema["params"]["id"] = req.params.id
+
+        console.log(id_user)
+
+        const response = await trxGroupUserService.destroy(id_user)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        next(error)
+    }
+}
+
 export default {
     index,
     store,
     show,
     storeGroups,
     userByGroup,
+    destroy
 }

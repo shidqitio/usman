@@ -134,7 +134,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                     kode_group : kodeGroup
                 }
             })
-            if (!exGroup) throw new CustomError(httpCode.unprocessableEntity, "Data Group Tidak Ada")
+            if (!exGroup) throw new CustomError(httpCode.unprocessableEntity, "User Sudah Terdaftar di Group yang Samas")
 
             const idUser = exUser.id
 
@@ -144,6 +144,8 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                     id_user : idUser
                 }
             })
+
+            if(exGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Dibuat")
 
             const createGroupUser : TrxGroupUserOutput = await TrxGroupUser.create({
                 kode_group : kodeGroup, 
@@ -161,6 +163,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
             throw new CustomError(error.code, error.message)
         } 
         else {
+            console.log(error)
             throw new CustomError(500, "Internal server error.")
         }
     }
@@ -335,10 +338,42 @@ const userByGroup = async (
     }
 }
 
+const destroy = async (
+    id:DestroyTrxGroupUserSchema["params"]["id"]) : Promise<TrxGroupUserOutput> => {
+    try {
+        const exTrxGroupUser : TrxGroupUser | null = await TrxGroupUser.findOne({
+            where : {
+                id_group_user : id
+            }
+        })
+
+        if(!exTrxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Tidak Ada Data Group User")
+
+        const destroy = await TrxGroupUser.destroy({
+            where : {
+                id_group_user : id
+            }
+        })
+
+        if(destroy === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
+
+        return exTrxGroupUser
+
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 export default {
     index, 
     store,
     show,
     storeGroups,
     userByGroup,
+    destroy
 }

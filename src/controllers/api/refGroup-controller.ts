@@ -68,6 +68,21 @@ const show = async (
     }
 }
 
+const getRoleByAplikasi = async (
+    req:Request,
+    res:Response, 
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_aplikasi : ParamRefGroupSchema["params"]["id"] = req.params.id
+
+        const refGroup : RefGroupOutput[] = await refGroupService.getRoleByAplikasi(kode_aplikasi)
+
+        responseSuccess(res, httpCode.ok, refGroup)
+    } catch (error) {
+        next(error)
+    }
+}
+
 const update = async (
     req:Request,
     res:Response,
@@ -84,6 +99,8 @@ const update = async (
         next(error)
     }
 }
+
+
 
 const destroy = async (
     req:Request, 
@@ -105,5 +122,6 @@ export default {
     store,
     show,
     update,
-    destroy
+    destroy,
+    getRoleByAplikasi
 }

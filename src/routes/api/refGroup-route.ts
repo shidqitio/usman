@@ -14,6 +14,8 @@ routes.get("/", refGroupController.index);
 
 routes.get("/:id", validate(paramRefGroupSchema), refGroupController.show )
 
+routes.get("/aplikasi-role/:id", validate(paramRefGroupSchema), refGroupController.getRoleByAplikasi)
+
 routes.post("/", 
             validate(payloadRefGroupSchema), 
             refGroupController.store);

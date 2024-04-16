@@ -1,4 +1,8 @@
 import RefMenu1, {statusOn, RefMenu1Input, RefMenu1Output} from "@models/refMenu1-model";
+import RefMenu2 from "@models/refMenu2-model"
+import RefMenu3 from "@models/refMenu3-model";
+import TrxGroupMenu from "@models/trxGroupMenu-model";
+import TrxGroupUser from "@models/trxGroupUser-model";
 import RefAplikasi from "@models/refAplikasi-model";
 import CustomError from "@middleware/error-handler";
 import generate_auto_code from "@utils/generate_auto_code";
@@ -180,11 +184,24 @@ const destroy = async (
 
              if (!refMenu1) throw new CustomError(httpCode.unprocessableEntity, "RefMenu1 Tidak Ditemukan")
 
+            const exGroupMenu : TrxGroupMenu | null = await TrxGroupMenu.findOne({
+                where : {
+                    kode_menu1 : id
+                }
+            }) 
+
+            if(exGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Menu Sudah Terdaftar Oleh User")
+             
+
              const hapusData = await RefMenu1.destroy({
                  where : {
                      kode_menu1 : id
                  }
              })
+
+             console.log(hapusData);
+             
+             if(hapusData === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
 
              return refMenu1
         } catch (error : any) {

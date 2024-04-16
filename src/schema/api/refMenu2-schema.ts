@@ -91,14 +91,6 @@ const payload = {
 
 const updated = {
     body : z.object({
-        kode_aplikasi : z.string({
-            required_error : "kode_aplikasi tidak boleh kosong",
-            invalid_type_error : "kode_aplikasi harus huruf"
-        }),
-        kode_menu1 : z.string({
-            required_error : "kode_menu1 tidak boleh kosong",
-            invalid_type_error : "kode_menu1 harus huruf"
-        }),
         nama_menu2 : z.string({
             required_error : "nama_menu1 tidak boleh kosong",
             invalid_type_error : "nama_menu1 harus huruf"

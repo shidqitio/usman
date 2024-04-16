@@ -1,6 +1,7 @@
 import TrxGroupMenu, {Akses, TrxGroupMenuInput, TrxGroupMenuOutput} from "@models/trxGroupMenu-model";
 import RefGroup from "@models/refGroup-model";
 import CustomError from "@middleware/error-handler";
+import TrxGroupUser from "@models/trxGroupUser-model";
 import { httpCode } from "@utils/prefix";
 import {
     PayloadTrxGroupMenuSchema,
@@ -164,6 +165,14 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
         const groupMenu : TrxGroupMenu | null = await TrxGroupMenu.findByPk(id)
 
         if(!groupMenu) throw new CustomError(httpCode.unprocessableEntity, "Data Group Menu Tidak Ada")
+
+        const exTrxGroupUser : TrxGroupUser | null = await TrxGroupUser.findOne({
+            where : {
+                kode_group : groupMenu.kode_group
+            }
+        })
+
+        if(exTrxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Menu Group Sudah Terdaftar Pengguna")
 
         const hapusData = await TrxGroupMenu.destroy({
             where : {

@@ -7,6 +7,7 @@ export interface IRefUserAttributes {
 	password : string | null | undefined,
 	api_token: any | null,
 	is_login : string | null,
+    forget_token_pass : string | null, 
     user_photo : string | null | undefined,
 	ucr      : string | null | undefined,
 	uch      : string | null | undefined,
@@ -18,6 +19,7 @@ export type RefUserOutput = Required<IRefUserAttributes>
 export type RefUserInput = Optional<
 IRefUserAttributes, 
 "id" |
+"forget_token_pass" |
 "uch" | 
 "ucr" | 
 "udch"|
@@ -33,6 +35,7 @@ class RefUser
     declare password : string | null | undefined;
     declare api_token: any | null;
     declare is_login : string | null;
+    declare forget_token_pass : string | null ;
     declare user_photo: string | null | undefined;
     declare ucr      : string | null | undefined;
     declare uch      : string | null | undefined;
@@ -65,6 +68,10 @@ RefUser.init(
             allowNull : true
         },
         user_photo : {
+            type : DataTypes.STRING(), 
+            allowNull : true
+        },
+        forget_token_pass : {
             type : DataTypes.STRING(), 
             allowNull : true
         },

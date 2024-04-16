@@ -31,6 +31,8 @@ import RefMenu1 from "@models/refMenu1-model"
 import RefMenu2 from "@models/refMenu2-model"
 import RefMenu3 from "@models/refMenu3-model"
 
+import nodemailer from "nodemailer"
+
 const register = async (
     require:PayloadAksesSchema["body"]) : Promise<RefUserOutput> => {
     try {
@@ -707,6 +709,89 @@ try {
     }
   }
 }
+
+const forgetPassword = async (
+  request:PayloadEmailAksesSchema["body"]) : Promise<any | null> => {
+  try {
+    const email = request.email
+
+    const checkEmail : RefUser | null = await RefUser.findOne({
+      where : {
+        email : email
+      }
+    })
+
+    if(!checkEmail) throw new CustomError(httpCode.unprocessableEntity, "Email Tidak Terdaftar");
+
+    const token = jwt.sign(
+      {
+          id_user : checkEmail.id
+      },
+      getConfig("SECRET_KEY"),
+      {expiresIn : "24h"}
+     )
+
+      await RefUser.update({
+        forget_token_pass : token
+      }, {
+        where : {
+          email : email
+        }
+      })
+    
+      const transporter =  nodemailer.createTransport({
+        pool: true,
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // use TLS
+        auth: {
+          user: "williejenkis02@gmail.com",
+          pass: "alvaromorata",
+        },
+      })
+
+      // verify connection configuration
+       transporter.verify(function (error, success) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Server is ready to take our messages");
+        }
+      });
+
+
+    const mailOption = {
+      from : `williejenkins02@gmail.com`,
+      to : `shidqitio@gmail.com`, 
+      subject : `Test Email`,
+      text : `SEND DATA WITH TOKEN ${token}`
+    }
+
+    transporter.sendMail(mailOption, (error, info) => {
+      if(error) {
+        console.log(`Error Sending Email`, error)
+      } else {
+        console.log(`Success`, info)
+      }
+    })
+
+    const data = {
+      token : token, 
+      user : {
+        email : checkEmail.email
+      }
+    }
+
+    return data
+  } catch (error: any) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code, error.message);
+    } else {
+      console.log(error);
+      throw new CustomError(500, "Internal server error.");
+    }
+  }
+}
   
 
 export default {
@@ -717,5 +802,6 @@ export default {
   getMenuApp,
   checkToken,
   logout,
-  changePassword
+  changePassword,
+  forgetPassword
 }

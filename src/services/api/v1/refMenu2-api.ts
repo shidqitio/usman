@@ -1,5 +1,6 @@
 import RefMenu1 from "@models/refMenu1-model";
 import RefMenu2, {RefMenu2Input, RefMenu2Output} from "@models/refMenu2-model";
+import TrxGroupMenu from "@models/trxGroupMenu-model";
 import CustomError from "@middleware/error-handler";
 import { httpCode } from "@utils/prefix";
 import {
@@ -108,8 +109,9 @@ const store = async (
 const show = async (
     id:GetRefMenu2Schema["params"]["id"]) : Promise<RefMenu2Output> => {
     try {
-        const refMenu2 : RefMenu2 | null = await RefMenu2.findByPk(id)
-        if(!refMenu2) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
+        const refMenu2 : RefMenu2 | any = await RefMenu2.findByPk(id)
+
+        // if(!refMenu2) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
 
         return refMenu2
     } catch (error : any) {
@@ -157,8 +159,10 @@ const update = async (
         try {
             const refMenu2 = await RefMenu2.findByPk(id)
 
-            if (!refMenu2) throw new CustomError(httpCode.unprocessableEntity, "RefMenu1 Tidak Ditemukan")
+            if (!refMenu2) throw new CustomError(httpCode.unprocessableEntity, "RefMenu2 Tidak Ditemukan")
 
+            refMenu2.kode_aplikasi = refMenu2.kode_aplikasi
+            refMenu2.kode_menu1 = refMenu2.kode_menu1
             refMenu2.nama_menu2 = require.nama_menu2
             refMenu2.keterangan_menu = require.keterangan_menu
             refMenu2.icon = require.icon
@@ -192,11 +196,22 @@ const destroy = async (
 
              if (!refMenu2) throw new CustomError(httpCode.unprocessableEntity, "RefMenu2 Tidak Ditemukan")
 
+             const exTrxGroupMenu : TrxGroupMenu | null = await TrxGroupMenu.findOne({
+                where : {
+                    kode_menu2 : id
+                }
+             })
+
+             if(exTrxGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Menu Sudah Terdaftar Oleh User")
+
+
              const hapusData = await RefMenu2.destroy({
                  where : {
                      kode_menu2 : id
                  }
              })
+
+
 
              if(hapusData === 0) {
                 throw new CustomError(httpCode.unprocessableEntity, "Data GagalHapus")

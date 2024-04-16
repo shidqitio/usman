@@ -68,9 +68,9 @@ const update = {
 
 const destroy = {
     params : z.object({
-        id : z.number({
+        id : z.string({
             required_error : "Id Tidak Boleh Kosong",
-            invalid_type_error : "Id Harus angka"
+            invalid_type_error : "Id Harus string"
         })
     })
 }

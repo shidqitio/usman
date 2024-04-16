@@ -24,7 +24,7 @@ import { notFound } from "@middleware/error-notfound";
 import { errorhandler } from "@middleware/error-handler";
 
 const app: Application = express();
-log4js.configure(logger);
+// log4js.configure(logger);
 
 /**
  * certificate keys
@@ -72,6 +72,9 @@ app.use(
   "/user-management/public/image/profil/",
   express.static(path.join(`D:/Dev SIPPP/PMO/public/images/userphoto`))
 )
+
+
+
 /**
  * routes
  */
@@ -84,16 +87,36 @@ app.use("/user-management/api", apiRoutes)
  */
 app.use(notFound);
 
+
 /**
  * error handler
  */
 app.use(errorhandler);
-
 /**
  * sync database
  */
-db.sync()
-  .then(() => {
+// db.sync()
+//   .then(() => {
+//     const server = http.createServer(app);
+//     server.listen(getConfig("PORT_SERVER"), () => {
+//       console.log(license);
+//       console.log(
+//         `${String.fromCodePoint(
+//           0x1f525
+//         )} SERVER USMAN ON PORT : ${getConfig(
+//           "PORT_SERVER"
+//         )} ${String.fromCodePoint(0x1f525)}`
+//       );
+//       console.log("TES")
+//       initSocketIO(server);
+//     });
+//   })
+//   .catch((error) => {
+//     errorLogger.error(`SERVER ERROR: ${error}`);
+//   });
+
+
+  try {
     const server = http.createServer(app);
     server.listen(getConfig("PORT_SERVER"), () => {
       console.log(license);
@@ -106,25 +129,7 @@ db.sync()
       );
       initSocketIO(server);
     });
-  })
-  .catch((error) => {
-    errorLogger.error(`SERVER ERROR: ${error}`);
-  });
-
-  // try {
-  //   const server = http.createServer(app);
-  //   server.listen(getConfig("PORT_SERVER"), () => {
-  //     console.log(license);
-  //     console.log(
-  //       `${String.fromCodePoint(
-  //         0x1f525
-  //       )} SERVER USMAN ON PORT : ${getConfig(
-  //         "PORT_SERVER"
-  //       )} ${String.fromCodePoint(0x1f525)}`
-  //     );
-  //     initSocketIO(server);
-  //   });
-  // } catch (error) {
-  //     errorLogger.error(`SERVER ERROR: ${error}`);
-  // }
+  } catch (error) {
+      errorLogger.error(`SERVER ERROR: ${error}`);
+  }
 
