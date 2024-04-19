@@ -23,6 +23,8 @@ import authorization from "@middleware/authorization";
 import { notFound } from "@middleware/error-notfound";
 import { errorhandler } from "@middleware/error-handler";
 
+import cluster from "cluster";
+
 const app: Application = express();
 // log4js.configure(logger);
 
@@ -60,9 +62,76 @@ app.use(compression());
  */
 app.use(limiter);
 
+//###############CLSUTER##########
+
+// if (cluster.isPrimary) {
+//   console.log(`Master ${process.pid} is running`);
+
+//   app.use(
+//     "/user-management/public/image/",
+//     express.static(path.join(__dirname, "../public/aplikasi"))
+//   );
+  
+//   app.use(
+//     "/user-management/public/image/profil/",
+//     express.static(path.join(`D:/Dev SIPPP/PMO/public/images/userphoto`))
+//   )
+
+//   app.use("/user-management/api", apiRoutes)
+
+//   /**
+//  * not found
+//  */
+// app.use(notFound);
+
+
+// /**
+//  * error handler
+//  */
+// app.use(errorhandler);
+// /**
+//  * sync database
+//  */
+  
+//   // Fork workers
+//   const numCPUs = require('os').cpus().length;
+//   for (let i = 0; i < numCPUs; i++) {
+//     cluster.fork();
+//   }
+
+//   cluster.on('exit', (worker, code, signal) => {
+//     console.log(`Worker ${worker.process.pid} died`);
+//   });
+
+// try {
+//   const server = http.createServer(app);
+//   server.listen(getConfig("PORT_SERVER"), () => {
+//     console.log(license);
+//     console.log(
+//       `${String.fromCodePoint(
+//         0x1f525
+//       )} SERVER USMAN ON PORT : ${getConfig(
+//         "PORT_SERVER"
+//       )} ${String.fromCodePoint(0x1f525)}`
+//     );
+//     initSocketIO(server);
+//   });
+// } catch (error) {
+//     errorLogger.error(`SERVER ERROR: ${error}`);
+//   }
+// }
+
+// else {
+//   console.log(`Worker ${process.pid} started`);
+// }
+
 /**
  * dokumen path
  */
+
+
+//TES CLUSTER
+//###############################################################
 app.use(
   "/user-management/public/image/",
   express.static(path.join(__dirname, "../public/aplikasi"))
@@ -114,6 +183,8 @@ app.use(errorhandler);
 //   .catch((error) => {
 //     errorLogger.error(`SERVER ERROR: ${error}`);
 //   });
+// aziz ganteng, ivo ganteng, rendy pangeran
+
 
 
   try {

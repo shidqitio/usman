@@ -8,9 +8,13 @@ import {
     UpdatedTrxGroupMenuSchema,
     GetTrxGroupMenuSchema,
     DestroyTrxGroupMenuSchema,
-    SearchTrxGroupMenuSchema
+    SearchTrxGroupMenuSchema,
+    GetAplikasiByIdSchema,
+    AplikasiLevelSchema
 } from "@schema/api/trxGroupMenu-schema"
 import RefMenu1 from "@models/refMenu1-model";
+import RefMenu2 from "@models/refMenu2-model";
+import RefMenu3 from "@models/refMenu3-model";
 
 const index = async (
     page:SearchTrxGroupMenuSchema["query"]["page"],
@@ -76,6 +80,15 @@ const store = async (
             throw new CustomError(422, "Kode Tidak Tepat")
         }
 
+        const exGroupMenu = await TrxGroupMenu.findOne({
+            where : {
+                kode_group : kodeGroup, 
+                kode_menu1 : kodeMenu1
+            }
+        })
+
+
+        if(exGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Data Sudah Pernah Ada")
 
         const data_insert : TrxGroupMenuInput = {
             kode_group : kodeGroup, 
@@ -129,6 +142,39 @@ const show = async (id : GetTrxGroupMenuSchema["params"]["id"]) : Promise <TrxGr
     }
 }
 
+const groupMenuAplikasi = async (
+    id:GetAplikasiByIdSchema["params"]["id"]) : Promise <TrxGroupMenuOutput[]> => {
+    try {
+        const groupMenu : TrxGroupMenu[] = await TrxGroupMenu.findAll({
+            attributes : {exclude : ["ucr","uch","udcr","udch"]},
+            include : [
+                {
+                    model : RefMenu1, 
+                    as : "Menu1",
+                    attributes : [],
+                    where : {
+                        kode_aplikasi : id
+                    },
+                },
+                {
+                    model : RefGroup, 
+                    as : "Group",
+                    attributes : {exclude : ["ucr","uch","udcr","udch"]},
+                }
+            ]
+        })
+
+        return groupMenu
+
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
 
 const update = async (
     require:UpdatedTrxGroupMenuSchema["body"],
@@ -193,11 +239,58 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
     }
 }
 
+const menuByLevelAplikasi = async (
+    kode_aplikasi:AplikasiLevelSchema["params"]["kode_aplikasi"], 
+    kode_level : AplikasiLevelSchema["params"]["kode_level"]) 
+    : Promise <TrxGroupMenuOutput[]> => {
+    try {
+        
+        const trxGroupMenu : TrxGroupMenu[] = await TrxGroupMenu.findAll({
+            attributes : {exclude : ["ucr","uch","udcr","udch"]},
+            include : [
+                {
+                    model : RefGroup, 
+                    as : "Group", 
+                    attributes : [],
+                    where : {
+                        kode_level : kode_level
+                    }
+                }, 
+                {
+                    model : RefMenu1, 
+                    as : "Menu1", 
+                    attributes : [],
+                    where : {
+                        kode_aplikasi : kode_aplikasi
+                    }
+                }
+            ]
+        })
+
+        if(trxGroupMenu.length === 0) throw new CustomError(httpCode.unprocessableEntity, "Group Menu Tidak Ada")
+
+        return trxGroupMenu
+        
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+
+
+
+
 export default {
     index,
     store,
     show,
     update,
     destroy,
-
+    menuByLevelAplikasi,
+    groupMenuAplikasi
 }

@@ -1,5 +1,5 @@
 import { httpCode } from "@utils/prefix";
-import { TrxGroupMenuOutput } from "@models/trxGroupMenu-model";
+import TrxGroupMenu, { TrxGroupMenuOutput } from "@models/trxGroupMenu-model";
 import trxGroupMenuService from "@services/api/v1/trxGroupMenu-api"
 
 import { Request, Response, NextFunction } from "express";
@@ -9,7 +9,9 @@ import {
     UpdatedTrxGroupMenuSchema,
     SearchTrxGroupMenuSchema,
     GetTrxGroupMenuSchema,
-    DestroyTrxGroupMenuSchema
+    DestroyTrxGroupMenuSchema,
+    GetAplikasiByIdSchema,
+    AplikasiLevelSchema
 } from "@schema/api/trxGroupMenu-schema"
 
 import { getSocketIO } from "@config/socket";
@@ -89,6 +91,41 @@ const update = async (
     }
 }
 
+const groupMenuAplikasi = async (
+    req : Request, 
+    res : Response, 
+    next : NextFunction) : Promise <void> => {
+    try {
+        const kode_aplikasi : GetAplikasiByIdSchema["params"]["id"] = req.params.id
+
+        const response = await trxGroupMenuService.groupMenuAplikasi(kode_aplikasi)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error show Aplikasi ${error}`);
+        next(error);
+    }
+}
+
+const menuByLevelAplikasi = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        
+        const kode_aplikasi : AplikasiLevelSchema["params"]["kode_aplikasi"] = req.params.kode_aplikasi
+        const kode_level : AplikasiLevelSchema["params"]["kode_level"] = req.params.kode_level
+
+        
+        const response = await trxGroupMenuService.menuByLevelAplikasi(kode_aplikasi, kode_level)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error show Menu By Aplikasi Level ${error}`);
+        next(error);
+    }
+}
+
 
 const destroy = async (
     req:Request, 
@@ -96,6 +133,9 @@ const destroy = async (
     next:NextFunction) : Promise<void> => {
         try {
             const kode_group_menu : DestroyTrxGroupMenuSchema["params"]["id"] = parseInt(req.params.id)
+
+            console.log(kode_group_menu);
+            
 
             const destroyMenu = await trxGroupMenuService.destroy(kode_group_menu)
 
@@ -111,5 +151,7 @@ export default {
     store,
     show,
     update,
-    destroy
+    destroy,
+    groupMenuAplikasi,
+    menuByLevelAplikasi
 }

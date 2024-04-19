@@ -18,6 +18,19 @@ const payload = {
         status : z.string({
             required_error : "status Tidak Boleh Kosong",
             invalid_type_error : "status Harus String"
+        }).optional(),
+    })
+}
+
+const payloadUserRole = {
+    body : z.object({
+        kode_group : z.string({
+            required_error : "kode_group Tidak Boleh Kosong",
+            invalid_type_error : "kode_group Harus String"
+        }),
+        email : z.string({
+            required_error : "email Tidak Boleh Kosong",
+            invalid_type_error : "email Harus Huruf"
         }),
     })
 }
@@ -121,6 +134,9 @@ export const searchTrxGroupUserSchema = object({
     ...query
 })
 
+export const payloadUserRoleSchema = object({
+    ...payloadUserRole
+})
 
 export type PayloadTrxGroupUserSchema = z.infer<typeof payloadTrxGroupUserSchema>
 export type StoresTrxGroupsUserSchema = z.infer<typeof storesTrxGroupUserSchema>
@@ -128,3 +144,4 @@ export type UpdatedTrxGroupUserSchema = z.infer<typeof updatedTrxGroupUserSchema
 export type DestroyTrxGroupUserSchema = z.infer<typeof destroyTrxGroupUserSchema>
 export type GetTrxGroupUserSchema = z.infer<typeof getTrxGroupUserSchema>
 export type SearchTrxGroupUserSchema = z.infer<typeof searchTrxGroupUserSchema>
+export type PayloadUserRoleSchema = z.infer<typeof payloadUserRoleSchema>

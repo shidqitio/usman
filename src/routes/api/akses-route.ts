@@ -7,7 +7,8 @@ import {
     payloadUserGroupAksesSchema,
     payloadEmailAksesSchema,
     payloadChangePasswordSchema,
-    payloadLogoutSchema
+    payloadLogoutSchema, 
+    payloadRefreshTokenSchema
 } from "@schema/api/akses-schema"
 
 import auth from "@middleware/auth"
@@ -23,5 +24,7 @@ routes.post("/check-token", auth, validate(payloadUserGroupAksesSchema), aksesCo
 routes.post("/logout", validate(payloadLogoutSchema), aksesController.logout)
 routes.post("/change-password",validate(payloadChangePasswordSchema), aksesController.changePassword)
 routes.post("/forget-password", validate(payloadEmailAksesSchema), aksesController.forgetPassword)
+routes.post("/refresh-token", validate(payloadRefreshTokenSchema), aksesController.refreshToken)
+routes.post("/refresh-token-landing", validate(payloadLogoutSchema), aksesController.refreshTokenLanding)
 
 export default routes

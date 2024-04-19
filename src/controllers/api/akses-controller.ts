@@ -8,7 +8,8 @@ import {
     PayloadUserGroupSchema,
     PayloadEmailAksesSchema,
     PayloadChangePasswordSchema,
-    PayloadLogoutSchema
+    PayloadLogoutSchema,
+    PayloadRefreshTokenSchema
 } from "@schema/api/akses-schema"
 
 import aksesService from "@services/api/v1/aksesSippp-api"
@@ -163,6 +164,38 @@ const forgetPassword = async (
     }
 }
 
+const refreshToken = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const request : PayloadRefreshTokenSchema["body"] = req.body
+
+        const response = await aksesService.refreshToken(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error PostToken ${error}`);
+        next(error);
+    }
+}
+
+const refreshTokenLanding = async (
+    req:Request,
+    res:Response,
+    next : NextFunction) : Promise<void> => {
+    try {
+        const request : PayloadLogoutSchema["body"] = req.body
+
+        const response = await aksesService.refreshTokenLanding(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error : any) {
+        errorLogger.error(`testing error PostToken ${error}`);
+        next(error);
+    }
+}
+
 export default {
     register,
     login,
@@ -172,5 +205,7 @@ export default {
     checkToken,
     logout,
     changePassword,
-    forgetPassword
+    forgetPassword,
+    refreshToken,
+    refreshTokenLanding
 }

@@ -182,6 +182,28 @@ const update = async (
     }
 }
 
+const GroupByLevel = async (
+    id:ParamRefGroupSchema["params"]["id"]
+    )  : Promise<RefGroupOutput[]> => {
+    try {
+        const refGroup : RefGroup[] = await RefGroup.findAll({
+            where : {
+                kode_level : id
+            }, 
+            attributes : {exclude : ["ucr", "uch", "udcr", "udch"]}
+        })
+
+        return refGroup
+    } catch (error) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 const destroy = async (
     id:DeletedRefGroupSchema["params"]["id"]) : Promise<RefGroup> => {
     try {
@@ -239,5 +261,6 @@ export default {
     show,
     update,
     destroy,
-    getRoleByAplikasi
+    getRoleByAplikasi,
+    GroupByLevel
 }

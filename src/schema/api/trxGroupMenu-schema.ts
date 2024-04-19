@@ -23,17 +23,6 @@ const payload = {
             required_error : "kode_menu3 Tidak Boleh Kosong",
             invalid_type_error : "kode_menu3 Harus String"
         }),
-        akses  : z.nativeEnum(Akses).refine((value) => {
-            if( (
-                value === Akses.Aktif || 
-                value === Akses.TidakAktif
-            )) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }),
         ucr  : z.string({
             required_error : "ucr Tidak Boleh Kosong",
             invalid_type_error : "ucr Harus String"
@@ -101,6 +90,15 @@ const paramater = {
     })
 }
 
+const paramAplikasi = {
+    params : z.object({
+        id : z.string({
+            required_error : "Kode Aplikasi Tidak Boleh Kosong",
+            invalid_type_error : "Koode Aplikasi harus String"
+        })
+    })
+}
+
 const query = {
     query: z.object({
       page: z.string({
@@ -113,6 +111,19 @@ const query = {
       }),
     }),
   };
+
+const aplikasilevel = {
+    params : z.object({
+        kode_aplikasi : z.string({
+            required_error : "kode_aplikasi tidak boleh kosong ",
+            invalid_type_error : "kode_aplikasi harus string"
+        }), 
+        kode_level : z.string({
+            required_error : "kode_level tidak boleh kosong", 
+            invalid_type_error : "kode_level harus integer"
+        })
+    })
+}
 
 export const payloadTrxGroupMenuSchema = object({
     ...payload
@@ -130,8 +141,16 @@ export const getTrxGroupMenuSchema = object({
     ...paramater
 })
 
+export const getAplikasiByIdSchema = object({
+    ...paramAplikasi
+})
+
 export const searchTrxGroupMenuSchema = object({
     ...query
+})
+
+export const aplikasilevelSchema = object({
+    ...aplikasilevel
 })
 
 
@@ -140,3 +159,5 @@ export type UpdatedTrxGroupMenuSchema = z.infer<typeof updatedTrxGroupMenuSchema
 export type DestroyTrxGroupMenuSchema = z.infer<typeof destroyTrxGroupMenuSchema>
 export type GetTrxGroupMenuSchema = z.infer<typeof getTrxGroupMenuSchema>
 export type SearchTrxGroupMenuSchema = z.infer<typeof searchTrxGroupMenuSchema>
+export type GetAplikasiByIdSchema = z.infer<typeof getAplikasiByIdSchema>
+export type AplikasiLevelSchema = z.infer<typeof aplikasilevelSchema>

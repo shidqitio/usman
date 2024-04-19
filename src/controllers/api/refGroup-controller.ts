@@ -64,6 +64,7 @@ const show = async (
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {
+        errorLogger.error(`testing error Show ${error}`)
         next(error)
     }
 }
@@ -79,6 +80,7 @@ const getRoleByAplikasi = async (
 
         responseSuccess(res, httpCode.ok, refGroup)
     } catch (error) {
+        errorLogger.error(`testing error RoleByAplikasi ${error}`)
         next(error)
     }
 }
@@ -96,6 +98,7 @@ const update = async (
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {
+        errorLogger.error(`testing error update ${error}`)
         next(error)
     }
 }
@@ -113,6 +116,23 @@ const destroy = async (
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error : any) {
+        errorLogger.error(`testing error destroy ${error}`)
+        next(error)
+    }
+}
+
+const GroupByLevel = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_level : ParamRefGroupSchema["params"]["id"] = req.params.id
+        
+        const response : RefGroupOutput[] = await refGroupService.GroupByLevel(kode_level)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error GroupByLevel ${error}`)
         next(error)
     }
 }
@@ -123,5 +143,6 @@ export default {
     show,
     update,
     destroy,
-    getRoleByAplikasi
+    getRoleByAplikasi,
+    GroupByLevel
 }

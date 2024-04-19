@@ -8,7 +8,7 @@ import {
     SearchTrxGroupUserSchema,
     PayloadTrxGroupUserSchema,
     DestroyTrxGroupUserSchema,
-
+    PayloadUserRoleSchema
 
 } from "@schema/api/trxGroupUser-schema"
 
@@ -54,6 +54,22 @@ const store = async (
         responseSuccess(res, httpCode.ok, response)
     } catch (error : any) {
         errorLogger.error(`testing error store ${error}`);
+        next(error);
+    }
+}
+
+const storePegawaiRole = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const request : PayloadUserRoleSchema["body"] = req.body
+
+        const response : TrxGroupUserOutput = await trxGroupUserService.storePegawaiRole(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error User Role ${error}`);
         next(error);
     }
 }
@@ -129,5 +145,6 @@ export default {
     show,
     storeGroups,
     userByGroup,
-    destroy
+    destroy,
+    storePegawaiRole
 }

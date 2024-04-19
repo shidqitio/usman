@@ -24,7 +24,8 @@ import {
     PayloadCheckToken, 
     PayloadEmailAksesSchema, 
     PayloadChangePasswordSchema,
-    PayloadLogoutSchema
+    PayloadLogoutSchema,
+    PayloadRefreshTokenSchema
 } from "@schema/api/akses-schema"
 import { httpCode } from "@utils/prefix"
 import RefMenu1 from "@models/refMenu1-model"
@@ -244,6 +245,8 @@ const postToken = async (
         if(app.length === 0) throw new CustomError (httpCode.unprocessableEntity, "[2]User Tidak Memiliki Group Aplikasi")
         
         const url_token  = app[0].url_token
+        console.log(url_token);
+        
         const token = token_input
         console.log(token)
         const data = {
@@ -618,7 +621,7 @@ const logout = async (
       if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Ada")
 
       const update = await RefUser.update({
-        is_login : "Y"
+        is_login : "N "
       }, {
         where : {
           id : id_user
@@ -792,6 +795,212 @@ const forgetPassword = async (
     }
   }
 }
+
+const refreshToken = async (
+  require:PayloadRefreshTokenSchema["body"]) : Promise<any | null > => {
+  const t = await db.transaction()
+  try {
+    const idUser = require.id_user
+    const kodeGroup = require.kode_group
+    const token = require.token
+    const token_lama = require.token_lama
+
+    const tokenVerify : any = token_lama.split(" ")[1] 
+
+    const level : RefGroup | null = await RefGroup.findOne({
+      attributes : ["kode_level"],
+      where : {
+        kode_group : kodeGroup
+      }
+    })
+
+    if(!level?.kode_level) throw new CustomError(httpCode.unprocessableEntity, "Kode Level Gagal Didapat")
+    
+
+    let decodeToken : any ;
+
+    try {
+      decodeToken  = jwt.verify(tokenVerify, getConfig("SECRET_KEY"))
+    } catch (error) {
+      throw new CustomError(httpCode.unauthorized, "[1] Token Unauthorized")
+    }
+
+    const checkTokenAwal : RefUser | null  = await  RefUser.findOne({
+      where : {
+        id : decodeToken.id_user, 
+      }, 
+      transaction : t
+    })
+
+    if(!checkTokenAwal) throw new CustomError(httpCode.unauthorized, "[2] Token Unauthorized")
+
+    const token_final = await decryptData(token, level.kode_level)
+
+    if(!token_final) {
+      throw new CustomError(httpCode.unauthorized, "Unauthorized")
+    }
+
+    const exTokenApp : RefTokenApp | null = await RefTokenApp.findOne({
+      where : {
+        id_user : idUser,
+        kode_group : kodeGroup,
+        token : token_final,
+      },
+      transaction : t
+    })
+
+    if(!exTokenApp) throw new CustomError(httpCode.unauthorized, "[3] Token Baru Unauthorized")
+
+      const tokenLamaUpdated = jwt.sign(
+        {
+            id_user : checkTokenAwal.id
+        },
+        getConfig("SECRET_KEY"),
+        {expiresIn : "24h"}
+    )
+
+    if(!tokenLamaUpdated) throw new CustomError(httpCode.unprocessableEntity, "Token Lama Gagal Di Generate")
+
+    checkTokenAwal.api_token = tokenLamaUpdated
+
+    await checkTokenAwal.save({
+      transaction : t
+    })
+
+    const existUserTokenApp : RefTokenApp[] = await RefTokenApp.findAll({
+      where : {
+        kode_group : kodeGroup,
+        id_user : idUser
+      }
+    })
+
+    if(existUserTokenApp.length > 0) {
+      const ids = existUserTokenApp.map((item) => item.id)
+      await RefTokenApp.destroy({
+        where : {
+          id : ids
+        }, 
+        transaction : t
+      })
+    }
+
+    const token_app = await bcrypt.hash(String(idUser), 12)
+
+    const newId = `${idUser}${kodeGroup}`
+    const newToken = await RefTokenApp.create({
+        id : newId,
+        id_user : idUser,
+        kode_group : kodeGroup,
+        token : token_app
+    }, {
+      transaction : t
+    })
+
+    if(!newToken) throw new CustomError(httpCode.unprocessableEntity, "Gagal Membuat Token")
+
+    const newTokenApp : RefTokenApp | null = await RefTokenApp.findOne({
+      where : {
+        id_user : idUser
+      }, 
+      transaction : t
+    })
+
+    if(!newTokenApp) throw new CustomError(httpCode.unprocessableEntity, "Token App Baru Tidak Ada")
+
+    if(!newTokenApp.token) throw new CustomError (httpCode.unprocessableEntity, "Token Aplikasi Tidak Ditemukan")
+
+     //CEK LEVEL TO ENCRYPT DATA 
+     let sendHash
+     let hash : any
+     if(level.kode_level === 1) {
+       hash  = CryptoJS.AES.encrypt(newTokenApp.token, getConfig("SECRET_KEY_LVL1"))
+       sendHash = hash.toString()
+       
+     }
+     if (level.kode_level === 2) {
+       hash  = CryptoJS.AES.encrypt(newTokenApp.token, getConfig("SECRET_KEY_LVL2"))
+       sendHash = hash.toString()
+     }
+
+
+    await t.commit()  
+
+    const response = {
+      id_user : idUser,
+      kode_group : kodeGroup, 
+      token_old : checkTokenAwal.api_token,
+      token : sendHash
+    }    
+
+    return response
+  } catch (error : any) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code, error.message);
+    } else {
+      throw new CustomError(500, "Internal server error.");
+    }
+  }
+}
+
+const refreshTokenLanding = async (
+  request:PayloadLogoutSchema["body"]) : Promise<any | null> => {
+  try {
+    const kode_group = request.kode_group
+    const id_user = request.id_user
+    const token = request.token
+
+    const tokenVerify : any = token.split(" ")[1]
+
+    let decodeToken : any ;
+
+    try {
+      decodeToken  = jwt.verify(tokenVerify, getConfig("SECRET_KEY"))
+    } catch (error) {
+      throw new CustomError(httpCode.unauthorized, "[1] Token Unauthorized")
+    }
+
+    const checkTokenAwal : RefUser | null  = await  RefUser.findOne({
+      where : {
+        id : decodeToken.id_user, 
+      },
+    })
+
+    if(!checkTokenAwal) throw new CustomError(httpCode.unauthorized, "User Unauthorized")
+
+    const updatedToken = jwt.sign(
+      {
+          id_user : checkTokenAwal.id
+      },
+      getConfig("SECRET_KEY"),
+      {expiresIn : "24h"}
+  )
+
+  if(!updatedToken) throw new CustomError(httpCode.unprocessableEntity, "Token Lama Gagal Di Generate")
+
+  const [countUbahToken, resultUbahToken] = await RefUser.update({
+    api_token : updatedToken
+  }, {
+    where : {
+      id : id_user
+    },
+    returning : true,
+    
+  })
+
+  if(countUbahToken === 0) throw new CustomError(httpCode.unprocessableEntity, "Ubah Data Gagal") 
+
+  console.log(resultUbahToken);
+  
+
+  return resultUbahToken
+  } catch (error : any) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code, error.message);
+    } else {
+      throw new CustomError(500, "Internal server error.");
+    }
+  }
+}
   
 
 export default {
@@ -803,5 +1012,7 @@ export default {
   checkToken,
   logout,
   changePassword,
-  forgetPassword
+  forgetPassword,
+  refreshToken,
+  refreshTokenLanding
 }

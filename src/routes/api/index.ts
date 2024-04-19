@@ -18,7 +18,7 @@ import refLevel from "@routes/api/refLevel-routes"
 import auth from "@middleware/auth";
 // routes.use("/v1", example);
 
-routes.use(vers + "/aplikasi", refAplikasi)
+routes.use(vers + "/aplikasi",auth, refAplikasi)
 
 routes.use(vers + "/group", refGroup);
 

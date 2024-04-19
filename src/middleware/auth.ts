@@ -25,6 +25,8 @@ const auth = async (
             throw new CustomError(httpCode.unauthorized, "[2] Token Unauthorized")
         }
 
+        console.log(decodeToken)
+
         const user : RefUser | null = await RefUser.findOne({
             where  : {
                 id : decodeToken.id_user

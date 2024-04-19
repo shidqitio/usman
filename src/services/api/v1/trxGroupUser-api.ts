@@ -8,7 +8,8 @@ import {
     GetTrxGroupUserSchema,
     SearchTrxGroupUserSchema, 
     DestroyTrxGroupUserSchema,
-    StoresTrxGroupsUserSchema
+    StoresTrxGroupsUserSchema,
+    PayloadUserRoleSchema
 } from "@schema/api/trxGroupUser-schema"
 import db from "@config/database";
 import CustomError from "@middleware/error-handler";
@@ -46,6 +47,15 @@ const index = async (
             ]
         })
 
+        let total = 0 ; 
+
+        for (let i = 0 ; i < 500000 ; i++) {
+            total++;
+            console.log(total);
+            
+        }
+
+        
         return trxGroupUser
     } catch (error: any) {
         if(error instanceof CustomError) {
@@ -158,6 +168,59 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
             return createGroupUser
         }
 
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            console.log(error)
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+const storePegawaiRole = async (
+    require:PayloadUserRoleSchema["body"]) : Promise<TrxGroupUserOutput> => {
+    try {
+        const exUser : RefUser | null = await RefUser.findOne({
+            where : {
+                email : require.email
+            }
+        })
+
+        if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "Data Pegawai Tidak Tersedia")
+
+
+        const exGroup = await RefGroup.findOne({
+            where : {
+                kode_group : require.kode_group
+            }
+        })
+             
+        if(!exGroup) throw new CustomError(httpCode.unprocessableEntity, "Role Tidak Tersedia")
+
+        const id_user = exUser.id
+        
+        const exRole : TrxGroupUserOutput | null = await TrxGroupUser.findOne({
+            where : {
+                kode_group : require.kode_group, 
+                id_user : id_user, 
+            }
+        })
+
+        if(exRole) throw new CustomError(httpCode.unprocessableEntity, "Email Sudah Terdaftar Pada Role yang Sama")
+
+        const createGroupUser : TrxGroupUserOutput = await TrxGroupUser.create({
+            kode_group : require.kode_group, 
+            id_user : id_user, 
+            status : statusGroupUser.Aktif,
+        })
+
+        if(!createGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Dibuat")
+
+        return createGroupUser
+
+        
     } catch (error : any) {
         if(error instanceof CustomError) {
             throw new CustomError(error.code, error.message)
@@ -375,5 +438,6 @@ export default {
     show,
     storeGroups,
     userByGroup,
-    destroy
+    destroy,
+    storePegawaiRole
 }

@@ -103,6 +103,27 @@ const payloadLogout = {
     })
 }
 
+const payloadRefreshToken = {
+    body : z.object({
+        id_user : z.number({
+            required_error : "Id User Tidak Boleh Kosong",
+            invalid_type_error : "Id User Harus Angka"
+        }),
+        kode_group : z.string({
+            required_error : "Kode_Group Tidak Boleh Kosong",
+            invalid_type_error : "Kode_group Harus String"
+        }),
+        token : z.string({
+            required_error : "token Tidak Boleh Kosong",
+            invalid_type_error : "token Harus String"
+        }), 
+        token_lama : z.string({
+            required_error : "token lama Tidak Boleh Kosong",
+            invalid_type_error : "token lama Harus String"
+        })
+    })
+}
+
 export const payloadAksesSchema = z.object({
     ...payloadEmailPassword
 }) 
@@ -131,6 +152,10 @@ export const payloadLogoutSchema = z.object({
     ...payloadLogout
 })
 
+export const payloadRefreshTokenSchema = z.object({
+    ...payloadRefreshToken
+})
+
 export type PayloadAksesSchema = z.infer<typeof payloadAksesSchema>
 export type PayloadUserGroupSchema = z.infer<typeof payloadUserGroupAksesSchema>
 export type PayloadCheckToken = z.infer<typeof payloadCheckTokenAksesSchema>
@@ -138,3 +163,4 @@ export type PayloadUserAplikasiAksesSchema = z.infer<typeof payloadUserAplikasiA
 export type PayloadEmailAksesSchema = z.infer<typeof payloadEmailAksesSchema>
 export type PayloadLogoutSchema = z.infer<typeof payloadLogoutSchema>
 export type PayloadChangePasswordSchema = z.infer<typeof payloadChangePasswordSchema>
+export type PayloadRefreshTokenSchema = z.infer<typeof payloadRefreshTokenSchema>

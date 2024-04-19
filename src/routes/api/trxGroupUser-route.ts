@@ -8,6 +8,7 @@ import {
     destroyTrxGroupUserSchema,
     getTrxGroupUserSchema,
     searchTrxGroupUserSchema, 
+    payloadUserRoleSchema
 
 } from "@schema/api/trxGroupUser-schema"
 
@@ -20,6 +21,7 @@ routes.get("/show/:id", validate(getTrxGroupUserSchema), trxGroupUserController.
 
 routes.post("/", auth, validate(payloadTrxGroupUserSchema), trxGroupUserController.store)
 routes.post("/post-groups", validate(storesTrxGroupUserSchema), trxGroupUserController.storeGroups)
+routes.post("/post-role", validate(payloadUserRoleSchema), trxGroupUserController.storePegawaiRole)
 
 routes.get("/user-group/:id", validate(getTrxGroupUserSchema), trxGroupUserController.userByGroup)
 
