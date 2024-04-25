@@ -10,6 +10,7 @@ import {
     GetRefMenu2Schema,
     DestroyRefMenu2Schema
 } from "@schema/api/refMenu2-schema"
+import RefMenu3 from "@models/refMenu3-model";
 
 const index = async (
     page:SearchRefMenu2Schema["query"]["page"],
@@ -138,8 +139,15 @@ const getByKodeMenu1 = async (
         const refMenu2 : RefMenu2[] = await RefMenu2.findAll({
             where : {
                 kode_menu1 : id
-            }, 
-            attributes : {exclude : ["ucr","uch","udcr","udch"]}
+            },
+            attributes : {exclude : ["ucr","uch","udcr","udch"]},
+            include : [
+                {
+                    model : RefMenu3, 
+                    as : "Menu3", 
+                    attributes : {exclude : ["ucr","uch","udcr","udch"]}
+                }
+            ]
         })
 
         return refMenu2
@@ -228,11 +236,27 @@ const destroy = async (
         }
     }
 
+const countMenu2 = async () : Promise<any | null> => {
+        try {
+            const count = await RefMenu2.count()
+    
+            return count
+        } catch (error : any) {
+            if(error instanceof CustomError) {
+                throw new CustomError(error.code, error.message)
+            } 
+            else {
+                throw new CustomError(500, "Internal server error.")
+            }
+        }
+    }
+
 export default {
     index,
     store,
     show,
     update,
     getByKodeMenu1,
-    destroy
+    destroy,
+    countMenu2
 }

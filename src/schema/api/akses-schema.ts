@@ -10,7 +10,27 @@ const payloadEmailPassword = {
             required_error : "Password Tidak Boleh Kosong",
             invalid_type_error : "Password Harus String"
         }), 
+        nip : z.string({
+            required_error : "Nip Tidak Boleh Kosong", 
+            invalid_type_error : "Nip Harus String"
+        }),
+        username : z.string({
+            required_error : "Username Tidak Boleh Kosong", 
+            invalid_type_error : "Username Harus String"
+        })
     }), 
+}
+
+const payloadLogin = {
+    body : z.object({
+        email : z.string({
+            invalid_type_error : "Email Harus Huruf"
+        }).email(), 
+        password : z.string({
+            required_error : "Password Tidak Boleh Kosong",
+            invalid_type_error : "Password Harus String"
+        })
+    })
 }
 
 const payloadUserGroup = {
@@ -124,6 +144,15 @@ const payloadRefreshToken = {
     })
 }
 
+const refreshTokenLanding = {
+    body : z.object({
+        token : z.string({
+            required_error : "Token Tidak Boleh Kosong",
+            invalid_type_error : "Token Harus String"
+        })
+    })
+}
+
 export const payloadAksesSchema = z.object({
     ...payloadEmailPassword
 }) 
@@ -149,11 +178,20 @@ export const payloadChangePasswordSchema = z.object({
 })
 
 export const payloadLogoutSchema = z.object({
-    ...payloadLogout
+    ...payloadLogout,
+    
 })
 
 export const payloadRefreshTokenSchema = z.object({
     ...payloadRefreshToken
+})
+
+export const refreshTokenLandingSchema = z.object({
+    ...refreshTokenLanding
+})
+
+export const payloadLoginSchema = z.object({
+    ...payloadLogin
 })
 
 export type PayloadAksesSchema = z.infer<typeof payloadAksesSchema>
@@ -164,3 +202,5 @@ export type PayloadEmailAksesSchema = z.infer<typeof payloadEmailAksesSchema>
 export type PayloadLogoutSchema = z.infer<typeof payloadLogoutSchema>
 export type PayloadChangePasswordSchema = z.infer<typeof payloadChangePasswordSchema>
 export type PayloadRefreshTokenSchema = z.infer<typeof payloadRefreshTokenSchema>
+export type RefreshTokenLandingSchema = z.infer<typeof refreshTokenLandingSchema>
+export type PayloadLoginSchema = z.infer<typeof payloadLoginSchema>

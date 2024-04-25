@@ -2,7 +2,7 @@ import { httpCode } from "@utils/prefix";
 import { RefAplikasiInput, RefAplikasiOutput } from "@models/refAplikasi-model";
 import refAplikasiService from "@services/api/v1/refAplikasi-api"
 import { Request, Response, NextFunction } from "express";
-import { responseSuccess } from "@utils/response-success";
+import { responseSuccess, responseSuccessCount } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
 import {
     PostRefAplikasiSchema, 
@@ -20,10 +20,11 @@ const index = async (
         const ioInstance = getSocketIO()
         
         const response : RefAplikasiOutput[] = await refAplikasiService.index()
+        const count : number = await refAplikasiService.countRefAplikasi()
 
         if(ioInstance) {
             ioInstance.emit("aplikasi", response)
-            responseSuccess(res, httpCode.ok, response)
+            responseSuccessCount(res, httpCode.ok, count, response)
         }
         else { 
             res.status(500).send("Socket.IO not Initialized")

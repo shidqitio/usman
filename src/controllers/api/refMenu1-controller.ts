@@ -10,7 +10,7 @@ import {
     DestroyRefMenu1Schema
 } from "@schema/api/refMenu1-schema"
 import { getSocketIO } from "@config/socket";
-import { responseSuccess } from "@utils/response-success";
+import { responseSuccess, responseSuccessCount } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
 
 const index = async (
@@ -22,13 +22,15 @@ const index = async (
 
         const page: SearchRefMenu1Schema["query"]["page"] = req.query.page as string
         const limit : SearchRefMenu1Schema["query"]["limit"] = req.query.limit as string
+        
 
         const response: RefMenu1Output[] = await refMenu1Service.index(page, limit)
+        const count : number = await refMenu1Service.countMenu1()
         // console.log("TESS");
         // responseSuccess(res, httpCode.ok, response)
         if(ioInstance) {
             ioInstance.emit("refMenu1", response)
-            responseSuccess(res, httpCode.ok, response)
+            responseSuccessCount(res, httpCode.ok,count, response)
         } else {
             res.status(500).send("Socket.IO not initialized");
         }

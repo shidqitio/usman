@@ -47,15 +47,6 @@ const index = async (
             ]
         })
 
-        let total = 0 ; 
-
-        for (let i = 0 ; i < 500000 ; i++) {
-            total++;
-            console.log(total);
-            
-        }
-
-        
         return trxGroupUser
     } catch (error: any) {
         if(error instanceof CustomError) {
@@ -260,6 +251,92 @@ const show = async (id:GetTrxGroupUserSchema["params"]["id"]) : Promise<TrxGroup
     }
 }
 
+const postGroups = async (
+    require:StoresTrxGroupsUserSchema["body"]) : Promise <TrxGroupUserOutput[]> => {
+    try {
+        const users = require.users
+        const kode_group = users.map((us : any) => ({kode_group : us.kode_group}))
+        const emails = users.map((us : any) => ({email : us.email}))
+
+        console.log(users);
+
+        console.log(emails);
+
+        console.log(kode_group);
+        
+        
+        
+        const exUsers : RefUser[] = await RefUser.findAll({
+            attributes : ["email", "id"],
+            where : {
+                [Op.or] : emails
+            }, 
+            raw : true
+        })
+
+        if(exUsers.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Email Belum Terdaftar")
+
+        const exGroups : RefGroup[] = await RefGroup.findAll({
+            where : {
+                [Op.or] : kode_group
+            }
+        })
+
+        if(exGroups.length === 0) throw new CustomError(httpCode.unprocessableEntity, "Kode Group Belum Tercipta")
+
+        let ids = exUsers.map((user) => user)
+
+        let gs = exGroups.map((group) => group.kode_group)
+
+        console.log("IDS", ids);
+
+        console.log("GS", gs);
+
+        let userArray : any = ids.map(itemId => {
+            let found = users.find(itemUsers => itemUsers.email === itemId.email)
+            if(found) {
+                return {
+                    id_user : itemId.id, 
+                    kode_group : found.kode_group
+                }
+            }
+        })
+                
+
+        const exGroupUser : TrxGroupUser[] = await TrxGroupUser.findAll({
+            where : {
+                [Op.or] : userArray
+            },
+            logging : console.log,
+            raw : true
+        })
+    
+        // console.log(exGroupUser);
+        
+        // let GroupUser = 
+        
+
+        const exGs = exGroupUser.map((gs) => gs.kode_group)
+        const exIds = exGroupUser.map((us) => us.id_user)
+
+        console.log(exGs, exIds);
+        
+
+
+        return []
+        
+    } catch (error) {
+        console.log(error);
+        
+         if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 const storeGroups = async (
     require:StoresTrxGroupsUserSchema["body"]) : Promise<TrxGroupUserOutput[]> => {
     const t = await db.transaction()
@@ -432,6 +509,22 @@ const destroy = async (
     }
 }
 
+
+const countGroupUser = async () : Promise<any> => {
+    try {
+        const countGroupUser : number = await TrxGroupUser.count()
+
+        return countGroupUser
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 export default {
     index, 
     store,
@@ -439,5 +532,7 @@ export default {
     storeGroups,
     userByGroup,
     destroy,
-    storePegawaiRole
+    storePegawaiRole,
+    postGroups,
+    countGroupUser
 }

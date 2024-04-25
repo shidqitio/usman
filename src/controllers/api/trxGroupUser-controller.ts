@@ -13,7 +13,7 @@ import {
 } from "@schema/api/trxGroupUser-schema"
 
 import { getSocketIO } from "@config/socket";
-import { responseSuccess } from "@utils/response-success";
+import { responseSuccess, responseSuccessCount } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
 
 const index = async (
@@ -27,10 +27,11 @@ const index = async (
         const limit : SearchTrxGroupUserSchema["query"]["limit"] = req.query.limit as string
 
         const response : TrxGroupUserOutput[] = await trxGroupUserService.index(limit, page)
+        const count : number = await trxGroupUserService.countGroupUser()
 
         if(ioInstance) {
             ioInstance.emit("refMenu2", response)
-            responseSuccess(res, httpCode.ok, response)
+            responseSuccessCount(res, httpCode.ok,count, response)
         } else {
             res.status(500).send("Socket.IO not initialized");
         }
@@ -86,6 +87,22 @@ const show = async (
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {
         errorLogger.error(`testing error show ${error}`);
+        next(error);
+    }
+}
+
+const postGroups  = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const request : StoresTrxGroupsUserSchema["body"] = req.body
+
+        const response : any = await trxGroupUserService.postGroups(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error StoreGroups ${error}`);
         next(error);
     }
 }
@@ -146,5 +163,6 @@ export default {
     storeGroups,
     userByGroup,
     destroy,
-    storePegawaiRole
+    storePegawaiRole,
+    postGroups
 }

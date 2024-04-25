@@ -13,7 +13,7 @@ import {
 } from "@schema/api/refMenu2-schema"
 
 import { getSocketIO } from "@config/socket";
-import { responseSuccess } from "@utils/response-success";
+import { responseSuccess, responseSuccessCount } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
 
 const index = async (
@@ -27,10 +27,11 @@ const index = async (
         const limit : SearchRefMenu2Schema["query"]["limit"] = req.query.limit as string
 
         const response: RefMenu2Output[] = await refMenu2Service.index(page, limit)
+        const count : number = await refMenu2Service.countMenu2()
 
         if(ioInstance) {
             ioInstance.emit("refMenu2", response)
-            responseSuccess(res, httpCode.ok, response)
+            responseSuccessCount(res, httpCode.ok,count, response)
         } else {
             res.status(500).send("Socket.IO not initialized");
         }

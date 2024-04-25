@@ -8,7 +8,9 @@ import {
     payloadEmailAksesSchema,
     payloadChangePasswordSchema,
     payloadLogoutSchema, 
-    payloadRefreshTokenSchema
+    payloadRefreshTokenSchema,
+    refreshTokenLandingSchema,
+    payloadLoginSchema
 } from "@schema/api/akses-schema"
 
 import auth from "@middleware/auth"
@@ -16,7 +18,7 @@ import auth from "@middleware/auth"
 const routes = express.Router()
 
 routes.post("/register", validate(payloadAksesSchema), aksesController.register)
-routes.post("/login", validate(payloadAksesSchema), aksesController.login)
+routes.post("/login", validate(payloadLoginSchema), aksesController.login)
 routes.post("/aplikasi", validate(payloadEmailAksesSchema), aksesController.getAplikasiByEmail)
 routes.post("/post-token", auth, validate(payloadUserGroupAksesSchema), aksesController.postToken)
 routes.post("/get-menu", auth, validate(payloadUserGroupAksesSchema), aksesController.getMenuApp)
@@ -25,6 +27,6 @@ routes.post("/logout", validate(payloadLogoutSchema), aksesController.logout)
 routes.post("/change-password",validate(payloadChangePasswordSchema), aksesController.changePassword)
 routes.post("/forget-password", validate(payloadEmailAksesSchema), aksesController.forgetPassword)
 routes.post("/refresh-token", validate(payloadRefreshTokenSchema), aksesController.refreshToken)
-routes.post("/refresh-token-landing", validate(payloadLogoutSchema), aksesController.refreshTokenLanding)
+routes.post("/refresh-token-landing", validate(refreshTokenLandingSchema), aksesController.refreshTokenLanding)
 
 export default routes

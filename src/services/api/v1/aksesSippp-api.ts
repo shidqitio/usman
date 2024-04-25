@@ -5,10 +5,11 @@ import { QueryTypes, Op } from "sequelize"
 
 import db from "@config/database"
 import RefAplikasi, {RefAplikasiOutput, Status} from "@models/refAplikasi-model"
-import RefUser, { RefUserOutput } from "@models/refUser-model"
+import RefUser, { RefUserOutput, StatusUser } from "@models/refUser-model"
 import TrxGroupUser from "@models/trxGroupUser-model"
 import RefGroup from "@models/refGroup-model"
 import RefTokenApp from "@models/refTokenApp-model"
+import RefUserInternal from "@models/refUserInternal-model"
 
 import CustomError from "@middleware/error-handler"
 import getConfig from "@config/dotenv"
@@ -25,7 +26,8 @@ import {
     PayloadEmailAksesSchema, 
     PayloadChangePasswordSchema,
     PayloadLogoutSchema,
-    PayloadRefreshTokenSchema
+    PayloadRefreshTokenSchema,
+    RefreshTokenLandingSchema
 } from "@schema/api/akses-schema"
 import { httpCode } from "@utils/prefix"
 import RefMenu1 from "@models/refMenu1-model"
@@ -36,21 +38,57 @@ import nodemailer from "nodemailer"
 
 const register = async (
     require:PayloadAksesSchema["body"]) : Promise<RefUserOutput> => {
+    const t = await db.transaction()
     try {
         const email = require.email
         const password = require.password
+        const username = require.username
+        const nip = require.nip
+        const status_user = StatusUser.internal
 
         const pw  = await  bcrypt.hash(password, 12)
 
         const registUser = await RefUser.create({
             email : email, 
-            password : pw
-        })
+            password : pw,
+            status_user : status_user
+        }, {transaction : t})
 
         if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Dibuat")
 
-        return registUser
-    } catch (error) {
+        const registUserInternal = await RefUserInternal.create({
+          id_user : registUser.id,
+          username : username, 
+          nip : nip
+        }, {transaction : t})
+
+        if (!registUserInternal) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Didaftarkan")
+
+        const hasil_akhir : RefUser | null = await RefUser.findOne({
+          attributes : {exclude : ["udcr", "udch", "ucr", "uch", "password"]},
+          include : [
+            {
+              model : RefUserInternal, 
+              as : "RefUserInternal", 
+              attributes : ["username", "nip"],
+              
+            }
+          ],
+          transaction : t
+        })
+
+        console.log(hasil_akhir);
+        
+
+        if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity, "Hasil Gagal Dikeluarkan")
+
+        await t.commit()
+
+        return hasil_akhir
+    } catch (error : any) {
+      console.log(error);
+      
+      await t.rollback()
         if (error instanceof CustomError) {
             throw new CustomError(error.code, error.message);
           } else {
@@ -943,10 +981,8 @@ const refreshToken = async (
 }
 
 const refreshTokenLanding = async (
-  request:PayloadLogoutSchema["body"]) : Promise<any | null> => {
+  request:RefreshTokenLandingSchema["body"]) : Promise<any | null> => {
   try {
-    const kode_group = request.kode_group
-    const id_user = request.id_user
     const token = request.token
 
     const tokenVerify : any = token.split(" ")[1]
@@ -954,10 +990,15 @@ const refreshTokenLanding = async (
     let decodeToken : any ;
 
     try {
-      decodeToken  = jwt.verify(tokenVerify, getConfig("SECRET_KEY"))
+      decodeToken  = jwt.verify(tokenVerify, getConfig("SECRET_KEY"), {
+        ignoreExpiration : true
+      })
     } catch (error) {
       throw new CustomError(httpCode.unauthorized, "[1] Token Unauthorized")
     }
+    
+    console.log(decodeToken);
+    
 
     const checkTokenAwal : RefUser | null  = await  RefUser.findOne({
       where : {
@@ -981,7 +1022,7 @@ const refreshTokenLanding = async (
     api_token : updatedToken
   }, {
     where : {
-      id : id_user
+      id : decodeToken.id_user
     },
     returning : true,
     

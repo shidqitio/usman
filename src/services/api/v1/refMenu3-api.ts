@@ -228,6 +228,20 @@ const destroy = async (
         }
     }
 
+const countMenu3 = async () : Promise<any | null> => {
+        try {
+            const count = await RefMenu2.count()
+    
+            return count
+        } catch (error : any) {
+            if(error instanceof CustomError) {
+                throw new CustomError(error.code, error.message)
+            } 
+            else {
+                throw new CustomError(500, "Internal server error.")
+            }
+        }
+    }
 
 export default {
     index,
@@ -236,4 +250,5 @@ export default {
     update,
     getByMenu2,
     destroy,
+    countMenu3
 }

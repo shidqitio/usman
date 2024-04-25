@@ -92,7 +92,7 @@ const parameter = {
     params : z.object({
         id : z.string({
             required_error : "Id Tidak Boleh Kosong",
-            invalid_type_error : "Id harus Integer"
+            invalid_type_error : "Id harus string"
         }), 
     })
 } 

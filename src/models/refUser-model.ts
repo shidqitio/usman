@@ -1,6 +1,11 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
 
+export enum StatusUser  {
+    internal = "internal",
+    eksternal = "eksternal"
+}
+
 export interface IRefUserAttributes {
 	id       : number ,
 	email    : string ,
@@ -9,6 +14,7 @@ export interface IRefUserAttributes {
 	is_login : string | null,
     forget_token_pass : string | null, 
     user_photo : string | null | undefined,
+    status_user : StatusUser,
 	ucr      : string | null | undefined,
 	uch      : string | null | undefined,
 	udcr     : Date | undefined,
@@ -20,6 +26,7 @@ export type RefUserInput = Optional<
 IRefUserAttributes, 
 "id" |
 "forget_token_pass" |
+"status_user" |
 "uch" | 
 "ucr" | 
 "udch"|
@@ -37,6 +44,7 @@ class RefUser
     declare is_login : string | null;
     declare forget_token_pass : string | null ;
     declare user_photo: string | null | undefined;
+    declare status_user: StatusUser; 
     declare ucr      : string | null | undefined;
     declare uch      : string | null | undefined;
     declare udcr     : Date | undefined;
@@ -74,6 +82,9 @@ RefUser.init(
         forget_token_pass : {
             type : DataTypes.STRING(), 
             allowNull : true
+        },
+        status_user : {
+            type : DataTypes.ENUM("internal","eksternal")
         },
         ucr : {
             type : DataTypes.STRING(), 

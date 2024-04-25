@@ -212,11 +212,30 @@ const deleteAplikasi = async (id:GetRefAplikasiSchema["params"]["id"]) : Promise
     }
 }
 
+const countRefAplikasi = async () : Promise<any> => {
+    try {
+        const count : number = await RefAplikasi.count()
+
+        return count
+
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+
+
 
 export default {
     index,
     store,
     getByKodeAPlikasi, 
     updateAplikasi,
-    deleteAplikasi
+    deleteAplikasi,
+    countRefAplikasi
 }

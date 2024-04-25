@@ -2,7 +2,7 @@ import { httpCode } from "@utils/prefix";
 import { RefGroupInput, RefGroupOutput } from "@models/refGroup-model";
 import refGroupService from "@services/api/v1/refGroup-api"
 import { Request, Response, NextFunction } from "express";
-import { responseSuccess } from "@utils/response-success";
+import { responseSuccess, responseSuccessCount } from "@utils/response-success";
 import {
     PayloadRefGroupSchema,
     UpdatedRefGroupSchema, 
@@ -21,10 +21,11 @@ const index = async (
         const ioInstance = getSocketIO()
 
         const response : RefGroupOutput[] = await refGroupService.index()
+        const count : number = await refGroupService.countRefGroup()
 
         if(ioInstance) {
             ioInstance.emit("group", response)
-            responseSuccess(res, httpCode.ok, response)
+            responseSuccessCount(res, httpCode.ok, count, response)
         }
         else {
             res.status(500).send("Socket.IO not initialized");

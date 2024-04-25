@@ -253,6 +253,20 @@ const destroy = async (
     }
 }
 
+const countRefGroup = async () : Promise<any> => {
+    try {
+        const count : number = await RefGroup.count()
+
+        return count
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
 
 
 export default {
@@ -262,5 +276,6 @@ export default {
     update,
     destroy,
     getRoleByAplikasi,
-    GroupByLevel
+    GroupByLevel,
+    countRefGroup
 }

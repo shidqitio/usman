@@ -9,7 +9,8 @@ import {
     PayloadEmailAksesSchema,
     PayloadChangePasswordSchema,
     PayloadLogoutSchema,
-    PayloadRefreshTokenSchema
+    PayloadRefreshTokenSchema,
+    RefreshTokenLandingSchema
 } from "@schema/api/akses-schema"
 
 import aksesService from "@services/api/v1/aksesSippp-api"
@@ -185,7 +186,7 @@ const refreshTokenLanding = async (
     res:Response,
     next : NextFunction) : Promise<void> => {
     try {
-        const request : PayloadLogoutSchema["body"] = req.body
+        const request : RefreshTokenLandingSchema["body"] = req.body
 
         const response = await aksesService.refreshTokenLanding(request)
 

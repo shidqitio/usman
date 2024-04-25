@@ -80,15 +80,54 @@ const store = async (
             throw new CustomError(422, "Kode Tidak Tepat")
         }
 
+        // const exGroupMenu1 = await TrxGroupMenu.findOne({
+        //     where : {
+        //         kode_group : kodeGroup, 
+        //         kode_menu1 : kodeMenu1
+        //     }
+        // })
+
+        // let insert
+
+        // if(!exGroupMenu1) {
+        //         const data_insert : TrxGroupMenuInput = {
+        //         kode_group : kodeGroup, 
+        //         kode_menu1 : kodeMenu1,
+        //         kode_menu2 : kodeMenu2, 
+        //         kode_menu3 : kodeMenu3, 
+        //         akses : Akses.Aktif,
+        //         ucr : require.ucr
+        //         }
+        //         insert  = await TrxGroupMenu.create(data_insert)
+        // }
+
+        // else if(exGroupMenu1) {
+        //     const checkGroupMenu2 = await TrxGroupMenu.findAll({
+        //         where : {
+        //             kode_group : kodeGroup,
+        //             kode_menu1 : kodeMenu1, 
+        //             kode_menu2 : kodeMenu2
+        //         }
+        //     })
+
+        //     if(checkGroupMenu2.length !== 0) {
+        //         throw new CustomError(httpCode.unprocessableEntity, "Data Sudah Ada")
+        //     }
+        // }
+
         const exGroupMenu = await TrxGroupMenu.findOne({
             where : {
                 kode_group : kodeGroup, 
-                kode_menu1 : kodeMenu1
+                kode_menu1 : kodeMenu1,
+                kode_menu2 : kodeMenu2, 
+                kode_menu3 : kodeMenu3
             }
         })
 
 
         if(exGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Data Sudah Pernah Ada")
+
+        
 
         const data_insert : TrxGroupMenuInput = {
             kode_group : kodeGroup, 
@@ -98,6 +137,8 @@ const store = async (
             akses : Akses.Aktif,
             ucr : require.ucr
         }
+
+
 
         const insert : TrxGroupMenuOutput = await TrxGroupMenu.create(data_insert)
 
@@ -281,6 +322,22 @@ const menuByLevelAplikasi = async (
     }
 }
 
+const countTrxGroupMenu = async () : Promise<any> => {
+    try {
+        const countGroupMenu : number = await TrxGroupMenu.count()
+
+        return countGroupMenu
+
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 
 
 
@@ -292,5 +349,6 @@ export default {
     update,
     destroy,
     menuByLevelAplikasi,
-    groupMenuAplikasi
+    groupMenuAplikasi,
+    countTrxGroupMenu
 }

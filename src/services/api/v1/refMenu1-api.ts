@@ -126,7 +126,14 @@ const dataByAplikasi = async (id:GetRefMenu1Schema["params"]["id"]) : Promise<Re
             where : {
                 kode_aplikasi : id
             }, 
-            attributes : {exclude : ["udcr", "udch", "ucr", "uch"]}
+            attributes : {exclude : ["udcr", "udch", "ucr", "uch"]},
+            include : [
+                {
+                    model : RefMenu2, 
+                    as : "Menu2",
+                    attributes : {exclude : ["ucr","uch","udcr","udch"]}
+                }
+            ]
         })
 
         return refMenu
@@ -214,6 +221,21 @@ const destroy = async (
         }
     }
 
+const countMenu1 = async () : Promise<any | null> => {
+    try {
+        const count = await RefMenu1.count()
+
+        return count
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 
 
 export default {
@@ -222,5 +244,6 @@ export default {
     update,
     show,
     dataByAplikasi,
-    destroy
+    destroy,
+    countMenu1
 }
