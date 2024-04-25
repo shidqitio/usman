@@ -10,6 +10,7 @@ import {
     DestroyRefMenu3Schema
 } from "@schema/api/refMenu3-schema"
 import TrxGroupMenu from "@models/trxGroupMenu-model";
+import sequelize from "sequelize";
 
 const index = async (
     page:SearchRefMenu3Schema["query"]["page"],
@@ -57,12 +58,26 @@ const store = async (
 
         if(!cekMenu2) throw new CustomError (httpCode.unprocessableEntity, "Menu 2 Tidak Ada")
 
-        const kodeMenu3Count : number = await RefMenu3.count({
-            where : {
-                kode_aplikasi : kode_aplikasi, 
+            const kode : any = await RefMenu3.findOne({
+                where : {
+                kode_aplikasi : kode_aplikasi,
                 kode_menu2 : kodeMenu2
-            }
-        })
+                },
+                attributes: [
+                    [sequelize.fn('MAX', sequelize.literal("CAST(SPLIT_PART(kode_menu3, '.', -1) AS INTEGER)")), 'max_code']
+                  ],
+                  raw : true
+            })
+
+        let kodeMenu3Count : number 
+            
+        if(kode.max_code === null || kode.max_code === 0 ){
+            kodeMenu3Count = 0
+        } else {
+            kodeMenu3Count = kode.max_code
+        }
+
+      
 
         const kode_menu2 = kodeMenu2;
 

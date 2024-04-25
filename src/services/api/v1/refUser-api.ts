@@ -14,6 +14,9 @@ import { removeByLastNameAplikasi } from "@utils/remove-file";
 import fs from "fs/promises"
 import RefUserInternal from "@models/refUserInternal-model";
 
+import { Op } from "sequelize";
+import { log } from "console";
+
 const updateUserPhoto = async (
     id:PayloadUpdateSchema["parameter"]["id"],
     file : any
@@ -77,7 +80,7 @@ const updateUserPhoto = async (
 const refUser = async (
     page:SearchRefUserSchema["query"]["page"],
     limit:SearchRefUserSchema["query"]["limit"], 
-) : Promise<RefUser[]> => {
+) : Promise<any> => {
     try {
         let pages: number = parseInt(page);
         let limits: number = parseInt(limit);
@@ -88,12 +91,23 @@ const refUser = async (
         }
 
         const refUser : RefUser[] = await RefUser.findAll({
-            attributes : {exclude : ["ucr", "uch", "udcr", "udch", "api_token", "password", "forget_token_pass"]}
+            attributes : {exclude : ["ucr", "uch", "udcr", "udch", "api_token", "password", "forget_token_pass"]},
+            include : [
+                {
+                    model : RefUserInternal,
+                    as : "RefUserInternal", 
+                    attributes : ["username"]
+                }
+            ],
+            limit : limits, 
+            offset : offset
         })
 
 
         return refUser
     } catch (error : any) {
+        console.log(error);
+        
         if(error instanceof CustomError) {
             throw new CustomError(error.code, error.message)
         } 
@@ -148,9 +162,36 @@ const countRefUser = async () : Promise <any> => {
     }
 }
 
+const searchGroupByEmail = async (
+    email : string) : Promise <RefUser[]> => {
+    try {
+        const resultUser : RefUser[] = await RefUser.findAll({
+            attributes : ["id","email", "is_login", "user_photo","status_user"],
+            where : {
+                email : {
+                    [Op.like] : `%${email}%`
+                }
+            },
+        })
+
+        if(resultUser.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Hasil Pencarian Tidak Ada")
+
+        return resultUser
+     } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+
 export default {
     updateUserPhoto,
     refUser,
     searchParams,
-    countRefUser
+    countRefUser,
+    searchGroupByEmail
 }

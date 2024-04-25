@@ -16,6 +16,7 @@ import { getSocketIO } from "@config/socket";
 import { responseSuccess, responseSuccessCount } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
 
+
 const index = async (
     req:Request, 
     res:Response, 
@@ -156,6 +157,24 @@ const destroy = async (
     }
 }
 
+const searchGroupByEmail = async (
+    req : Request,
+    res : Response, 
+    next : NextFunction) : Promise<void> => {
+    try {
+        const email  = req.body.email
+
+        const response = await trxGroupUserService.searchGroupByEmail(email)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error Search By Email ${error}`);
+        next(error)
+    }
+}
+
+
+
 export default {
     index,
     store,
@@ -164,5 +183,6 @@ export default {
     userByGroup,
     destroy,
     storePegawaiRole,
-    postGroups
+    postGroups,
+    searchGroupByEmail
 }

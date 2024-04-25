@@ -14,6 +14,7 @@ import {
     GetRefMenu1Schema,
     DestroyRefMenu1Schema
 } from "@schema/api/refMenu1-schema"
+import sequelize from "sequelize";
 
 const index = async (
     page:SearchRefMenu1Schema["query"]["page"],
@@ -54,13 +55,32 @@ const store = async (
         const refAplikasi : RefAplikasi | null = await RefAplikasi.findByPk(require.kode_aplikasi)
         if(!refAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Aplikasi Tidak Ada")
 
-        const kode : number = await RefMenu1.count({
+        // const kode : number = await RefMenu1.count({
+        //     where : {
+        //         kode_aplikasi : require.kode_aplikasi
+        //     }
+        // })
+
+        let incr 
+
+        const kode : any = await RefMenu1.findOne({
             where : {
-                kode_aplikasi : require.kode_aplikasi
-            }
+                kode_aplikasi : require.kode_aplikasi,
+            },
+            attributes: [
+                [sequelize.fn('MAX', sequelize.literal("CAST(SPLIT_PART(kode_menu1, '.', -1) AS INTEGER)")), 'max_code']
+              ],
+              raw : true
         })
+
+        if(kode.max_code === null || kode.max_code === 0 ){
+            incr = 0
+        } else {
+            incr = kode.max_code
+        }
+               
         
-        const kodeMenu1 = await generate_auto_code.generateMenu1(kode, require.kode_aplikasi)
+        const kodeMenu1 = await generate_auto_code.generateMenu1(incr, require.kode_aplikasi)
 
         const inputRefMenu1 : RefMenu1Input = {
             kode_aplikasi : require.kode_aplikasi,

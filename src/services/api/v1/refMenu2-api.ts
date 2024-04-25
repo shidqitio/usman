@@ -11,6 +11,7 @@ import {
     DestroyRefMenu2Schema
 } from "@schema/api/refMenu2-schema"
 import RefMenu3 from "@models/refMenu3-model";
+import sequelize from "sequelize";
 
 const index = async (
     page:SearchRefMenu2Schema["query"]["page"],
@@ -56,12 +57,27 @@ const store = async (
 
         if(!cekMenu1) throw new CustomError(httpCode.unprocessableEntity, "Menu 1 Tidak Ada")
 
-        const kodeMenu2Count : number = await RefMenu2.count({
-            where : {
+            const kode : any = await RefMenu2.findOne({
+                where : {
                 kode_aplikasi : kode_aplikasi,
                 kode_menu1 : kodeMenu1
-            }
-        })
+                },
+                attributes: [
+                    [sequelize.fn('MAX', sequelize.literal("CAST(SPLIT_PART(kode_menu2, '.', -1) AS INTEGER)")), 'max_code']
+                  ],
+                  raw : true
+            })
+
+        let kodeMenu2Count : number
+
+        if(kode.max_code === null || kode.max_code === 0 ){
+            kodeMenu2Count = 0
+        } else {
+            kodeMenu2Count = kode.max_code
+        }
+
+        console.log("TES COUNT DATA : ", kodeMenu2Count);
+        
 
         const kode_menu1 = kodeMenu1
 
@@ -98,6 +114,8 @@ const store = async (
         return insertRefMenu2
     }  
     catch (error : any) {
+        // console.log(error);
+        
         if(error instanceof CustomError) {
             throw new CustomError(error.code, error.message)
         } 

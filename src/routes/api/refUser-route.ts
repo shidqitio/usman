@@ -15,4 +15,9 @@ routes.put("/:id", uploadImage.single("file"), refUserController.updatePhoto)
 routes.get("/", validate(searchRefUserSchema), refUserController.refUser)
 
 routes.get("/:email", validate(searchParamsSchema), refUserController.searchParams)
+
+routes.post("/search-email", refUserController.searchGroupByEmail)
+
+
+
 export default routes

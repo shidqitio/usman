@@ -57,8 +57,24 @@ const searchParams = async (
     }
 }
 
+const searchGroupByEmail = async (
+    req : Request,
+    res : Response, 
+    next : NextFunction) : Promise<void> => {
+    try {
+        const email  = req.body.email
+
+        const response = await refUserService.searchGroupByEmail(email)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error Search By Email ${error}`);
+        next(error)
+    }
+}
 export default {
     updatePhoto,
     refUser,
-    searchParams
+    searchParams,
+    searchGroupByEmail
 }

@@ -21,6 +21,8 @@ const payloadEmailPassword = {
     }), 
 }
 
+
+
 const payloadLogin = {
     body : z.object({
         email : z.string({

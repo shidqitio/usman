@@ -58,6 +58,7 @@ const index = async (
     }
 }
 
+
 const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) : Promise<TrxGroupUserOutput> => {
     try {
         const kodeGroup = require.kode_group
@@ -525,6 +526,39 @@ const countGroupUser = async () : Promise<any> => {
     }
 }
 
+const searchGroupByEmail = async (
+    email : string) : Promise <RefUser[]> => {
+    try {
+        const resultUser : RefUser[] = await RefUser.findAll({
+            attributes : ["id","email"],
+            where : {
+                email : {
+                    [Op.like] : `%${email}%`
+                }
+            },
+            include : [
+                {
+                    model : TrxGroupUser,
+                    as : "TrxGroupUser", 
+                    required : true,
+                    attributes : {exclude : ["udcr","udch","ucr","uch"]}
+                }
+            ]
+        })
+
+        if(resultUser.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Hasil Pencarian Tidak Ada")
+
+        return resultUser
+     } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 export default {
     index, 
     store,
@@ -534,5 +568,6 @@ export default {
     destroy,
     storePegawaiRole,
     postGroups,
-    countGroupUser
+    countGroupUser,
+    searchGroupByEmail
 }

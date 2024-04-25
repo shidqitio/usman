@@ -1,162 +1,271 @@
-[2024-04-02T09:55:48.186] [ERROR] error - testing error ChangePassword Error: User Tidak Terdaftar
-[2024-04-02T09:55:48.188] [ERROR] error - CustomError: User Tidak Terdaftar
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:702:13
+[2024-04-25T11:27:00.195] [ERROR] error - testing error Search By Email Error: Hasil Pencarian Tidak Ada
+[2024-04-25T11:27:00.197] [ERROR] error - Error: Hasil Pencarian Tidak Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupUser-api.ts:554:19
     at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupUser-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 422,
   status: 'error'
 }
-[2024-04-02T09:56:57.069] [ERROR] error - testing error ChangePassword Error: Password Tidak Sesuai
-[2024-04-02T09:56:57.070] [ERROR] error - CustomError: Password Tidak Sesuai
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:702:13
+[2024-04-25T11:27:02.698] [ERROR] error - testing error Search By Email Error: Hasil Pencarian Tidak Ada
+[2024-04-25T11:27:02.699] [ERROR] error - Error: Hasil Pencarian Tidak Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupUser-api.ts:554:19
     at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupUser-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 422,
   status: 'error'
 }
-[2024-04-02T10:07:30.978] [ERROR] error - CustomError: [1] Unauthorized
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+[2024-04-25T11:51:53.711] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T11:51:53.717] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:111:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T11:52:34.010] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T11:52:34.011] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:111:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T11:53:11.464] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T11:53:11.467] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:113:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T11:57:20.133] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T11:57:20.135] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:113:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T11:58:10.106] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T11:58:10.107] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:113:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T12:01:04.998] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T12:01:04.999] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:114:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:39:18.358] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:39:18.360] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:114:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:39:25.313] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:39:25.314] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:114:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:41:17.916] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:41:17.917] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:114:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:48:30.216] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:48:30.218] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:112:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:49:06.554] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:49:06.556] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:114:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:49:54.880] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:49:54.882] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:117:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:50:41.214] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:50:41.216] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:117:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:51:16.471] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:51:16.472] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:117:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:51:20.411] [ERROR] error - testing error store Error: Internal server error.
+[2024-04-25T13:51:20.412] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:117:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T13:55:57.225] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:25:19
     at Generator.next (<anonymous>)
     at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
     at new Promise (<anonymous>)
     at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
     at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
     at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
-    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
-    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
   code: 401,
   status: 'error'
 }
-[2024-04-02T10:07:52.793] [ERROR] error - CustomError: [1] Unauthorized
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:16:19
+[2024-04-25T14:38:20.741] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:120:19
     at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
-    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
-    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
-    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
-  code: 401,
-  status: 'error'
-}
-[2024-04-02T10:48:22.112] [ERROR] error - testing error login Error: Password Salah
-[2024-04-02T10:48:22.113] [ERROR] error - CustomError: Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:149:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-04-02T10:48:35.363] [ERROR] error - testing error login Error: Password Salah
-[2024-04-02T10:48:35.364] [ERROR] error - CustomError: Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:149:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-04-02T11:14:03.934] [ERROR] error - testing error show Error: Internal server error.
-[2024-04-02T11:14:03.935] [ERROR] error - CustomError: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupUser-api.ts:192:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupUser-api.ts:29:65)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T12:43:11.913] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\src\services\public\aplikasi'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:210:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65) {
-  code: 500,
-  status: 'error'
-}
-[2024-04-02T12:46:16.053] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\src\services\public\aplikasi\aplikasi-1712036758755.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:210:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65) {
-  code: 500,
-  status: 'error'
-}
-[2024-04-02T12:49:22.932] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\usman\src\public\aplikasi\aplikasi-1712036958149.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:210:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65) {
-  code: 500,
-  status: 'error'
-}
-[2024-04-02T12:51:51.554] [ERROR] error - CustomError: Data Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:207:15
+[2024-04-25T14:38:27.231] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:120:19
     at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:28:58)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:09:21.397] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\[object Promise]'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:39:30.850] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:122:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:11:54.964] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:43:15.084] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:124:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:11:59.338] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:44:13.633] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:125:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:12:16.556] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:45:08.869] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:128:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:12:18.820] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:68:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:50:59.031] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:129:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:27:12.480] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:70:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:51:54.629] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:128:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:29:31.953] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:70:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:54:38.998] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:129:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:29:37.271] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:70:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:55:57.171] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:129:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-04-02T13:32:27.760] [ERROR] error - CustomError: ENOENT: no such file or directory, unlink 'D:\Dev SIPPP\PMO\public\images\userphoto\userphoto-1711947303774.png'
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:70:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65) {
+[2024-04-25T14:57:43.879] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:131:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T14:58:41.538] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:131:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-04-25T14:59:37.145] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:121:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
