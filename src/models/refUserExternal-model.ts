@@ -48,7 +48,8 @@ RefUserExternal.init(
         id : {
             type : DataTypes.INTEGER(),
             allowNull : false, 
-            primaryKey : true
+            primaryKey : true,
+            autoIncrement : true
         }, 
         id_user : {
             type : DataTypes.STRING(),

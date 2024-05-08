@@ -10,6 +10,7 @@ import TrxGroupUser from "@models/trxGroupUser-model"
 import RefGroup from "@models/refGroup-model"
 import RefTokenApp from "@models/refTokenApp-model"
 import RefUserInternal from "@models/refUserInternal-model"
+import RefUserExternal from "@models/refUserExternal-model"
 
 import CustomError from "@middleware/error-handler"
 import getConfig from "@config/dotenv"
@@ -27,7 +28,9 @@ import {
     PayloadChangePasswordSchema,
     PayloadLogoutSchema,
     PayloadRefreshTokenSchema,
-    RefreshTokenLandingSchema
+    RefreshTokenLandingSchema,
+    PayloadEmailAplikasiSchema,
+    PayloadRegisterExternalSchema
 } from "@schema/api/akses-schema"
 import { httpCode } from "@utils/prefix"
 import RefMenu1 from "@models/refMenu1-model"
@@ -95,6 +98,178 @@ const register = async (
             throw new CustomError(500, "Internal server error.");
           }
     }
+}
+
+
+const HTML_TEMPLATE = (text : any) => {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <title>NodeMailer Email Template</title>
+        <style>
+          .container {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background-color: #f4f4f4;
+          }
+          .email {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+          }
+          .email-header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+          .email-body {
+            padding: 20px;
+          }
+          .email-footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="email">
+            <div class="email-header">
+              <h1>EMAIL HEADER</h1>
+            </div>
+            <div class="email-body">
+              <p>${text}</p>
+            </div>
+            <div class="email-footer">
+              <p>EMAIL FOOTER</p>
+            </div>
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+const registerExternal = async (
+  require:PayloadRegisterExternalSchema["body"]) : Promise<RefUser> => {
+  const t = await db.transaction()
+  try {
+      const email = require.email
+      const password = require.password
+      const username = require.username
+      const statusPengguna = require.statusPengguna
+      const status_user = StatusUser.eksternal
+
+      const pw  = await  bcrypt.hash(password, 12)
+      
+
+      const checkEmailAvail = await RefUser.findOne({
+        where : {
+          email : email
+        }
+      })
+
+      if (checkEmailAvail) throw new CustomError(httpCode.unprocessableEntity, "Email Sudah Terdaftar")
+
+      const registUser = await RefUser.create({
+          email : email, 
+          password : pw,
+          status_user : status_user
+      }, {transaction : t})
+
+      if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Dibuat")
+
+        const registUserExternal = await RefUserExternal.create({
+          id_user : registUser.id,
+          username : username, 
+          status_pengguna : statusPengguna
+        }, {transaction : t})
+
+        if(!registUserExternal) throw new CustomError(httpCode.unprocessableEntity, "User External Gagal Didaftarkan")
+
+          const hasil_akhir : RefUser | null = await RefUser.findOne({
+            attributes : {exclude : ["udcr", "udch", "ucr", "uch", "password"]},
+            include : [
+              {
+                model : RefUserExternal, 
+                as : "RefUserExternal", 
+                attributes : ["username", "status_pengguna"],
+              }
+            ],
+            where : {
+              id : registUser.id
+            },
+            transaction : t
+          })
+          
+          if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity, "Hasil Gagal Dikeluarkan")
+
+
+            const transporter =  nodemailer.createTransport({
+              pool: true,
+              host: "smtp.ethereal.email",
+              port: 587,
+              secure : false,
+              auth: {
+                user: "joyce.brakus42@ethereal.email",
+                pass: "gvdgMBd6stb5vbEb2G",
+              },
+            })
+      
+            // verify connection configuration
+             transporter.verify(function (error, success) {
+              if (error) {
+                console.log(error);
+              } else {
+                console.log("Server is ready to take our messages");
+              }
+            });
+      
+      
+          const mailOption = {
+            from : `joyce.brakus42@ethereal.email`,
+            to : `williejenkins02@gmail.com`, 
+            subject : `Test Email`,
+            text : `SEND DATA EMAIL`,
+          
+            html : HTML_TEMPLATE("TES EMAIL AJA")
+          }
+      
+           transporter.sendMail(mailOption, (error, info) => {
+            console.log("RUN");
+            
+            if(error) {
+              console.log("GAGAL KIRIM EMAIL");
+              
+              console.log(`Error Sending Email`, error)
+            } else {
+              console.log("Kirim Email");
+              
+              console.log(`Success`, info)
+            }
+          })
+
+          await t.commit()
+    
+          return hasil_akhir
+
+  } catch (error) {
+    console.log(error);
+    
+    await t.rollback()
+    if (error instanceof CustomError) {
+        throw new CustomError(error.code, error.message);
+      } else {
+        throw new CustomError(500, "Internal server error.");
+      }
+  }
 }
 
 const login = async (
@@ -383,6 +558,10 @@ const getMenuApp = async (
           hash  = CryptoJS.AES.encrypt(token_app, getConfig("SECRET_KEY_LVL2"))
           sendHash = hash.toString()
         }
+        if(UserLevel === 3) {
+          hash  = CryptoJS.AES.encrypt(token_app, getConfig("SECRET_KEY_LVL3"))
+          sendHash = hash.toString()
+        }
 
         // //#################### GENERATED DECRYPT ########################
 
@@ -426,13 +605,15 @@ const getMenuApp = async (
       
           const menu1 : RefMenu1[] = await db.query(
             `
-            SELECT c.kode_menu1, c.nama_menu1, c.link, c.icon, c.on_update, c.on_create, c.on_delete, c.on_view
+            SELECT c.kode_menu1, c.nama_menu1, c.link, c.icon, c.on_update, c.on_create, c.on_delete, c.on_view, b.urut
               FROM trx_group_user as a 
               JOIN trx_group_menu as b ON a.kode_group = b.kode_group
               JOIN ref_menu1 as c ON b.kode_menu1 = c.kode_menu1
               WHERE a.id_user = (:user)
               AND b.kode_group = (:group)
-              GROUP BY c.kode_menu1
+              GROUP BY c.kode_menu1, b.urut
+              ORDER BY
+              b.urut NULLS LAST
             `,
             {
               replacements: { user: groupUser.id_user, group: groupUser.kode_group },
@@ -571,6 +752,9 @@ const getMenuApp = async (
                 kode_group : kode_group
             }
           })
+
+          console.log(dataUser?.id);
+          
 
           const aksesApp = [...akses,...newAps]
           const params = {
@@ -1042,6 +1226,48 @@ const refreshTokenLanding = async (
     }
   }
 }
+
+const roleByAplikasiEmail = async (
+    email:PayloadEmailAplikasiSchema["params"]["email"],
+    kode_aplikasi : PayloadEmailAplikasiSchema["params"]["kode_aplikasi"]) : Promise <any> => {
+    try {
+      const roleUser : TrxGroupUser[] = await TrxGroupUser.findAll({
+        where : {
+          "$RefGroup.kode_aplikasi$" : kode_aplikasi,
+          "$RefUser.email$" : email
+        }, 
+        attributes : ["id_group_user", "kode_group", "id_user", "status"],
+        include : [
+          {
+            model : RefGroup, 
+            as : "Group",
+            attributes : ["nama_group", "kode_aplikasi"]
+          }, 
+          {
+            model : RefUser, 
+            as : "User",
+            attributes : []
+          }
+        ],
+        // raw : true
+      })
+
+      // console.log(roleUser);
+      
+
+      if(roleUser.length === 0) throw new CustomError(httpCode.unprocessableEntity, "Role User Tidak Terdaftar")
+
+      return roleUser
+    } catch (error : any) {
+      // console.log(error);
+      
+      if (error instanceof CustomError) {
+        throw new CustomError(error.code, error.message);
+      } else {
+        throw new CustomError(500, "Internal server error.");
+      }
+    }
+  }
   
 
 export default {
@@ -1055,5 +1281,7 @@ export default {
   changePassword,
   forgetPassword,
   refreshToken,
-  refreshTokenLanding
+  refreshTokenLanding,
+  roleByAplikasiEmail,
+  registerExternal
 }

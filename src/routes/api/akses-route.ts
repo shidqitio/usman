@@ -10,15 +10,21 @@ import {
     payloadLogoutSchema, 
     payloadRefreshTokenSchema,
     refreshTokenLandingSchema,
-    payloadLoginSchema
+    payloadLoginSchema,
+    payloadEmailAplikasiSchema,
+    payloadRegisterExternalSchema
 } from "@schema/api/akses-schema"
 
 import auth from "@middleware/auth"
 
 const routes = express.Router()
 
+routes.get("/get-role/:email/:kode_aplikasi", validate(payloadEmailAplikasiSchema), aksesController.roleByAplikasiEmail)
+
 routes.post("/register", validate(payloadAksesSchema), aksesController.register)
+routes.post("/register-external", validate(payloadRegisterExternalSchema), aksesController.registerExternal)
 routes.post("/login", validate(payloadLoginSchema), aksesController.login)
+
 routes.post("/aplikasi", validate(payloadEmailAksesSchema), aksesController.getAplikasiByEmail)
 routes.post("/post-token", auth, validate(payloadUserGroupAksesSchema), aksesController.postToken)
 routes.post("/get-menu", auth, validate(payloadUserGroupAksesSchema), aksesController.getMenuApp)

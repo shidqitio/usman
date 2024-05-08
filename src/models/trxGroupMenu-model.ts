@@ -12,21 +12,23 @@ export enum Akses {
 
 export interface ITrxGroupMenuAttributes {
 	id_group_menu: number | undefined,
-	kode_group     : string | null,
-	kode_menu1     : string | null,
-	kode_menu2     : string | null,
-	kode_menu3     : string | null,
-	akses          : Akses,
-	ucr            : string | null | undefined,
-	uch            : string | null | undefined,
-	udcr           : Date | undefined,
-	udch           : Date | undefined,
+	kode_group   : string | null,
+	kode_menu1   : string | null,
+	kode_menu2   : string | null,
+	kode_menu3   : string | null,
+	akses        : Akses,
+	urut         : number | null | undefined,
+	ucr          : string | null | undefined,
+	uch          : string | null | undefined,
+	udcr         : Date | undefined,
+	udch         : Date | undefined,
 }
 
 export type TrxGroupMenuOutput = Required<ITrxGroupMenuAttributes>
 export type TrxGroupMenuInput = Optional<
 ITrxGroupMenuAttributes, 
 "id_group_menu" | 
+"urut" | 
 "uch" | 
 "ucr" |
 "udch" | 
@@ -38,15 +40,16 @@ class TrxGroupMenu
 	implements ITrxGroupMenuAttributes
 {
 	declare id_group_menu: number | undefined ;
-	declare kode_group     : string | null ;
-	declare kode_menu1     : string | null ;
-	declare kode_menu2     : string | null ;
-	declare kode_menu3     : string | null ;
-	declare akses          : Akses ;
-	declare ucr            : string | null | undefined;
-	declare uch            : string | null | undefined;
-	declare udcr           : Date | undefined ;
-	declare udch           : Date | undefined ;
+	declare kode_group   : string | null ;
+	declare kode_menu1   : string | null ;
+	declare kode_menu2   : string | null ;
+	declare kode_menu3   : string | null ;
+	declare urut         : number | null | undefined ;
+	declare akses        : Akses ;
+	declare ucr          : string | null | undefined;
+	declare uch          : string | null | undefined;
+	declare udcr         : Date | undefined ;
+	declare udch         : Date | undefined ;
 }
 
 TrxGroupMenu.init (
@@ -76,6 +79,10 @@ TrxGroupMenu.init (
 		akses : {
 			type : DataTypes.ENUM("0", "1"),
 			allowNull : false
+		},
+		urut : {
+			type : DataTypes.INTEGER(), 
+			allowNull : true
 		},
 		ucr : {
 			type : DataTypes.STRING(),

@@ -13,8 +13,11 @@ import { removeByLastNameAplikasi } from "@utils/remove-file";
 
 import fs from "fs/promises"
 import RefUserInternal from "@models/refUserInternal-model";
+import RefUserExternal from "@models/refUserExternal-model";
 
-import { Op } from "sequelize";
+import db from "@config/database";
+
+import { Op, QueryTypes } from "sequelize";
 import { log } from "console";
 
 const updateUserPhoto = async (
@@ -90,21 +93,37 @@ const refUser = async (
           offset = (pages - 1) * limits;
         }
 
-        const refUser : RefUser[] = await RefUser.findAll({
-            attributes : {exclude : ["ucr", "uch", "udcr", "udch", "api_token", "password", "forget_token_pass"]},
-            include : [
-                {
-                    model : RefUserInternal,
-                    as : "RefUserInternal", 
-                    attributes : ["username"]
-                }
-            ],
-            limit : limits, 
-            offset : offset
+        const refUserData : RefUser[] = await db.query(`
+        SELECT a.id, a.email, a.is_login, COALESCE(b.username, c.username) AS username FROM ref_user a 
+        LEFT JOIN ref_user_external b ON a.id = b.id_user 
+        LEFT JOIN ref_user_internal c ON a.id = c.id_user
+        limit (:limit)
+        offset (:offset)
+        `, {
+            type : QueryTypes.SELECT, 
+            replacements  : {
+                limit : limits, 
+                offset : offset
+            }
         })
 
+              
 
-        return refUser
+        // const refUser : RefUser[] = await RefUser.findAll({
+        //     attributes : {exclude : ["ucr", "uch", "udcr", "udch", "api_token", "password", "forget_token_pass"]},
+        //     include : [
+        //         {
+        //             model : RefUserInternal,
+        //             as : "RefUserInternal", 
+        //             attributes : ["username"]
+        //         }
+        //     ],
+        //     limit : limits, 
+        //     offset : offset
+        // })
+
+
+        return refUserData
     } catch (error : any) {
         console.log(error);
         

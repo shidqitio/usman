@@ -125,6 +125,24 @@ const aplikasilevel = {
     })
 }
 
+const urutan = {
+    body : z.object({
+        urut : z.number({
+            invalid_type_error : "Nomor Urut Harus Angka"
+        }).optional()
+    }),
+    params : z.object({
+        kode_menu1 : z.string({
+            required_error : "Kode Menu 1 Harus String",
+            invalid_type_error : "Kode Menu 1 Harus String"
+        }),
+        kode_group : z.string({
+            required_error : "Kode Group Harus Diisi", 
+            invalid_type_error : "Kode Group Harus String"
+        })
+    })
+}
+
 export const payloadTrxGroupMenuSchema = object({
     ...payload
 })
@@ -153,6 +171,10 @@ export const aplikasilevelSchema = object({
     ...aplikasilevel
 })
 
+export const urutSchema = object({
+    ...urutan
+})
+
 
 export type PayloadTrxGroupMenuSchema = z.infer<typeof payloadTrxGroupMenuSchema>
 export type UpdatedTrxGroupMenuSchema = z.infer<typeof updatedTrxGroupMenuSchema>
@@ -161,3 +183,4 @@ export type GetTrxGroupMenuSchema = z.infer<typeof getTrxGroupMenuSchema>
 export type SearchTrxGroupMenuSchema = z.infer<typeof searchTrxGroupMenuSchema>
 export type GetAplikasiByIdSchema = z.infer<typeof getAplikasiByIdSchema>
 export type AplikasiLevelSchema = z.infer<typeof aplikasilevelSchema>
+export type UrutanSchema = z.TypeOf<typeof urutSchema>

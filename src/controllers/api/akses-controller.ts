@@ -10,10 +10,13 @@ import {
     PayloadChangePasswordSchema,
     PayloadLogoutSchema,
     PayloadRefreshTokenSchema,
-    RefreshTokenLandingSchema
+    RefreshTokenLandingSchema,
+    PayloadEmailAplikasiSchema,
+    PayloadRegisterExternalSchema
 } from "@schema/api/akses-schema"
 
 import aksesService from "@services/api/v1/aksesSippp-api"
+import TrxGroupUser from "@models/trxGroupUser-model";
 
 const register = async (
     req:Request, 
@@ -29,6 +32,22 @@ const register = async (
 
     } catch (error) {
         errorLogger.error(`testing error register ${error}`);
+        next(error);
+    }
+}
+
+const registerExternal = async (
+    req:Request,
+    res:Response, 
+    next:NextFunction) : Promise<void> => {
+    try {
+        const request : PayloadRegisterExternalSchema["body"] = req.body
+
+        const response = await aksesService.registerExternal(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error Register External ${error}`);
         next(error);
     }
 }
@@ -197,8 +216,28 @@ const refreshTokenLanding = async (
     }
 }
 
+const roleByAplikasiEmail = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const email : PayloadEmailAplikasiSchema["params"]["email"] = req.params.email
+        const kode_aplikasi : PayloadEmailAplikasiSchema["params"]["kode_aplikasi"] = req.params.kode_aplikasi
+
+        const response = await aksesService.roleByAplikasiEmail(email, kode_aplikasi)
+        
+        // console.log("TES RESPONSE : ", response);
+        
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`Testing Error Role Aplikasi Email ${error}`)
+        next(error)
+    }
+}
+
 export default {
     register,
+    registerExternal,
     login,
     postToken,
     getMenuApp,
@@ -208,5 +247,6 @@ export default {
     changePassword,
     forgetPassword,
     refreshToken,
-    refreshTokenLanding
+    refreshTokenLanding,
+    roleByAplikasiEmail
 }

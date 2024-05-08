@@ -10,11 +10,13 @@ import {
     DestroyTrxGroupMenuSchema,
     SearchTrxGroupMenuSchema,
     GetAplikasiByIdSchema,
-    AplikasiLevelSchema
+    AplikasiLevelSchema,
+    UrutanSchema
 } from "@schema/api/trxGroupMenu-schema"
 import RefMenu1 from "@models/refMenu1-model";
 import RefMenu2 from "@models/refMenu2-model";
 import RefMenu3 from "@models/refMenu3-model";
+import sequelize from "sequelize";
 
 const index = async (
     page:SearchTrxGroupMenuSchema["query"]["page"],
@@ -322,6 +324,103 @@ const menuByLevelAplikasi = async (
     }
 }
 
+const updateUrut = async (require:UrutanSchema["body"], 
+    kode_menu1 : UrutanSchema["params"]["kode_menu1"], 
+    kode_group : UrutanSchema["params"]["kode_group"]) : Promise<any | null> => {
+    try {
+        
+
+    const exGroupMenu : TrxGroupMenu[] = await TrxGroupMenu.findAll({
+        where : {
+            kode_group : kode_group, 
+            kode_menu1 : kode_menu1
+        }
+    })
+
+    if(exGroupMenu.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Group Menu Tidak Ada")
+
+    const  [update, [updateGroup]]= await TrxGroupMenu.update({
+        urut : require.urut
+    }, {
+        where : {
+            kode_group : kode_group, 
+            kode_menu1 : kode_menu1
+        }, 
+        returning : true
+    })
+
+    if(update === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Nomor Urut Gagal Diubah")
+
+    return updateGroup
+
+    } catch (error : any) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+const viewMenuByGroup = async (kode_group:string) : Promise<RefMenu1[]> => {
+    try {     
+        const menuView : RefMenu1[] = await RefMenu1.findAll({
+            attributes : [
+                "kode_aplikasi" ,
+                "kode_menu1" ,
+                "nama_menu1" ,
+                "keterangan_menu" ,
+                "icon" ,
+                "link" ,
+                "status" ,
+                "on_update" ,
+                "on_create" ,
+                "on_delete" ,
+                "on_view" ,
+                [
+                    sequelize.literal('"TrxGroupMenu"."urut"'), // Use Sequelize's literal function to include the attribute
+                    'urut'
+                ],
+            ],
+            include : [
+                {
+                    model : TrxGroupMenu,
+                    as : "TrxGroupMenu",
+                    attributes :[], 
+                    where : {
+                        kode_group : kode_group
+                    }
+                },
+                {
+                    model : RefMenu2, 
+                    as : "Menu2", 
+                    attributes : {exclude : ["ucr", "uch", "udcr", "udch"]},
+                    include : [
+                        {
+                            model : RefMenu3,
+                            as : "Menu3", 
+                            attributes : {exclude : ["ucr", "uch", "udcr", "udch"]},
+                        }
+                    ]
+                }, 
+            ],
+            // group : ['RefMenu1.kode_menu1']
+        })
+    
+        return menuView
+    } catch (error : any) {
+        console.log(error);
+        
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 const countTrxGroupMenu = async () : Promise<any> => {
     try {
         const countGroupMenu : number = await TrxGroupMenu.count()
@@ -342,6 +441,7 @@ const countTrxGroupMenu = async () : Promise<any> => {
 
 
 
+
 export default {
     index,
     store,
@@ -350,5 +450,7 @@ export default {
     destroy,
     menuByLevelAplikasi,
     groupMenuAplikasi,
-    countTrxGroupMenu
+    countTrxGroupMenu,
+    updateUrut,
+    viewMenuByGroup
 }

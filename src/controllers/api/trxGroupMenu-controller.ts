@@ -11,7 +11,8 @@ import {
     GetTrxGroupMenuSchema,
     DestroyTrxGroupMenuSchema,
     GetAplikasiByIdSchema,
-    AplikasiLevelSchema
+    AplikasiLevelSchema,
+    UrutanSchema
 } from "@schema/api/trxGroupMenu-schema"
 
 import { getSocketIO } from "@config/socket";
@@ -127,6 +128,44 @@ const menuByLevelAplikasi = async (
     }
 }
 
+const updateUrut = async (
+    req:Request, 
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_group : UrutanSchema["params"]["kode_group"] = req.params.kode_group
+
+        const kode_menu1 : UrutanSchema["params"]["kode_menu1"] = req.params.kode_menu1
+
+        const urut : UrutanSchema["body"] = req.body
+        
+
+        const response = await trxGroupMenuService.updateUrut(urut, kode_menu1, kode_group)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error : any) {
+        errorLogger.error(`testing error Update Urut ${error}`);
+        next(error);
+    }
+}
+
+const viewMenuByGroup = async (
+    req:Request, 
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_group = req.params.kode_group
+        
+
+        const response = await trxGroupMenuService.viewMenuByGroup( kode_group)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error : any) {
+        errorLogger.error(`testing error View Menu By Group ${error}`);
+        next(error);
+    }
+}
+
 
 const destroy = async (
     req:Request, 
@@ -154,5 +193,7 @@ export default {
     update,
     destroy,
     groupMenuAplikasi,
-    menuByLevelAplikasi
+    menuByLevelAplikasi,
+    updateUrut,
+    viewMenuByGroup
 }
