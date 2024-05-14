@@ -50,7 +50,7 @@ const index = async (
 }
 
 const store = async (
-    require:PayloadRefMenu1Schema["body"]) : Promise<RefMenu1Output> => { 
+    require:PayloadRefMenu1Schema["body"], ucr : string) : Promise<RefMenu1Output> => { 
     try {
         const refAplikasi : RefAplikasi | null = await RefAplikasi.findByPk(require.kode_aplikasi)
         if(!refAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Aplikasi Tidak Ada")
@@ -95,7 +95,7 @@ const store = async (
             on_create : require.on_create,
             on_delete : require.on_delete,
             on_view : require.on_view,
-            ucr : require.ucr,
+            ucr : ucr,
             uch : require.uch
         }
 
@@ -170,7 +170,7 @@ const dataByAplikasi = async (id:GetRefMenu1Schema["params"]["id"]) : Promise<Re
 
 const update = async (
     require:UpdatedRefMenu1Schema["body"],
-    id:GetRefMenu1Schema["params"]["id"]) : Promise<RefMenu1Output> => {
+    id:GetRefMenu1Schema["params"]["id"], uch : string) : Promise<RefMenu1Output> => {
         try {
             const refMenu1 = await RefMenu1.findByPk(id)
 
@@ -187,6 +187,7 @@ const update = async (
             refMenu1.on_create = require.on_create
             refMenu1.on_delete = require.on_delete
             refMenu1.on_view = require.on_view
+            refMenu1.uch = uch
 
             const response = await refMenu1.save()
 

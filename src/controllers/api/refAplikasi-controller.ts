@@ -22,6 +22,8 @@ const index = async (
         const response : RefAplikasiOutput[] = await refAplikasiService.index()
         const count : number = await refAplikasiService.countRefAplikasi()
 
+        
+
         if(ioInstance) {
             ioInstance.emit("aplikasi", response)
             responseSuccessCount(res, httpCode.ok, count, response)
@@ -47,7 +49,8 @@ const store = async (
         // console.log("TES REQ.FILE :", req.file)
         const response : RefAplikasiOutput = await refAplikasiService.store(
             request,
-            req.file
+            req.file, 
+            req.user ? req.user.username : "unknown"
         )
 
         // console.log(response)
@@ -85,7 +88,9 @@ const updateAplikasi = async (
 
         const kode_aplikasi : UpdatedRefAplikasiSchema["params"]["id"] = req.params.id
 
-        const response : RefAplikasiOutput = await refAplikasiService.updateAplikasi(kode_aplikasi, request, req.file)
+        
+
+        const response : RefAplikasiOutput = await refAplikasiService.updateAplikasi(kode_aplikasi, request, req.file, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {

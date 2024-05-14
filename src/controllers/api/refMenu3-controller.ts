@@ -48,7 +48,7 @@ const store = async (
         try {
             const request : PayloadRefMenu3Schema["body"] = await req.body
 
-            const response : RefMenu3Output = await refMenu3Service.store(request)
+            const response : RefMenu3Output = await refMenu3Service.store(request, req.user ? req.user.username : "unknown")
 
             responseSuccess(res, httpCode.ok, response)
         } catch (error) {
@@ -98,7 +98,7 @@ const update = async (
             const kode_menu3 : UpdatedRefMenu3Schema["params"]["id"] = req.params.id
             const request : UpdatedRefMenu3Schema["body"] = req.body
 
-            const response : RefMenu3Output = await refMenu3Service.update(request, kode_menu3)
+            const response : RefMenu3Output = await refMenu3Service.update(request, kode_menu3, req.user ? req.user.username : "unknown")
             
             responseSuccess(res, httpCode.ok, response)
 

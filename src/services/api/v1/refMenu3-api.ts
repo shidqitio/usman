@@ -44,7 +44,7 @@ const index = async (
 
 
 const store = async (
-    require:PayloadRefMenu3Schema["body"]) : Promise<RefMenu3Output> => {
+    require:PayloadRefMenu3Schema["body"], ucr : string) : Promise<RefMenu3Output> => {
     try {
         const kode_aplikasi = require.kode_aplikasi
         const kodeMenu2 = require.kode_menu2
@@ -105,7 +105,7 @@ const store = async (
             on_update : require.on_update,
             on_delete : require.on_delete,
             on_view : require.on_view,
-            ucr : require.ucr,
+            ucr : ucr,
         }
 
         const insertRefMenu3 : RefMenu3Output = await RefMenu3.create(inputRefMenu3)
@@ -143,7 +143,7 @@ const show = async (
 
 const update = async (
     require:UpdatedRefMenu3Schema["body"],
-    id:GetRefMenu3Schema["params"]["id"]) : Promise<RefMenu3Output> => {
+    id:GetRefMenu3Schema["params"]["id"], uch : string) : Promise<RefMenu3Output> => {
         try {
             const refMenu3 = await RefMenu3.findByPk(id)
 
@@ -159,6 +159,7 @@ const update = async (
             refMenu3.on_create = require.on_create
             refMenu3.on_delete = require.on_delete
             refMenu3.on_view = require.on_view
+            refMenu3.uch = uch
 
             const response = await refMenu3.save()
 

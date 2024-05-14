@@ -48,7 +48,7 @@ const index = async (
 }
 
 const store = async (
-    require:PayloadTrxGroupMenuSchema["body"]) : Promise<TrxGroupMenuOutput> => {
+    require:PayloadTrxGroupMenuSchema["body"], ucr : string | null) : Promise<TrxGroupMenuOutput> => {
     try {
         const kodeGroup = require.kode_group
         const kodeAplikasi = require.kode_aplikasi
@@ -137,7 +137,7 @@ const store = async (
             kode_menu2 : kodeMenu2, 
             kode_menu3 : kodeMenu3, 
             akses : Akses.Aktif,
-            ucr : require.ucr
+            ucr : ucr
         }
 
 
@@ -221,7 +221,7 @@ const groupMenuAplikasi = async (
 
 const update = async (
     require:UpdatedTrxGroupMenuSchema["body"],
-    id : UpdatedTrxGroupMenuSchema["params"]["id"]) : Promise<TrxGroupMenuOutput> => {
+    id : UpdatedTrxGroupMenuSchema["params"]["id"], uch : string) : Promise<TrxGroupMenuOutput> => {
     try {
         const groupMenu : TrxGroupMenu | null = await TrxGroupMenu.findByPk(id)
 
@@ -232,7 +232,7 @@ const update = async (
         groupMenu.kode_menu2 = require.kode_menu2
         groupMenu.kode_menu3 = require.kode_menu3
         groupMenu.akses = require.akses
-        groupMenu.uch = require.uch
+        groupMenu.uch = uch
 
         const response = await groupMenu.save()
 
@@ -326,7 +326,7 @@ const menuByLevelAplikasi = async (
 
 const updateUrut = async (require:UrutanSchema["body"], 
     kode_menu1 : UrutanSchema["params"]["kode_menu1"], 
-    kode_group : UrutanSchema["params"]["kode_group"]) : Promise<any | null> => {
+    kode_group : UrutanSchema["params"]["kode_group"], uch : string) : Promise<any | null> => {
     try {
         
 
@@ -340,7 +340,8 @@ const updateUrut = async (require:UrutanSchema["body"],
     if(exGroupMenu.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Group Menu Tidak Ada")
 
     const  [update, [updateGroup]]= await TrxGroupMenu.update({
-        urut : require.urut
+        urut : require.urut, 
+        uch : uch
     }, {
         where : {
             kode_group : kode_group, 
@@ -405,7 +406,7 @@ const viewMenuByGroup = async (kode_group:string) : Promise<RefMenu1[]> => {
                     ]
                 }, 
             ],
-            // group : ['RefMenu1.kode_menu1']
+            order : [[sequelize.literal('"TrxGroupMenu"."urut"'), 'ASC']]
         })
     
         return menuView

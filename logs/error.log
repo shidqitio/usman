@@ -1,194 +1,155 @@
-[2024-05-07T14:15:49.927] [ERROR] error - testing error Update Urut Error: Group Menu Tidak Ada
-[2024-05-07T14:15:49.928] [ERROR] error - Error: Group Menu Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:357:19
+[2024-05-08T09:45:31.616] [ERROR] error - Error: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:18:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:13:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-05-08T10:08:37.000] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'username')
+[2024-05-08T10:08:37.002] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:54:97
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:50:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-05-08T10:10:07.558] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'username')
+[2024-05-08T10:10:07.560] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:54:97
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:50:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-05-08T10:11:01.902] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'username')
+[2024-05-08T10:11:01.904] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:54:28
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:50:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-05-08T10:11:05.138] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'username')
+[2024-05-08T10:11:05.139] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:54:28
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:50:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-05-08T10:16:00.344] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'username')
+[2024-05-08T10:16:00.346] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:54:28
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:50:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-05-08T10:16:02.711] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'username')
+[2024-05-08T10:16:02.711] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:54:28
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:50:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-05-08T10:16:43.903] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'username')
+[2024-05-08T10:16:43.905] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:54:97
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:50:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-05-08T10:16:47.176] [ERROR] error - testing error store TypeError: Cannot read properties of undefined (reading 'username')
+[2024-05-08T10:16:47.177] [ERROR] error - TypeError: Cannot read properties of undefined (reading 'username')
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:54:97
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:4:12)
+    at store (D:\Dev SIPPP\PMO\usman\src\controllers\api\trxGroupMenu-controller.ts:50:42)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at D:\Dev SIPPP\PMO\usman\src\schema\validate.ts:17:7
+    at Generator.next (<anonymous>)
+[2024-05-08T10:17:56.931] [ERROR] error - testing error store Error: Data Sudah Pernah Ada
+[2024-05-08T10:17:56.933] [ERROR] error - Error: Data Sudah Pernah Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:153:19
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 422,
   status: 'error'
 }
-[2024-05-07T14:28:43.730] [ERROR] error - Error: [2] Token Unauthorized
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:25:19
+[2024-05-08T10:18:15.700] [ERROR] error - testing error store Error: Data Sudah Pernah Ada
+[2024-05-08T10:18:15.701] [ERROR] error - Error: Data Sudah Pernah Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:153:19
     at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
-    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:11:26)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
-    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
-    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
-  code: 401,
-  status: 'error'
-}
-[2024-05-07T14:30:25.632] [ERROR] error - testing error PostToken Error: Internal server error.
-[2024-05-07T14:30:25.633] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:780:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+  code: 422,
   status: 'error'
 }
-[2024-05-07T14:33:11.915] [ERROR] error - testing error PostToken Error: Internal server error.
-[2024-05-07T14:33:11.916] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:780:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+[2024-05-08T10:18:18.883] [ERROR] error - testing error store Error: Data Sudah Pernah Ada
+[2024-05-08T10:18:18.884] [ERROR] error - Error: Data Sudah Pernah Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:153:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+  code: 422,
   status: 'error'
 }
-[2024-05-07T14:33:18.673] [ERROR] error - testing error PostToken Error: Internal server error.
-[2024-05-07T14:33:18.674] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:780:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T14:34:06.766] [ERROR] error - testing error PostToken Error: Internal server error.
-[2024-05-07T14:34:06.768] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:780:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T14:54:15.522] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T14:54:15.523] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:397:19
+[2024-05-08T10:18:23.100] [ERROR] error - testing error store Error: Internal server error.
+[2024-05-08T10:18:23.101] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:156:19
     at Generator.throw (<anonymous>)
     at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 500,
   status: 'error'
 }
-[2024-05-07T14:54:24.198] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T14:54:24.199] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:397:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
+[2024-05-08T10:19:37.602] [ERROR] error - testing error store Error: Data Sudah Pernah Ada
+[2024-05-08T10:19:37.603] [ERROR] error - Error: Data Sudah Pernah Ada
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:153:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T14:54:58.637] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T14:54:58.640] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:399:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T14:57:05.972] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T14:57:05.974] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:399:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T14:58:10.930] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T14:58:10.931] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:399:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T14:59:06.019] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T14:59:06.021] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:00:48.720] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:00:48.722] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:01:33.376] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:01:33.378] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:02:27.060] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:02:27.063] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:04:35.844] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:04:35.846] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:05:24.760] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:05:24.763] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:06:05.380] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:06:05.382] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:06:49.866] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:06:49.868] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:07:45.076] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:07:45.077] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:402:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-07T15:19:39.519] [ERROR] error - testing error View Menu By Group Error: Internal server error.
-[2024-05-07T15:19:39.521] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:405:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+  code: 422,
   status: 'error'
 }

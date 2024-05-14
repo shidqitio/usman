@@ -51,7 +51,7 @@ const store = async (
         const request : PayloadTrxGroupUserSchema["body"] = req.body
         const token : string = String(req.user.token)
 
-        const response : TrxGroupUserOutput = await trxGroupUserService.store(request, token)
+        const response : TrxGroupUserOutput = await trxGroupUserService.store(request, token, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error : any) {
@@ -67,7 +67,7 @@ const storePegawaiRole = async (
     try {
         const request : PayloadUserRoleSchema["body"] = req.body
 
-        const response : TrxGroupUserOutput = await trxGroupUserService.storePegawaiRole(request)
+        const response : TrxGroupUserOutput = await trxGroupUserService.storePegawaiRole(request, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {
@@ -99,7 +99,7 @@ const postGroups  = async (
     try {
         const request : StoresTrxGroupsUserSchema["body"] = req.body
 
-        const response : any = await trxGroupUserService.postGroups(request)
+        const response : any = await trxGroupUserService.postGroups(request, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {
@@ -115,7 +115,7 @@ const storeGroups  = async (
     try {
         const request : StoresTrxGroupsUserSchema["body"] = req.body
 
-        const response : any = await trxGroupUserService.storeGroups(request)
+        const response : any = await trxGroupUserService.storeGroups(request, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {

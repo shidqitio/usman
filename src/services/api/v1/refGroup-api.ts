@@ -41,7 +41,7 @@ const index = async () : Promise<RefGroupOutput[]> => {
 }
 
 const store = async (
-    request:PayloadRefGroupSchema["body"])
+    request:PayloadRefGroupSchema["body"], ucr : string)
     : Promise<RefGroupOutput> => {
     try {
         const cekAplikasi : RefAplikasi | null = await RefAplikasi.findOne({
@@ -66,7 +66,7 @@ const store = async (
             nama_group : request.nama_group,
             kode_level : request.kode_level,
             kode_aplikasi : request.kode_aplikasi,
-            ucr : request.ucr
+            ucr : ucr
         }
 
         const createGroup : RefGroupOutput = await RefGroup.create(dataGroup)
@@ -156,7 +156,8 @@ const getRoleByAplikasi = async (
 
 const update = async (
     id:UpdatedRefGroupSchema["params"]["id"],
-    request:UpdatedRefGroupSchema["body"]) : Promise<RefGroupOutput> => {
+    request:UpdatedRefGroupSchema["body"], 
+    uch : string) : Promise<RefGroupOutput> => {
     try {
         const refGroup : RefGroup | null = await RefGroup.findByPk(id) 
 
@@ -164,7 +165,7 @@ const update = async (
 
         refGroup.nama_group = request.nama_group 
         refGroup.kode_level = request.kode_level
-        refGroup.ucr = request.uch
+        refGroup.uch = uch
         refGroup.kode_aplikasi = request.kode_aplikasi
 
         const response = await refGroup.save()

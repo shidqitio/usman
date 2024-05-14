@@ -45,7 +45,8 @@ const index = async () : Promise<RefAplikasiOutput[]> => {
 
 const store = async (
     request:PostRefAplikasiSchema["body"], 
-    file : any
+    file : any, 
+    ucr : string
     ) : Promise<RefAplikasiOutput> => {
     try {
         const AplikasiMax : string = await RefAplikasi.max("kode_aplikasi")
@@ -68,7 +69,7 @@ const store = async (
             url : request.url,
             url_token : request.url_token,
             images : publicFileImages,
-            ucr : request.ucr
+            ucr : ucr 
         }
 
         const insertAplikasi : RefAplikasiOutput = await RefAplikasi.create(aplikasiInput);
@@ -116,7 +117,8 @@ const getByKodeAPlikasi = async (
 const updateAplikasi = async (
     id:UpdatedRefAplikasiSchema["params"]["id"],
     request : UpdatedRefAplikasiSchema["body"], 
-    file : any) :
+    file : any, 
+    uch : string) :
     Promise<RefAplikasiOutput> => {
     try {
         const refAplikasi : RefAplikasi | null = await RefAplikasi.findByPk(id)
@@ -128,7 +130,7 @@ const updateAplikasi = async (
         refAplikasi.status = request.status
         refAplikasi.url = request.url
         refAplikasi.url_token = request.url_token
-        refAplikasi.uch = request.uch
+        refAplikasi.uch = uch
 
         const existFile : string | null = refAplikasi.images
 

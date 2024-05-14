@@ -59,7 +59,7 @@ const index = async (
 }
 
 
-const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) : Promise<TrxGroupUserOutput> => {
+const store = async (require:PayloadTrxGroupUserSchema["body"], token : string, ucr : string) : Promise<TrxGroupUserOutput> => {
     try {
         const kodeGroup = require.kode_group
         const email = require.email
@@ -117,7 +117,8 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                 const newGroupUser : any | null = await TrxGroupUser.create({
                     kode_group : kodeGroup,
                     id_user : idUser, 
-                    status : statusGroupUser.Aktif ,      
+                    status : statusGroupUser.Aktif ,   
+                    ucr : ucr   
                 })
     
                 await t.commit()
@@ -153,6 +154,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
                 kode_group : kodeGroup, 
                 id_user : idUser, 
                 status : statusGroupUser.Aktif,
+                ucr : ucr
             })
 
             if(!createGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Dibuat")
@@ -172,7 +174,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string) 
 }
 
 const storePegawaiRole = async (
-    require:PayloadUserRoleSchema["body"]) : Promise<TrxGroupUserOutput> => {
+    require:PayloadUserRoleSchema["body"], ucr : string) : Promise<TrxGroupUserOutput> => {
     try {
         const exUser : RefUser | null = await RefUser.findOne({
             where : {
@@ -253,7 +255,7 @@ const show = async (id:GetTrxGroupUserSchema["params"]["id"]) : Promise<TrxGroup
 }
 
 const postGroups = async (
-    require:StoresTrxGroupsUserSchema["body"]) : Promise <TrxGroupUserOutput[]> => {
+    require:StoresTrxGroupsUserSchema["body"] , ucr : string) : Promise <TrxGroupUserOutput[]> => {
     try {
         const users = require.users
         const kode_group = users.map((us : any) => ({kode_group : us.kode_group}))
@@ -339,7 +341,7 @@ const postGroups = async (
 }
 
 const storeGroups = async (
-    require:StoresTrxGroupsUserSchema["body"]) : Promise<TrxGroupUserOutput[]> => {
+    require:StoresTrxGroupsUserSchema["body"], ucr : string) : Promise<TrxGroupUserOutput[]> => {
     const t = await db.transaction()
     try {
         const users = require.users

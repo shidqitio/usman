@@ -51,7 +51,7 @@ const store = async (
     try {
         const request : PayloadTrxGroupMenuSchema["body"] = req.body
 
-        const response : TrxGroupMenuOutput = await trxGroupMenuService.store(request)
+        const response : TrxGroupMenuOutput = await trxGroupMenuService.store(request, req.user ? req.user.username : null)
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {
         errorLogger.error(`testing error store ${error}`);
@@ -84,7 +84,7 @@ const update = async (
         const kode_group_menu : UpdatedTrxGroupMenuSchema["params"]["id"] = parseInt(req.params.id)
         const request : UpdatedTrxGroupMenuSchema["body"] = req.body
 
-        const response : TrxGroupMenuOutput = await trxGroupMenuService.update(request, kode_group_menu)
+        const response : TrxGroupMenuOutput = await trxGroupMenuService.update(request, kode_group_menu, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {
@@ -140,7 +140,7 @@ const updateUrut = async (
         const urut : UrutanSchema["body"] = req.body
         
 
-        const response = await trxGroupMenuService.updateUrut(urut, kode_menu1, kode_group)
+        const response = await trxGroupMenuService.updateUrut(urut, kode_menu1, kode_group, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error : any) {

@@ -45,7 +45,7 @@ const store = async (
     try {
         const request : PayloadRefGroupSchema["body"] = req.body
 
-        const response : RefGroupOutput = await refGroupService.store(request)
+        const response : RefGroupOutput = await refGroupService.store(request, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error : any) {
@@ -95,7 +95,7 @@ const update = async (
         const kode_group : UpdatedRefGroupSchema["params"]["id"] = req.params.id
 
 
-        const response : RefGroupOutput = await refGroupService.update(kode_group, request)
+        const response : RefGroupOutput = await refGroupService.update(kode_group, request, req.user ? req.user.username : "unknown")
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {
