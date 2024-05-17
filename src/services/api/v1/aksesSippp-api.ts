@@ -753,7 +753,6 @@ const getMenuApp = async (
             }
           })
 
-          console.log(dataUser?.id);
           
 
           const aksesApp = [...akses,...newAps]
