@@ -16,6 +16,8 @@ import getConfig from "@config/dotenv";
 import { removeFile, removeFileName, removeByLastNameAplikasi } from "@utils/remove-file";
 import path from "path";
 
+
+
 const index = async () : Promise<RefAplikasiOutput[]> => {
     try {
         const refAplikasi : RefAplikasi[] = await RefAplikasi.findAll({

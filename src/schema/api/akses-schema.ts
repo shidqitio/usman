@@ -24,6 +24,10 @@ const payloadEmailPassword = {
 
 const payloadRegisterExternal = {
     body : z.object({
+        id : z.number({
+            required_error : "Id Harus Angka",
+            invalid_type_error : "Id Harus Angka"
+        }),
         email : z.string({
             required_error : "Email Tidak Boleh Kosong",
             invalid_type_error : "Email Harus String"

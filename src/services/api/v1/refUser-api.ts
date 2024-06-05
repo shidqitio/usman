@@ -80,6 +80,35 @@ const updateUserPhoto = async (
     }
 }
 
+const userProfile = async (id_user : number) : Promise<RefUserOutput> => {
+    try {
+                
+        const userProfile : RefUserOutput[] = await db.query(`
+        SELECT a.id, a.email, a.user_photo, a.status_user, COALESCE(b.username, c.username) AS username FROM ref_user a 
+        LEFT JOIN ref_user_external b ON a.id = b.id_user 
+        LEFT JOIN ref_user_internal c ON a.id = c.id_user
+        WHERE a.id = :id_user
+        `, {
+            type : QueryTypes.SELECT, 
+            replacements  : {
+                id_user : id_user
+            }
+        })
+
+    
+        
+
+        return userProfile[0]
+    } catch (error) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 const refUser = async (
     page:SearchRefUserSchema["query"]["page"],
     limit:SearchRefUserSchema["query"]["limit"], 
@@ -197,6 +226,29 @@ const searchGroupByEmail = async (
 
         return resultUser
      } catch (error : any) {
+        console.log(error);
+        
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
+const searchEmail = async (email : string) : Promise<RefUserOutput[]> => {
+    try {
+        
+        const resultUser : RefUser[] = await RefUser.findAll({
+            attributes : ["id","email", "is_login", "user_photo","status_user"],
+            where : {
+                email : email 
+            },
+        })
+
+        return resultUser
+    } catch (error) {
         if(error instanceof CustomError) {
             throw new CustomError(error.code, error.message)
         } 
@@ -209,8 +261,10 @@ const searchGroupByEmail = async (
 
 export default {
     updateUserPhoto,
+    userProfile,
     refUser,
     searchParams,
     countRefUser,
-    searchGroupByEmail
+    searchGroupByEmail,
+    searchEmail
 }

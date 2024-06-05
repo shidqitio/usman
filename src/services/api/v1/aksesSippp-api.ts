@@ -6,7 +6,7 @@ import { QueryTypes, Op } from "sequelize"
 import db from "@config/database"
 import RefAplikasi, {RefAplikasiOutput, Status} from "@models/refAplikasi-model"
 import RefUser, { RefUserOutput, StatusUser } from "@models/refUser-model"
-import TrxGroupUser from "@models/trxGroupUser-model"
+import TrxGroupUser, { TrxGroupUserInput, statusGroupUser } from "@models/trxGroupUser-model"
 import RefGroup from "@models/refGroup-model"
 import RefTokenApp from "@models/refTokenApp-model"
 import RefUserInternal from "@models/refUserInternal-model"
@@ -161,13 +161,13 @@ const registerExternal = async (
   require:PayloadRegisterExternalSchema["body"]) : Promise<RefUser> => {
   const t = await db.transaction()
   try {
+      const id = require.id
       const email = require.email
       const password = require.password
       const username = require.username
       const statusPengguna = require.statusPengguna
       const status_user = StatusUser.eksternal
 
-      const pw  = await  bcrypt.hash(password, 12)
       
 
       const checkEmailAvail = await RefUser.findOne({
@@ -179,17 +179,18 @@ const registerExternal = async (
       if (checkEmailAvail) throw new CustomError(httpCode.unprocessableEntity, "Email Sudah Terdaftar")
 
       const registUser = await RefUser.create({
-          email : email, 
-          password : pw,
-          status_user : status_user
+          email      : email,
+          password   : password,
+          status_user: status_user
       }, {transaction : t})
 
       if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Dibuat")
 
         const registUserExternal = await RefUserExternal.create({
-          id_user : registUser.id,
-          username : username, 
-          status_pengguna : statusPengguna
+          id             : id,
+          id_user        : registUser.id,
+          username       : username,
+          status_pengguna: statusPengguna
         }, {transaction : t})
 
         if(!registUserExternal) throw new CustomError(httpCode.unprocessableEntity, "User External Gagal Didaftarkan")
@@ -210,51 +211,15 @@ const registerExternal = async (
           })
           
           if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity, "Hasil Gagal Dikeluarkan")
+ 
+          const trxGroupUser : TrxGroupUserInput = await TrxGroupUser.create({
+            kode_group: 'G00.4',
+            id_user   : registUser.id,
+            status    : statusGroupUser.Aktif
+          }, {transaction : t})
 
+          if(!trxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Didaftarkan")
 
-            const transporter =  nodemailer.createTransport({
-              pool: true,
-              host: "smtp.ethereal.email",
-              port: 587,
-              secure : false,
-              auth: {
-                user: "joyce.brakus42@ethereal.email",
-                pass: "gvdgMBd6stb5vbEb2G",
-              },
-            })
-      
-            // verify connection configuration
-             transporter.verify(function (error, success) {
-              if (error) {
-                console.log(error);
-              } else {
-                console.log("Server is ready to take our messages");
-              }
-            });
-      
-      
-          const mailOption = {
-            from : `joyce.brakus42@ethereal.email`,
-            to : `williejenkins02@gmail.com`, 
-            subject : `Test Email`,
-            text : `SEND DATA EMAIL`,
-          
-            html : HTML_TEMPLATE("TES EMAIL AJA")
-          }
-      
-           transporter.sendMail(mailOption, (error, info) => {
-            console.log("RUN");
-            
-            if(error) {
-              console.log("GAGAL KIRIM EMAIL");
-              
-              console.log(`Error Sending Email`, error)
-            } else {
-              console.log("Kirim Email");
-              
-              console.log(`Success`, info)
-            }
-          })
 
           await t.commit()
     
@@ -560,6 +525,14 @@ const getMenuApp = async (
         }
         if(UserLevel === 3) {
           hash  = CryptoJS.AES.encrypt(token_app, getConfig("SECRET_KEY_LVL3"))
+          sendHash = hash.toString()
+        }
+        if(UserLevel === 4) {
+          hash  = CryptoJS.AES.encrypt(token_app, getConfig("SECRET_KEY_LVL4"))
+          sendHash = hash.toString()
+        }
+        if(UserLevel === 5) {
+          hash  = CryptoJS.AES.encrypt(token_app, getConfig("SECRET_KEY_LVL5"))
           sendHash = hash.toString()
         }
 

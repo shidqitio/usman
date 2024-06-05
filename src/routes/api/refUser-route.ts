@@ -12,11 +12,15 @@ const routes = express.Router()
 
 routes.put("/:id", uploadImage.single("file"), refUserController.updatePhoto)
 
+routes.get("/user-profile/:id", refUserController.userProfile)
+
 routes.get("/", validate(searchRefUserSchema), refUserController.refUser)
 
 routes.get("/:email", validate(searchParamsSchema), refUserController.searchParams)
 
 routes.post("/search-email", refUserController.searchGroupByEmail)
+
+routes.post("/search/email", refUserController.searchEmail)
 
 
 

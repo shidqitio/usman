@@ -7,6 +7,7 @@ import TrxGroupUser from "@models/trxGroupUser-model";
 import db from "@config/database";
 import CustomError from "@middleware/error-handler";
 import { httpCode } from "@utils/prefix";
+import axios from "axios";
 import {
     PayloadRefGroupSchema,
     ParamRefGroupSchema,
@@ -86,6 +87,12 @@ const store = async (
 const show = async (
     id:ParamRefGroupSchema["params"]["id"]) : Promise<RefGroupOutput> => {
     try {
+
+        const cek_data = await axios.get("https://203.217.140.52/asman/v1/aplikasi/00"); 
+
+        console.log(cek_data);
+        
+
         const refGroup : RefGroup | null = await RefGroup.findOne({
             where : {
                 kode_group : id
@@ -108,6 +115,8 @@ const show = async (
 
         return refGroup
     } catch (error : any) {
+        console.log(error);
+        
         if(error instanceof CustomError) {
             throw new CustomError(error.code, error.message)
         } 

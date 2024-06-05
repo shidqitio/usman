@@ -19,6 +19,12 @@ const decryptData = async (
         if(level === 3 ) {
             decrypt = CryptoJS.AES.decrypt(token, getConfig("SECRET_KEY_LVL3"))
         }
+        if(level === 4 ) {
+            decrypt = CryptoJS.AES.decrypt(token, getConfig("SECRET_KEY_LVL4"))
+        }
+        if(level === 5 ) {
+            decrypt = CryptoJS.AES.decrypt(token, getConfig("SECRET_KEY_LVL5"))
+        }
 
          //#################### GENERATED DECRYPT ########################
         

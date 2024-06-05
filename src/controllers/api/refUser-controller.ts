@@ -25,6 +25,22 @@ const updatePhoto = async (
     }
 }
 
+const userProfile = async (
+    req:Request,
+    res:Response,
+    next:NextFunction
+) : Promise<void> => {
+    try {
+        const id_user : PayloadUpdateSchema["parameter"]["id"] = parseInt(req.params.id)
+
+        const response : RefUserOutput = await refUserService.userProfile(id_user)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        next(error)
+    }
+}
+
 const refUser = async (
     req:Request,
     res:Response,
@@ -72,9 +88,28 @@ const searchGroupByEmail = async (
         next(error)
     }
 }
+
+const searchEmail = async (
+    req:Request, 
+    res:Response, 
+    next:NextFunction) : Promise<void> => {
+    try {
+        const email = req.body.email
+
+        const response = await refUserService.searchEmail(email)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`Testing Error Search Email ${error}`)
+        next(error)
+    }
+}
+
 export default {
     updatePhoto,
     refUser,
     searchParams,
-    searchGroupByEmail
+    searchGroupByEmail,
+    userProfile,
+    searchEmail
 }
