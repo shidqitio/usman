@@ -235,7 +235,7 @@ const roleByAplikasiEmail = async (
     }
 }
 
-//TES UNTUK GITHUB GITLAB
+//UBAH PERUBAHAN 
 
 export default {
     register,
