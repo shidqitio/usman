@@ -23,4 +23,4 @@
      - echo "Deploying the project to server... sssssss ffff"
      - ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "mkdir -p $REMOTE_DIR"
      - scp -P $SSH_PORT -r * $SSH_USER@$SSH_HOST:$REMOTE_DIR
-     - echo "berhasil melakukan deploy ke server usman "
+     - echo "berhasil melakukan deploy ke server usman ya "
