@@ -18,24 +18,24 @@ import refLevel from "@routes/api/refLevel-routes"
 import auth from "@middleware/auth";
 // routes.use("/v1", example);
 
-routes.use(vers + "/aplikasi",auth, refAplikasi)
+routes.use(vers +  "/aplikasi", auth,refAplikasi)
 
-routes.use(vers + "/group", refGroup);
+routes.use(vers + "/group",auth, refGroup);
 
-routes.use(vers + "/menu1", refMenu1);
+routes.use(vers + "/menu1", auth,refMenu1);
 
-routes.use(vers + "/menu2", refMenu2);
+routes.use(vers + "/menu2",auth, refMenu2);
 
-routes.use(vers + "/menu3", refMenu3);
+routes.use(vers + "/menu3", auth,refMenu3);
 
-routes.use(vers + "/trx-groupuser", trxGroupUser)
+routes.use(vers + "/trx-groupuser", auth,trxGroupUser)
 
-routes.use(vers + "/trx-groupmenu", trxGroupMenu)
-
-routes.use(vers + "/level", refLevel )
+routes.use(vers + "/trx-groupmenu", auth,trxGroupMenu)
 
 routes.use(vers + "/akses", akses)
 
 routes.use(vers + "/users", refUser)
+
+routes.use(vers + "/level", refLevel )
 
 export default routes;
