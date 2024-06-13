@@ -48,10 +48,10 @@ else {
   /**
    * certificate keys
    */
-  // var key = fs.readFileSync("src/certificate/ut.key", "utf-8");
-  // var cert = fs.readFileSync("src/certificate/full-bundle.crt", "utf-8");
+  var key = fs.readFileSync("src/certificate/ut.key", "utf-8");
+  var cert = fs.readFileSync("src/certificate/full-bundle.crt", "utf-8");
   
-  // var options = { key: key, cert: cert };
+  var options = { key: key, cert: cert };
   
   /**
    * body parser
@@ -205,7 +205,7 @@ else {
   
   
     try {
-      const server = http.createServer(app);
+      const server = https.createServer(app,options);
       server.listen(getConfig("PORT_SERVER"), () => {
         console.log(license);
         console.log(
