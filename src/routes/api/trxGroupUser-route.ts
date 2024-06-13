@@ -20,7 +20,7 @@ routes.get("/", validate(searchTrxGroupUserSchema), trxGroupUserController.index
 routes.get("/show/:id", validate(getTrxGroupUserSchema), trxGroupUserController.show)
 
 
-routes.post("/", auth, validate(payloadTrxGroupUserSchema), trxGroupUserController.store)
+routes.post("/", validate(payloadTrxGroupUserSchema), trxGroupUserController.store)
 routes.post("/post-groups", validate(storesTrxGroupUserSchema), trxGroupUserController.postGroups)
 routes.post("/post-role", validate(payloadUserRoleSchema), trxGroupUserController.storePegawaiRole)
 routes.post("/search-email", trxGroupUserController.searchGroupByEmail)

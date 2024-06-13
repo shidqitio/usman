@@ -234,11 +234,6 @@ const roleByAplikasiEmail = async (
         next(error)
     }
 }
-
-//$$$$$$$$$$$$$$$$$
-//JANGAN LELAH TESTING
-//$$$$$$$$$$$$$$$$$
-
 export default {
     register,
     registerExternal,
