@@ -1233,7 +1233,6 @@ const roleByAplikasiEmail = async (
             attributes : []
           }
         ],
-        raw : true
       })
 
       // console.log(roleUser);
