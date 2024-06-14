@@ -57,7 +57,7 @@ const store = async (
 
         let publicFileImages : string = ""
         if(file && file.filename) {
-            publicFileImages = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}${file.filename}`
+            publicFileImages = `${file.filename}`
             console.log(publicFileImages)
         }
 
@@ -138,7 +138,7 @@ const updateAplikasi = async (
 
         console.log(file)
         if (file && file.filename) {
-            const PUBLIC_FILE_GIRO = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}${file.filename}`;
+            const PUBLIC_FILE_GIRO = `${file.filename}`;
       
             refAplikasi.images = PUBLIC_FILE_GIRO;
           }
@@ -150,14 +150,10 @@ const updateAplikasi = async (
             throw new CustomError(httpCode.unprocessableEntity, "Gagal Mengubah Data")
           }
 
-          let part 
-          let lastPart
           if(existFile) {
-            part = existFile.split("/")
-            lastPart = part[part.length - 1]
 
             if(file && file.path) {
-                let unlink = await fs.unlink(path.join(__dirname, `../../../../public/aplikasi/${lastPart}`))
+                let unlink = await fs.unlink(path.join(__dirname, `../../../../public/aplikasi/${existFile}`))
                 console.log(unlink)
             }
             return response

@@ -39,6 +39,8 @@ import RefMenu3 from "@models/refMenu3-model"
 
 import nodemailer from "nodemailer"
 
+
+
 const register = async (
     require:PayloadAksesSchema["body"]) : Promise<RefUserOutput> => {
     const t = await db.transaction()
@@ -260,7 +262,8 @@ const login = async (
         if(!credential) throw new CustomError(httpCode.notAcceptable, "Password Salah")
 
         const exist = await db.query(`
-        SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, a.status, a.images, a.url, a.url_token
+        SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, a.status,  CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
+          a.url, a.url_token
           FROM ref_aplikasi as a
           JOIN ref_group as b ON b.kode_aplikasi = a.kode_aplikasi
           JOIN trx_group_user as c ON c.kode_group = b.kode_group
@@ -282,17 +285,23 @@ const login = async (
             }
         })
 
+
+        
+
         const newAps = aps.map((ap) => {
             return {
                 kode_aplikas : ap.kode_aplikasi,
                 nama_aplikasi : ap.nama_aplikasi,
                 keterangan : ap.keterangan,
                 status : Status.Tampil,
-                images : ap.images
+                images : `${getConfig('USMAN_BASE_URL')}${getConfig('PUBLIC_FILE_IMAGE')}${ap.images}`
             }
         })
 
         const aksesApp = [...exist,...newAps]
+
+        console.log(exist);
+        
 
         const token = jwt.sign(
             {
@@ -347,7 +356,9 @@ const getAplikasiByEmail = async (
     if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Ada")
 
     const akses = await db.query(`
-              SELECT a.kode_aplikasi, a.nama_aplikasi, a.kode_aplikasi, a.keterangan, d."status", a.images, a.url
+              SELECT a.kode_aplikasi, a.nama_aplikasi, a.kode_aplikasi, a.keterangan, d."status",  
+              CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
+               a.url
               FROM ref_aplikasi  a
               JOIN ref_group  b ON b.kode_aplikasi = a.kode_aplikasi
               JOIN trx_group_user d ON d.kode_group = b.kode_group
@@ -376,7 +387,7 @@ const getAplikasiByEmail = async (
         nama_aplikasi : ap.nama_aplikasi, 
         keterangan : ap.keterangan, 
         status : "0", 
-        images : ap.images
+        images : `${getConfig('USMAN_BASE_URL')}/${getConfig('PUBLIC_FILE_IMAGE')}${ap.images}`
       }
     })
 
@@ -682,7 +693,8 @@ const getMenuApp = async (
           })
 
           const akses : RefAplikasi[] = await db.query(
-            `SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, c.status, a.images, a.url
+            `SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, c.status,  CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
+              , a.url
               FROM ref_aplikasi as a
               JOIN ref_group as b ON b.kode_aplikasi = a.kode_aplikasi
               JOIN trx_group_user as c ON c.kode_group = b.kode_group
@@ -710,7 +722,7 @@ const getMenuApp = async (
               nama_aplikasi: ap.nama_aplikasi,
               keterangan: ap.keterangan,
               status: "0",
-              images: ap.images,
+              images: `${getConfig('USMAN_BASE_URL')}/${getConfig('PUBLIC_FILE_IMAGE')}${ap.images}`
             };
           });
 

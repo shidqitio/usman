@@ -38,11 +38,10 @@ const updateUserPhoto = async (
 
         if(file && file.filename) {
             if(refUser.user_photo !== null ) {
-                let lastName = await removeByLastNameAplikasi(String(refUser.user_photo)) 
-                await fs.unlink(`D:/Dev SIPPP/PMO/public/images/userphoto/${lastName}`)
+                await fs.unlink(`${getConfig("FILE_SAVE_PHOTO")}${refUser.user_photo}`)
             }
 
-            const PUBLIC_FILE_GIRO = `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE_PROFIL")}${file.filename}`;
+            const PUBLIC_FILE_GIRO = file.filename;
       
             data_photo = PUBLIC_FILE_GIRO;
         }
@@ -84,7 +83,8 @@ const userProfile = async (id_user : number) : Promise<RefUserOutput> => {
     try {
                 
         const userProfile : RefUserOutput[] = await db.query(`
-        SELECT a.id, a.email, a.user_photo, a.status_user, COALESCE(b.username, c.username) AS username FROM ref_user a 
+        SELECT a.id, a.email, CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.user_photo) as user_photo,
+        a.status_user, COALESCE(b.username, c.username) AS username FROM ref_user a 
         LEFT JOIN ref_user_external b ON a.id = b.id_user 
         LEFT JOIN ref_user_internal c ON a.id = c.id_user
         WHERE a.id = :id_user
