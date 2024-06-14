@@ -1217,8 +1217,8 @@ const roleByAplikasiEmail = async (
     try {
       const roleUser : TrxGroupUser[] = await TrxGroupUser.findAll({
         where : {
-          "$RefGroup.kode_aplikasi$" : kode_aplikasi,
-          "$RefUser.email$" : email
+          "$Group.kode_aplikasi$" : kode_aplikasi,
+          "$User.email$" : email
         }, 
         attributes : ["id_group_user", "kode_group", "id_user", "status"],
         include : [
@@ -1233,7 +1233,7 @@ const roleByAplikasiEmail = async (
             attributes : []
           }
         ],
-        // raw : true
+        raw : true
       })
 
       // console.log(roleUser);
@@ -1248,6 +1248,8 @@ const roleByAplikasiEmail = async (
       if (error instanceof CustomError) {
         throw new CustomError(error.code, error.message);
       } else {
+        console.log(error);
+        
         throw new CustomError(500, "Internal server error.");
       }
     }

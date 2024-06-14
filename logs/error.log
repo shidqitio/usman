@@ -49,3 +49,48 @@
   code: 401,
   status: 'error'
 }
+[2024-06-14T16:38:23.520] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
+[2024-06-14T16:38:23.522] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1251:15
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-06-14T16:38:29.336] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
+[2024-06-14T16:38:29.338] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1251:15
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-06-14T16:38:30.339] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
+[2024-06-14T16:38:30.341] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1251:15
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-06-14T16:39:14.239] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
+[2024-06-14T16:39:14.242] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1253:15
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-06-14T16:42:27.762] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
+[2024-06-14T16:42:27.766] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1253:15
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
