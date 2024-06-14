@@ -48,8 +48,10 @@ else {
   /**
    * certificate keys
    */
-  var key = fs.readFileSync("src/certificate/ut.key", "utf-8");
-  var cert = fs.readFileSync("src/certificate/full-bundle.crt", "utf-8");
+
+var key = fs.readFileSync("src/certificate/ut.ac.id_2023.key", "utf-8");
+var cert = fs.readFileSync("src/certificate/new_ut.crt", "utf-8");
+
   
   var options = { key: key, cert: cert };
   
