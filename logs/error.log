@@ -1,226 +1,4 @@
-[2024-05-22T09:44:53.602] [ERROR] error - testing error Register External Error: Internal server error.
-[2024-05-22T09:44:53.603] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:235:15
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:41:04.710] [ERROR] error - testing error login Error: Password Salah
-[2024-05-22T12:41:04.714] [ERROR] error - Error: Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:329:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-05-22T12:49:42.162] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:49:42.163] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:50:08.772] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:50:08.772] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:50:37.717] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:50:37.717] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:50:40.948] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:50:40.948] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:51:11.761] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:51:11.761] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:51:13.179] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:51:13.179] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:52:02.646] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:52:02.646] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:53:00.593] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:53:00.593] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:53:41.912] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:53:41.913] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:53:44.264] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:53:44.264] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T12:54:57.986] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T12:54:57.986] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:13:45.649] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T13:13:45.649] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:14:59.345] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T13:14:59.345] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:15:02.326] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T13:15:02.326] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:18:06.052] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T13:18:06.052] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:18:09.486] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T13:18:09.486] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:21:07.801] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T13:21:07.801] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:52:26.295] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:107:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:52:27.603] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:107:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T13:59:22.538] [ERROR] error - testing error CheckTOken Error: Token Not Match
-[2024-05-22T13:59:22.538] [ERROR] error - Error: Token Not Match
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:798:15
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 401,
-  status: 'error'
-}
-[2024-05-22T14:00:11.883] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T14:00:11.884] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T14:00:19.401] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T14:00:19.401] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T14:00:24.606] [ERROR] error - testing error CheckTOken Error: Internal server error.
-[2024-05-22T14:00:24.606] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:800:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T15:35:52.097] [ERROR] error - Error: [2] Token Unauthorized
+[2024-06-14T15:04:49.809] [ERROR] error - Error: [2] Token Unauthorized
     at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:26:19
     at Generator.next (<anonymous>)
     at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
@@ -234,35 +12,40 @@
   code: 401,
   status: 'error'
 }
-[2024-05-22T15:36:02.636] [ERROR] error - Error: [1] Unauthorized
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:17:19
+[2024-06-14T15:26:37.193] [ERROR] error - testing error login Error: Internal server error.
+[2024-06-14T15:26:37.195] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:348:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-06-14T15:35:12.293] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:26:19
     at Generator.next (<anonymous>)
     at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
     at new Promise (<anonymous>)
     at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
     at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:13:26)
     at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
-    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
-    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
-    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
   code: 401,
   status: 'error'
 }
-[2024-05-22T15:37:50.896] [ERROR] error - testing error Show Error: Internal server error.
-[2024-05-22T15:37:50.898] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:122:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-05-22T15:38:31.594] [ERROR] error - testing error Show Error: Internal server error.
-[2024-05-22T15:38:31.598] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:124:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+[2024-06-14T15:35:15.624] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:26:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:13:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
   status: 'error'
 }

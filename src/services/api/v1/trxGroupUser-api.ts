@@ -261,11 +261,6 @@ const postGroups = async (
         const kode_group = users.map((us : any) => ({kode_group : us.kode_group}))
         const emails = users.map((us : any) => ({email : us.email}))
 
-        console.log(users);
-
-        console.log(emails);
-
-        console.log(kode_group);
         
         
         

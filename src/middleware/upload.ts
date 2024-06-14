@@ -3,6 +3,7 @@ import fs from "fs/promises";
 import CustomError from "@middleware/error-handler";
 import { Request } from "express";
 import { httpCode } from "@utils/prefix";
+import getConfig from "@config/dotenv";
 
 // jenis file
 enum FileType {
