@@ -43,7 +43,8 @@ if (cluster.isPrimary) {
 }
 else {
   const app: Application = express();
-  
+  app.set('trust proxy', 1);
+
   
   /**
    * certificate keys
