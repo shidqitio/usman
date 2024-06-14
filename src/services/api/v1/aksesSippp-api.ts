@@ -694,7 +694,7 @@ const getMenuApp = async (
 
           const akses : RefAplikasi[] = await db.query(
             `SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, c.status,  CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
-              , a.url
+              a.url
               FROM ref_aplikasi as a
               JOIN ref_group as b ON b.kode_aplikasi = a.kode_aplikasi
               JOIN trx_group_user as c ON c.kode_group = b.kode_group
