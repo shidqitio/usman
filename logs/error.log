@@ -1,5 +1,5 @@
-[2024-06-14T15:04:49.809] [ERROR] error - Error: [2] Token Unauthorized
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:26:19
+[2024-06-20T13:09:19.804] [ERROR] error - Error: [1] Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:17:19
     at Generator.next (<anonymous>)
     at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
     at new Promise (<anonymous>)
@@ -12,85 +12,48 @@
   code: 401,
   status: 'error'
 }
-[2024-06-14T15:26:37.193] [ERROR] error - testing error login Error: Internal server error.
-[2024-06-14T15:26:37.195] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:348:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-06-14T15:35:12.293] [ERROR] error - Error: [2] Token Unauthorized
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:26:19
+[2024-06-20T14:14:32.735] [ERROR] error - testing error Register External Error: Email Sudah Terdaftar
+[2024-06-20T14:14:32.738] [ERROR] error - Error: Email Sudah Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:233:15
     at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
-    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:13:26)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
-    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
-    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
-  code: 401,
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 422,
   status: 'error'
 }
-[2024-06-14T15:35:15.624] [ERROR] error - Error: [2] Token Unauthorized
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:26:19
+[2024-06-20T14:18:59.661] [ERROR] error - testing error Register External Error: Email Sudah Terdaftar
+[2024-06-20T14:18:59.663] [ERROR] error - Error: Email Sudah Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:233:15
     at Generator.next (<anonymous>)
-    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
-    at new Promise (<anonymous>)
-    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
-    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:13:26)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
-    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
-    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
-    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
-  code: 401,
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 422,
   status: 'error'
 }
-[2024-06-14T16:38:23.520] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
-[2024-06-14T16:38:23.522] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1251:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+[2024-06-20T14:19:32.313] [ERROR] error - testing error Register External Error: Email Sudah Terdaftar
+[2024-06-20T14:19:32.314] [ERROR] error - Error: Email Sudah Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:233:15
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+  code: 422,
   status: 'error'
 }
-[2024-06-14T16:38:29.336] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
-[2024-06-14T16:38:29.338] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1251:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+[2024-06-20T14:20:19.593] [ERROR] error - testing error Register External Error: Email Sudah Terdaftar
+[2024-06-20T14:20:19.594] [ERROR] error - Error: Email Sudah Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:233:15
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+  code: 422,
   status: 'error'
 }
-[2024-06-14T16:38:30.339] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
-[2024-06-14T16:38:30.341] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1251:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+[2024-06-20T14:23:43.709] [ERROR] error - testing error Register External Error: Email Sudah Terdaftar
+[2024-06-20T14:23:43.710] [ERROR] error - Error: Email Sudah Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:233:15
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-06-14T16:39:14.239] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
-[2024-06-14T16:39:14.242] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1253:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-06-14T16:42:27.762] [ERROR] error - Testing Error Role Aplikasi Email Error: Internal server error.
-[2024-06-14T16:42:27.766] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1253:15
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+  code: 422,
   status: 'error'
 }

@@ -16,7 +16,7 @@ enum FileType {
 const destinationMap: Record<FileType, string> = {
   [FileType.Aplikasi]: "./public/aplikasi",
   [FileType.Invoice]: "./public/invoice",
-  [FileType.UserPhoto] : "D:/Dev SIPPP/PMO/public/images/userphoto"
+  [FileType.UserPhoto] : getConfig('FILE_SAVE_PHOTO')
 };
 
 const allowedMimeTypesImage = ["image/jpeg", "image/png", "image/jpg"];
