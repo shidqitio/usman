@@ -163,7 +163,6 @@ const registerExternal = async (
   require:PayloadRegisterExternalSchema["body"]) : Promise<RefUser> => {
   const t = await db.transaction()
   try {
-      const id = require.id
       const email = require.email
       const password = require.password
       const username = require.username
@@ -189,7 +188,6 @@ const registerExternal = async (
       if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Dibuat")
 
         const registUserExternal = await RefUserExternal.create({
-          id             : id,
           id_user        : registUser.id,
           username       : username,
           status_pengguna: statusPengguna
