@@ -1,13 +1,12 @@
  stages:
    - pull
-   - start_service
  
  variables:
    SSH_PRIVATE_KEY_BE: $SSH_PRIVATE_KEY_BE
    SSH_HOST: "203.217.140.52"
    SSH_PORT: "22"
    SSH_USER: "root"
-   REMOTE_DIR: "/home/BE/user-management-pmo"
+   REMOTE_DIR: "/home/BE/user-management-be"
  
  before_script:
    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
@@ -27,10 +26,5 @@
      - echo "berhasil melakukan deploy ke server usman ya "
    only:
      - main
- start_service:
-   stage: start_service
-   script:
-     - echo "memulai muat ulang service"
-     - ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $REMOTE_DIR && pm2 restart 11"
-     - echo "berhasil menjalankan service terbaru"
+
     
