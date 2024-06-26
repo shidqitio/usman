@@ -2,7 +2,7 @@
    - pull
  
  variables:
-   SSH_PRIVATE_KEY_BE: $SSH_PRIVATE_KEY_BE
+   SSH_PRIVATE_KEY_BE: $SSH_PRIVATE_KEY
    SSH_HOST: "203.217.140.52"
    SSH_PORT: "22"
    SSH_USER: "root"
