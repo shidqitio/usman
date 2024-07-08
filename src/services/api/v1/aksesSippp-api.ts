@@ -82,7 +82,6 @@ const register = async (
           transaction : t
         })
 
-        console.log(hasil_akhir);
         
 
         if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity, "Hasil Gagal Dikeluarkan")
@@ -298,7 +297,6 @@ const login = async (
 
         const aksesApp = [...exist,...newAps]
 
-        console.log(exist);
         
 
         const token = jwt.sign(
@@ -432,10 +430,9 @@ const postToken = async (
         if(app.length === 0) throw new CustomError (httpCode.unprocessableEntity, "[2]User Tidak Memiliki Group Aplikasi")
         
         const url_token  = app[0].url_token
-        console.log(url_token);
         
         const token = token_input
-        console.log(token)
+
         const data = {
             id_user : id_user, 
             kode_group : kode_group, 
@@ -696,9 +693,14 @@ const getMenuApp = async (
               FROM ref_aplikasi as a
               JOIN ref_group as b ON b.kode_aplikasi = a.kode_aplikasi
               JOIN trx_group_user as c ON c.kode_group = b.kode_group
-              WHERE c.id_user = (:id)`,
+              WHERE c.id_user = (:id) 
+              AND b.kode_group = (:kode_group)
+              `,
             {
-              replacements: { id: groupUser.id_user },
+              replacements: { 
+                id: groupUser.id_user,
+                kode_group : groupUser.kode_group
+              },
               type: QueryTypes.SELECT,
             }
           );
@@ -774,7 +776,6 @@ const checkToken = async (
 
       const token_final = await decryptData(token, level)
       
-      console.log( "TES TOKEN FINAL :", token_final)
 
       if(!token_final) {
         throw new CustomError(401, "User Not Authenticate")
@@ -801,12 +802,16 @@ const checkToken = async (
 
       if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Terdaftar")
 
+        
+
       return exUser
 
     } catch (error : any) {
+            
       if (error instanceof CustomError) {
         throw new CustomError(error.code, error.message);
       } else {
+      
         throw new CustomError(500, "Internal server error.");
       }
     }
