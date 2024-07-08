@@ -69,6 +69,7 @@ const auth = async (
 
         next()
     } catch (error) {
+        
         next(error)
     }
 }
