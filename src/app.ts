@@ -29,7 +29,7 @@ import cluster from "cluster";
 log4js.configure(logger);
 
 if (cluster.isPrimary) {
-  const numCPUs = os.cpus().length
+  const numCPUs = 2
   console.log(`Primary ${process.pid} is running`);
 
   console.log("cpu", numCPUs);
