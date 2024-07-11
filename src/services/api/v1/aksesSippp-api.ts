@@ -273,6 +273,8 @@ const login = async (
 
         if(exist.length === 0) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Memiliki Akses Ke Aplikasi")
 
+          
+        
         const ids = exist.map((i : any) => i.kode_aplikasi)
         const aps = await RefAplikasi.findAll({
             where : {
@@ -281,9 +283,6 @@ const login = async (
                 }
             }
         })
-
-
-        
 
         const newAps = aps.map((ap) => {
             return {
@@ -295,7 +294,7 @@ const login = async (
             }
         })
 
-        const aksesApp = [...exist,...newAps]
+        const aksesApp = [...exist]
 
         
 
