@@ -287,7 +287,7 @@ const login = async (
 
         const newAps = aps.map((ap) => {
             return {
-                kode_aplikas : ap.kode_aplikasi,
+                kode_aplikasi : ap.kode_aplikasi,
                 nama_aplikasi : ap.nama_aplikasi,
                 keterangan : ap.keterangan,
                 status : Status.Tampil,
@@ -740,7 +740,7 @@ const getMenuApp = async (
 
           
 
-          const aksesApp = [...akses,...newAps]
+          const aksesApp = [...akses]
           const params = {
             data : data,
             aplikasi : aksesApp, 
