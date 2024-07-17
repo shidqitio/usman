@@ -17,13 +17,24 @@ import {
 
 import auth from "@middleware/auth"
 
+import rateLimit from "express-rate-limit"
+
+//Konfigurasi express-rate-limit untuk membatasi percobaan login
+const loginLimiter = rateLimit({
+  windowMs: 5 * 60 *  1000, // 5 menit
+  max: 3, // maksimal 3 percobaan
+  message: 'Terlalu banyak percobaan login coba lagi setelah 5 menit'
+});
+
 const routes = express.Router()
+
+
 
 routes.get("/get-role/:email/:kode_aplikasi", validate(payloadEmailAplikasiSchema), aksesController.roleByAplikasiEmail)
 
 routes.post("/register", validate(payloadAksesSchema), aksesController.register)
 routes.post("/register-external", validate(payloadRegisterExternalSchema), aksesController.registerExternal)
-routes.post("/login", validate(payloadLoginSchema), aksesController.login)
+routes.post("/login", loginLimiter, validate(payloadLoginSchema), aksesController.login)
 
 routes.post("/aplikasi", validate(payloadEmailAksesSchema), aksesController.getAplikasiByEmail)
 routes.post("/post-token", auth, validate(payloadUserGroupAksesSchema), aksesController.postToken)

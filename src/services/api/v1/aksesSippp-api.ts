@@ -212,7 +212,7 @@ const registerExternal = async (
           if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity, "Hasil Gagal Dikeluarkan")
  
           const trxGroupUser : TrxGroupUserInput = await TrxGroupUser.create({
-            kode_group: 'G00.4',
+            kode_group: 'G01.8',
             id_user   : registUser.id,
             status    : statusGroupUser.Aktif
           }, {transaction : t})
@@ -249,14 +249,14 @@ const login = async (
             }
         })
 
-        if(!existUser) throw new CustomError(httpCode.unprocessableEntity, "Email Tidak Ditemukan")
+        if(!existUser) throw new CustomError(httpCode.unprocessableEntity, "Email dan Password Tidak Ditemukan")
 
         const passwordExist : any = existUser.password
 
         const credential = await bcrypt.compare(password, passwordExist)
 
 
-        if(!credential) throw new CustomError(httpCode.notAcceptable, "Password Salah")
+        if(!credential) throw new CustomError(httpCode.notAcceptable, "Email dan Password Salah")
 
         const exist = await db.query(`
         SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, a.status,  CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
