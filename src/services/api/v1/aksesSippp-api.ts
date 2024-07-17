@@ -37,6 +37,8 @@ import RefMenu1 from "@models/refMenu1-model"
 import RefMenu2 from "@models/refMenu2-model"
 import RefMenu3 from "@models/refMenu3-model"
 
+import { sendMail } from "@utils/sendmail"
+
 import nodemailer from "nodemailer"
 
 
@@ -212,7 +214,7 @@ const registerExternal = async (
           if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity, "Hasil Gagal Dikeluarkan")
  
           const trxGroupUser : TrxGroupUserInput = await TrxGroupUser.create({
-            kode_group: 'G00.4',
+            kode_group: 'G01.8',
             id_user   : registUser.id,
             status    : statusGroupUser.Aktif
           }, {transaction : t})
@@ -249,14 +251,14 @@ const login = async (
             }
         })
 
-        if(!existUser) throw new CustomError(httpCode.unprocessableEntity, "Email Tidak Ditemukan")
+        if(!existUser) throw new CustomError(httpCode.unprocessableEntity, "Email dan Password Tidak Ditemukan")
 
         const passwordExist : any = existUser.password
 
         const credential = await bcrypt.compare(password, passwordExist)
 
 
-        if(!credential) throw new CustomError(httpCode.notAcceptable, "Password Salah")
+        if(!credential) throw new CustomError(httpCode.notAcceptable, "Email dan Password Salah")
 
         const exist = await db.query(`
         SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, a.status,  CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
@@ -949,42 +951,47 @@ const forgetPassword = async (
           email : email
         }
       })
+      
     
-      const transporter =  nodemailer.createTransport({
-        pool: true,
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true, // use TLS
-        auth: {
-          user: "williejenkis02@gmail.com",
-          pass: "alvaromorata",
-        },
-      })
+    //   const transporter =  nodemailer.createTransport({
+    //     pool: true,
+    //     host: "smtp.gmail.com",
+    //     port: 465,
+    //     secure: true, // use TLS
+    //     auth: {
+    //       user: "williejenkis02@gmail.com",
+    //       pass: "alvaromorata",
+    //     },
+    //   })
 
-      // verify connection configuration
-       transporter.verify(function (error, success) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Server is ready to take our messages");
-        }
-      });
+    //   // verify connection configuration
+    //    transporter.verify(function (error, success) {
+    //     if (error) {
+    //       console.log(error);
+    //     } else {
+    //       console.log("Server is ready to take our messages");
+    //     }
+    //   });
 
 
-    const mailOption = {
-      from : `williejenkins02@gmail.com`,
-      to : `shidqitio@gmail.com`, 
-      subject : `Test Email`,
-      text : `SEND DATA WITH TOKEN ${token}`
-    }
+    // const mailOption = {
+    //   from : `williejenkins02@gmail.com`,
+    //   to : `shidqitio@gmail.com`, 
+    //   subject : `Test Email`,
+    //   text : `SEND DATA WITH TOKEN ${token}`
+    // }
 
-    transporter.sendMail(mailOption, (error, info) => {
-      if(error) {
-        console.log(`Error Sending Email`, error)
-      } else {
-        console.log(`Success`, info)
-      }
-    })
+    // transporter.sendMail(mailOption, (error, info) => {
+    //   if(error) {
+    //     console.log(`Error Sending Email`, error)
+    //   } else {
+    //     console.log(`Success`, info)
+    //   }
+    // })
+
+    await sendMail(email, "Forget Password", `Send Data with Token :  ${token}`)
+
+
 
     const data = {
       token : token, 

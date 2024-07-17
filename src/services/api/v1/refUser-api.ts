@@ -123,7 +123,7 @@ const refUser = async (
         }
 
         const refUserData : RefUser[] = await db.query(`
-        SELECT a.id, a.email, a.is_login, COALESCE(b.username, c.username) AS username FROM ref_user a 
+        SELECT a.id, a.email, a.is_login, COALESCE(b.username, c.username) AS username, a.status_user FROM ref_user a 
         LEFT JOIN ref_user_external b ON a.id = b.id_user 
         LEFT JOIN ref_user_internal c ON a.id = c.id_user
         limit (:limit)
