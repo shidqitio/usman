@@ -105,11 +105,26 @@ const searchEmail = async (
     }
 }
 
+const getAllUserByUnit = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const response = await refUserService.getAllUserByUnit()
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`Testing Error Get All User By Unit ${error}`)
+        next(error)
+    }
+}
+
 export default {
     updatePhoto,
     refUser,
     searchParams,
     searchGroupByEmail,
     userProfile,
-    searchEmail
+    searchEmail,
+    getAllUserByUnit
 }

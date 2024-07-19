@@ -19,6 +19,7 @@ import generateHeaderWithSignature from "@utils/signature"
 import moment from "moment"
 import CryptoJS from "crypto-js"
 import decryptData from "@middleware/decrypt/token"
+import {getPegawaiByEmail} from "@services/hrd/index"
 
 import {
     PayloadAksesSchema,
@@ -317,14 +318,55 @@ const login = async (
             }
         })
 
-        const data = {
+        let data 
+
+        if(existUser.status_user === 'internal') {
+          const data_hris = await getPegawaiByEmail(existUser.email)
+
+          const unit = data_hris[0]
+
+          if(unit === null) {
+            data = {
+              token : token,
+              user  : {
+                  id_user : existUser.id,
+                  email : existUser.email,
+                  is_login : existUser.is_login,
+                  kode_unit :  "",
+                  kode_unit_baru :  "",
+                  nama_unit :  "",
+              },
+              aplikasi : aksesApp
+            }       
+          } 
+          else {
+            data = {
+              token : token,
+              user  : {
+                  id_user : existUser.id,
+                  email : existUser.email,
+                  is_login : existUser.is_login,
+                  kode_unit :   unit.TrxUnitKerjaPegawais[0].Unit.kode_unit ,
+                  kode_unit_baru :  unit.TrxUnitKerjaPegawais[0].Unit.kode_unit_baru ,
+                  nama_unit : unit.TrxUnitKerjaPegawais[0].Unit.nama_unit ,
+              },
+              aplikasi : aksesApp
+            }       
+          }
+        }
+        else {
+          data = {
             token : token,
             user  : {
                 id_user : existUser.id,
                 email : existUser.email,
-                is_login : existUser.is_login
+                is_login : existUser.is_login,
+                kode_unit :  "",
+                kode_unit_baru :  "",
+                nama_unit :  "",
             },
             aplikasi : aksesApp
+        }
         }
         
         return data
@@ -874,7 +916,7 @@ const postTokenApp = async (url_token : any, data : any) => {
       token: `Bearer ${data.token}`,
     };
     
-    const headers : any = await generateHeaderWithSignature.generateHeaderWithSignature(method, url_token, body);
+    const headers : any = await generateHeaderWithSignature(method, url_token, body);
   
     return await axios.post(url_token, body, {
       headers: headers,

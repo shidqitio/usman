@@ -1,6 +1,7 @@
 import moment from "moment"
-import { SHA256, HmacSHA256 } from "crypto-js";
+import { hmacSHA256, SHA256 } from "@utils/crypto";
 import getConfig from "@config/dotenv";
+
 
 const generateHeaderWithSignature = async (methd : any, apiUrl : any, data : any) => {
   try {
@@ -19,7 +20,9 @@ const generateHeaderWithSignature = async (methd : any, apiUrl : any, data : any
     const date = moment().format();
 
     const payloads = `${method}:${path}:${apiKey}:${bodyLower}:${date}`;
-    const signature = await HmacSHA256(payloads, getConfig("CRYPTO_KEY"));
+    const signature = await hmacSHA256(payloads);
+
+    console.log(signature)
 
     const headers = {
       "Content-type": "application/json",
@@ -35,6 +38,4 @@ const generateHeaderWithSignature = async (methd : any, apiUrl : any, data : any
   }
 };
 
-export default {
-  generateHeaderWithSignature
-}
+export default generateHeaderWithSignature

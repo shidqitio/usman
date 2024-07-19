@@ -22,6 +22,9 @@ routes.post("/search-email", refUserController.searchGroupByEmail)
 
 routes.post("/search/email", refUserController.searchEmail)
 
+//GET PEGAWAI
+routes.get("/hris/get-pegawai", refUserController.getAllUserByUnit)
+
 
 
 export default routes
