@@ -35,7 +35,7 @@ export type UserData = {
   email: string;
   token: string;
   is_login: string | null;
-  username : string
+  username : string,
 };
 
 declare global {

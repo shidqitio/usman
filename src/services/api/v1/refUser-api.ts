@@ -19,6 +19,7 @@ import db from "@config/database";
 
 import { Op, QueryTypes } from "sequelize";
 import { log } from "console";
+import { getPegawaiByUnit } from "@services/hrd";
 
 const updateUserPhoto = async (
     id:PayloadUpdateSchema["parameter"]["id"],
@@ -258,6 +259,25 @@ const searchEmail = async (email : string) : Promise<RefUserOutput[]> => {
     }
 }
 
+const getAllUserByUnit = async () : Promise<any> => {
+    try {
+        const unit = "UN31.DMAUPBJ"
+
+        const dataPegawai = await getPegawaiByUnit(unit)
+
+
+        return dataPegawai
+        
+    } catch (error) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.message)
+        } 
+        else {
+            throw new CustomError(500, "Internal server error.")
+        }
+    }
+}
+
 
 export default {
     updateUserPhoto,
@@ -266,5 +286,6 @@ export default {
     searchParams,
     countRefUser,
     searchGroupByEmail,
-    searchEmail
+    searchEmail,
+    getAllUserByUnit
 }

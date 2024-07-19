@@ -13,5 +13,6 @@ const Hrd: AxiosInstance = axios.create({
 export default Hrd;
 
 export const HRD_PATH = {
-  PEGAWAI_BY_EMAIL: "/pegawai/email",
+  PEGAWAI_BY_EMAIL: "/pegawai/landing/email",
+  PEGAWAI_BY_UNIT : "/pegawai/usman/get-unit"
 };
