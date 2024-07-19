@@ -265,8 +265,11 @@ const getAllUserByUnit = async () : Promise<any> => {
 
         const dataPegawai = await getPegawaiByUnit(unit)
 
+        console.log(dataPegawai[0]);
+        
 
-        return dataPegawai
+
+        return dataPegawai[0]
         
     } catch (error) {
         if(error instanceof CustomError) {

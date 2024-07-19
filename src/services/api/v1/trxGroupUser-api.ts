@@ -1,6 +1,6 @@
 import RefGroup from "@models/refGroup-model";
 import TrxGroupUser, {TrxGroupUserInput, TrxGroupUserOutput, statusGroupUser} from "@models/trxGroupUser-model";
-import RefUser from "@models/refUser-model";
+import RefUser, { StatusUser } from "@models/refUser-model";
 import bcrypt from "bcrypt";
 import {
     PayloadTrxGroupUserSchema,
@@ -175,31 +175,52 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string, 
 
 const storePegawaiRole = async (
     require:PayloadUserRoleSchema["body"], ucr : string) : Promise<TrxGroupUserOutput> => {
+    const t = await db.transaction()
     try {
         const exUser : RefUser | null = await RefUser.findOne({
             where : {
                 email : require.email
-            }
+            },
+            transaction : t
         })
 
-        if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "Data Pegawai Tidak Tersedia")
+        let id_user
+
+        if(!exUser){
+            const password = "123456"
+
+            const pw = await bcrypt.hash(password,12)
+            const create_user = await RefUser.create({
+                email : require.email, 
+                password : pw,
+                status_user : StatusUser.internal
+            }, {transaction : t})
+
+            if(!create_user) throw new CustomError(httpCode.unprocessableEntity, "Gagal Create User")
+
+            id_user = create_user.id
+        }
+        else {
+            id_user = exUser.id
+        }
 
 
         const exGroup = await RefGroup.findOne({
             where : {
                 kode_group : require.kode_group
-            }
+            },
+            transaction:t
         })
              
         if(!exGroup) throw new CustomError(httpCode.unprocessableEntity, "Role Tidak Tersedia")
-
-        const id_user = exUser.id
+            
         
         const exRole : TrxGroupUserOutput | null = await TrxGroupUser.findOne({
             where : {
                 kode_group : require.kode_group, 
                 id_user : id_user, 
-            }
+            },
+            transaction : t
         })
 
         if(exRole) throw new CustomError(httpCode.unprocessableEntity, "Email Sudah Terdaftar Pada Role yang Sama")
@@ -208,14 +229,19 @@ const storePegawaiRole = async (
             kode_group : require.kode_group, 
             id_user : id_user, 
             status : statusGroupUser.Aktif,
+        }, {
+            transaction : t
         })
 
         if(!createGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Dibuat")
+
+        await t.commit()
 
         return createGroupUser
 
         
     } catch (error : any) {
+        await t.rollback()
         if(error instanceof CustomError) {
             throw new CustomError(error.code, error.message)
         } 
