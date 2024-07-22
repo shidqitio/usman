@@ -19,11 +19,23 @@ import auth from "@middleware/auth"
 
 import rateLimit from "express-rate-limit"
 
+import { httpCode } from "@utils/prefix"
+
+import CustomError from "@middleware/error-handler"
+
+// const error = new CustomError(httpCode.tooManyRequests, "Anda Melakukan Kesalahan Lebih 3 kali silahkan coba lagi dalam 10 menit")
+
+const error = {
+  code : httpCode.tooManyRequests, 
+  status : "failed",
+  message : "Terlalu Banyak Percobaan Silahkan Coba Lagi 10 Menit"
+}
+
 //Konfigurasi express-rate-limit untuk membatasi percobaan login
 const loginLimiter = rateLimit({
-  windowMs: 5 * 60 *  1000, // 5 menit
+  windowMs: 10 * 60 *  1000, // 10 menit
   max: 3, // maksimal 3 percobaan
-  message: 'Terlalu banyak percobaan login coba lagi setelah 5 menit'
+  message: error
 });
 
 const routes = express.Router()
