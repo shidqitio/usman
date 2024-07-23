@@ -33,7 +33,8 @@ import {
     PayloadEmailAplikasiSchema,
     PayloadRegisterExternalSchema,
     PayloadLoginSchema,
-    PayloadCheckOtpSchema
+    PayloadCheckOtpSchema,
+    PayloadResetPasswordSchema
 } from "@schema/api/akses-schema"
 import { httpCode } from "@utils/prefix"
 import RefMenu1 from "@models/refMenu1-model"
@@ -44,6 +45,8 @@ import { sendMail } from "@utils/sendmail"
 
 import nodemailer from "nodemailer"
 import { UserOutput } from "@models/user"
+
+import { loginLimiter } from "@routes/api/akses-route"
 
 
 
@@ -983,10 +986,7 @@ const forgetPassword = async (
 
     const number_generate : string = Math.random().toString().slice(2,8)
 
-    
-
-    console.log(number_generate);
-    
+        
 
     // const token = jwt.sign(
     //   {
@@ -1080,6 +1080,44 @@ const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOut
     if (error instanceof CustomError) {
       throw new CustomError(error.code, error.message);
     } else {
+      throw new CustomError(500, "Internal server error.");
+    }
+  }
+}
+
+const resetPassword = async (
+  request:PayloadResetPasswordSchema["body"]) : Promise<RefUser | any> => {
+  try {
+      const {email, password_baru } = request
+
+      let newPassword = await bcrypt.hash(password_baru, 12);
+
+      const [updatedRows, [updateResult]] = await RefUser.update({
+        password : newPassword
+      }, {
+        where : {
+          email : email
+        },
+        returning : true
+      })
+
+    if(updatedRows === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Password Gagal Update")
+
+      const data = {
+        email : updateResult.email,
+        api_token : updateResult.api_token,
+        status_user : updateResult.status_user
+      }
+
+    loginLimiter.resetKey(updateResult.email)
+
+    return data
+      
+  } catch (error) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code, error.message);
+    } else {
+      console.log(error);     
       throw new CustomError(500, "Internal server error.");
     }
   }
@@ -1353,5 +1391,6 @@ export default {
   refreshTokenLanding,
   roleByAplikasiEmail,
   registerExternal,
-  checkOtp
+  checkOtp,
+  resetPassword
 }
