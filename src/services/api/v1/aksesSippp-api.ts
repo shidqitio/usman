@@ -997,14 +997,15 @@ const forgetPassword = async (
     //  )
 
       await RefUser.update({
-        otp : number_generate
+        otp : number_generate,
+        otp_time : new Date()
       }, {
         where : {
           email : email
         }
       })
 
-    await sendMail(email, "Forget Password User Management Promise", `Send Data with OTP :  ${number_generate}`)
+    // await sendMail(email, "Forget Password User Management Promise", `Send Data with OTP :  ${number_generate}`)
 
 
 
@@ -1034,6 +1035,8 @@ const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOut
       }
     })
 
+    const Otp_expiration_time = 15 * 60 * 1000 
+
     if(!checkEmail) {
       throw new CustomError(httpCode.unprocessableEntity, "Email")
     }
@@ -1041,6 +1044,23 @@ const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOut
     if(otp !== checkEmail.otp) {
       throw new CustomError(httpCode.notAcceptable, "OTP Tidak Cocok")
     }
+
+
+    const otpTime : Date | any= checkEmail.otp_time; 
+    
+    console.log("CHECK OTP TIME : ", otpTime)
+
+    const timeSave: number | undefined = Date.now();
+
+    // console.log(otpTime - timeSave);
+    
+    
+
+
+    if( (timeSave - otpTime) > Otp_expiration_time) {
+      throw new CustomError(httpCode.requestTimeout, "OTP Telah Expired Coba Kembali Lagi")
+    }
+    
 
      const token = jwt.sign(
       {

@@ -16,6 +16,7 @@ export interface IRefUserAttributes {
     user_photo : string | null | undefined,
     status_user : StatusUser,
     otp : string | null | undefined,
+    otp_time : Date | undefined
 	ucr      : string | null | undefined,
 	uch      : string | null | undefined,
 	udcr     : Date | undefined,
@@ -29,6 +30,7 @@ IRefUserAttributes,
 "forget_token_pass" |
 "status_user" |
 "otp" |
+"otp_time" |
 "uch" | 
 "ucr" | 
 "udch"|
@@ -48,6 +50,7 @@ class RefUser
     declare user_photo: string | null | undefined;
     declare status_user: StatusUser; 
     declare otp : string | null | undefined
+    declare otp_time: Date | undefined; 
     declare ucr      : string | null | undefined;
     declare uch      : string | null | undefined;
     declare udcr     : Date | undefined;
@@ -91,6 +94,10 @@ RefUser.init(
         },
         otp : {
             type : DataTypes.STRING(6), 
+            allowNull : true
+        },
+        otp_time : {
+            type : DataTypes.DATE,
             allowNull : true
         },
         ucr : {

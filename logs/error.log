@@ -72,3 +72,75 @@
   code: 406,
   status: 'error'
 }
+[2024-07-23T16:24:32.968] [ERROR] error - testing error ForgetPassword Error: Internal server error.
+[2024-07-23T16:24:32.969] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1023:13
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-07-23T16:38:15.585] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
+[2024-07-23T16:38:15.586] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 408,
+  status: 'error'
+}
+[2024-07-23T16:38:16.778] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
+[2024-07-23T16:38:16.779] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 408,
+  status: 'error'
+}
+[2024-07-23T16:38:17.682] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
+[2024-07-23T16:38:17.682] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 408,
+  status: 'error'
+}
+[2024-07-23T16:38:20.602] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
+[2024-07-23T16:38:20.603] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 408,
+  status: 'error'
+}
+[2024-07-23T16:38:21.659] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
+[2024-07-23T16:38:21.660] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 408,
+  status: 'error'
+}
+[2024-07-23T16:38:27.161] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
+[2024-07-23T16:38:27.162] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 408,
+  status: 'error'
+}
+[2024-07-23T16:38:29.443] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
+[2024-07-23T16:38:29.443] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 408,
+  status: 'error'
+}
