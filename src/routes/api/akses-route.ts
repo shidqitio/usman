@@ -12,7 +12,8 @@ import {
     refreshTokenLandingSchema,
     payloadLoginSchema,
     payloadEmailAplikasiSchema,
-    payloadRegisterExternalSchema
+    payloadRegisterExternalSchema,
+    payloadCheckOtpSchema
 } from "@schema/api/akses-schema"
 
 import auth from "@middleware/auth"
@@ -57,5 +58,8 @@ routes.post("/change-password",validate(payloadChangePasswordSchema), aksesContr
 routes.post("/forget-password", validate(payloadEmailAksesSchema), aksesController.forgetPassword)
 routes.post("/refresh-token", validate(payloadRefreshTokenSchema), aksesController.refreshToken)
 routes.post("/refresh-token-landing", validate(refreshTokenLandingSchema), aksesController.refreshTokenLanding)
+
+//CHECK OTP
+routes.post("/check-otp", validate(payloadCheckOtpSchema), aksesController.checkOtp)
 
 export default routes

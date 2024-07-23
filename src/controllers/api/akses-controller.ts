@@ -12,7 +12,8 @@ import {
     PayloadRefreshTokenSchema,
     RefreshTokenLandingSchema,
     PayloadEmailAplikasiSchema,
-    PayloadRegisterExternalSchema
+    PayloadRegisterExternalSchema,
+    PayloadCheckOtpSchema
 } from "@schema/api/akses-schema"
 
 import aksesService from "@services/api/v1/aksesSippp-api"
@@ -136,6 +137,22 @@ const checkToken = async (
     }
 }
 
+const checkOtp = async (
+    req:Request,
+    res:Response, 
+    next:NextFunction) : Promise<void> => {
+    try {
+        const require : PayloadCheckOtpSchema["body"] = req.body
+
+        const response = await aksesService.checkOtp(require)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error Check OTP ${error}`);
+        next(error);
+    }
+}
+
 const logout = async (
     req:Request,
     res:Response,
@@ -247,5 +264,6 @@ export default {
     forgetPassword,
     refreshToken,
     refreshTokenLanding,
-    roleByAplikasiEmail
+    roleByAplikasiEmail,
+    checkOtp
 }

@@ -164,6 +164,19 @@ const payloadRefreshToken = {
     })
 }
 
+const payloadCheckOtp = {
+    body : z.object({
+        email : z.string({
+            required_error : "Email Tidak Boleh Kosong",
+            invalid_type_error : "Email Harus String"
+        }).email("Harus Format Email"),
+        otp : z.string({
+            required_error : "OTP Tidak Boleh Kosong",
+            invalid_type_error : "OTP Harus String"
+        }).max(6, "Maksimal 6 Karakter")
+    })
+}
+
 const refreshTokenLanding = {
     body : z.object({
         token : z.string({
@@ -235,6 +248,10 @@ export const payloadRegisterExternalSchema = z.object({
     ...payloadRegisterExternal
 })
 
+export const payloadCheckOtpSchema = z.object({
+    ...payloadCheckOtp
+})
+
 export type PayloadAksesSchema = z.infer<typeof payloadAksesSchema>
 export type PayloadUserGroupSchema = z.infer<typeof payloadUserGroupAksesSchema>
 export type PayloadCheckToken = z.infer<typeof payloadCheckTokenAksesSchema>
@@ -247,3 +264,4 @@ export type RefreshTokenLandingSchema = z.infer<typeof refreshTokenLandingSchema
 export type PayloadLoginSchema = z.infer<typeof payloadLoginSchema>
 export type PayloadEmailAplikasiSchema = z.TypeOf<typeof payloadEmailAplikasiSchema>
 export type PayloadRegisterExternalSchema = z.TypeOf<typeof payloadRegisterExternalSchema>
+export type PayloadCheckOtpSchema = z.TypeOf<typeof payloadCheckOtpSchema>

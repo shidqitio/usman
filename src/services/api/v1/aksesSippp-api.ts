@@ -31,7 +31,9 @@ import {
     PayloadRefreshTokenSchema,
     RefreshTokenLandingSchema,
     PayloadEmailAplikasiSchema,
-    PayloadRegisterExternalSchema
+    PayloadRegisterExternalSchema,
+    PayloadLoginSchema,
+    PayloadCheckOtpSchema
 } from "@schema/api/akses-schema"
 import { httpCode } from "@utils/prefix"
 import RefMenu1 from "@models/refMenu1-model"
@@ -41,6 +43,7 @@ import RefMenu3 from "@models/refMenu3-model"
 import { sendMail } from "@utils/sendmail"
 
 import nodemailer from "nodemailer"
+import { UserOutput } from "@models/user"
 
 
 
@@ -978,65 +981,35 @@ const forgetPassword = async (
 
     if(!checkEmail) throw new CustomError(httpCode.unprocessableEntity, "Email Tidak Terdaftar");
 
-    const token = jwt.sign(
-      {
-          id_user : checkEmail.id
-      },
-      getConfig("SECRET_KEY"),
-      {expiresIn : "24h"}
-     )
+    const number_generate : string = Math.random().toString().slice(2,8)
+
+    
+
+    console.log(number_generate);
+    
+
+    // const token = jwt.sign(
+    //   {
+    //       id_user : checkEmail.id
+    //   },
+    //   getConfig("SECRET_KEY"),
+    //   {expiresIn : "24h"}
+    //  )
 
       await RefUser.update({
-        forget_token_pass : token
+        otp : number_generate
       }, {
         where : {
           email : email
         }
       })
-      
-    
-    //   const transporter =  nodemailer.createTransport({
-    //     pool: true,
-    //     host: "smtp.gmail.com",
-    //     port: 465,
-    //     secure: true, // use TLS
-    //     auth: {
-    //       user: "williejenkis02@gmail.com",
-    //       pass: "alvaromorata",
-    //     },
-    //   })
 
-    //   // verify connection configuration
-    //    transporter.verify(function (error, success) {
-    //     if (error) {
-    //       console.log(error);
-    //     } else {
-    //       console.log("Server is ready to take our messages");
-    //     }
-    //   });
-
-
-    // const mailOption = {
-    //   from : `williejenkins02@gmail.com`,
-    //   to : `shidqitio@gmail.com`, 
-    //   subject : `Test Email`,
-    //   text : `SEND DATA WITH TOKEN ${token}`
-    // }
-
-    // transporter.sendMail(mailOption, (error, info) => {
-    //   if(error) {
-    //     console.log(`Error Sending Email`, error)
-    //   } else {
-    //     console.log(`Success`, info)
-    //   }
-    // })
-
-    await sendMail(email, "Forget Password", `Send Data with Token :  ${token}`)
+    await sendMail(email, "Forget Password User Management Promise", `Send Data with OTP :  ${number_generate}`)
 
 
 
     const data = {
-      token : token, 
+      otp : number_generate, 
       user : {
         email : checkEmail.email
       }
@@ -1052,6 +1025,66 @@ const forgetPassword = async (
     }
   }
 }
+
+const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOutput | any> => {
+  try {
+    const {email, otp} = request
+
+    const checkEmail = await RefUser.findOne({
+      where : {
+        email : email
+      }
+    })
+
+    if(!checkEmail) {
+      throw new CustomError(httpCode.unprocessableEntity, "Email")
+    }
+
+    if(otp !== checkEmail.otp) {
+      throw new CustomError(httpCode.notAcceptable, "OTP Tidak Cocok")
+    }
+
+     const token = jwt.sign(
+      {
+          id_user : checkEmail.id
+      },
+      getConfig("SECRET_KEY"),
+      {expiresIn : "24h"}
+     )
+
+     if(!token) {
+      throw new CustomError(httpCode.unprocessableEntity, "Token Gagal di Generate")
+     }
+
+     const [update_user, hasil] : [number, RefUser[]] = await RefUser.update({
+      api_token : token
+    }, {
+      where : {
+        email : checkEmail.email
+      },
+      returning : true
+    })
+
+    if(update_user === 0) {
+      throw new CustomError(httpCode.unprocessableEntity, "Update User Gagal")
+    }
+
+    const data = {
+      email : hasil[0].email,
+      api_token : hasil[0].api_token,
+      status_user : hasil[0].status_user
+    }
+    
+    return data
+  } catch (error) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code, error.message);
+    } else {
+      throw new CustomError(500, "Internal server error.");
+    }
+  }
+}
+
 
 const refreshToken = async (
   require:PayloadRefreshTokenSchema["body"]) : Promise<any | null > => {
@@ -1216,7 +1249,7 @@ const refreshTokenLanding = async (
       throw new CustomError(httpCode.unauthorized, "[1] Token Unauthorized")
     }
     
-    console.log(decodeToken);
+    // console.log(decodeToken);
     
 
     const checkTokenAwal : RefUser | null  = await  RefUser.findOne({
@@ -1249,7 +1282,7 @@ const refreshTokenLanding = async (
 
   if(countUbahToken === 0) throw new CustomError(httpCode.unprocessableEntity, "Ubah Data Gagal") 
 
-  console.log(resultUbahToken);
+  // console.log(resultUbahToken);
   
 
   return resultUbahToken
@@ -1319,5 +1352,6 @@ export default {
   refreshToken,
   refreshTokenLanding,
   roleByAplikasiEmail,
-  registerExternal
+  registerExternal,
+  checkOtp
 }

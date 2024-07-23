@@ -1,112 +1,18 @@
-[2024-07-22T15:29:24.493] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:29:24.497] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
+[2024-07-23T08:53:27.509] [ERROR] error - testing error ForgetPassword Error: Email Tidak Terdaftar
+[2024-07-23T08:53:27.510] [ERROR] error - Error: Email Tidak Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1020:13
     at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 422,
   status: 'error'
 }
-[2024-07-22T15:29:26.322] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:29:26.324] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
+[2024-07-23T10:45:05.261] [ERROR] error - testing error Check OTP Error: OTP Tidak Cocok
+[2024-07-23T10:45:05.262] [ERROR] error - Error: OTP Tidak Cocok
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1077:13
     at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:29:27.658] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:29:27.659] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:36:54.649] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:36:54.650] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:36:56.043] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:36:56.044] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:38:38.589] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:38:38.590] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:38:41.059] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:38:41.060] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:38:42.810] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:38:42.811] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:41:07.244] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:41:07.246] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:41:08.596] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:41:08.598] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:41:09.983] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:41:09.983] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:42:05.904] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:42:05.905] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:42:07.195] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:42:07.197] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-22T15:42:08.537] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-22T15:42:08.537] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:377:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 406,
   status: 'error'
 }
