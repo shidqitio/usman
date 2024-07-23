@@ -1010,9 +1010,7 @@ const forgetPassword = async (
 
     const data = {
       otp : number_generate, 
-      user : {
-        email : checkEmail.email
-      }
+      email : checkEmail.email
     }
 
     return data
