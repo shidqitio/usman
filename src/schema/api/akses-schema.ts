@@ -199,6 +199,19 @@ const payloadEmailAplikasi = {
     })
 }
 
+const payloadResetPassword = {
+    body : z.object({
+        email : z.string({
+            required_error : "Email Tidak Boleh Kosong",
+            invalid_type_error : "Email Harus String"
+        }).email(),
+        password_baru : z.string({
+            required_error : "Password Harus Diisi",
+            invalid_type_error : "Password Harus String"
+        })
+    })
+}
+
 export const payloadAksesSchema = z.object({
     ...payloadEmailPassword
 }) 
@@ -252,6 +265,10 @@ export const payloadCheckOtpSchema = z.object({
     ...payloadCheckOtp
 })
 
+export const payloadResetPasswordSchema = z.object({
+    ...payloadResetPassword
+})
+
 export type PayloadAksesSchema = z.infer<typeof payloadAksesSchema>
 export type PayloadUserGroupSchema = z.infer<typeof payloadUserGroupAksesSchema>
 export type PayloadCheckToken = z.infer<typeof payloadCheckTokenAksesSchema>
@@ -265,3 +282,4 @@ export type PayloadLoginSchema = z.infer<typeof payloadLoginSchema>
 export type PayloadEmailAplikasiSchema = z.TypeOf<typeof payloadEmailAplikasiSchema>
 export type PayloadRegisterExternalSchema = z.TypeOf<typeof payloadRegisterExternalSchema>
 export type PayloadCheckOtpSchema = z.TypeOf<typeof payloadCheckOtpSchema>
+export type PayloadResetPasswordSchema = z.TypeOf<typeof payloadResetPasswordSchema>

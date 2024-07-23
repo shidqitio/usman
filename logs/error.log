@@ -16,3 +16,59 @@
   code: 406,
   status: 'error'
 }
+[2024-07-23T13:22:09.917] [ERROR] error - testing error login Error: Email dan Password Salah
+[2024-07-23T13:22:09.918] [ERROR] error - Error: Email dan Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}
+[2024-07-23T13:22:12.337] [ERROR] error - testing error login Error: Email dan Password Salah
+[2024-07-23T13:22:12.337] [ERROR] error - Error: Email dan Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}
+[2024-07-23T13:22:13.203] [ERROR] error - testing error login Error: Email dan Password Salah
+[2024-07-23T13:22:13.204] [ERROR] error - Error: Email dan Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}
+[2024-07-23T13:23:48.822] [ERROR] error - testing error login Error: Email dan Password Salah
+[2024-07-23T13:23:48.824] [ERROR] error - Error: Email dan Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}
+[2024-07-23T13:23:49.955] [ERROR] error - testing error login Error: Email dan Password Salah
+[2024-07-23T13:23:49.956] [ERROR] error - Error: Email dan Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}
+[2024-07-23T13:23:51.252] [ERROR] error - testing error login Error: Email dan Password Salah
+[2024-07-23T13:23:51.253] [ERROR] error - Error: Email dan Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}
+[2024-07-23T13:24:34.513] [ERROR] error - testing error login Error: Email dan Password Salah
+[2024-07-23T13:24:34.513] [ERROR] error - Error: Email dan Password Salah
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 406,
+  status: 'error'
+}

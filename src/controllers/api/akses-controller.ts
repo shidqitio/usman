@@ -13,7 +13,8 @@ import {
     RefreshTokenLandingSchema,
     PayloadEmailAplikasiSchema,
     PayloadRegisterExternalSchema,
-    PayloadCheckOtpSchema
+    PayloadCheckOtpSchema,
+    PayloadResetPasswordSchema
 } from "@schema/api/akses-schema"
 
 import aksesService from "@services/api/v1/aksesSippp-api"
@@ -201,6 +202,22 @@ const forgetPassword = async (
     }
 }
 
+const resetPassword = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const request : PayloadResetPasswordSchema["body"] = req.body
+
+        const response = await aksesService.resetPassword(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error ResetPassword ${error}`);
+        next(error);
+    }
+}
+
 const refreshToken = async (
     req:Request,
     res:Response,
@@ -265,5 +282,6 @@ export default {
     refreshToken,
     refreshTokenLanding,
     roleByAplikasiEmail,
-    checkOtp
+    checkOtp,
+    resetPassword
 }

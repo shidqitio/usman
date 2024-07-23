@@ -13,7 +13,8 @@ import {
     payloadLoginSchema,
     payloadEmailAplikasiSchema,
     payloadRegisterExternalSchema,
-    payloadCheckOtpSchema
+    payloadCheckOtpSchema,
+    payloadResetPasswordSchema
 } from "@schema/api/akses-schema"
 
 import auth from "@middleware/auth"
@@ -33,10 +34,11 @@ const error = {
 }
 
 //Konfigurasi express-rate-limit untuk membatasi percobaan login
-const loginLimiter = rateLimit({
+export const loginLimiter = rateLimit({
   windowMs: 10 * 60 *  1000, // 10 menit
   max: 3, // maksimal 3 percobaan
-  message: error
+  message: error,
+  keyGenerator : (req) => req.body.email
 });
 
 const routes = express.Router()
@@ -61,5 +63,6 @@ routes.post("/refresh-token-landing", validate(refreshTokenLandingSchema), akses
 
 //CHECK OTP
 routes.post("/check-otp", validate(payloadCheckOtpSchema), aksesController.checkOtp)
+routes.post("/reset-password", validate(payloadResetPasswordSchema), aksesController.resetPassword)
 
 export default routes
