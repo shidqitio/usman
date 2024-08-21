@@ -1,146 +1,198 @@
-[2024-07-23T08:53:27.509] [ERROR] error - testing error ForgetPassword Error: Email Tidak Terdaftar
-[2024-07-23T08:53:27.510] [ERROR] error - Error: Email Tidak Terdaftar
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1020:13
+[2024-08-21T15:25:59.806] [ERROR] error - testing error login Error: Email dan Password Tidak Ditemukan
+[2024-08-21T15:25:59.808] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:388:19
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 422,
-  status: 'error'
+  status: 'success'
 }
-[2024-07-23T10:45:05.261] [ERROR] error - testing error Check OTP Error: OTP Tidak Cocok
-[2024-07-23T10:45:05.262] [ERROR] error - Error: OTP Tidak Cocok
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1077:13
+[2024-08-21T15:27:09.871] [ERROR] error - testing error login Error: Email dan Password Tidak Ditemukan
+[2024-08-21T15:27:09.873] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:388:19
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 406,
-  status: 'error'
+  code: 422,
+  status: 'success'
 }
-[2024-07-23T13:22:09.917] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-23T13:22:09.918] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-23T13:22:12.337] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-23T13:22:12.337] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-23T13:22:13.203] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-23T13:22:13.204] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-23T13:23:48.822] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-23T13:23:48.824] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-23T13:23:49.955] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-23T13:23:49.956] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-23T13:23:51.252] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-23T13:23:51.253] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-23T13:24:34.513] [ERROR] error - testing error login Error: Email dan Password Salah
-[2024-07-23T13:24:34.513] [ERROR] error - Error: Email dan Password Salah
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:383:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
-  code: 406,
-  status: 'error'
-}
-[2024-07-23T16:24:32.968] [ERROR] error - testing error ForgetPassword Error: Internal server error.
-[2024-07-23T16:24:32.969] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1023:13
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-07-23T16:38:15.585] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
-[2024-07-23T16:38:15.586] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+[2024-08-21T15:27:20.082] [ERROR] error - testing error login Error: Email dan Password Tidak Ditemukan
+[2024-08-21T15:27:20.083] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:388:19
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 408,
-  status: 'error'
+  code: 422,
+  status: 'success'
 }
-[2024-07-23T16:38:16.778] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
-[2024-07-23T16:38:16.779] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+[2024-08-21T15:27:22.221] [ERROR] error - testing error login Error: Email dan Password Tidak Ditemukan
+[2024-08-21T15:27:22.221] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:388:19
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 408,
-  status: 'error'
+  code: 422,
+  status: 'success'
 }
-[2024-07-23T16:38:17.682] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
-[2024-07-23T16:38:17.682] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+[2024-08-21T15:28:16.360] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T15:34:11.366] [ERROR] error - testing error Register External Error: Email Sudah Terdaftar
+[2024-08-21T15:34:11.367] [ERROR] error - Error: Email Sudah Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:244:15
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 408,
-  status: 'error'
+  code: 409,
+  status: 'success'
 }
-[2024-07-23T16:38:20.602] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
-[2024-07-23T16:38:20.603] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+[2024-08-21T15:36:54.913] [ERROR] error - testing error Register External Error: Email Sudah Terdaftar
+[2024-08-21T15:36:54.914] [ERROR] error - Error: Email Sudah Terdaftar
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:244:15
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 408,
-  status: 'error'
+  code: 409,
+  status: 'success'
 }
-[2024-07-23T16:38:21.659] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
-[2024-07-23T16:38:21.660] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+[2024-08-21T15:37:00.348] [ERROR] error - testing error login Error: Email dan Password Tidak Ditemukan
+[2024-08-21T15:37:00.349] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:386:19
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 408,
-  status: 'error'
+  code: 422,
+  status: 'success'
 }
-[2024-07-23T16:38:27.161] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
-[2024-07-23T16:38:27.162] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
+[2024-08-21T15:37:25.124] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T15:37:35.267] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T15:37:59.711] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T15:58:27.310] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T15:58:28.201] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T15:58:28.928] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T15:58:29.562] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T15:58:37.001] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'success'
+}
+[2024-08-21T16:29:15.925] [ERROR] error - testing error login Error: Email dan Password Tidak Ditemukan
+[2024-08-21T16:29:15.927] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:386:19
     at Generator.next (<anonymous>)
     at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 408,
-  status: 'error'
-}
-[2024-07-23T16:38:29.443] [ERROR] error - testing error Check OTP Error: OTP Telah Expired Coba Kembali Lagi
-[2024-07-23T16:38:29.443] [ERROR] error - Error: OTP Telah Expired Coba Kembali Lagi
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:1099:13
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 408,
-  status: 'error'
+  code: 404,
+  status: 'success'
 }

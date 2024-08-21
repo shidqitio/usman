@@ -32,15 +32,15 @@ const index = async () : Promise<RefAplikasiOutput[]> => {
         })
 
         if (refAplikasi.length === 0) {
-            throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
+            throw new CustomError(httpCode.unprocessableEntity, "error", "Data Tidak Ada")
         }
 
         return refAplikasi
     } catch (error : any) {
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code, error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500, "error", "Internal server error.");
           }
     }
 }
@@ -76,17 +76,17 @@ const store = async (
 
         const insertAplikasi : RefAplikasiOutput = await RefAplikasi.create(aplikasiInput);
 
-        if(!insertAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Gagal Membuat Aplikasi")
+        if(!insertAplikasi) throw new CustomError(httpCode.unprocessableEntity, "error", "Gagal Membuat Aplikasi")
 
         return insertAplikasi
 
     } catch (error) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         }
         else {
             console.log(error)
-            throw new CustomError(500, "Internal Server Error")
+            throw new CustomError(500, "error", "Internal Server Error")
         }
     }
 }
@@ -102,16 +102,16 @@ const getByKodeAPlikasi = async (
         })
 
         if(!refAplikasi) {
-            throw new CustomError(httpCode.unprocessableEntity, "Aplikasi Tidak Ada")
+            throw new CustomError(httpCode.unprocessableEntity, "error","Aplikasi Tidak Ada")
         }
 
         return refAplikasi
 
     } catch (error : any) {
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code, error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500, "error","Internal server error.");
           }
     }
 }
@@ -125,7 +125,7 @@ const updateAplikasi = async (
     try {
         const refAplikasi : RefAplikasi | null = await RefAplikasi.findByPk(id)
 
-        if(!refAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
+        if(!refAplikasi) throw new CustomError(httpCode.notFound, "success", "Data Tidak Ada")
 
         refAplikasi.nama_aplikasi = request.nama_aplikasi,
         refAplikasi.keterangan = request.keterangan
@@ -147,7 +147,7 @@ const updateAplikasi = async (
 
 
           if(!response) {
-            throw new CustomError(httpCode.unprocessableEntity, "Gagal Mengubah Data")
+            throw new CustomError(httpCode.unprocessableEntity,"error", "Gagal Mengubah Data")
           }
 
           if(existFile) {
@@ -167,10 +167,10 @@ const updateAplikasi = async (
             if (file && file.path) {
               await removeFile(file.path);
             }
-        throw new CustomError(500, error.message)
+        throw new CustomError(500, error.status, error.message)
     }
         else {
-            throw new CustomError(500, error.message)
+            throw new CustomError(500,"error", error.message)
         }
     }
 }
@@ -183,7 +183,7 @@ const deleteAplikasi = async (id:GetRefAplikasiSchema["params"]["id"]) : Promise
             }
         })
 
-        if(!exRefAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
+        if(!exRefAplikasi) throw new CustomError(httpCode.notFound,"success", "Data Tidak Ada")
 
       
 
@@ -194,7 +194,7 @@ const deleteAplikasi = async (id:GetRefAplikasiSchema["params"]["id"]) : Promise
         })
         console.log("TES REMOVE : ", removeAplikasi)
 
-        if(removeAplikasi === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
+        if(removeAplikasi === 0) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Gagal Hapus")
 
         if(exRefAplikasi.images !== null || exRefAplikasi.images === "") {
            const lastData = await removeByLastNameAplikasi(exRefAplikasi.images)
@@ -204,10 +204,10 @@ const deleteAplikasi = async (id:GetRefAplikasiSchema["params"]["id"]) : Promise
         return exRefAplikasi
     } catch (error : any) {
         if (error instanceof CustomError) {
-        throw new CustomError(500, error.message)
+        throw new CustomError(500,error.status, error.message)
     }
         else {
-            throw new CustomError(500, error.message)
+            throw new CustomError(500,error.status, error.message)
         }
     }
 }
@@ -220,10 +220,10 @@ const countRefAplikasi = async () : Promise<any> => {
 
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }

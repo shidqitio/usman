@@ -31,7 +31,7 @@ const updateUserPhoto = async (
         })
 
         if(!refUser) {
-            throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
+            throw new CustomError(httpCode.notFound, "success", "Data Tidak Ada")
         }
 
         let data_photo
@@ -63,7 +63,7 @@ const updateUserPhoto = async (
             attributes : ["id","email","user_photo"]
         })
         
-        if(update === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Update")
+        if(update === 0) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Gagal Update")
 
 
         return updatedRefUser
@@ -72,10 +72,10 @@ const updateUserPhoto = async (
             if (file && file.path) {
               await removeFile(file.path);
             }
-        throw new CustomError(500, error.message)
+        throw new CustomError(500, error.status, error.message)
     }
         else {
-            throw new CustomError(500, error.message)
+            throw new CustomError(500, "error", error.message)
         }
     }
 }
@@ -102,10 +102,10 @@ const userProfile = async (id_user : number) : Promise<RefUserOutput> => {
         return userProfile[0]
     } catch (error) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -158,10 +158,10 @@ const refUser = async (
         console.log(error);
         
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error","Internal server error.")
         }
     }
 }
@@ -183,15 +183,15 @@ const searchParams = async (
             ]
         })
 
-        if(!refUser) throw new CustomError(httpCode.unprocessableEntity, "Email Tidak Ditemukan")
+        if(!refUser) throw new CustomError(httpCode.notFound,"success", "Email Tidak Ditemukan")
 
         return refUser
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -203,10 +203,10 @@ const countRefUser = async () : Promise <any> => {
         return countData
     } catch (error) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -223,17 +223,17 @@ const searchGroupByEmail = async (
             },
         })
 
-        if(resultUser.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Hasil Pencarian Tidak Ada")
+        if(resultUser.length === 0 ) throw new CustomError(httpCode.notFound, "success","Hasil Pencarian Tidak Ada")
 
         return resultUser
      } catch (error : any) {
         console.log(error);
         
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error","Internal server error.")
         }
     }
 }
@@ -251,10 +251,10 @@ const searchEmail = async (email : string) : Promise<RefUserOutput[]> => {
         return resultUser
     } catch (error) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error","Internal server error.")
         }
     }
 }
@@ -273,10 +273,10 @@ const getAllUserByUnit = async () : Promise<any> => {
         
     } catch (error) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }

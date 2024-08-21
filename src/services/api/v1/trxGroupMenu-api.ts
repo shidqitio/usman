@@ -39,10 +39,10 @@ const index = async (
         return trxGroupMenu
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -63,7 +63,7 @@ const store = async (
             }
         })
 
-        if(!cekGroup) throw new CustomError(httpCode.unprocessableEntity, "Kode Group Tidak Ada")
+        if(!cekGroup) throw new CustomError(httpCode.notFound, "succes", "Kode Group Tidak Ada")
 
         console.log(cekGroup.kode_level)
 
@@ -76,10 +76,10 @@ const store = async (
 
         console.log(cekMenu1?.kode_level)
 
-        if(!cekMenu1) throw new CustomError(httpCode.unprocessableEntity, "Kode Menu Tidak Ada")
+        if(!cekMenu1) throw new CustomError(httpCode.notFound,"succes", "Kode Menu Tidak Ada")
 
         if (cekGroup.kode_level !== cekMenu1.kode_level) {
-            throw new CustomError(422, "Kode Tidak Tepat")
+            throw new CustomError(422, "succes","Kode Tidak Tepat")
         }
 
         // const exGroupMenu1 = await TrxGroupMenu.findOne({
@@ -127,7 +127,7 @@ const store = async (
         })
 
 
-        if(exGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Data Sudah Pernah Ada")
+        if(exGroupMenu) throw new CustomError(httpCode.conflict,"succes", "Data Sudah Pernah Ada")
 
         
 
@@ -144,16 +144,16 @@ const store = async (
 
         const insert : TrxGroupMenuOutput = await TrxGroupMenu.create(data_insert)
 
-        if(!insert) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Insert")
+        if(!insert) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Gagal Insert")
 
         return insert
     } catch (error) {
         console.log(error)
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -172,15 +172,15 @@ const show = async (id : GetTrxGroupMenuSchema["params"]["id"]) : Promise <TrxGr
             ]
         })
 
-        if(!trxGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Data Group Menu Tidak Ada")
+        if(!trxGroupMenu) throw new CustomError(httpCode.notFound, "success", "Data Group Menu Tidak Ada")
 
         return trxGroupMenu
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status,error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error","Internal server error.")
         }
     }
 }
@@ -211,10 +211,10 @@ const groupMenuAplikasi = async (
 
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -225,7 +225,7 @@ const update = async (
     try {
         const groupMenu : TrxGroupMenu | null = await TrxGroupMenu.findByPk(id)
 
-        if(!groupMenu) throw new CustomError(httpCode.unprocessableEntity, "Group Menu Tidak Ada")
+        if(!groupMenu) throw new CustomError(httpCode.notFound,"succes", "Group Menu Tidak Ada")
 
         groupMenu.kode_group = require.kode_group
         groupMenu.kode_menu1 = require.kode_menu1
@@ -236,15 +236,15 @@ const update = async (
 
         const response = await groupMenu.save()
 
-        if(!response) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Update")
+        if(!response) throw new CustomError(httpCode.unprocessableEntity, "error","Data Gagal Update")
 
         return response
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status,error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -253,7 +253,7 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
     try {
         const groupMenu : TrxGroupMenu | null = await TrxGroupMenu.findByPk(id)
 
-        if(!groupMenu) throw new CustomError(httpCode.unprocessableEntity, "Data Group Menu Tidak Ada")
+        if(!groupMenu) throw new CustomError(httpCode.notFound,"succes", "Data Group Menu Tidak Ada")
 
         const exTrxGroupUser : TrxGroupUser | null = await TrxGroupUser.findOne({
             where : {
@@ -261,7 +261,7 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
             }
         })
 
-        if(exTrxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Menu Group Sudah Terdaftar Pengguna")
+        if(exTrxGroupUser) throw new CustomError(httpCode.conflict,"succes", "Menu Group Sudah Terdaftar Pengguna")
 
         const hapusData = await TrxGroupMenu.destroy({
             where : {
@@ -269,15 +269,15 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
             }
         })
 
-        if(hapusData === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
+        if(hapusData === 0) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Gagal Hapus")
 
         return groupMenu
     } catch (error) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -310,16 +310,16 @@ const menuByLevelAplikasi = async (
             ]
         })
 
-        if(trxGroupMenu.length === 0) throw new CustomError(httpCode.unprocessableEntity, "Group Menu Tidak Ada")
+        if(trxGroupMenu.length === 0) throw new CustomError(httpCode.notFound, "success", "Group Menu Tidak Ada")
 
         return trxGroupMenu
         
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status,error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error",  "Internal server error.")
         }
     }
 }
@@ -337,7 +337,7 @@ const updateUrut = async (require:UrutanSchema["body"],
         }
     })
 
-    if(exGroupMenu.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Group Menu Tidak Ada")
+    if(exGroupMenu.length === 0 ) throw new CustomError(httpCode.notFound,"succes", "Group Menu Tidak Ada")
 
     const  [update, [updateGroup]]= await TrxGroupMenu.update({
         urut : require.urut, 
@@ -350,16 +350,16 @@ const updateUrut = async (require:UrutanSchema["body"],
         returning : true
     })
 
-    if(update === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Nomor Urut Gagal Diubah")
+    if(update === 0 ) throw new CustomError(httpCode.unprocessableEntity,"error", "Nomor Urut Gagal Diubah")
 
     return updateGroup
 
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -414,10 +414,10 @@ const viewMenuByGroup = async (kode_group:string) : Promise<RefMenu1[]> => {
         console.log(error);
         
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -430,10 +430,10 @@ const countTrxGroupMenu = async () : Promise<any> => {
 
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }

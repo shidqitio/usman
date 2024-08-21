@@ -11,10 +11,10 @@ const index = async () : Promise<RefLevel[]> => {
         return getLevel
     } catch (error : any) {
         if (error instanceof CustomError) {
-            throw new CustomError(500, error.message)
+            throw new CustomError(500,error.status, error.message)
         }
             else {
-                throw new CustomError(500, error.message)
+                throw new CustomError(500, "error", error.message)
             }
     }
 }

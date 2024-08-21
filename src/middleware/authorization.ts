@@ -56,14 +56,14 @@ const authorization = async (
       req.headers;
 
     if (!id_user || !kode_group || !token_lama || !token_baru) {
-      throw new CustomError(httpCode.unauthorized, "Unauthorized");
+      throw new CustomError(httpCode.unauthorized, "error", "Unauthorized");
     }
 
     if (
       typeof token_lama === "string" &&
       token_lama.split(" ")[0] === "Bearer"
     ) {
-      throw new CustomError(httpCode.unauthorized, "Unauthorized");
+      throw new CustomError(httpCode.unauthorized, "error", "Unauthorized");
     }
 
     const data: TokenUsman = {
@@ -78,11 +78,11 @@ const authorization = async (
     );
 
     if (errorUsman) {
-      throw new CustomError(httpCode.unauthorized, errorUsman);
+      throw new CustomError(httpCode.unauthorized, "error", errorUsman);
     }
 
     if (!user || !user.email) {
-      throw new CustomError(httpCode.unauthorized, "Unauthorized");
+      throw new CustomError(httpCode.unauthorized, "error", "Unauthorized");
     }
 
     const [pegawai, errorHrd]: [PegawaiAuth, string] = await getPegawaiByEmail(
@@ -90,7 +90,7 @@ const authorization = async (
     );
 
     if (errorHrd) {
-      throw new CustomError(httpCode.unauthorized, errorHrd);
+      throw new CustomError(httpCode.unauthorized, "error", errorHrd);
     }
 
     // const userData: UserData = {

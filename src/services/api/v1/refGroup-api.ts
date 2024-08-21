@@ -29,14 +29,12 @@ const index = async () : Promise<RefGroupOutput[]> => {
             ]
         })
 
-        if (refGroup.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
-
         return refGroup
     } catch (error : any) {
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code, error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500,"error", "Internal server error.");
           }
     }
 }
@@ -51,7 +49,7 @@ const store = async (
             }
         })
 
-        if(!cekAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Aplikasi Tidak Ada")
+        if(!cekAplikasi) throw new CustomError(httpCode.notFound, "success", "Aplikasi Tidak Ada")
 
         const cekGroup : RefGroup[] = await RefGroup.findAll({
             attributes : ["kode_group"],
@@ -77,9 +75,9 @@ const store = async (
     } catch (error : any) {
         console.log(error)
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code, error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500, "error", "Internal server error.");
           }
     }
 }
@@ -111,17 +109,17 @@ const show = async (
             ]
         })
 
-        if (!refGroup) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
+        if (!refGroup) throw new CustomError(httpCode.notFound,"success", "Data Tidak Ada")
 
         return refGroup
     } catch (error : any) {
         console.log(error);
         
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -135,7 +133,7 @@ const getRoleByAplikasi = async (
             }
         })
 
-        if(!exRefAplikasi) throw new CustomError(httpCode.unprocessableEntity, "Kode Aplikasi Tidak Ada")
+        if(!exRefAplikasi) throw new CustomError(httpCode.notFound,"success", "Kode Aplikasi Tidak Ada")
 
 
         const refGroup : RefGroup[] = await RefGroup.findAll({
@@ -155,10 +153,10 @@ const getRoleByAplikasi = async (
 
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -170,7 +168,7 @@ const update = async (
     try {
         const refGroup : RefGroup | null = await RefGroup.findByPk(id) 
 
-        if (!refGroup) throw new CustomError(httpCode.unprocessableEntity, "Data Tidak Ada")
+        if (!refGroup) throw new CustomError(httpCode.notFound,"success", "Data Tidak Ada")
 
         refGroup.nama_group = request.nama_group 
         refGroup.kode_level = request.kode_level
@@ -179,15 +177,15 @@ const update = async (
 
         const response = await refGroup.save()
 
-        if(!response) throw new CustomError(httpCode.ok, "Data Gagal Update")
+        if(!response) throw new CustomError(httpCode.ok,"success", "Data Gagal Update")
 
         return response
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -206,10 +204,10 @@ const GroupByLevel = async (
         return refGroup
     } catch (error) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -224,7 +222,7 @@ const destroy = async (
             attributes : {exclude : ["udcr", "udch", "ucr", "uch"]}
         })
 
-        if(!refGroup) throw new CustomError(httpCode.unprocessableEntity, "Data Group Tidak Ada")
+        if(!refGroup) throw new CustomError(httpCode.notFound, "success","Data Group Tidak Ada")
 
         const deleteGroup = await RefGroup.destroy({
             where : {
@@ -239,7 +237,7 @@ const destroy = async (
             }
         })
 
-        if(extrxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Role Sudah Terpakai")
+        if(extrxGroupUser) throw new CustomError(httpCode.conflict,"success", "Role Sudah Terpakai")
 
 
         const extrxGroupMenu : TrxGroupMenu | null = await TrxGroupMenu.findOne({
@@ -248,17 +246,17 @@ const destroy = async (
             }
         })
 
-        if(extrxGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Role Sudah Terintegrasi dengan Menu")
+        if(extrxGroupMenu) throw new CustomError(httpCode.conflict,"success", "Role Sudah Terintegrasi dengan Menu")
 
-        if(deleteGroup === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Hapus")
+        if(deleteGroup === 0) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Group Gagal Hapus")
 
         return refGroup
     } catch (error) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -270,10 +268,10 @@ const countRefGroup = async () : Promise<any> => {
         return count
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status,error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }

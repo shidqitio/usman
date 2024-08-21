@@ -75,6 +75,7 @@ const fileFilterImage = (
     cb(
       new CustomError(
         httpCode.unsupportedMediaType,
+        "success",
         `Format file harus berupa ${allowedMimeTypesImage.join(" | ")}`
       )
     );
