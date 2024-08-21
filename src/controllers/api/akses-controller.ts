@@ -20,6 +20,8 @@ import {
 import aksesService from "@services/api/v1/aksesSippp-api"
 import TrxGroupUser from "@models/trxGroupUser-model";
 
+
+
 const register = async (
     req:Request, 
     res:Response, 
@@ -46,6 +48,8 @@ const registerExternal = async (
         const request : PayloadRegisterExternalSchema["body"] = req.body
 
         const response = await aksesService.registerExternal(request)
+
+        console.log(response)
 
         responseSuccess(res, httpCode.ok, response)
     } catch (error) {

@@ -34,10 +34,10 @@ const index = async (
         return refMenu2
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -55,7 +55,7 @@ const store = async (
             }
         })
 
-        if(!cekMenu1) throw new CustomError(httpCode.unprocessableEntity, "Menu 1 Tidak Ada")
+        if(!cekMenu1) throw new CustomError(httpCode.notFound,"success", "Menu 1 Tidak Ada")
 
             const kode : any = await RefMenu2.findOne({
                 where : {
@@ -109,7 +109,7 @@ const store = async (
 
         const insertRefMenu2 : RefMenu2Output = await RefMenu2.create(inputRefMenu2)
 
-        if(!insertRefMenu2) throw new CustomError(httpCode.unprocessableEntity, "Gagal Memasukkan Data")
+        if(!insertRefMenu2) throw new CustomError(httpCode.unprocessableEntity,"error", "Gagal Memasukkan Data")
 
         return insertRefMenu2
     }  
@@ -117,10 +117,10 @@ const store = async (
         // console.log(error);
         
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -135,10 +135,10 @@ const show = async (
         return refMenu2
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -152,7 +152,7 @@ const getByKodeMenu1 = async (
             }
         })
 
-        if(!refMenu1) throw new CustomError(httpCode.unprocessableEntity, "Data Menu1 Tidak Ada")
+        if(!refMenu1) throw new CustomError(httpCode.notFound,"success", "Data Menu1 Tidak Ada")
 
         const refMenu2 : RefMenu2[] = await RefMenu2.findAll({
             where : {
@@ -171,10 +171,10 @@ const getByKodeMenu1 = async (
         return refMenu2
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -185,7 +185,7 @@ const update = async (
         try {
             const refMenu2 = await RefMenu2.findByPk(id)
 
-            if (!refMenu2) throw new CustomError(httpCode.unprocessableEntity, "RefMenu2 Tidak Ditemukan")
+            if (!refMenu2) throw new CustomError(httpCode.notFound,"success", "RefMenu2 Tidak Ditemukan")
 
             refMenu2.kode_aplikasi = refMenu2.kode_aplikasi
             refMenu2.kode_menu1 = refMenu2.kode_menu1
@@ -202,16 +202,16 @@ const update = async (
 
             const response = await refMenu2.save()
 
-            if(!response) throw new CustomError(httpCode.unprocessableEntity, "Gagal Update Data")
+            if(!response) throw new CustomError(httpCode.unprocessableEntity,"error", "Gagal Update Data")
 
             return response
 
         } catch (error : any) {
             if(error instanceof CustomError) {
-                throw new CustomError(error.code, error.message)
+                throw new CustomError(error.code,error.status, error.message)
             } 
             else {
-                throw new CustomError(500, "Internal server error.")
+                throw new CustomError(500,  "error","Internal server error.")
             }
         }
 }
@@ -221,7 +221,7 @@ const destroy = async (
         try {
             const refMenu2  = await RefMenu2.findByPk(id)
 
-             if (!refMenu2) throw new CustomError(httpCode.unprocessableEntity, "RefMenu2 Tidak Ditemukan")
+             if (!refMenu2) throw new CustomError(httpCode.notFound, "success", "RefMenu2 Tidak Ditemukan")
 
              const exTrxGroupMenu : TrxGroupMenu | null = await TrxGroupMenu.findOne({
                 where : {
@@ -229,7 +229,7 @@ const destroy = async (
                 }
              })
 
-             if(exTrxGroupMenu) throw new CustomError(httpCode.unprocessableEntity, "Menu Sudah Terdaftar Oleh User")
+             if(exTrxGroupMenu) throw new CustomError(httpCode.conflict, "success", "Menu Sudah Terdaftar Oleh User")
 
 
              const hapusData = await RefMenu2.destroy({
@@ -241,16 +241,16 @@ const destroy = async (
 
 
              if(hapusData === 0) {
-                throw new CustomError(httpCode.unprocessableEntity, "Data GagalHapus")
+                throw new CustomError(httpCode.unprocessableEntity, "error" , "Data GagalHapus")
              }
 
              return refMenu2
         } catch (error : any) {
             if(error instanceof CustomError) {
-                throw new CustomError(error.code, error.message)
+                throw new CustomError(error.code, error.status, error.message)
             } 
             else {
-                throw new CustomError(500, "Internal server error.")
+                throw new CustomError(500, "error", "Internal server error.")
             }
         }
     }
@@ -262,10 +262,10 @@ const countMenu2 = async () : Promise<any | null> => {
             return count
         } catch (error : any) {
             if(error instanceof CustomError) {
-                throw new CustomError(error.code, error.message)
+                throw new CustomError(error.code,error.status, error.message)
             } 
             else {
-                throw new CustomError(500, "Internal server error.")
+                throw new CustomError(500,  "error","Internal server error.")
             }
         }
     }

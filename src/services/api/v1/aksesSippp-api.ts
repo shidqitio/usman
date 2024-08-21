@@ -48,6 +48,8 @@ import { UserOutput } from "@models/user"
 
 import { loginLimiter } from "@routes/api/akses-route"
 
+import { responseSuccesFailed } from "@utils/response-success"
+
 
 
 const register = async (
@@ -68,7 +70,7 @@ const register = async (
             status_user : status_user
         }, {transaction : t})
 
-        if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Dibuat")
+        if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "error", "User Gagal Dibuat")
 
         const registUserInternal = await RefUserInternal.create({
           id_user : registUser.id,
@@ -76,7 +78,7 @@ const register = async (
           nip : nip
         }, {transaction : t})
 
-        if (!registUserInternal) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Didaftarkan")
+        if (!registUserInternal) throw new CustomError(httpCode.unprocessableEntity,"error", "User Gagal Didaftarkan")
 
         const hasil_akhir : RefUser | null = await RefUser.findOne({
           attributes : {exclude : ["udcr", "udch", "ucr", "uch", "password"]},
@@ -93,7 +95,7 @@ const register = async (
 
         
 
-        if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity, "Hasil Gagal Dikeluarkan")
+        if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity,"error", "Hasil Gagal Dikeluarkan")
 
         await t.commit()
 
@@ -103,9 +105,9 @@ const register = async (
       
       await t.rollback()
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code,error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500, "error", "Internal server error.");
           }
     }
 }
@@ -185,7 +187,8 @@ const registerExternal = async (
         }
       })
 
-      if (checkEmailAvail) throw new CustomError(httpCode.unprocessableEntity, "Email Sudah Terdaftar")
+      // if (checkEmailAvail) throw new CustomError(httpCode.unprocessableEntity, "Email Sudah Terdaftar")
+      if(checkEmailAvail) throw new CustomError(httpCode.conflict, "success", "Email Sudah Terdaftar")
 
       const registUser = await RefUser.create({
           email      : email,
@@ -193,7 +196,7 @@ const registerExternal = async (
           status_user: status_user
       }, {transaction : t})
 
-      if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Dibuat")
+      if(!registUser) throw new CustomError(httpCode.unprocessableEntity, "error", "User Gagal Dibuat")
 
         const registUserExternal = await RefUserExternal.create({
           id_user        : registUser.id,
@@ -201,7 +204,7 @@ const registerExternal = async (
           status_pengguna: statusPengguna
         }, {transaction : t})
 
-        if(!registUserExternal) throw new CustomError(httpCode.unprocessableEntity, "User External Gagal Didaftarkan")
+        if(!registUserExternal) throw new CustomError(httpCode.unprocessableEntity, "error", "User External Gagal Didaftarkan")
 
           const hasil_akhir : RefUser | null = await RefUser.findOne({
             attributes : {exclude : ["udcr", "udch", "ucr", "uch", "password"]},
@@ -218,7 +221,7 @@ const registerExternal = async (
             transaction : t
           })
           
-          if(!hasil_akhir) throw new CustomError(httpCode.unprocessableEntity, "Hasil Gagal Dikeluarkan")
+          if(!hasil_akhir) throw new CustomError(httpCode.notFound,"success", "Hasil Gagal Dikeluarkan")
  
           const trxGroupUser : TrxGroupUserInput = await TrxGroupUser.create({
             kode_group: 'G01.8',
@@ -226,7 +229,7 @@ const registerExternal = async (
             status    : statusGroupUser.Aktif
           }, {transaction : t})
 
-          if(!trxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "User Gagal Didaftarkan")
+          if(!trxGroupUser) throw new CustomError(httpCode.unprocessableEntity,"error", "User Gagal Didaftarkan")
 
 
           await t.commit()
@@ -238,9 +241,9 @@ const registerExternal = async (
     
     await t.rollback()
     if (error instanceof CustomError) {
-        throw new CustomError(error.code, error.message);
+        throw new CustomError(error.code,error.status, error.message);
       } else {
-        throw new CustomError(500, "Internal server error.");
+        throw new CustomError(500, "error", "Internal server error.");
       }
   }
 }
@@ -258,14 +261,14 @@ const login = async (
             }
         })
 
-        if(!existUser) throw new CustomError(httpCode.unprocessableEntity, "Email dan Password Tidak Ditemukan")
+        if(!existUser) throw new CustomError(httpCode.notFound, "success", "Email dan Password Tidak Ditemukan")
 
         const passwordExist : any = existUser.password
 
         const credential = await bcrypt.compare(password, passwordExist)
 
 
-        if(!credential) throw new CustomError(httpCode.notAcceptable, "Email dan Password Salah")
+        if(!credential) throw new CustomError(httpCode.notAcceptable,"error", "Email dan Password Salah")
 
         const exist = await db.query(`
         SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, a.status,  CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
@@ -280,7 +283,7 @@ const login = async (
             type : QueryTypes.SELECT
         })
 
-        if(exist.length === 0) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Memiliki Akses Ke Aplikasi")
+        if(exist.length === 0) throw new CustomError(httpCode.unauthorized,"error", "User Tidak Memiliki Akses Ke Aplikasi")
 
           
         
@@ -380,9 +383,9 @@ const login = async (
     } catch (error) {
       console.log(error)
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code,error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500,"error", "Internal server error.");
           }
     }
 }
@@ -398,7 +401,7 @@ const getAplikasiByEmail = async (
       }
     })
 
-    if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Ada")
+    if(!exUser) throw new CustomError(httpCode.notFound, "success", "User Tidak Ada")
 
     const akses = await db.query(`
               SELECT a.kode_aplikasi, a.nama_aplikasi, a.kode_aplikasi, a.keterangan, d."status",  
@@ -415,7 +418,7 @@ const getAplikasiByEmail = async (
       type : QueryTypes.SELECT
     })
 
-    if(akses.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Memiliki Akses");
+    if(akses.length === 0 ) throw new CustomError(httpCode.unauthorized, "error", "User Tidak Memiliki Akses");
 
     const ids  = akses.map((i : any) => i.kode_aplikasi);
     const aps = await RefAplikasi.findAll({
@@ -441,10 +444,10 @@ const getAplikasiByEmail = async (
     return aksesApp
   } catch (error : any) {
     if (error instanceof CustomError) {
-      throw new CustomError(500, error.message)
+      throw new CustomError(500, error.status, error.message)
 }
   else {
-      throw new CustomError(500, error.message)
+      throw new CustomError(500, "error", error.message)
   }
   }
 }
@@ -463,7 +466,7 @@ const postToken = async (
             }
         })
 
-        if(!groupUser) throw new CustomError(httpCode.unprocessableEntity, "[1]User Tidak Memiliki Group User")
+        if(!groupUser) throw new CustomError(httpCode.unprocessableEntity, "error", "[1]User Tidak Memiliki Group User")
 
         const app : RefAplikasi[] = await db.query(`
           SELECT c.url_token
@@ -476,7 +479,7 @@ const postToken = async (
             replacements: { user: groupUser.id_user, group: groupUser.kode_group },
             type: QueryTypes.SELECT,
         })
-        if(app.length === 0) throw new CustomError (httpCode.unprocessableEntity, "[2]User Tidak Memiliki Group Aplikasi")
+        if(app.length === 0) throw new CustomError (httpCode.unprocessableEntity,"error", "[2]User Tidak Memiliki Group Aplikasi")
         
         const url_token  = app[0].url_token
         
@@ -490,7 +493,7 @@ const postToken = async (
 
         const resToken = await postTokenApp(url_token, data)
 
-        if(!resToken) throw new CustomError(httpCode.unprocessableEntity, "[1]Gagal Post Token")
+        if(!resToken) throw new CustomError(httpCode.unprocessableEntity,"error", "[1]Gagal Post Token")
 
         const response = resToken.data
         let result
@@ -510,9 +513,9 @@ const postToken = async (
     } catch (error : any) {
       console.log(error)
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code, error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500, "error", "Internal server error.");
           }
     }
 }
@@ -540,7 +543,7 @@ const getMenuApp = async (
 
 
 
-        if(!groupUser) throw new CustomError(httpCode.unprocessableEntity, "Group User Tidak Ada")
+        if(!groupUser) throw new CustomError(httpCode.notFound, "success", "Group User Tidak Ada")
 
         
 
@@ -614,7 +617,7 @@ const getMenuApp = async (
             token : token_app
         })
 
-        if(!newToken) throw new CustomError(httpCode.unprocessableEntity, "Gagal Membuat Token")
+        if(!newToken) throw new CustomError(httpCode.unprocessableEntity, "error", "Gagal Membuat Token")
 
         const app : RefAplikasi[] = await db.query(
             `
@@ -754,7 +757,7 @@ const getMenuApp = async (
             }
           );
 
-          if(akses.length === 0) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Memiliki Akses Aplikasi")
+          if(akses.length === 0) throw new CustomError(httpCode.unprocessableEntity, "error", "User Tidak Memiliki Akses Aplikasi")
 
           const ids = akses.map((i) => i.kode_aplikasi)
           const aps = await RefAplikasi.findAll({
@@ -808,9 +811,9 @@ const getMenuApp = async (
     } catch (error : any) {
       console.log(error)
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code, error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500, "error", "Internal server error.");
           }
     }
 }
@@ -827,7 +830,7 @@ const checkToken = async (
       
 
       if(!token_final) {
-        throw new CustomError(401, "User Not Authenticate")
+        throw new CustomError(401, "error", "User Not Authenticate")
       }
 
       const exTokenApp : RefTokenApp | null = await RefTokenApp.findOne({
@@ -838,7 +841,7 @@ const checkToken = async (
         }
       })
 
-      if(!exTokenApp) throw new CustomError(httpCode.unauthorized, "Token Not Match")
+      if(!exTokenApp) throw new CustomError(httpCode.unauthorized, "error", "Token Not Match")
 
       const exUser : RefUser | null = await RefUser.findOne({
         where : {
@@ -849,7 +852,7 @@ const checkToken = async (
         }
       })
 
-      if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Terdaftar")
+      if(!exUser) throw new CustomError(httpCode.notFound, "success", "User Tidak Terdaftar")
 
         
 
@@ -858,10 +861,10 @@ const checkToken = async (
     } catch (error : any) {
             
       if (error instanceof CustomError) {
-        throw new CustomError(error.code, error.message);
+        throw new CustomError(error.code, error.status, error.message);
       } else {
       
-        throw new CustomError(500, "Internal server error.");
+        throw new CustomError(500, "error", "Internal server error.");
       }
     }
 }
@@ -876,7 +879,7 @@ const logout = async (
       const exUser : RefUser | null =  await RefUser.findOne({
         where : {id : id_user}
       })
-      if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Ada")
+      if(!exUser) throw new CustomError(httpCode.notFound,"success", "User Tidak Ada")
 
       const update = await RefUser.update({
         is_login : "N "
@@ -902,14 +905,14 @@ const logout = async (
         })
       }
 
-      if(update[0] === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Update")
+      if(update[0] === 0) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Gagal Update")
 
       return RefUser
   } catch (error) {
     if (error instanceof CustomError) {
-      throw new CustomError(error.code, error.message);
+      throw new CustomError(error.code, error.status, error.message);
     } else {
-      throw new CustomError(500, "Internal server error.");
+      throw new CustomError(500, "error", "Internal server error.");
     }
   }
 }
@@ -942,11 +945,11 @@ try {
     }
   })
 
-  if(!exUser) throw new CustomError(httpCode.unprocessableEntity, "User Tidak Terdaftar")
+  if(!exUser) throw new CustomError(httpCode.unauthorized, "error", "User Tidak Terdaftar")
 
   const validasi = await bcrypt.compare(password_lama, String(exUser.password))
 
-  if(!validasi) throw new CustomError(httpCode.unprocessableEntity, "Password Tidak Sesuai")
+  if(!validasi) throw new CustomError(httpCode.badRequest, "error", "Password Tidak Sesuai")
 
   let newPassword = await bcrypt.hash(password_baru, 12);
 
@@ -959,14 +962,14 @@ try {
     returning : true
   })
 
-  if(updatedRows === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Password Gagal Update")
+  if(updatedRows === 0 ) throw new CustomError(httpCode.unprocessableEntity,"error", "Password Gagal Update")
 
   return updateResult
 } catch (error) {
     if (error instanceof CustomError) {
-      throw new CustomError(error.code, error.message);
+      throw new CustomError(error.code, error.status, error.message);
     } else {
-      throw new CustomError(500, "Internal server error.");
+      throw new CustomError(500, "error", "Internal server error.");
     }
   }
 }
@@ -982,7 +985,7 @@ const forgetPassword = async (
       }
     })
 
-    if(!checkEmail) throw new CustomError(httpCode.unprocessableEntity, "Email Tidak Terdaftar");
+    if(!checkEmail) throw new CustomError(httpCode.unauthorized,"error", "Email Tidak Terdaftar");
 
     const number_generate : string = Math.random().toString().slice(2,8)
 
@@ -1017,10 +1020,10 @@ const forgetPassword = async (
     return data
   } catch (error: any) {
     if (error instanceof CustomError) {
-      throw new CustomError(error.code, error.message);
+      throw new CustomError(error.code, error.status, error.message);
     } else {
       console.log(error);
-      throw new CustomError(500, "Internal server error.");
+      throw new CustomError(500, "error", "Internal server error.");
     }
   }
 }
@@ -1038,11 +1041,11 @@ const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOut
     const Otp_expiration_time = 15 * 60 * 1000 
 
     if(!checkEmail) {
-      throw new CustomError(httpCode.unprocessableEntity, "Email")
+      throw new CustomError(httpCode.unauthorized, "error", "Email Tidak Terdaftar")
     }
 
     if(otp !== checkEmail.otp) {
-      throw new CustomError(httpCode.notAcceptable, "OTP Tidak Cocok")
+      throw new CustomError(httpCode.notAcceptable, "error", "OTP Tidak Cocok")
     }
 
 
@@ -1058,7 +1061,7 @@ const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOut
 
 
     if( (timeSave - otpTime) > Otp_expiration_time) {
-      throw new CustomError(httpCode.requestTimeout, "OTP Telah Expired Coba Kembali Lagi")
+      throw new CustomError(httpCode.requestTimeout, "error", "OTP Telah Expired Coba Kembali Lagi")
     }
     
 
@@ -1071,7 +1074,7 @@ const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOut
      )
 
      if(!token) {
-      throw new CustomError(httpCode.unprocessableEntity, "Token Gagal di Generate")
+      throw new CustomError(httpCode.unprocessableEntity, "error", "Token Gagal di Generate")
      }
 
      const [update_user, hasil] : [number, RefUser[]] = await RefUser.update({
@@ -1084,7 +1087,7 @@ const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOut
     })
 
     if(update_user === 0) {
-      throw new CustomError(httpCode.unprocessableEntity, "Update User Gagal")
+      throw new CustomError(httpCode.unprocessableEntity,"error", "Update User Gagal")
     }
 
     const data = {
@@ -1096,9 +1099,9 @@ const checkOtp = async (request:PayloadCheckOtpSchema["body"]) : Promise<UserOut
     return data
   } catch (error) {
     if (error instanceof CustomError) {
-      throw new CustomError(error.code, error.message);
+      throw new CustomError(error.code, error.status, error.message);
     } else {
-      throw new CustomError(500, "Internal server error.");
+      throw new CustomError(500, "error", "Internal server error.");
     }
   }
 }
@@ -1119,7 +1122,7 @@ const resetPassword = async (
         returning : true
       })
 
-    if(updatedRows === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Password Gagal Update")
+    if(updatedRows === 0 ) throw new CustomError(httpCode.unprocessableEntity, "error", "Password Gagal Update")
 
       const data = {
         email : updateResult.email,
@@ -1133,10 +1136,10 @@ const resetPassword = async (
       
   } catch (error) {
     if (error instanceof CustomError) {
-      throw new CustomError(error.code, error.message);
+      throw new CustomError(error.code, error.status, error.message);
     } else {
       console.log(error);     
-      throw new CustomError(500, "Internal server error.");
+      throw new CustomError(500, "error", "Internal server error.");
     }
   }
 }
@@ -1160,7 +1163,7 @@ const refreshToken = async (
       }
     })
 
-    if(!level?.kode_level) throw new CustomError(httpCode.unprocessableEntity, "Kode Level Gagal Didapat")
+    if(!level?.kode_level) throw new CustomError(httpCode.notFound, "success", "Kode Level Gagal Didapat")
     
 
     let decodeToken : any ;
@@ -1168,7 +1171,7 @@ const refreshToken = async (
     try {
       decodeToken  = jwt.verify(tokenVerify, getConfig("SECRET_KEY"))
     } catch (error) {
-      throw new CustomError(httpCode.unauthorized, "[1] Token Unauthorized")
+      throw new CustomError(httpCode.unauthorized, "error","[1] Token Unauthorized")
     }
 
     const checkTokenAwal : RefUser | null  = await  RefUser.findOne({
@@ -1178,12 +1181,12 @@ const refreshToken = async (
       transaction : t
     })
 
-    if(!checkTokenAwal) throw new CustomError(httpCode.unauthorized, "[2] Token Unauthorized")
+    if(!checkTokenAwal) throw new CustomError(httpCode.unauthorized, "error", "[2] Token Unauthorized")
 
     const token_final = await decryptData(token, level.kode_level)
 
     if(!token_final) {
-      throw new CustomError(httpCode.unauthorized, "Unauthorized")
+      throw new CustomError(httpCode.unauthorized, "error", "Unauthorized")
     }
 
     const exTokenApp : RefTokenApp | null = await RefTokenApp.findOne({
@@ -1195,7 +1198,7 @@ const refreshToken = async (
       transaction : t
     })
 
-    if(!exTokenApp) throw new CustomError(httpCode.unauthorized, "[3] Token Baru Unauthorized")
+    if(!exTokenApp) throw new CustomError(httpCode.unauthorized, "error", "[3] Token Baru Unauthorized")
 
       const tokenLamaUpdated = jwt.sign(
         {
@@ -1205,7 +1208,7 @@ const refreshToken = async (
         {expiresIn : "24h"}
     )
 
-    if(!tokenLamaUpdated) throw new CustomError(httpCode.unprocessableEntity, "Token Lama Gagal Di Generate")
+    if(!tokenLamaUpdated) throw new CustomError(httpCode.unprocessableEntity,"error", "Token Lama Gagal Di Generate")
 
     checkTokenAwal.api_token = tokenLamaUpdated
 
@@ -1242,7 +1245,7 @@ const refreshToken = async (
       transaction : t
     })
 
-    if(!newToken) throw new CustomError(httpCode.unprocessableEntity, "Gagal Membuat Token")
+    if(!newToken) throw new CustomError(httpCode.unprocessableEntity, "error", "Gagal Membuat Token")
 
     const newTokenApp : RefTokenApp | null = await RefTokenApp.findOne({
       where : {
@@ -1251,9 +1254,9 @@ const refreshToken = async (
       transaction : t
     })
 
-    if(!newTokenApp) throw new CustomError(httpCode.unprocessableEntity, "Token App Baru Tidak Ada")
+    if(!newTokenApp) throw new CustomError(httpCode.notFound, "success", "Token App Baru Tidak Ada")
 
-    if(!newTokenApp.token) throw new CustomError (httpCode.unprocessableEntity, "Token Aplikasi Tidak Ditemukan")
+    if(!newTokenApp.token) throw new CustomError (httpCode.notFound, "success", "Token Aplikasi Tidak Ditemukan")
 
      //CEK LEVEL TO ENCRYPT DATA 
      let sendHash
@@ -1281,9 +1284,9 @@ const refreshToken = async (
     return response
   } catch (error : any) {
     if (error instanceof CustomError) {
-      throw new CustomError(error.code, error.message);
+      throw new CustomError(error.code, error.status, error.message);
     } else {
-      throw new CustomError(500, "Internal server error.");
+      throw new CustomError(500, error, "Internal server error.");
     }
   }
 }
@@ -1302,7 +1305,7 @@ const refreshTokenLanding = async (
         ignoreExpiration : true
       })
     } catch (error) {
-      throw new CustomError(httpCode.unauthorized, "[1] Token Unauthorized")
+      throw new CustomError(httpCode.unauthorized,"error", "[1] Token Unauthorized")
     }
     
     // console.log(decodeToken);
@@ -1314,7 +1317,7 @@ const refreshTokenLanding = async (
       },
     })
 
-    if(!checkTokenAwal) throw new CustomError(httpCode.unauthorized, "User Unauthorized")
+    if(!checkTokenAwal) throw new CustomError(httpCode.unauthorized, "error", "User Unauthorized")
 
     const updatedToken = jwt.sign(
       {
@@ -1324,7 +1327,7 @@ const refreshTokenLanding = async (
       {expiresIn : "24h"}
   )
 
-  if(!updatedToken) throw new CustomError(httpCode.unprocessableEntity, "Token Lama Gagal Di Generate")
+  if(!updatedToken) throw new CustomError(httpCode.unprocessableEntity, "error", "Token Lama Gagal Di Generate")
 
   const [countUbahToken, resultUbahToken] = await RefUser.update({
     api_token : updatedToken
@@ -1336,7 +1339,7 @@ const refreshTokenLanding = async (
     
   })
 
-  if(countUbahToken === 0) throw new CustomError(httpCode.unprocessableEntity, "Ubah Data Gagal") 
+  if(countUbahToken === 0) throw new CustomError(httpCode.unprocessableEntity, "error", "Ubah Data Gagal") 
 
   // console.log(resultUbahToken);
   
@@ -1344,9 +1347,9 @@ const refreshTokenLanding = async (
   return resultUbahToken
   } catch (error : any) {
     if (error instanceof CustomError) {
-      throw new CustomError(error.code, error.message);
+      throw new CustomError(error.code, error.status, error.message);
     } else {
-      throw new CustomError(500, "Internal server error.");
+      throw new CustomError(500,"error", "Internal server error.");
     }
   }
 }
@@ -1378,18 +1381,18 @@ const roleByAplikasiEmail = async (
       // console.log(roleUser);
       
 
-      if(roleUser.length === 0) throw new CustomError(httpCode.unprocessableEntity, "Role User Tidak Terdaftar")
+      if(roleUser.length === 0) throw new CustomError(httpCode.unauthorized,"error", "Role User Tidak Terdaftar")
 
       return roleUser
     } catch (error : any) {
       // console.log(error);
       
       if (error instanceof CustomError) {
-        throw new CustomError(error.code, error.message);
+        throw new CustomError(error.code, error.status, error.message);
       } else {
         console.log(error);
         
-        throw new CustomError(500, "Internal server error.");
+        throw new CustomError(500,"error", "Internal server error.");
       }
     }
   }

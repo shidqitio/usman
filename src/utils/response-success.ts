@@ -14,6 +14,13 @@ interface IResponseSuccessCount {
   count : any
 }
 
+interface IResponseSuccessFailed {
+  code : number ;
+  status : string;
+  message : string;
+  data ? :any;
+}
+
 const responseSuccess = (res: Response, code: number, data?: any) => {
   const response: IResponseSuccess = {
     code: code,
@@ -34,6 +41,16 @@ const responseSuccessCount = (res: Response, code: number, count : number,  data
   return res.json(response);
 };
 
+const responseSuccesFailed = (res: Response, code : number, message : string, data? : any) => {
+  const response:  IResponseSuccessFailed = {
+    code : code,
+    status : responseStatus.success,
+    message : message,
+    data : data
+  }
+  return res.json(response)
+}
 
 
-export { responseSuccess, responseSuccessCount };
+
+export { responseSuccess, responseSuccessCount, responseSuccesFailed };

@@ -41,9 +41,9 @@ const generateKodeAplikasi = async (
         return kode_aplikasi
     } catch (error : any) {
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code, error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500,"error", "Internal server error.");
           }
     }
 }
@@ -76,9 +76,9 @@ const generateKodeGroup = async (
         return kode_group;
     } catch (error) {
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code,  error.status,error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500,"error", "Internal server error.");
           }
     }
 }
@@ -101,9 +101,9 @@ const generateMenu1 = async (
         return kode_menu1
     } catch (error) {
         if (error instanceof CustomError) {
-            throw new CustomError(error.code, error.message);
+            throw new CustomError(error.code, error.status, error.message);
           } else {
-            throw new CustomError(500, "Internal server error.");
+            throw new CustomError(500, "error", "Internal server error.");
           }
     }
 }

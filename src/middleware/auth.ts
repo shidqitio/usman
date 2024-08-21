@@ -15,7 +15,7 @@ const auth = async (
     try {
          const authHeader = req.get("Authorization")
         if(!authHeader) {
-            throw new CustomError(httpCode.unauthorized, "[1] Unauthorized")
+            throw new CustomError(httpCode.unauthorized, "error", "[1] Unauthorized")
         }
     
         const token  : any= authHeader?.split(" ")[1];
@@ -24,7 +24,7 @@ const auth = async (
         try {
             decodeToken  = jwt.verify(token, getConfig("SECRET_KEY"))
         } catch (error) {
-            throw new CustomError(httpCode.unauthorized, "[2] Token Unauthorized")
+            throw new CustomError(httpCode.unauthorized, "error", "[2] Token Unauthorized")
         }
 
         console.log(decodeToken)
@@ -36,7 +36,7 @@ const auth = async (
         })
 
         if(!user) {
-            throw new CustomError(httpCode.unauthorized, "[3] Unauthorized")
+            throw new CustomError(httpCode.unauthorized, "error","[3] Unauthorized")
         }
 
 

@@ -2,6 +2,7 @@ import CryptoJS from "crypto-js";
 import { Request, Response, NextFunction } from "express";
 import getConfig from "@config/dotenv";
 import CustomError from "@middleware/error-handler";
+import { httpCode } from "@utils/prefix";
 
 const decryptData = async (
     token : string, 
@@ -35,7 +36,7 @@ const decryptData = async (
         let decryptedText = CryptoJS.enc.Utf8.stringify(decryptedWordArray);
 
         if(!decryptedText) {
-            throw new CustomError(401, "User Not Authenticate")
+            throw new CustomError(httpCode.unauthorized, "error", "User Not Authenticate")
         }
 
         return decryptedText

@@ -50,10 +50,10 @@ const index = async (
         return trxGroupUser
     } catch (error: any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,  "error" , "Internal server error.")
         }
     }
 }
@@ -90,7 +90,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string, 
                     transaction : t
                 })
     
-                if(!newUser) throw new CustomError(httpCode.unprocessableEntity, "[1]Create User Gagal")
+                if(!newUser) throw new CustomError(httpCode.unprocessableEntity, "error", "[1]Create User Gagal")
     
                 const fUser : RefUser | null = await RefUser.findOne({
                     where : {
@@ -99,7 +99,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string, 
                     transaction : t
                 })
     
-                if(!fUser) throw new CustomError(httpCode.unprocessableEntity, "[2]Create User Gagal")
+                if(!fUser) throw new CustomError(httpCode.unprocessableEntity,"error", "[2]Create User Gagal")
     
                 user = fUser
                 const idUser = fUser.id
@@ -112,7 +112,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string, 
                     transaction : t
                 })
     
-                if(exGroupUser) throw new CustomError(httpCode.unprocessableEntity, "User Sudah Terdaftar di Group yang Sama")
+                if(exGroupUser) throw new CustomError(httpCode.conflict, "success","User Sudah Terdaftar di Group yang Sama")
     
                 const newGroupUser : any | null = await TrxGroupUser.create({
                     kode_group : kodeGroup,
@@ -137,7 +137,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string, 
                     kode_group : kodeGroup
                 }
             })
-            if (!exGroup) throw new CustomError(httpCode.unprocessableEntity, "User Sudah Terdaftar di Group yang Samas")
+            if (!exGroup) throw new CustomError(httpCode.conflict, "success","User Sudah Terdaftar di Group yang Samas")
 
             const idUser = exUser.id
 
@@ -148,7 +148,7 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string, 
                 }
             })
 
-            if(exGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Dibuat")
+            if(exGroupUser) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Group Gagal Dibuat")
 
             const createGroupUser : TrxGroupUserOutput = await TrxGroupUser.create({
                 kode_group : kodeGroup, 
@@ -157,18 +157,18 @@ const store = async (require:PayloadTrxGroupUserSchema["body"], token : string, 
                 ucr : ucr
             })
 
-            if(!createGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Dibuat")
+            if(!createGroupUser) throw new CustomError(httpCode.unprocessableEntity, "error","Data Group Gagal Dibuat")
 
             return createGroupUser
         }
 
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
             console.log(error)
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -196,7 +196,7 @@ const storePegawaiRole = async (
                 status_user : StatusUser.internal
             }, {transaction : t})
 
-            if(!create_user) throw new CustomError(httpCode.unprocessableEntity, "Gagal Create User")
+            if(!create_user) throw new CustomError(httpCode.unprocessableEntity, "error","Gagal Create User")
 
             id_user = create_user.id
         }
@@ -212,7 +212,7 @@ const storePegawaiRole = async (
             transaction:t
         })
              
-        if(!exGroup) throw new CustomError(httpCode.unprocessableEntity, "Role Tidak Tersedia")
+        if(!exGroup) throw new CustomError(httpCode.notFound, "success","Role Tidak Tersedia")
             
         
         const exRole : TrxGroupUserOutput | null = await TrxGroupUser.findOne({
@@ -223,7 +223,7 @@ const storePegawaiRole = async (
             transaction : t
         })
 
-        if(exRole) throw new CustomError(httpCode.unprocessableEntity, "Email Sudah Terdaftar Pada Role yang Sama")
+        if(exRole) throw new CustomError(httpCode.conflict, "success","Email Sudah Terdaftar Pada Role yang Sama")
 
         const createGroupUser : TrxGroupUserOutput = await TrxGroupUser.create({
             kode_group : require.kode_group, 
@@ -233,7 +233,7 @@ const storePegawaiRole = async (
             transaction : t
         })
 
-        if(!createGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group Gagal Dibuat")
+        if(!createGroupUser) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Group Gagal Dibuat")
 
         await t.commit()
 
@@ -243,11 +243,11 @@ const storePegawaiRole = async (
     } catch (error : any) {
         await t.rollback()
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
             console.log(error)
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -267,15 +267,15 @@ const show = async (id:GetTrxGroupUserSchema["params"]["id"]) : Promise<TrxGroup
             ]
         })
 
-        if (!trxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Data Group UserTidak Ada")
+        if (!trxGroupUser) throw new CustomError(httpCode.notFound,"success", "Data Group User Tidak Ada")
 
         return trxGroupUser
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -298,7 +298,7 @@ const postGroups = async (
             raw : true
         })
 
-        if(exUsers.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Email Belum Terdaftar")
+        if(exUsers.length === 0 ) throw new CustomError(httpCode.notFound,"success", "Email Belum Terdaftar")
 
         const exGroups : RefGroup[] = await RefGroup.findAll({
             where : {
@@ -306,7 +306,7 @@ const postGroups = async (
             }
         })
 
-        if(exGroups.length === 0) throw new CustomError(httpCode.unprocessableEntity, "Kode Group Belum Tercipta")
+        if(exGroups.length === 0) throw new CustomError(httpCode.notFound,"success", "Kode Group Belum Tercipta")
 
         let ids = exUsers.map((user) => user)
 
@@ -353,10 +353,10 @@ const postGroups = async (
         console.log(error);
         
          if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -456,10 +456,10 @@ const storeGroups = async (
     } catch (error : any) {
         t.rollback()
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -494,10 +494,10 @@ const userByGroup = async (
         return group
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -511,7 +511,7 @@ const destroy = async (
             }
         })
 
-        if(!exTrxGroupUser) throw new CustomError(httpCode.unprocessableEntity, "Tidak Ada Data Group User")
+        if(!exTrxGroupUser) throw new CustomError(httpCode.notFound,"success", "Tidak Ada Data Group User")
 
         const destroy = await TrxGroupUser.destroy({
             where : {
@@ -519,16 +519,16 @@ const destroy = async (
             }
         })
 
-        if(destroy === 0) throw new CustomError(httpCode.unprocessableEntity, "Data Gagal Hapus")
+        if(destroy === 0) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Gagal Hapus")
 
         return exTrxGroupUser
 
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code,error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500,"error", "Internal server error.")
         }
     }
 }
@@ -541,10 +541,10 @@ const countGroupUser = async () : Promise<any> => {
         return countGroupUser
     } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -569,15 +569,15 @@ const searchGroupByEmail = async (
             ]
         })
 
-        if(resultUser.length === 0 ) throw new CustomError(httpCode.unprocessableEntity, "Hasil Pencarian Tidak Ada")
+        if(resultUser.length === 0 ) throw new CustomError(httpCode.notFound, "success","Hasil Pencarian Tidak Ada")
 
         return resultUser
      } catch (error : any) {
         if(error instanceof CustomError) {
-            throw new CustomError(error.code, error.message)
+            throw new CustomError(error.code, error.status, error.message)
         } 
         else {
-            throw new CustomError(500, "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
