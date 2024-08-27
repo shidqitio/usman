@@ -27,7 +27,7 @@ const index = async () : Promise<RefAplikasiOutput[]> => {
                 "nama_aplikasi",
                 "keterangan",
                 "status",
-                [Sequelize.fn('CONCAT', `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}`, Sequelize.col('images')), 'image'],
+                [Sequelize.fn('CONCAT', `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}`, Sequelize.col('images')), 'images'],
                 "url",
                 "url_token"],
             include : [
@@ -112,7 +112,7 @@ const getByKodeAPlikasi = async (
                 "nama_aplikasi",
                 "keterangan",
                 "status",
-                [Sequelize.fn('CONCAT', `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}`, Sequelize.col('images')), 'image'],
+                [Sequelize.fn('CONCAT', `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}`, Sequelize.col('images')), 'images'],
                 "url",
                 "url_token"],
         })
