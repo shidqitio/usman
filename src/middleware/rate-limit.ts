@@ -3,8 +3,8 @@ import { rateLimit } from "express-rate-limit";
 
 // MAX RATE LIMIT 5 REQUEST PER DETIK
 const limiter = rateLimit({
-  windowMs: 2000,
-  max: 10,
+  windowMs: 20000,
+  max: 100,
   // skipSuccessfulRequests: true,
   standardHeaders: true,
   legacyHeaders: false,
