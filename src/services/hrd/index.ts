@@ -46,6 +46,10 @@ const getPegawaiByUnit = async (body : any) => {
 
     const headers : any = await generateHeaderWithSignature(method, url, data)
 
+    console.log(url)
+
+    console.log("TES HEADERS :", headers)
+
     const response = await Hrd.post(url, data, {
       headers : headers,
     });

@@ -15,12 +15,21 @@ import fs from "fs/promises"
 import getConfig from "@config/dotenv";
 import { removeFile, removeFileName, removeByLastNameAplikasi } from "@utils/remove-file";
 import path from "path";
+import { Sequelize } from "sequelize";
 
 
 
 const index = async () : Promise<RefAplikasiOutput[]> => {
     try {
         const refAplikasi : RefAplikasi[] = await RefAplikasi.findAll({
+            attributes : [
+                "kode_aplikasi", 
+                "nama_aplikasi",
+                "keterangan",
+                "status",
+                [Sequelize.fn('CONCAT', `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}`, Sequelize.col('images')), 'image'],
+                "url",
+                "url_token"],
             include : [
                 {
                     model : RefGroup, 
@@ -28,7 +37,6 @@ const index = async () : Promise<RefAplikasiOutput[]> => {
                     attributes : {exclude : ["kode_aplikasi", "ucr", "uch", "udcr", "udch"]}
                 }
             ],
-            attributes : {exclude : ["ucr", "uch", "udcr", "udch"]}
         })
 
         if (refAplikasi.length === 0) {
