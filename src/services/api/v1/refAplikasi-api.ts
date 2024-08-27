@@ -106,7 +106,15 @@ const getByKodeAPlikasi = async (
         const refAplikasi : RefAplikasi | null = await RefAplikasi.findOne({
             where : {
                 kode_aplikasi : id
-            }
+            },
+            attributes : [
+                "kode_aplikasi", 
+                "nama_aplikasi",
+                "keterangan",
+                "status",
+                [Sequelize.fn('CONCAT', `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}`, Sequelize.col('images')), 'image'],
+                "url",
+                "url_token"],
         })
 
         if(!refAplikasi) {
