@@ -159,7 +159,7 @@ var cert = fs.readFileSync("src/certificate/new_ut.crt", "utf-8");
   
   app.use(
     "/user-management/public/image/profil/",
-    express.static(path.join(`D:/Dev SIPPP/PMO/public/images/userphoto`))
+    express.static(getConfig("FILE_SAVE_PHOTO"))
   )
   
   

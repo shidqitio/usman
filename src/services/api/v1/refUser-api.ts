@@ -38,6 +38,7 @@ const updateUserPhoto = async (
 
 
         if(file && file.filename) {
+            console.log(refUser.user_photo)
             if(refUser.user_photo !== null ) {
                 await fs.unlink(`${getConfig("FILE_SAVE_PHOTO")}${refUser.user_photo}`)
             }
@@ -47,7 +48,7 @@ const updateUserPhoto = async (
             data_photo = PUBLIC_FILE_GIRO;
         }
 
-    
+        
 
         const [update, [updateUser]] = await RefUser.update({
             user_photo : data_photo
@@ -96,8 +97,7 @@ const userProfile = async (id_user : number) : Promise<RefUserOutput> => {
             }
         })
 
-    
-        
+        console.log("TES")
 
         return userProfile[0]
     } catch (error) {
