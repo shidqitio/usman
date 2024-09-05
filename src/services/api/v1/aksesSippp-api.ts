@@ -344,6 +344,7 @@ const login = async (
                   kode_unit :  "",
                   kode_unit_baru :  "",
                   nama_unit :  "",
+                  user_photo : existUser.user_photo ? getConfig("USMAN_BASE_URL") + getConfig("PUBLIC_FILE_IMAGE_PROFIL") + existUser.user_photo : null
               },
               aplikasi : aksesApp
             }       

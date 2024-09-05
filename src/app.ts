@@ -156,7 +156,7 @@ else {
   
   app.use(
     "/user-management/public/image/profil/",
-    express.static(path.join(`D:/Dev SIPPP/PMO/public/images/userphoto`))
+    express.static(getConfig("FILE_SAVE_PHOTO"))
   )
   
   
