@@ -28,4 +28,6 @@ routes.put("/:id",
 
 routes.delete("/:id", validate(deletedRefGroupSchema), refGroupController.destroy)
 
+routes.get("/group-level-aplikasi/:id/:id2",validate(paramRefGroupSchema), refGroupController.GroupByLevelAplikasi)
+
 export default routes

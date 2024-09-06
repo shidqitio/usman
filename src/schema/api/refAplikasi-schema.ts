@@ -86,6 +86,20 @@ const parameter = {
     })
 }
 
+const query = {
+    query: z.object({
+      page: z.string({
+        required_error: "page boleh kosong",
+        invalid_type_error: "page harus huruf",
+      }),
+      limit: z.string({
+        required_error: "limit tidak boleh kosong",
+        invalid_type_error: "limit harus huruf",
+      }),
+    }),
+  };
+
+
 export const postRefAplikasiSchema = z.object({
     ...payload
 })
@@ -98,6 +112,11 @@ export const getRefAplikasiSchema = z.object({
     ...parameter
 })
 
+export const querySchema = z.object({
+    ...query
+})
+
 export type PostRefAplikasiSchema = z.infer<typeof postRefAplikasiSchema>;
 export type UpdatedRefAplikasiSchema = z.infer<typeof updatedRefAplikasiSchema>;
 export type GetRefAplikasiSchema = z.infer<typeof getRefAplikasiSchema>
+export type QuerySchema = z.infer<typeof querySchema>

@@ -22,11 +22,15 @@ const index = async (
         const response : RefAplikasiOutput[] = await refAplikasiService.index()
         const count : number = await refAplikasiService.countRefAplikasi()
 
-        
+        const metadata = {
+            page : "",
+            limit : "",
+            count : count
+        }
 
         if(ioInstance) {
             ioInstance.emit("aplikasi", response)
-            responseSuccessCount(res, httpCode.ok, count, response)
+            responseSuccessCount(res, httpCode.ok, response, metadata)
         }
         else { 
             res.status(500).send("Socket.IO not Initialized")

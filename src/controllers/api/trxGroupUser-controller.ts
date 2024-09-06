@@ -30,9 +30,15 @@ const index = async (
         const response : TrxGroupUserOutput[] = await trxGroupUserService.index(limit, page)
         const count : number = await trxGroupUserService.countGroupUser()
 
+        const metadata = {
+            page : parseInt(page),
+            limit : parseInt(limit),
+            count : count
+        }
+
         if(ioInstance) {
             ioInstance.emit("refMenu2", response)
-            responseSuccessCount(res, httpCode.ok,count, response)
+            responseSuccessCount(res, httpCode.ok, response, metadata)
         } else {
             res.status(500).send("Socket.IO not initialized");
         }

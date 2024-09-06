@@ -5,13 +5,15 @@ interface IResponseSuccess {
   code: number;
   status: string;
   data?: any;
+  meta? : any
 }
 
 interface IResponseSuccessCount {
   code: number;
   status: string;
   data?: any;
-  count : any
+  meta?: any;
+  
 }
 
 interface IResponseSuccessFailed {
@@ -21,21 +23,22 @@ interface IResponseSuccessFailed {
   data ? :any;
 }
 
-const responseSuccess = (res: Response, code: number, data?: any) => {
+const responseSuccess = (res: Response, code: number, data?: any, meta?:any) => {
   const response: IResponseSuccess = {
     code: code,
     status: responseStatus.success,
     data: data,
+    meta: {}
   };
   return res.json(response);
 };
 
-const responseSuccessCount = (res: Response, code: number, count : number,  data?: any) => {
+const responseSuccessCount = (res: Response, code: number,  data?: any, meta?: any) => {
   const response: IResponseSuccessCount = {
     code: code,
     status: responseStatus.success,
-    count : count,
     data: data,
+    meta: meta
 
   };
   return res.json(response);

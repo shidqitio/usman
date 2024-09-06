@@ -26,14 +26,21 @@ const index = async (
     try {
         const ioInstance = getSocketIO()
 
-        const page: SearchTrxGroupMenuSchema["query"]["page"] = req.query.page as string
-        const limit : SearchTrxGroupMenuSchema["query"]["limit"] = req.query.limit as string
+        const page: SearchTrxGroupMenuSchema["query"]["page"] = req.query.page as string | "1"
+        const limit : SearchTrxGroupMenuSchema["query"]["limit"] = req.query.limit as string | "10"
 
         const response : TrxGroupMenuOutput[] = await trxGroupMenuService.index(page, limit)
         const count : number = await trxGroupMenuService.countTrxGroupMenu()
+
+        const metadata = {
+            page : parseInt(page),
+            limit : parseInt(limit),
+            count : count
+        }
+
         if(ioInstance) {
             ioInstance.emit("refMenu2", response)
-            responseSuccessCount(res, httpCode.ok,count, response)
+            responseSuccessCount(res, httpCode.ok, response, metadata)
         } else {
             res.status(500).send("Socket.IO not initialized");
         }
