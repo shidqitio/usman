@@ -29,9 +29,16 @@ const index = async (
         const response: RefMenu3Output[] = await refMenu3Service.index(page, limit)
         const count : number = await refMenu3Service.countMenu3()
 
+        const metadata = {
+            page : parseInt(page),
+            limit : parseInt(limit),
+            count : count
+        }
+
+
         if(ioInstance) {
             ioInstance.emit("refMenu2", response)
-            responseSuccessCount(res, httpCode.ok,count, response)
+            responseSuccessCount(res, httpCode.ok,response, metadata)
         } else {
             res.status(500).send("Socket.IO not initialized");
         }
