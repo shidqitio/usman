@@ -52,7 +52,13 @@ const refUser = async (
         const response : RefUserOutput[] = await refUserService.refUser(page, limit)
         const count : number = await refUserService.countRefUser()
 
-        responseSuccessCount(res, httpCode.ok, count, response)
+        const metadata = {
+            page : parseInt(page),
+            limit : parseInt(limit),
+            count : count
+        }
+
+        responseSuccessCount(res, httpCode.ok, response, metadata)
     } catch (error) {
         next(error)
     }

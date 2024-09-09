@@ -23,15 +23,21 @@ const index = async (
     try {
         const ioInstance = getSocketIO()
 
-        const page: SearchRefMenu2Schema["query"]["page"] = req.query.page as string
-        const limit : SearchRefMenu2Schema["query"]["limit"] = req.query.limit as string
+        const page: SearchRefMenu2Schema["query"]["page"] = req.query.page as string | "1"
+        const limit : SearchRefMenu2Schema["query"]["limit"] = req.query.limit as string | "10"
 
         const response: RefMenu2Output[] = await refMenu2Service.index(page, limit)
         const count : number = await refMenu2Service.countMenu2()
 
+        const metadata = {
+            page : parseInt(page),
+            limit : parseInt(limit),
+            count : count
+        }
+
         if(ioInstance) {
             ioInstance.emit("refMenu2", response)
-            responseSuccessCount(res, httpCode.ok,count, response)
+            responseSuccessCount(res, httpCode.ok,response, metadata)
         } else {
             res.status(500).send("Socket.IO not initialized");
         }

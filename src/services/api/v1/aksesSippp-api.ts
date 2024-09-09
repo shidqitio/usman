@@ -334,6 +334,7 @@ const login = async (
 
           const unit = data_hris[0]
 
+
           if(unit === null) {
             data = {
               token : token,
@@ -359,6 +360,7 @@ const login = async (
                   kode_unit :   unit.TrxUnitKerjaPegawais[0].Unit.kode_unit ,
                   kode_unit_baru :  unit.TrxUnitKerjaPegawais[0].Unit.kode_unit_baru ,
                   nama_unit : unit.TrxUnitKerjaPegawais[0].Unit.nama_unit ,
+                  user_photo : unit.foto_pegawai ? unit.foto_pegawai : null 
               },
               aplikasi : aksesApp
             }       

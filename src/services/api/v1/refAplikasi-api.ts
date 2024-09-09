@@ -4,7 +4,8 @@ import RefGroup from "@models/refGroup-model";
 import {
     PostRefAplikasiSchema,
     UpdatedRefAplikasiSchema,
-    GetRefAplikasiSchema
+    GetRefAplikasiSchema,
+    QuerySchema
 } from "@schema/api/refAplikasi-schema"
 import { httpCode } from "@utils/prefix";
 import generateKodePrimary from "@utils/generate_auto_code"

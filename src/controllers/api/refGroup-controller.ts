@@ -23,9 +23,15 @@ const index = async (
         const response : RefGroupOutput[] = await refGroupService.index()
         const count : number = await refGroupService.countRefGroup()
 
+        const metadata = {
+            page : "",
+            limit : "", 
+            count : count
+        }
+
         if(ioInstance) {
             ioInstance.emit("group", response)
-            responseSuccessCount(res, httpCode.ok, count, response)
+            responseSuccessCount(res, httpCode.ok,response, metadata )
         }
         else {
             res.status(500).send("Socket.IO not initialized");
@@ -138,6 +144,25 @@ const GroupByLevel = async (
     }
 }
 
+const GroupByLevelAplikasi = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_level : ParamRefGroupSchema["params"]["id"] = req.params.id
+
+        const kode_aplikasi : ParamRefGroupSchema["params"]["id"] = req.params.id2
+        
+        const response : RefGroupOutput[] = await refGroupService.GroupByLevelAplikasi(kode_level, kode_aplikasi)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error GroupByLevel ${error}`)
+        next(error)
+    }
+}
+
+
 export default {
     index, 
     store,
@@ -145,5 +170,6 @@ export default {
     update,
     destroy,
     getRoleByAplikasi,
-    GroupByLevel
+    GroupByLevel,
+    GroupByLevelAplikasi
 }

@@ -85,10 +85,6 @@ const store = async (
 const show = async (
     id:ParamRefGroupSchema["params"]["id"]) : Promise<RefGroupOutput> => {
     try {
-
-        const cek_data = await axios.get("https://203.217.140.52/asman/v1/aplikasi/00"); 
-
-        console.log(cek_data);
         
 
         const refGroup : RefGroup | null = await RefGroup.findOne({
@@ -212,6 +208,30 @@ const GroupByLevel = async (
     }
 }
 
+const GroupByLevelAplikasi = async (
+    id:ParamRefGroupSchema["params"]["id"],
+    id2:ParamRefGroupSchema["params"]["id"]
+    )  : Promise<RefGroupOutput[]> => {
+    try {
+        const refGroup : RefGroup[] = await RefGroup.findAll({
+            where : {
+                kode_level : id, 
+                kode_aplikasi : id2
+            }, 
+            attributes : {exclude : ["ucr", "uch", "udcr", "udch"]}
+        })
+
+        return refGroup
+    } catch (error) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code,error.status, error.message)
+        } 
+        else {
+            throw new CustomError(500, "error", "Internal server error.")
+        }
+    }
+}
+
 const destroy = async (
     id:DeletedRefGroupSchema["params"]["id"]) : Promise<RefGroup> => {
     try {
@@ -285,5 +305,6 @@ export default {
     destroy,
     getRoleByAplikasi,
     GroupByLevel,
-    countRefGroup
+    countRefGroup,
+    GroupByLevelAplikasi
 }
