@@ -49,3 +49,66 @@
   code: 401,
   status: 'error'
 }
+[2024-09-11T15:15:55.254] [ERROR] error - testing error update Error: Internal server error.
+[2024-09-11T15:15:55.255] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:303:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-09-11T15:15:59.010] [ERROR] error - testing error update Error: Internal server error.
+[2024-09-11T15:15:59.011] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:303:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-09-11T15:16:15.059] [ERROR] error - testing error update Error: Internal server error.
+[2024-09-11T15:16:15.060] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:303:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-09-11T15:16:48.996] [ERROR] error - testing error update Error: Internal server error.
+[2024-09-11T15:16:48.997] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:301:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-09-11T15:16:52.064] [ERROR] error - testing error update Error: Internal server error.
+[2024-09-11T15:16:52.065] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:301:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-09-11T15:17:19.291] [ERROR] error - testing error update Error: Internal server error.
+[2024-09-11T15:17:19.292] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:301:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-09-11T15:17:21.864] [ERROR] error - testing error update Error: Internal server error.
+[2024-09-11T15:17:21.865] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:301:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu1-api.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}

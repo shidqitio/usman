@@ -247,35 +247,55 @@ const destroy = async (
 
 const MenuByLevel = async (id1:ParamsLevelSchema["query"]["id1"], id2: ParamsLevelSchema["query"]["id2"]) : Promise<RefGroupOutput[]> => {
     try {
-        const groupAll : RefGroup[] = await RefGroup.findAll({
-            attributes : [
-                "kode_group",
-                "nama_group",
-                "kode_level"
-            ], 
-            include : [
-                {
-                    model : RefLevel,
-                    as : "Level",
-                    attributes : [],
-                    required : true,
-                    include : [
-                        {
-                            model : RefMenu1,
-                            as : "Menu1",
-                            attributes : [],
-                            where : {
-                                kode_level : id1,
-                                kode_menu1 : id2
-                            },
-                            required : true,
-                        }
-                    ]
-                }
-            ]
+        // const groupAll : RefGroup[] = await RefGroup.findAll({
+        //     attributes : [
+        //         "kode_group",
+        //         "nama_group",
+        //         "kode_level"
+        //     ], 
+        //     include : [
+        //         {
+        //             model : RefLevel,
+        //             as : "Level",
+        //             attributes : [],
+        //             required : true,
+        //             include : [
+        //                 {
+        //                     model : RefMenu1,
+        //                     as : "Menu1",
+        //                     attributes : [],
+        //                     where : {
+        //                         kode_level : id1,
+        //                         kode_menu1 : id2
+        //                     },
+        //                     required : true,
+        //                 }
+        //             ]
+        //         }
+        //     ],
+        // })
+
+        const menuLevel = await RefMenu1.findOne({
+            where : {
+                kode_level : id1,
+                kode_menu1 : id2
+            },
+            raw : true
         })
 
-        return groupAll
+        if(!menuLevel) {
+            return []
+        }
+
+        const group = await RefGroup.findAll({
+            attributes : ["kode_group", "nama_group", "kode_level"],
+            where : {
+                kode_level : id1, 
+                kode_aplikasi : menuLevel?.kode_aplikasi
+            }
+        })
+
+        return group
     } catch (error) {
         if(error instanceof CustomError) {
             throw new CustomError(error.code,error.status, error.message)
