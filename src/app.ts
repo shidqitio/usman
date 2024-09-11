@@ -65,7 +65,7 @@ var cert = fs.readFileSync("src/certificate/new_ut.crt", "utf-8");
   /**
    * helmet
    */
-  // app.use(helmet());
+  app.use(helmet());
   
   /**
    * cors
@@ -80,7 +80,7 @@ var cert = fs.readFileSync("src/certificate/new_ut.crt", "utf-8");
   /**
    * limiter
    */
-  app.use(limiter);
+  // app.use(limiter);
   
   //###############CLSUTER##########
   
