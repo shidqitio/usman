@@ -253,15 +253,13 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
     try {
         const groupMenu : TrxGroupMenu | null = await TrxGroupMenu.findByPk(id)
 
-        if(!groupMenu) throw new CustomError(httpCode.notFound,"succes", "Data Group Menu Tidak Ada")
+        if(!groupMenu) throw new CustomError(httpCode.notFound,"success", "Data Group Menu Tidak Ada")
 
         const exTrxGroupUser : TrxGroupUser | null = await TrxGroupUser.findOne({
             where : {
                 kode_group : groupMenu.kode_group
             }
         })
-
-        if(exTrxGroupUser) throw new CustomError(httpCode.conflict,"succes", "Menu Group Sudah Terdaftar Pengguna")
 
         const hapusData = await TrxGroupMenu.destroy({
             where : {
