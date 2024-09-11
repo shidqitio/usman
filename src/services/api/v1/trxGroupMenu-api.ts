@@ -255,11 +255,11 @@ const destroy = async (id:DestroyTrxGroupMenuSchema["params"]["id"]) : Promise<T
 
         if(!groupMenu) throw new CustomError(httpCode.notFound,"success", "Data Group Menu Tidak Ada")
 
-        const exTrxGroupUser : TrxGroupUser | null = await TrxGroupUser.findOne({
-            where : {
-                kode_group : groupMenu.kode_group
-            }
-        })
+        // const exTrxGroupUser : TrxGroupUser | null = await TrxGroupUser.findOne({
+        //     where : {
+        //         kode_group : groupMenu.kode_group
+        //     }
+        // })
 
         const hapusData = await TrxGroupMenu.destroy({
             where : {
