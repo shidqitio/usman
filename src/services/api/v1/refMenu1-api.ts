@@ -253,9 +253,6 @@ const MenuByLevel = async (id1:ParamsLevelSchema["query"]["id1"], id2: ParamsLev
                 "nama_group",
                 "kode_level"
             ], 
-            where : {
-                kode_level : id1
-            },
             include : [
                 {
                     model : RefLevel,
@@ -268,6 +265,7 @@ const MenuByLevel = async (id1:ParamsLevelSchema["query"]["id1"], id2: ParamsLev
                             as : "Menu1",
                             attributes : [],
                             where : {
+                                kode_level : id1,
                                 kode_menu1 : id2
                             },
                             required : true,
