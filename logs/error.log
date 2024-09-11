@@ -1,13 +1,4 @@
-[2024-09-06T13:58:00.570] [ERROR] error - testing error login Error: Email dan Password Tidak Ditemukan
-[2024-09-06T13:58:00.572] [ERROR] error - Error: Email dan Password Tidak Ditemukan
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:389:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 404,
-  status: 'success'
-}
-[2024-09-06T13:58:24.998] [ERROR] error - Error: [2] Token Unauthorized
+[2024-09-09T11:21:18.638] [ERROR] error - Error: [2] Token Unauthorized
     at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
     at Generator.next (<anonymous>)
     at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
@@ -15,54 +6,23 @@
     at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
     at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
     at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
-    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
-    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
-    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
   code: 401,
   status: 'error'
 }
-[2024-09-06T14:30:41.846] [ERROR] error - testing error Show Error: Internal server error.
-[2024-09-06T14:30:41.848] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:122:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
+[2024-09-09T11:58:15.677] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
   status: 'error'
-}
-[2024-09-06T14:31:00.550] [ERROR] error - testing error Show Error: Internal server error.
-[2024-09-06T14:31:00.550] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:122:19
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refGroup-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-06T14:38:16.066] [ERROR] error - testing error show Menu By Aplikasi Level Error: Group Menu Tidak Ada
-[2024-09-06T14:38:16.068] [ERROR] error - Error: Group Menu Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:319:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 404,
-  status: 'success'
-}
-[2024-09-06T14:50:56.284] [ERROR] error - testing error show Menu By Aplikasi Level Error: Group Menu Tidak Ada
-[2024-09-06T14:50:56.286] [ERROR] error - Error: Group Menu Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:319:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 404,
-  status: 'success'
-}
-[2024-09-06T14:51:17.131] [ERROR] error - testing error show Menu By Aplikasi Level Error: Group Menu Tidak Ada
-[2024-09-06T14:51:17.132] [ERROR] error - Error: Group Menu Tidak Ada
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:319:19
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\trxGroupMenu-api.ts:28:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 404,
-  status: 'success'
 }
