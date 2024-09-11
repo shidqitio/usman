@@ -7,6 +7,7 @@ updatedRefMenu1Schema,
 destroyRefMenu1Schema,
 searchRefMenu1Schema,
 getRefMenu1Schema,
+paramsLevelSchema
 } from "@schema/api/refMenu1-schema"
 const routes = express.Router()
 
@@ -22,5 +23,7 @@ routes.post("/", validate(payloadRefMenu1Schema), refMenuController.store)
 routes.put("/:id", validate(updatedRefMenu1Schema), refMenuController.update)
 
 routes.delete("/:id", validate(destroyRefMenu1Schema), refMenuController.destroy)
+
+routes.get("/menu-level/:id1/:id2", refMenuController.MenuByLevel)
 
 export default routes

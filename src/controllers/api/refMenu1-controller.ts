@@ -7,7 +7,8 @@ import {
     UpdatedRefMenu1Schema, 
     SearchRefMenu1Schema,
     GetRefMenu1Schema,
-    DestroyRefMenu1Schema
+    DestroyRefMenu1Schema,
+    ParamsLevelSchema
 } from "@schema/api/refMenu1-schema"
 import { getSocketIO } from "@config/socket";
 import { responseSuccess, responseSuccessCount } from "@utils/response-success";
@@ -113,6 +114,23 @@ const update = async (
         }
 }
 
+const MenuByLevel = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+            const id1 : ParamsLevelSchema["query"]["id1"] = req.params.id1
+            const id2 : ParamsLevelSchema["query"]["id2"] = req.params.id2
+
+            const response  = await refMenu1Service.MenuByLevel(id1, id2)
+            
+            responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+            errorLogger.error(`testing error update ${error}`);
+            next(error);
+    }
+}
+
 const destroy = async (
     req:Request, 
     res:Response,
@@ -135,5 +153,6 @@ export default {
     show,
     update,
     getByKodeAPlikasi,
-    destroy
+    destroy,
+    MenuByLevel
 }

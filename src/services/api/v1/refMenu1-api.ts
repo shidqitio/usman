@@ -12,9 +12,12 @@ import {
     SearchRefMenu1Schema,
     UpdatedRefMenu1Schema,
     GetRefMenu1Schema,
-    DestroyRefMenu1Schema
+    DestroyRefMenu1Schema,
+    ParamsLevelSchema
 } from "@schema/api/refMenu1-schema"
 import sequelize from "sequelize";
+import RefLevel from "@models/refLevel-model";
+import RefGroup, { RefGroupOutput } from "@models/refGroup-model";
 
 const index = async (
     page:SearchRefMenu1Schema["query"]["page"],
@@ -242,6 +245,49 @@ const destroy = async (
         }
     }
 
+const MenuByLevel = async (id1:ParamsLevelSchema["query"]["id1"], id2: ParamsLevelSchema["query"]["id2"]) : Promise<RefGroupOutput[]> => {
+    try {
+        const groupAll : RefGroup[] = await RefGroup.findAll({
+            attributes : [
+                "kode_group",
+                "nama_group",
+                "kode_level"
+            ], 
+            where : {
+                kode_level : id1
+            },
+            include : [
+                {
+                    model : RefLevel,
+                    as : "Level",
+                    attributes : [],
+                    required : true,
+                    include : [
+                        {
+                            model : RefMenu1,
+                            as : "Menu1",
+                            attributes : [],
+                            where : {
+                                kode_menu1 : id2
+                            },
+                            required : true,
+                        }
+                    ]
+                }
+            ]
+        })
+
+        return groupAll
+    } catch (error) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code,error.status, error.message)
+        } 
+        else {
+            throw new CustomError(500, "error","Internal server error.")
+        }
+    }
+}
+
 const countMenu1 = async () : Promise<any | null> => {
     try {
         const count = await RefMenu1.count()
@@ -266,5 +312,6 @@ export default {
     show,
     dataByAplikasi,
     destroy,
-    countMenu1
+    countMenu1,
+    MenuByLevel
 }
