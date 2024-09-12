@@ -9,12 +9,15 @@ import {
     UpdatedRefMenu2Schema, 
     SearchRefMenu2Schema,
     GetRefMenu2Schema,
-    DestroyRefMenu2Schema
+    DestroyRefMenu2Schema,
+    ParamsLevelSchema
 } from "@schema/api/refMenu2-schema"
 
 import { getSocketIO } from "@config/socket";
 import { responseSuccess, responseSuccessCount } from "@utils/response-success";
 import { debugLogger, errorLogger } from "@config/logger";
+import CustomError from "@middleware/error-handler";
+
 
 const index = async (
     req : Request,
@@ -129,11 +132,34 @@ const destroy = async (
         }        
 }
 
+const menuByLevel2 = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        
+        const level : ParamsLevelSchema["params"]["id1"] = req.params.id1
+
+        const menu2 : ParamsLevelSchema["params"]["id2"] = req.params.id2
+
+
+        const response = await refMenu2Service.menuByLevel2(level, menu2 )
+
+
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error Menu By Level ${error}`);
+        next(error);
+    }
+}
+
 export default {
     index,
     store,
     show,
     update,
     getByKodeMenu1,
-    destroy
+    destroy,
+    menuByLevel2
 }

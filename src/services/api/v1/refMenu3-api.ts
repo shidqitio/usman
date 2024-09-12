@@ -7,10 +7,14 @@ import {
     UpdatedRefMenu3Schema,
     SearchRefMenu3Schema,
     GetRefMenu3Schema,
-    DestroyRefMenu3Schema
+    DestroyRefMenu3Schema,
+    ParamsLevelSchema
 } from "@schema/api/refMenu3-schema"
 import TrxGroupMenu from "@models/trxGroupMenu-model";
 import sequelize from "sequelize";
+import RefGroup, {RefGroupOutput} from "@models/refGroup-model";
+import RefMenu1 from "@models/refMenu1-model";
+
 
 const index = async (
     page:SearchRefMenu3Schema["query"]["page"],
@@ -259,6 +263,59 @@ const countMenu3 = async () : Promise<any | null> => {
         }
     }
 
+
+const menuByLevel3 = async (id1:ParamsLevelSchema["params"]["id1"], id2: ParamsLevelSchema["params"]["id2"]) : Promise<RefGroupOutput[]> => {
+        try {
+            
+
+            const menuLevel = await RefMenu1.findOne({
+                where : {
+                    kode_level : id1
+                },
+                include : [
+                    {
+                        model : RefMenu2, 
+                        as : "Menu2",
+                        attributes : [],
+                        include : [
+                            {
+                                model : RefMenu3,
+                                as : "Menu3",
+                                attributes : [], 
+                                where : {
+                                    kode_menu3 : id2
+                                }
+                            }
+                        ]
+                    }
+                ],
+                raw : true
+            })
+    
+            if(!menuLevel) {
+                return []
+            }
+    
+            const group = await RefGroup.findAll({
+                attributes : ["kode_group", "nama_group", "kode_level"],
+                where : {
+                    kode_level : id1, 
+                    kode_aplikasi : menuLevel?.kode_aplikasi
+                }
+            })
+    
+            return group
+        } catch (error) {
+            if(error instanceof CustomError) {
+                throw new CustomError(error.code,error.status, error.message)
+            } 
+            else {
+                throw new CustomError(500, "error","Internal server error.")
+            }
+        }
+    }
+
+
 export default {
     index,
     store,
@@ -266,5 +323,6 @@ export default {
     update,
     getByMenu2,
     destroy,
-    countMenu3
+    countMenu3,
+    menuByLevel3
 }

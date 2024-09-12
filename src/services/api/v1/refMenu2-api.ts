@@ -8,10 +8,15 @@ import {
     UpdatedRefMenu2Schema,
     SearchRefMenu2Schema,
     GetRefMenu2Schema,
-    DestroyRefMenu2Schema
+    DestroyRefMenu2Schema,
+    ParamsLevelSchema
 } from "@schema/api/refMenu2-schema"
 import RefMenu3 from "@models/refMenu3-model";
 import sequelize from "sequelize";
+import RefGroup,{RefGroupOutput} from "@models/refGroup-model";
+import { debugLogger } from "@config/logger";
+
+
 
 const index = async (
     page:SearchRefMenu2Schema["query"]["page"],
@@ -255,6 +260,53 @@ const destroy = async (
         }
     }
 
+    const menuByLevel2 = async (id1:ParamsLevelSchema["params"]["id1"], id2: ParamsLevelSchema["params"]["id2"]) : Promise<RefGroupOutput[]> => {
+        try {
+
+    
+            const menuLevel = await RefMenu1.findOne({
+                where : {
+                    kode_level : id1
+                },
+                include : [
+                    {
+                        model : RefMenu2, 
+                        as : "Menu2",
+                        attributes : [],
+                        where : {
+                            kode_menu2 : id2
+                        }
+                    }
+                ],
+                raw : true
+            })
+    
+            if(!menuLevel) {
+                return []
+            }
+    
+            const group = await RefGroup.findAll({
+                attributes : ["kode_group", "nama_group", "kode_level"],
+                where : {
+                    kode_level : id1, 
+                    kode_aplikasi : menuLevel?.kode_aplikasi
+                }
+            })
+    
+            return group
+        } catch (error) {
+            debugLogger.error(error)
+            if(error instanceof CustomError) {
+                throw new CustomError(error.code,error.status, error.message)
+            } 
+            else {
+                throw new CustomError(500, "error","Internal server error.")
+            }
+        }
+    }
+
+
+
 const countMenu2 = async () : Promise<any | null> => {
         try {
             const count = await RefMenu2.count()
@@ -270,6 +322,10 @@ const countMenu2 = async () : Promise<any | null> => {
         }
     }
 
+
+
+
+
 export default {
     index,
     store,
@@ -277,5 +333,6 @@ export default {
     update,
     getByKodeMenu1,
     destroy,
-    countMenu2
+    countMenu2,
+    menuByLevel2
 }

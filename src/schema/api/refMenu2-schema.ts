@@ -206,6 +206,19 @@ const query = {
     }),
   };
 
+  const paramsLevel = {
+    params : z.object({
+        id1 : z.string({
+            required_error : "Id 1 Tidak Boleh Kosong",
+            invalid_type_error : "Id 1 Harus String"
+        }),
+        id2 : z.string({
+            required_error : "Id2 Tidak Boleh Kosong",
+            invalid_type_error : "Id 2 Harus String"
+        })
+    })
+  }
+
 
 export const payloadRefMenu2Schema = object({
     ...payload
@@ -227,8 +240,13 @@ export const getRefMenu2Schema = object({
     ...params
 })
 
+export const paramsLevelSchema = object({
+    ...paramsLevel
+})
+
 export type PayloadRefMenu2Schema = z.infer<typeof payloadRefMenu2Schema>
 export type UpdatedRefMenu2Schema = z.infer<typeof updatedRefMenu2Schema>
 export type DestroyRefMenu2Schema = z.infer<typeof destroyRefMenu2Schema>
 export type SearchRefMenu2Schema = z.infer<typeof searchRefMenu2Schema>
 export type GetRefMenu2Schema = z.infer<typeof getRefMenu2Schema>
+export type ParamsLevelSchema = z.TypeOf<typeof paramsLevelSchema>

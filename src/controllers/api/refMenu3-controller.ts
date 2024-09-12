@@ -9,7 +9,8 @@ import {
     UpdatedRefMenu3Schema, 
     SearchRefMenu3Schema,
     GetRefMenu3Schema,
-    DestroyRefMenu3Schema
+    DestroyRefMenu3Schema,
+    ParamsLevelSchema
 } from "@schema/api/refMenu3-schema"
 
 import { getSocketIO } from "@config/socket";
@@ -131,11 +132,30 @@ const destroy = async (
         }        
 }
 
+const menuByLevel3 = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const level : ParamsLevelSchema["params"]["id1"] = req.params.id1
+
+        const menu3 : ParamsLevelSchema["params"]["id2"] = req.params.id2
+
+        const response = await refMenu3Service.menuByLevel3(level, menu3)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error Menu By Level ${error}`);
+        next(error);
+    }
+}
+
 export default {
     index,
     store,
     show,
     update,
     getByMenu2,
-    destroy
+    destroy,
+    menuByLevel3
 }
