@@ -26,4 +26,6 @@ routes.delete("/:id", validate(destroyRefMenu1Schema), refMenuController.destroy
 
 routes.get("/menu-level/:id1/:id2", refMenuController.MenuByLevel)
 
+routes.get("/filter-level/:id1/:id2", validate(paramsLevelSchema), refMenuController.filterLevelMenu)
+
 export default routes

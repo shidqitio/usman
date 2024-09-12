@@ -119,8 +119,8 @@ const MenuByLevel = async (
     res:Response,
     next:NextFunction) : Promise<void> => {
     try {
-            const id1 : ParamsLevelSchema["query"]["id1"] = req.params.id1
-            const id2 : ParamsLevelSchema["query"]["id2"] = req.params.id2
+            const id1 : ParamsLevelSchema["params"]["id1"] = req.params.id1
+            const id2 : ParamsLevelSchema["params"]["id2"] = req.params.id2
 
             const response  = await refMenu1Service.MenuByLevel(id1, id2)
             
@@ -128,6 +128,24 @@ const MenuByLevel = async (
     } catch (error) {
             errorLogger.error(`testing error update ${error}`);
             next(error);
+    }
+}
+
+const filterLevelMenu = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const kode_level : ParamsLevelSchema["params"]["id1"] = req.params.id1
+
+        const kode_aplikasi : ParamsLevelSchema["params"]["id2"] = req.params.id2
+
+        const response = await refMenu1Service.filterLevelMenu(kode_level, kode_aplikasi)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error Filter Level Menu ${error}`);
+        next(error);
     }
 }
 
@@ -147,6 +165,8 @@ const destroy = async (
         }        
 }
 
+
+
 export default {
     index,
     store,
@@ -154,5 +174,6 @@ export default {
     update,
     getByKodeAPlikasi,
     destroy,
-    MenuByLevel
+    MenuByLevel,
+    filterLevelMenu
 }
