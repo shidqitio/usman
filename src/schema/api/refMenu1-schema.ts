@@ -216,7 +216,7 @@ const query = {
   };
 
   const paramsLevel = {
-    query : z.object({
+    params : z.object({
         id1 : z.string({
             required_error : "Id 1 Tidak Boleh Kosong",
             invalid_type_error : "Id 1 Harus String"

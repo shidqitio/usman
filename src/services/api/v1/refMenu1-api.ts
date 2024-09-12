@@ -245,7 +245,7 @@ const destroy = async (
         }
     }
 
-const MenuByLevel = async (id1:ParamsLevelSchema["query"]["id1"], id2: ParamsLevelSchema["query"]["id2"]) : Promise<RefGroupOutput[]> => {
+const MenuByLevel = async (id1:ParamsLevelSchema["params"]["id1"], id2: ParamsLevelSchema["params"]["id2"]) : Promise<RefGroupOutput[]> => {
     try {
 
 
@@ -270,6 +270,42 @@ const MenuByLevel = async (id1:ParamsLevelSchema["query"]["id1"], id2: ParamsLev
         })
 
         return group
+    } catch (error) {
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code,error.status, error.message)
+        } 
+        else {
+            throw new CustomError(500, "error","Internal server error.")
+        }
+    }
+}
+
+const filterLevelMenu = async (
+    id1:ParamsLevelSchema["params"]["id1"], id2:ParamsLevelSchema["params"]["id2"]) : Promise<RefMenu1Output[]> => {
+    try {
+        const menu = await RefMenu1.findAll({
+            where : {
+                kode_level : id1, 
+                kode_aplikasi : id2
+            },
+            attributes : {exclude : ["ucr","uch","udcr","udch",]},
+            include : [
+                {
+                    model : RefMenu2,
+                    as : "Menu2",
+                    attributes : {exclude : ["ucr","uch","udcr","udch",]},
+                    include : [
+                        {
+                            model : RefMenu3, 
+                            as : "Menu3",
+                            attributes : {exclude : ["ucr","uch","udcr","udch",]},
+                        }
+                    ]
+                }
+            ]
+        })
+
+        return menu
     } catch (error) {
         if(error instanceof CustomError) {
             throw new CustomError(error.code,error.status, error.message)
@@ -305,5 +341,6 @@ export default {
     dataByAplikasi,
     destroy,
     countMenu1,
-    MenuByLevel
+    MenuByLevel,
+    filterLevelMenu
 }
