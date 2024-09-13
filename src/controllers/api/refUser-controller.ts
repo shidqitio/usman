@@ -5,7 +5,8 @@ import { RefUserOutput } from "@models/refUser-model";
 import {
     PayloadUpdateSchema,
     SearchRefUserSchema,
-    SearchParamsSchema
+    SearchParamsSchema,
+    SearchParamsUnitSchema
 } from "@schema/api/refUser-schema"
 import { responseSuccess, responseSuccessCount } from "@utils/response-success";
 import { httpCode } from "@utils/prefix";
@@ -125,6 +126,57 @@ const getAllUserByUnit = async (
     }
 }
 
+const getUserHrisByEmail = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const reqEmail = req.params.email
+
+        const response = await refUserService.getUserHrisByEmail(reqEmail)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`Testing Error Get All User By Unit ${error}`)
+        next(error)
+    }
+}
+
+const pegawaiByUnitHris = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void>=> {
+    try {
+        const reqUnit : SearchParamsUnitSchema["body"]["kode_unit"]  = req.body.kode_unit
+
+        const response = await refUserService.pegawaiByUnitHris(reqUnit)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`Testing Error Get User By Unit ${error}`)
+        next(error)
+    }
+}
+
+const pegawaiAllHris = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const page: SearchRefUserSchema["query"]["page"] = req.query.page as string
+        const limit : SearchRefUserSchema["query"]["limit"] = req.query.limit as string
+        
+
+        const response = await refUserService.pegawaiAllHris(page,limit)
+
+        responseSuccess(res, httpCode.ok, response)
+  
+    } catch (error) {
+        errorLogger.error(`Testing Error Get All User ${error}`)
+        next(error)
+    }
+}
+
 export default {
     updatePhoto,
     refUser,
@@ -132,5 +184,8 @@ export default {
     searchGroupByEmail,
     userProfile,
     searchEmail,
-    getAllUserByUnit
+    getAllUserByUnit,
+    getUserHrisByEmail,
+    pegawaiByUnitHris,
+    pegawaiAllHris
 }

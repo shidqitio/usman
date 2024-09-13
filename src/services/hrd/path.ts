@@ -14,5 +14,6 @@ export default Hrd;
 
 export const HRD_PATH = {
   PEGAWAI_BY_EMAIL: "/pegawai/landing/email",
-  PEGAWAI_BY_UNIT : "/pegawai/usman/get-unit"
+  PEGAWAI_BY_UNIT : "/pegawai/usman/get-unit",
+  PEGAWAI_GETALL : "/pegawai/usman"
 };

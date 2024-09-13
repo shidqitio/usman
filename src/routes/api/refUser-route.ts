@@ -4,7 +4,8 @@ import refUserController from "@controllers/api/refUser-controller"
 import {
     payloadUpdateSchema, 
     searchRefUserSchema,
-    searchParamsSchema
+    searchParamsSchema,
+    searchParamsUnitSchema
 } from "@schema/api/refUser-schema"
 import { uploadImage } from "@middleware/upload";
 
@@ -24,6 +25,12 @@ routes.post("/search/email", refUserController.searchEmail)
 
 //GET PEGAWAI
 routes.get("/hris/get-pegawai", refUserController.getAllUserByUnit)
+
+routes.get("/hris/pegawai-email/:email",validate(searchParamsSchema), refUserController.getUserHrisByEmail)
+
+routes.post("/hris/pegawai-unit", validate(searchParamsUnitSchema), refUserController.pegawaiByUnitHris)
+
+routes.get("/hris/pegawai-all", validate(searchRefUserSchema), refUserController.pegawaiAllHris)
 
 
 
