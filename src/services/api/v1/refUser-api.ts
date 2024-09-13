@@ -2,7 +2,8 @@ import RefUser, { RefUserOutput } from "@models/refUser-model";
 import {
     PayloadUpdateSchema,
     SearchRefUserSchema,
-    SearchParamsSchema
+    SearchParamsSchema,
+    SearchParamsUnitSchema
 } from "@schema/api/refUser-schema"
 import CustomError from "@middleware/error-handler";
 import { httpCode } from "@utils/prefix";
@@ -19,7 +20,8 @@ import db from "@config/database";
 
 import { Op, QueryTypes } from "sequelize";
 import { log } from "console";
-import { getPegawaiByUnit } from "@services/hrd";
+import { getPegawaiByUnit, getPegawaiByEmail, getPegawaiAll } from "@services/hrd";
+import { debugLogger } from "@config/logger";
 
 const updateUserPhoto = async (
     id:PayloadUpdateSchema["parameter"]["id"],
@@ -281,6 +283,68 @@ const getAllUserByUnit = async () : Promise<any> => {
     }
 }
 
+const getUserHrisByEmail = async (
+    email:SearchParamsSchema["params"]["email"]) : Promise<any> => {
+    try {
+        const user = await getPegawaiByEmail(email)
+
+        if(user[0] === null ) throw new CustomError(httpCode.notFound, "success", "Data Email Tidak Ditemukan di HRIS")
+
+        return user[0]
+        
+    } catch (error) {
+        debugLogger.error(error)
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.status, error.message)
+        } 
+        else {
+            throw new CustomError(500,"error", "Internal server error.")
+        }
+    }
+}
+
+const pegawaiByUnitHris = async (kode_unit:SearchParamsUnitSchema["body"]["kode_unit"]) : Promise<any> => {
+    try {
+        const dataPegawai = await getPegawaiByUnit(kode_unit) 
+        
+        return dataPegawai[0]
+    } catch (error) {
+        debugLogger.error(error)
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.status, error.message)
+        } 
+        else {
+            throw new CustomError(500,"error", "Internal server error.")
+        }
+    }
+}
+
+const pegawaiAllHris = async (
+    page:SearchRefUserSchema["query"]["page"], limit : SearchRefUserSchema["query"]["limit"]) => {
+    try {
+        let pages: number = parseInt(page);
+        let limits: number = parseInt(limit);
+        let offset = 0;
+    
+        if (pages > 1) {
+          offset = (pages - 1) * limits;
+        }
+        
+
+        const getAllPegawai = await getPegawaiAll(limits,offset)
+
+        return getAllPegawai[0]
+
+    } catch (error) {
+        debugLogger.error(error)
+        if(error instanceof CustomError) {
+            throw new CustomError(error.code, error.status, error.message)
+        } 
+        else {
+            throw new CustomError(500,"error", "Internal server error.")
+        }
+    }
+}
 
 export default {
     updateUserPhoto,
@@ -290,5 +354,8 @@ export default {
     countRefUser,
     searchGroupByEmail,
     searchEmail,
-    getAllUserByUnit
+    getAllUserByUnit,
+    getUserHrisByEmail,
+    pegawaiByUnitHris,
+    pegawaiAllHris
 }

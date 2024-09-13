@@ -259,3 +259,21 @@
   code: 500,
   status: 'error'
 }
+[2024-09-12T15:06:43.776] [ERROR] error - Testing Error Get All User By Unit Error: Data Email Tidak Ditemukan di HRIS
+[2024-09-12T15:06:43.777] [ERROR] error - Error: Data Email Tidak Ditemukan di HRIS
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:297:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 404,
+  status: 'success'
+}
+[2024-09-12T15:08:57.673] [ERROR] error - Testing Error Get All User By Unit Error: Data Email Tidak Ditemukan di HRIS
+[2024-09-12T15:08:57.674] [ERROR] error - Error: Data Email Tidak Ditemukan di HRIS
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:297:19
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 404,
+  status: 'success'
+}

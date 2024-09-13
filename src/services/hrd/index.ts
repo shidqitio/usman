@@ -43,12 +43,11 @@ const getPegawaiByUnit = async (body : any) => {
     const data = {
       kode_unit : body
     }
+    
 
     const headers : any = await generateHeaderWithSignature(method, url, data)
 
-    console.log(url)
 
-    console.log("TES HEADERS :", headers)
 
     const response = await Hrd.post(url, data, {
       headers : headers,
@@ -56,7 +55,42 @@ const getPegawaiByUnit = async (body : any) => {
 
     const result = response.data;
 
-    console.log(result)
+ 
+    if (result.status === "Success") {
+      return [result.data, null];
+    } else {
+      return [null, result.error];
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      return [null, error?.message];
+    }
+    return [null, "Internal server error"];
+  }
+}
+
+const getPegawaiAll = async (limit : number, offset:number) => {
+  try {
+    const method = "GET"
+
+
+    const url = `${getConfig("HRD_BASE_URL")}${HRD_PATH.PEGAWAI_GETALL}/${limit}/${offset}`
+
+    const data = {}
+
+    const headers : any = await generateHeaderWithSignature(method, url, data)
+
+
+
+    const response = await Hrd.get(url, {
+      headers : headers,
+      data : {}
+    });
+    
+
+    const result = response.data;
+
+ 
     if (result.status === "Success") {
       return [result.data, null];
     } else {
@@ -71,4 +105,8 @@ const getPegawaiByUnit = async (body : any) => {
 }
 
 
-export { getPegawaiByEmail, getPegawaiByUnit };
+
+export { 
+  getPegawaiByEmail,
+   getPegawaiByUnit,
+   getPegawaiAll };

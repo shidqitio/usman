@@ -30,6 +30,15 @@ const searchParams = {
   })
 }
 
+const searchParamsUnit = {
+  body : z.object({
+    kode_unit : z.string({
+      required_error : "Kode Unit Tidak Boleh Kosong",
+      invalid_type_error : "Kode Unit Harus String"
+    })
+  })
+}
+
 export const payloadUpdateSchema = z.object({
     ...payloadUpdate
 })
@@ -41,7 +50,11 @@ export const searchRefUserSchema = z.object({
 export const searchParamsSchema = z.object({
   ...searchParams
 })
+export const searchParamsUnitSchema = z.object({
+  ...searchParamsUnit
+})
 
 export type PayloadUpdateSchema = z.infer<typeof payloadUpdateSchema>
 export type SearchRefUserSchema = z.infer<typeof searchRefUserSchema>
 export type SearchParamsSchema = z.infer<typeof searchParamsSchema>
+export type SearchParamsUnitSchema = z.infer<typeof searchParamsUnitSchema>
