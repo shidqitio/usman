@@ -10,6 +10,7 @@ import compression from "compression";
 import express, { Application } from "express";
 
 import apiRoutes from "@routes/api";
+import apiNoAuthRoutes from "@routes/noAuth"
 import webRoutes from "@routes/web";
 import mobileRoutes from "@routes/mobile";
 import os from "os";
@@ -170,6 +171,7 @@ var cert = fs.readFileSync("src/certificate/new_ut.crt", "utf-8");
   app.use("/user-management/api", apiRoutes)
   // app.use("/expenditure/web", authorization, webRoutes);
   // app.use("/expenditure/mobile", authorization, mobileRoutes);
+  app.use("/user-management/api", apiNoAuthRoutes)
   
   /**
    * not found
