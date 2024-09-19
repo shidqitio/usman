@@ -6,11 +6,6 @@ import CustomError from "./error-handler"
 import { httpCode } from "@utils/prefix"
 import * as ip from 'ip';
 
-interface HeadersCaptcha {
-    response: string | undefined;
-    clientIp: string | undefined;
-    secretCaptcha: string;
-}
 
 const authCaptcha = async (
     req: Request,
@@ -31,20 +26,11 @@ const authCaptcha = async (
 
         if (checkIp === false) throw new CustomError(httpCode.badRequest, "error", "IP not available")
 
-        const payload: HeadersCaptcha = {
-            response: response,
-            clientIp: convertedIp,
-            secretCaptcha: secretCaptcha
-        }
-
-
-        const validationCaptcha = await axios.post(apiCaptcha, {
-            payload
-        })
+        const validationCaptcha = await axios.post(`${apiCaptcha}?secret=${secretCaptcha}&response=${response}&remoteip=${convertedIp}`)
 
         if (!validationCaptcha) throw new CustomError(httpCode.unauthorized, "error", "Unauthorized: 2")
 
-        if (validationCaptcha.data.success === false) throw new CustomError(httpCode.unauthorized, "error", "Unauthorized: 3")
+        if (validationCaptcha.data.success === false) throw new CustomError(httpCode.unauthorized, "error", "Unauthorized: 3");
 
         next();
     } catch (error) {
