@@ -15,7 +15,7 @@ const authCaptcha = async (
     try {
         const response = req.body.response;
         const clientIp: string | undefined = req.headers['x-forwarded-for'] as string || req.socket.remoteAddress;
-        const secretCaptcha = "6Lc4q0cqAAAAAK2vyzqYvRFV7ZWUlD8re16oEchp"
+        const secretCaptcha = getConfig("SECRET_KEY_CAPTCHA");
         const apiCaptcha = getConfig("API_CAPTCHA");
 
         if (!response) throw new CustomError(httpCode.unauthorized, "error", "Unauthorized: 1")
