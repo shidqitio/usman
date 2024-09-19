@@ -6,11 +6,6 @@ import CustomError from "./error-handler"
 import { httpCode } from "@utils/prefix"
 import * as ip from 'ip';
 
-interface HeadersCaptcha {
-    response: string | undefined;
-    clientIp: string | undefined;
-    secretCaptcha: string;
-}
 
 const authCaptcha = async (
     req: Request,
@@ -20,7 +15,7 @@ const authCaptcha = async (
     try {
         const response = req.body.response;
         const clientIp: string | undefined = req.headers['x-forwarded-for'] as string || req.socket.remoteAddress;
-        const secretCaptcha = getConfig("SECRET_KEY_CAPTCHA");
+        const secretCaptcha = "6Lc4q0cqAAAAAK2vyzqYvRFV7ZWUlD8re16oEchp"
         const apiCaptcha = getConfig("API_CAPTCHA");
 
         if (!response) throw new CustomError(httpCode.unauthorized, "error", "Unauthorized: 1")
@@ -31,20 +26,11 @@ const authCaptcha = async (
 
         if (checkIp === false) throw new CustomError(httpCode.badRequest, "error", "IP not available")
 
-        const payload: HeadersCaptcha = {
-            response: response,
-            clientIp: convertedIp,
-            secretCaptcha: secretCaptcha
-        }
-
-
-        const validationCaptcha = await axios.post(apiCaptcha, {
-            payload
-        })
+        const validationCaptcha = await axios.post(`${apiCaptcha}?secret=${secretCaptcha}&response=${response}&remoteip=${convertedIp}`)
 
         if (!validationCaptcha) throw new CustomError(httpCode.unauthorized, "error", "Unauthorized: 2")
 
-        if (validationCaptcha.data.success === false) throw new CustomError(httpCode.unauthorized, "error", "Unauthorized: 3")
+        if (validationCaptcha.data.success === false) throw new CustomError(httpCode.unauthorized, "error", "Unauthorized: 3");
 
         next();
     } catch (error) {
