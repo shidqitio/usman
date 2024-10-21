@@ -901,7 +901,7 @@ const getMenuApp = async (
                 kode_group : dataGroup?.kode_group,
                 nama_groupp : dataGroup?.nama_group,
                 username : dataTampil?.username, 
-                badan_usaha : dataUser?.status_user === "eksternal" ? dataTampil?.status_pengguna : null
+                status_vendor : dataUser?.status_user === "eksternal" ? dataTampil?.status_pengguna : null
             }, 
             token_old : token_user,
             token : sendHash
