@@ -51,7 +51,7 @@ routes.get("/get-role/:email/:kode_aplikasi", validate(payloadEmailAplikasiSchem
 
 routes.post("/register", validate(payloadAksesSchema), aksesController.register)
 routes.post("/register-eksternal", validate(payloadRegisterExternalSchema), aksesController.registerExternal)
-routes.post("/login", loginLimiter, authCaptcha, validate(payloadLoginSchema), aksesController.login)
+routes.post("/login", loginLimiter, validate(payloadLoginSchema), aksesController.login)
 
 routes.post("/aplikasi", validate(payloadEmailAksesSchema), aksesController.getAplikasiByEmail)
 routes.post("/post-token", auth, validate(payloadUserGroupAksesSchema), aksesController.postToken)

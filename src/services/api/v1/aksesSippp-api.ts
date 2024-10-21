@@ -261,6 +261,49 @@ const login = async (
             }
         })
 
+        let datUser : any
+
+        if(existUser?.status_user === "eksternal") {
+          datUser = await RefUser.findOne({
+            include : [
+              {
+                model : RefUserExternal,
+                as : "RefUserExternal",
+                attributes : []
+              },
+            ],
+            attributes : [
+              "RefUserExternal.username"
+            ],
+            where : {
+              email : email
+          },
+            raw : true,
+            nest : true
+          })
+        }
+        else {
+          datUser = await RefUser.findOne({
+            attributes : [
+              "id",
+              "RefUserInternal.username"
+            ],
+            include : [
+              {
+                model : RefUserInternal,
+                as : "RefUserInternal",
+                // attributes : []
+              },
+            ],
+            where : {
+              email : email
+          },
+
+            raw : true,
+            nest : true
+          })
+        }
+        
         if(!existUser) throw new CustomError(httpCode.notFound, "success", "Email dan Password Tidak Ditemukan")
 
         const passwordExist : any = existUser.password
@@ -341,6 +384,7 @@ const login = async (
               user  : {
                   id_user : existUser.id,
                   email : existUser.email,
+                  username : datUser.username,
                   is_login : existUser.is_login,
                   kode_unit :  "",
                   kode_unit_baru :  "",
@@ -357,6 +401,7 @@ const login = async (
                   id_user : existUser.id,
                   email : existUser.email,
                   is_login : existUser.is_login,
+                  username : datUser.username,
                   kode_unit :   unit.TrxUnitKerjaPegawais[0].Unit.kode_unit ,
                   kode_unit_baru :  unit.TrxUnitKerjaPegawais[0].Unit.kode_unit_baru ,
                   nama_unit : unit.TrxUnitKerjaPegawais[0].Unit.nama_unit ,
@@ -373,6 +418,7 @@ const login = async (
                 id_user : existUser.id,
                 email : existUser.email,
                 is_login : existUser.is_login,
+                username : datUser.username,
                 kode_unit :  "",
                 kode_unit_baru :  "",
                 nama_unit :  "",
@@ -781,19 +827,69 @@ const getMenuApp = async (
             };
           });
 
-          const dataUser : RefUser | null = await RefUser.findOne({
+          
+
+          let dataUser  = await RefUser.findOne({
             where : {
                 id : groupUser.id_user
             }
           })
 
+          let dataTampil : any
+
+          if(dataUser?.status_user === "eksternal") {
+            dataTampil = await RefUser.findOne({
+              attributes : [
+                "id",
+                "email", 
+                "password",
+                "api_token",
+                "RefUserExternal.status_pengguna",
+                "RefUserExternal.username"
+              ],
+              where : {
+                id : groupUser.id_user
+              },
+              include : [
+                {
+                  model : RefUserExternal,
+                  as : "RefUserExternal",
+                  attributes : []
+                }
+              ],
+              raw : true, 
+              nest : true
+            })
+          }
+          else {
+            dataTampil = await RefUser.findOne({
+              attributes : [
+                "id",
+                "email", 
+                "password",
+                "api_token",
+                "RefUserInternal.username"
+              ],
+              where : {
+                  id : groupUser.id_user
+              },
+              include : [
+                {
+                  model : RefUserInternal, 
+                  as : "RefUserInternal",
+                  attributes : []
+                }
+              ],
+              raw : true, 
+              nest : true
+            })
+          }
+
           const dataGroup  : RefGroup | null = await RefGroup.findOne({
             where : {
                 kode_group : kode_group
             }
-          })
-
-          
+          })          
 
           const aksesApp = [...akses]
           const params = {
@@ -803,7 +899,9 @@ const getMenuApp = async (
                 id_user : dataUser?.id,
                 email : dataUser?.email,
                 kode_group : dataGroup?.kode_group,
-                nama_groupp : dataGroup?.nama_group
+                nama_groupp : dataGroup?.nama_group,
+                username : dataTampil?.username, 
+                badan_usaha : dataUser?.status_user === "eksternal" ? dataTampil?.status_pengguna : null
             }, 
             token_old : token_user,
             token : sendHash
@@ -862,6 +960,8 @@ const checkToken = async (
       return exUser
 
     } catch (error : any) {
+
+
             
       if (error instanceof CustomError) {
         throw new CustomError(error.code, error.status, error.message);
@@ -1157,7 +1257,7 @@ const refreshToken = async (
     const token = require.token
     const token_lama = require.token_lama
 
-    const tokenVerify : any = token_lama.split(" ")[1] 
+    // const tokenVerify : any = token_lama.split(" ")[1] 
 
     const level : RefGroup | null = await RefGroup.findOne({
       attributes : ["kode_level"],
@@ -1172,9 +1272,9 @@ const refreshToken = async (
     let decodeToken : any ;
 
     try {
-      decodeToken  = jwt.verify(tokenVerify, getConfig("SECRET_KEY"))
+      decodeToken  = jwt.verify(token_lama, getConfig("SECRET_KEY"))
     } catch (error) {
-      throw new CustomError(httpCode.unauthorized, "error","[1] Token Unauthorized")
+      throw new CustomError(httpCode.unauthorized, "error","Gagal Decode Token")
     }
 
     const checkTokenAwal : RefUser | null  = await  RefUser.findOne({
@@ -1299,16 +1399,16 @@ const refreshTokenLanding = async (
   try {
     const token = request.token
 
-    const tokenVerify : any = token.split(" ")[1]
+    // const tokenVerify : any = token.split(" ")[1]
 
     let decodeToken : any ;
 
     try {
-      decodeToken  = jwt.verify(tokenVerify, getConfig("SECRET_KEY"), {
+      decodeToken  = jwt.verify(token, getConfig("SECRET_KEY"), {
         ignoreExpiration : true
       })
     } catch (error) {
-      throw new CustomError(httpCode.unauthorized,"error", "[1] Token Unauthorized")
+      throw new CustomError(httpCode.unauthorized,"error", "Gagal Decode Token")
     }
     
     // console.log(decodeToken);
