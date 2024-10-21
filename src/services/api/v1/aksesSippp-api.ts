@@ -50,6 +50,8 @@ import { loginLimiter } from "@routes/api/akses-route"
 
 import { responseSuccesFailed } from "@utils/response-success"
 
+import sequelize from "sequelize"
+
 
 
 const register = async (
@@ -844,7 +846,8 @@ const getMenuApp = async (
                 "email", 
                 "password",
                 "api_token",
-                "RefUserExternal.status_pengguna",
+                [sequelize.literal(`CASE WHEN "RefUserExternal"."status_pengguna" = 'perusahaan' THEN 'badan_usaha' ELSE "RefUserExternal"."status_pengguna" END`), 'status_pengguna'],  // Conditional alias for status_pengguna
+      
                 "RefUserExternal.username"
               ],
               where : {
@@ -899,7 +902,7 @@ const getMenuApp = async (
                 id_user : dataUser?.id,
                 email : dataUser?.email,
                 kode_group : dataGroup?.kode_group,
-                nama_group : dataGroup?.nama_group,
+                nama_groupp : dataGroup?.nama_group,
                 username : dataTampil?.username, 
                 status_vendor : dataUser?.status_user === "eksternal" ? dataTampil?.status_pengguna : null
             }, 
