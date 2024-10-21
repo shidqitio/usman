@@ -899,7 +899,7 @@ const getMenuApp = async (
                 id_user : dataUser?.id,
                 email : dataUser?.email,
                 kode_group : dataGroup?.kode_group,
-                nama_groupp : dataGroup?.nama_group,
+                nama_group : dataGroup?.nama_group,
                 username : dataTampil?.username, 
                 status_vendor : dataUser?.status_user === "eksternal" ? dataTampil?.status_pengguna : null
             }, 
