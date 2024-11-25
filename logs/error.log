@@ -1,279 +1,111 @@
-[2024-09-12T10:17:28.043] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:17:28.044] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:17:36.442] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:17:36.442] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:17:37.234] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:17:37.234] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:17:37.790] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:17:37.790] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:17:38.315] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:17:38.316] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:17:38.874] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:17:38.874] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:18:14.212] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:18:14.213] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:18:14.815] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:18:14.816] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:18:32.846] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:18:32.846] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:18:33.549] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:18:33.549] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:18:33.988] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:18:33.989] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:18:34.469] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:18:34.469] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:18:34.959] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:18:34.960] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:299:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:21:13.150] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:21:13.151] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:302:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:23:34.725] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:23:34.726] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:302:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:24:06.334] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:24:06.335] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:302:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:24:10.042] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:24:10.042] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:302:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:32:31.208] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:32:31.210] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:312:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:34:30.145] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:34:30.147] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:313:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:34:31.300] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:34:31.301] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:313:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:34:31.919] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:34:31.919] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:313:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:34:32.398] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:34:32.398] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:313:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:34:32.862] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:34:32.862] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:313:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:34:33.308] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:34:33.309] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:313:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu3-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:35:22.426] [ERROR] error - testing error destroy Error: Internal server error.
-[2024-09-12T10:35:22.426] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:304:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:37:43.360] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:37:43.361] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:303:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:38:28.383] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:38:28.384] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:303:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:39:10.468] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:39:10.469] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:303:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T10:39:43.999] [ERROR] error - testing error Menu By Level Error: Internal server error.
-[2024-09-12T10:39:44.001] [ERROR] error - Error: Internal server error.
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:303:23
-    at Generator.throw (<anonymous>)
-    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refMenu2-api.ts:6:65)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 500,
-  status: 'error'
-}
-[2024-09-12T15:06:43.776] [ERROR] error - Testing Error Get All User By Unit Error: Data Email Tidak Ditemukan di HRIS
-[2024-09-12T15:06:43.777] [ERROR] error - Error: Data Email Tidak Ditemukan di HRIS
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:297:19
+[2024-11-25T13:45:54.615] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
     at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:46:08.696] [ERROR] error - Error: Environment variable DEV_DEV_API_KEY is not defined.
+    at getConfig (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\config\dotenv.ts:26:11)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:89:37
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+[2024-11-25T13:46:54.682] [ERROR] error - Error: Token Not Match
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:89:56
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:47:09.541] [ERROR] error - Error: Aplikasi Tidak Terdaftar
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\services\api\v1\refAplikasi-api.ts:82:19
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\services\api\v1\refAplikasi-api.ts:28:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 404,
+  status: 'error'
+}
+[2024-11-25T13:47:49.281] [ERROR] error - Error: Aplikasi Tidak Terdaftar
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\services\api\v1\refAplikasi-api.ts:82:19
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\services\api\v1\refAplikasi-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 400,
   status: 'success'
 }
-[2024-09-12T15:08:57.673] [ERROR] error - Testing Error Get All User By Unit Error: Data Email Tidak Ditemukan di HRIS
-[2024-09-12T15:08:57.674] [ERROR] error - Error: Data Email Tidak Ditemukan di HRIS
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:297:19
+[2024-11-25T13:54:25.829] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
     at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 404,
-  status: 'success'
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:54:27.147] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:55:46.175] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:55:49.507] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
 }
