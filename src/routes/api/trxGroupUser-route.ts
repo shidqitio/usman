@@ -7,12 +7,12 @@ import {
     storesTrxGroupUserSchema,
     destroyTrxGroupUserSchema,
     getTrxGroupUserSchema,
-    searchTrxGroupUserSchema, 
+    searchTrxGroupUserSchema,
     payloadUserRoleSchema
 
 } from "@schema/api/trxGroupUser-schema"
 
-import auth from "@middleware/auth"
+import { auth } from "@middleware/auth"
 
 const routes = express.Router()
 
