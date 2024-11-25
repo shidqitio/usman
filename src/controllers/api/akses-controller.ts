@@ -14,7 +14,8 @@ import {
     PayloadEmailAplikasiSchema,
     PayloadRegisterExternalSchema,
     PayloadCheckOtpSchema,
-    PayloadResetPasswordSchema
+    PayloadResetPasswordSchema,
+    PayloadLoginSchema
 } from "@schema/api/akses-schema"
 
 import aksesService from "@services/api/v1/aksesSippp-api"
@@ -73,6 +74,57 @@ const login = async (
         next(error);
     }
 }
+
+//LOGIN REBORN 
+const loginAwal = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const request : PayloadLoginSchema["body"] = req.body
+
+        const response = await aksesService.loginAwal(request)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error login Awal ${error}`);
+        next(error);
+    }
+}
+
+const loginInternal = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const email = req.body.email
+
+        const response = await aksesService.loginInternal(email)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error login Internal ${error}`);
+        next(error);
+    }
+}
+
+const loginExternal = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const email = req.body.email
+
+        const response = await aksesService.loginExternal(email)
+
+        responseSuccess(res, httpCode.ok, response)
+    } catch (error) {
+        errorLogger.error(`testing error login Internal ${error}`);
+        next(error);
+    }
+}
+
+// ****************** LOGIN REBORN *******************
 
 const getAplikasiByEmail = async (
     req:Request,
@@ -287,5 +339,8 @@ export default {
     refreshTokenLanding,
     roleByAplikasiEmail,
     checkOtp,
-    resetPassword
+    resetPassword,
+    loginAwal,
+    loginInternal,
+    loginExternal,
 }

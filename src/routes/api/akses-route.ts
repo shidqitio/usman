@@ -53,6 +53,11 @@ routes.post("/register", validate(payloadAksesSchema), aksesController.register)
 routes.post("/register-eksternal", validate(payloadRegisterExternalSchema), aksesController.registerExternal)
 routes.post("/login", loginLimiter, validate(payloadLoginSchema), aksesController.login)
 
+//LOGIN REBORN 
+routes.post("/login-awal", validate(payloadLoginSchema), aksesController.loginAwal)
+routes.post("/login-internal", auth, aksesController.loginInternal)
+routes.post("/login-eksternal", auth, aksesController.loginExternal)
+
 routes.post("/aplikasi", validate(payloadEmailAksesSchema), aksesController.getAplikasiByEmail)
 routes.post("/post-token", auth, validate(payloadUserGroupAksesSchema), aksesController.postToken)
 routes.post("/get-menu", auth, validate(payloadUserGroupAksesSchema), aksesController.getMenuApp)

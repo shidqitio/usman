@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2024-11-25T13:45:54.615] [ERROR] error - Error: Unauthorized
     at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
     at Generator.next (<anonymous>)
@@ -52,6 +53,55 @@
     at processTicksAndRejections (node:internal/process/task_queues:95:5) {
   code: 400,
   status: 'success'
+=======
+[2024-11-25T11:19:50.544] [ERROR] error - testing error login Awal Error: Internal server error.
+[2024-11-25T11:19:50.544] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:533:13
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-11-25T11:19:53.225] [ERROR] error - testing error login Awal Error: Internal server error.
+[2024-11-25T11:19:53.226] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:533:13
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-11-25T11:30:31.407] [ERROR] error - testing error login Awal Error: Email dan Password Tidak Ditemukan
+[2024-11-25T11:30:31.408] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:531:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T11:30:37.216] [ERROR] error - testing error login Awal Error: Email dan Password Tidak Ditemukan
+[2024-11-25T11:30:37.217] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:531:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T11:38:25.091] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:26)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+>>>>>>> b540cbc9388bcaccf154c1335b9b547118c9e210
 }
 [2024-11-25T13:54:25.829] [ERROR] error - Error: Unauthorized
     at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
