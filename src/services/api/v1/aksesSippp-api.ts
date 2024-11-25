@@ -702,7 +702,7 @@ const loginExternal = async (
 
 
       let data = {
-        token : exUser.token,
+        token : exUser.api_token,
         user  : {
             id_user : exUser.id,
             email : exUser.email,
@@ -1276,7 +1276,7 @@ const logout = async (
       if(!exUser) throw new CustomError(httpCode.notFound,"success", "User Tidak Ada")
 
       const update = await RefUser.update({
-        is_login : "N "
+        is_login : "N"
       }, {
         where : {
           id : id_user
@@ -1402,7 +1402,7 @@ const forgetPassword = async (
         }
       })
 
-    // await sendMail(email, "Forget Password User Management Promise", `Send Data with OTP :  ${number_generate}`)
+    await sendMail(email, "Forget Password User Management Promise", `Send Data with OTP :  ${number_generate}`)
 
 
 
