@@ -1,5 +1,5 @@
 import CustomError from "@middleware/error-handler";
-import RefAplikasi, {Status,RefAplikasiInput, RefAplikasiOutput, RefAplikasiInputUpdate} from "@models/refAplikasi-model";
+import RefAplikasi, { Status, RefAplikasiInput, RefAplikasiOutput, RefAplikasiInputUpdate } from "@models/refAplikasi-model";
 import RefGroup from "@models/refGroup-model";
 import {
     PostRefAplikasiSchema,
@@ -20,22 +20,22 @@ import { Sequelize } from "sequelize";
 
 
 
-const index = async () : Promise<RefAplikasiOutput[]> => {
+const index = async (): Promise<RefAplikasiOutput[]> => {
     try {
-        const refAplikasi : RefAplikasi[] = await RefAplikasi.findAll({
-            attributes : [
-                "kode_aplikasi", 
+        const refAplikasi: RefAplikasi[] = await RefAplikasi.findAll({
+            attributes: [
+                "kode_aplikasi",
                 "nama_aplikasi",
                 "keterangan",
                 "status",
                 [Sequelize.fn('CONCAT', `${getConfig("USMAN_BASE_URL")}${getConfig("PUBLIC_FILE_IMAGE")}`, Sequelize.col('images')), 'images'],
                 "url",
                 "url_token"],
-            include : [
+            include: [
                 {
-                    model : RefGroup, 
-                    as : "Group", 
-                    attributes : {exclude : ["kode_aplikasi", "ucr", "uch", "udcr", "udch"]}
+                    model: RefGroup,
+                    as: "Group",
+                    attributes: { exclude: ["kode_aplikasi", "ucr", "uch", "udcr", "udch"] }
                 }
             ],
         })
@@ -45,52 +45,84 @@ const index = async () : Promise<RefAplikasiOutput[]> => {
         }
 
         return refAplikasi
-    } catch (error : any) {
+    } catch (error: any) {
         if (error instanceof CustomError) {
             throw new CustomError(error.code, error.status, error.message);
-          } else {
+        } else {
             throw new CustomError(500, "error", "Internal server error.");
-          }
+        }
+    }
+}
+
+const getAplikasiByNamaAplikasi = async (
+    namaAplikasi: string
+): Promise<{ rows: any, count: number }> => {
+    try {
+        const { rows, count } = await RefAplikasi.findAndCountAll({
+            attributes: [
+                "kode_aplikasi",
+                "nama_aplikasi",
+                "path_folder_pdf_asli",
+                "path_folder_pdf_encrypt",
+                "path_folder_img_asli",
+                "path_folder_img_encrypt"
+            ],
+            where: {
+                nama_aplikasi: namaAplikasi
+            }
+        })
+
+        if (rows.length === 0) {
+            throw new CustomError(httpCode.badRequest, "success", "Aplikasi Tidak Terdaftar")
+        }
+
+        return { rows, count }
+    } catch (error: any) {
+        if (error instanceof CustomError) {
+            throw new CustomError(error.code, error.status, error.message);
+        } else {
+            throw new CustomError(500, "error", "Internal server error.");
+        }
     }
 }
 
 const store = async (
-    request:PostRefAplikasiSchema["body"], 
-    file : any, 
-    ucr : string
-    ) : Promise<RefAplikasiOutput> => {
+    request: PostRefAplikasiSchema["body"],
+    file: any,
+    ucr: string
+): Promise<RefAplikasiOutput> => {
     try {
-        const AplikasiMax : string = await RefAplikasi.max("kode_aplikasi")
+        const AplikasiMax: string = await RefAplikasi.max("kode_aplikasi")
 
-        const kodeAplikasi : any = await generateKodePrimary.generateKodeAplikasi(AplikasiMax)
+        const kodeAplikasi: any = await generateKodePrimary.generateKodeAplikasi(AplikasiMax)
 
-        let publicFileImages : string = ""
-        if(file && file.filename) {
+        let publicFileImages: string = ""
+        if (file && file.filename) {
             publicFileImages = `${file.filename}`
             console.log(publicFileImages)
         }
 
         console.log(publicFileImages)
-       
-        const aplikasiInput : RefAplikasiInput = {
-            kode_aplikasi : kodeAplikasi,
-            nama_aplikasi : request.nama_aplikasi,
-            keterangan : request.keterangan,
-            status : Status.Tampil, //Default
-            url : request.url,
-            url_token : request.url_token,
-            images : publicFileImages,
-            ucr : ucr 
+
+        const aplikasiInput: RefAplikasiInput = {
+            kode_aplikasi: kodeAplikasi,
+            nama_aplikasi: request.nama_aplikasi,
+            keterangan: request.keterangan,
+            status: Status.Tampil, //Default
+            url: request.url,
+            url_token: request.url_token,
+            images: publicFileImages,
+            ucr: ucr
         }
 
-        const insertAplikasi : RefAplikasiOutput = await RefAplikasi.create(aplikasiInput);
+        const insertAplikasi: RefAplikasiOutput = await RefAplikasi.create(aplikasiInput);
 
-        if(!insertAplikasi) throw new CustomError(httpCode.unprocessableEntity, "error", "Gagal Membuat Aplikasi")
+        if (!insertAplikasi) throw new CustomError(httpCode.unprocessableEntity, "error", "Gagal Membuat Aplikasi")
 
         return insertAplikasi
 
     } catch (error) {
-        if(error instanceof CustomError) {
+        if (error instanceof CustomError) {
             throw new CustomError(error.code, error.status, error.message)
         }
         else {
@@ -101,15 +133,15 @@ const store = async (
 }
 
 const getByKodeAPlikasi = async (
-    id:GetRefAplikasiSchema["params"]["id"]) : 
+    id: GetRefAplikasiSchema["params"]["id"]):
     Promise<RefAplikasiOutput> => {
     try {
-        const refAplikasi : RefAplikasi | null = await RefAplikasi.findOne({
-            where : {
-                kode_aplikasi : id
+        const refAplikasi: RefAplikasi | null = await RefAplikasi.findOne({
+            where: {
+                kode_aplikasi: id
             },
-            attributes : [
-                "kode_aplikasi", 
+            attributes: [
+                "kode_aplikasi",
                 "nama_aplikasi",
                 "keterangan",
                 "status",
@@ -118,129 +150,129 @@ const getByKodeAPlikasi = async (
                 "url_token"],
         })
 
-        if(!refAplikasi) {
-            throw new CustomError(httpCode.unprocessableEntity, "error","Aplikasi Tidak Ada")
+        if (!refAplikasi) {
+            throw new CustomError(httpCode.unprocessableEntity, "error", "Aplikasi Tidak Ada")
         }
 
         return refAplikasi
 
-    } catch (error : any) {
+    } catch (error: any) {
         if (error instanceof CustomError) {
             throw new CustomError(error.code, error.status, error.message);
-          } else {
-            throw new CustomError(500, "error","Internal server error.");
-          }
+        } else {
+            throw new CustomError(500, "error", "Internal server error.");
+        }
     }
 }
 
 const updateAplikasi = async (
-    id:UpdatedRefAplikasiSchema["params"]["id"],
-    request : UpdatedRefAplikasiSchema["body"], 
-    file : any, 
-    uch : string) :
+    id: UpdatedRefAplikasiSchema["params"]["id"],
+    request: UpdatedRefAplikasiSchema["body"],
+    file: any,
+    uch: string):
     Promise<RefAplikasiOutput> => {
     try {
-        const refAplikasi : RefAplikasi | null = await RefAplikasi.findByPk(id)
+        const refAplikasi: RefAplikasi | null = await RefAplikasi.findByPk(id)
 
-        if(!refAplikasi) throw new CustomError(httpCode.notFound, "success", "Data Tidak Ada")
+        if (!refAplikasi) throw new CustomError(httpCode.notFound, "success", "Data Tidak Ada")
 
         refAplikasi.nama_aplikasi = request.nama_aplikasi,
-        refAplikasi.keterangan = request.keterangan
+            refAplikasi.keterangan = request.keterangan
         refAplikasi.status = request.status
         refAplikasi.url = request.url
         refAplikasi.url_token = request.url_token
         refAplikasi.uch = uch
 
-        const existFile : string | null = refAplikasi.images
+        const existFile: string | null = refAplikasi.images
 
         console.log(file)
         if (file && file.filename) {
             const PUBLIC_FILE_GIRO = `${file.filename}`;
-      
+
             refAplikasi.images = PUBLIC_FILE_GIRO;
-          }
+        }
 
-          const response : RefAplikasiOutput = await refAplikasi.save()
+        const response: RefAplikasiOutput = await refAplikasi.save()
 
 
-          if(!response) {
-            throw new CustomError(httpCode.unprocessableEntity,"error", "Gagal Mengubah Data")
-          }
+        if (!response) {
+            throw new CustomError(httpCode.unprocessableEntity, "error", "Gagal Mengubah Data")
+        }
 
-          if(existFile) {
+        if (existFile) {
 
-            if(file && file.path) {
+            if (file && file.path) {
                 let unlink = await fs.unlink(path.join(__dirname, `../../../../public/aplikasi/${existFile}`))
                 console.log(unlink)
             }
             return response
-          }
-          else {
+        }
+        else {
             return response
-          }
+        }
 
-    } catch (error : any) {
+    } catch (error: any) {
         if (error instanceof CustomError) {
             if (file && file.path) {
-              await removeFile(file.path);
+                await removeFile(file.path);
             }
-        throw new CustomError(500, error.status, error.message)
-    }
+            throw new CustomError(500, error.status, error.message)
+        }
         else {
-            throw new CustomError(500,"error", error.message)
+            throw new CustomError(500, "error", error.message)
         }
     }
 }
 
-const deleteAplikasi = async (id:GetRefAplikasiSchema["params"]["id"]) : Promise<any | null> => {
+const deleteAplikasi = async (id: GetRefAplikasiSchema["params"]["id"]): Promise<any | null> => {
     try {
-        const exRefAplikasi : RefAplikasi |  null = await RefAplikasi.findOne({
-            where : {
-                kode_aplikasi : id
+        const exRefAplikasi: RefAplikasi | null = await RefAplikasi.findOne({
+            where: {
+                kode_aplikasi: id
             }
         })
 
-        if(!exRefAplikasi) throw new CustomError(httpCode.notFound,"success", "Data Tidak Ada")
+        if (!exRefAplikasi) throw new CustomError(httpCode.notFound, "success", "Data Tidak Ada")
 
-      
+
 
         const removeAplikasi = await RefAplikasi.destroy({
-            where : {
-                kode_aplikasi : id
+            where: {
+                kode_aplikasi: id
             }
         })
         console.log("TES REMOVE : ", removeAplikasi)
 
-        if(removeAplikasi === 0) throw new CustomError(httpCode.unprocessableEntity,"error", "Data Gagal Hapus")
+        if (removeAplikasi === 0) throw new CustomError(httpCode.unprocessableEntity, "error", "Data Gagal Hapus")
 
-        if(exRefAplikasi.images !== null || exRefAplikasi.images === "") {
-           const lastData = await removeByLastNameAplikasi(exRefAplikasi.images)
-           await fs.unlink(path.join(__dirname, `../../../../public/aplikasi/${lastData}`))
+        if (exRefAplikasi.images !== null || exRefAplikasi.images === "") {
+            const lastData = await removeByLastNameAplikasi(exRefAplikasi.images)
+            await fs.unlink(path.join(__dirname, `../../../../public/aplikasi/${lastData}`))
         }
-    
+
         return exRefAplikasi
-    } catch (error : any) {
+    } catch (error: any) {
         if (error instanceof CustomError) {
-        throw new CustomError(500,error.status, error.message)
-    }
+            throw new CustomError(500, error.status, error.message)
+        }
         else {
-            throw new CustomError(500,error.status, error.message)
+            throw new CustomError(500, error.status, error.message)
         }
     }
 }
 
-const countRefAplikasi = async () : Promise<any> => {
+const countRefAplikasi = async (): Promise<any> => {
     try {
-        const count : number = await RefAplikasi.count()
+        const count: number = await RefAplikasi.count()
 
         return count
 
-    } catch (error : any) {
-        if(error instanceof CustomError) {
+    } catch (error: any) {
+        if (error instanceof CustomError) {
             throw new CustomError(error.code, error.status, error.message)
-        } 
+        }
         else {
-            throw new CustomError(500,"error", "Internal server error.")
+            throw new CustomError(500, "error", "Internal server error.")
         }
     }
 }
@@ -251,8 +283,9 @@ const countRefAplikasi = async () : Promise<any> => {
 export default {
     index,
     store,
-    getByKodeAPlikasi, 
+    getByKodeAPlikasi,
     updateAplikasi,
     deleteAplikasi,
-    countRefAplikasi
+    countRefAplikasi,
+    getAplikasiByNamaAplikasi
 }

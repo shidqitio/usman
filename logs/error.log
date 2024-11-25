@@ -1,3 +1,59 @@
+<<<<<<< HEAD
+[2024-11-25T13:45:54.615] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:46:08.696] [ERROR] error - Error: Environment variable DEV_DEV_API_KEY is not defined.
+    at getConfig (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\config\dotenv.ts:26:11)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:89:37
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+[2024-11-25T13:46:54.682] [ERROR] error - Error: Token Not Match
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:89:56
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:47:09.541] [ERROR] error - Error: Aplikasi Tidak Terdaftar
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\services\api\v1\refAplikasi-api.ts:82:19
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\services\api\v1\refAplikasi-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 404,
+  status: 'error'
+}
+[2024-11-25T13:47:49.281] [ERROR] error - Error: Aplikasi Tidak Terdaftar
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\services\api\v1\refAplikasi-api.ts:82:19
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\services\api\v1\refAplikasi-api.ts:28:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 400,
+  status: 'success'
+=======
 [2024-11-25T11:19:50.544] [ERROR] error - testing error login Awal Error: Internal server error.
 [2024-11-25T11:19:50.544] [ERROR] error - Error: Internal server error.
     at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:533:13
@@ -43,6 +99,63 @@
     at next (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:144:13)
     at Route.dispatch (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\route.js:114:3)
     at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5) {
+  code: 401,
+  status: 'error'
+>>>>>>> b540cbc9388bcaccf154c1335b9b547118c9e210
+}
+[2024-11-25T13:54:25.829] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:54:27.147] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:55:46.175] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-25T13:55:49.507] [ERROR] error - Error: Unauthorized
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:87:32
+    at Generator.next (<anonymous>)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:4:12)
+    at authSecretKey (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\src\middleware\auth.ts:83:27)
+    at Layer.handle [as handle_request] (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\irgyr\Documents\kerjaan\promise\user-management-be\node_modules\express\lib\router\index.js:346:12) {
   code: 401,
   status: 'error'
 }
