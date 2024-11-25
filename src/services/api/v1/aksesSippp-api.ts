@@ -51,6 +51,8 @@ import { loginLimiter } from "@routes/api/akses-route"
 import { responseSuccesFailed } from "@utils/response-success"
 
 import sequelize from "sequelize"
+import TrxJabatanUser from "@models/trxJabatan-model"
+import RefJabatan from "@models/refJabatan-model"
 
 
 
@@ -374,10 +376,32 @@ const login = async (
 
         let data 
 
+        const getPpk : any = await TrxJabatanUser.findOne({
+          where : {
+            id_user : existUser.id,
+            status_aktif : "aktif"
+          },
+          attributes : [
+            "kode_jabatan_user",
+            "kode_jabatan",
+            "sk_jabatan",
+            "RefJabatan.nama_jabatan"
+          ],
+          include : [
+            {
+              model : RefJabatan,
+              as : "RefJabatan",
+              attributes : ["nama_jabatan"]
+            }
+          ],
+        })
+
+
         if(existUser.status_user === 'internal') {
           const data_hris = await getPegawaiByEmail(existUser.email)
 
           const unit = data_hris[0]
+
 
 
           if(unit === null) {
@@ -391,6 +415,8 @@ const login = async (
                   kode_unit :  "",
                   kode_unit_baru :  "",
                   nama_unit :  "",
+                  kode_jabatan : getPpk ? getPpk.kode_jabatan : "",
+                  nama_jabatan : getPpk ? getPpk.RefJabatan.nama_jabatan : "",
                   user_photo : existUser.user_photo ? getConfig("USMAN_BASE_URL") + getConfig("PUBLIC_FILE_IMAGE_PROFIL") + existUser.user_photo : null
               },
               aplikasi : aksesApp
@@ -407,6 +433,8 @@ const login = async (
                   kode_unit :   unit.TrxUnitKerjaPegawais[0].Unit.kode_unit ,
                   kode_unit_baru :  unit.TrxUnitKerjaPegawais[0].Unit.kode_unit_baru ,
                   nama_unit : unit.TrxUnitKerjaPegawais[0].Unit.nama_unit ,
+                  kode_jabatan : getPpk ? getPpk.kode_jabatan : "",
+                  nama_jabatan : getPpk ? getPpk.RefJabatan.nama_jabatan : "",
                   user_photo : unit.foto_pegawai ? unit.foto_pegawai : null 
               },
               aplikasi : aksesApp
@@ -424,6 +452,8 @@ const login = async (
                 kode_unit :  "",
                 kode_unit_baru :  "",
                 nama_unit :  "",
+                kode_jabatan : getPpk ? getPpk.kode_jabatan : "",
+                nama_jabatan : getPpk ? getPpk.RefJabatan.nama_jabatan : "",
             },
             aplikasi : aksesApp
         }
@@ -440,6 +470,264 @@ const login = async (
           }
     }
 }
+
+// ========== LOGIN REBORN  ======================= 
+const loginAwal = async (request:PayloadLoginSchema["body"]) : Promise<any | null> => {
+  try {
+    const email = request.email
+    const password = request.password
+
+    const existUser  = await RefUser.findOne({
+      where : {
+        email : email
+      },
+      attributes : [
+        "id",
+        "email",
+        "password",
+        "status_user"
+      ]
+    })
+
+    if(!existUser) throw new CustomError(httpCode.unauthorized, "error", "User Email dan Password Tidak Ditemukan")
+
+    const passwordExist : any = existUser.password
+
+    const credential = await bcrypt.compare(password, passwordExist)
+
+    if(!credential) throw new CustomError(httpCode.unauthorized, "error", "Email dan Password Tidak Ditemukan")
+
+      const token = jwt.sign(
+        {
+            id_user : existUser.id
+        },
+        getConfig("SECRET_KEY"),
+        {expiresIn : "24h"}
+    )
+
+    const storeToken = await RefUser.update({
+        is_login : "Y",
+        api_token : token
+    }, {
+        where : {
+            email : email
+        },
+        returning : true
+    })
+
+    const result = {
+      id_user : existUser.id,
+      email : existUser.email,
+      StatusUser : existUser.status_user,
+      token : token
+    }
+
+    return result
+
+
+    
+  } catch (error) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code,error.status, error.message);
+    } else {
+      throw new CustomError(500,"error", "Internal server error.");
+    }
+  }
+}
+
+const loginInternal = async (email: string) : Promise<any> => {
+  try {
+    const exUser : any = await RefUser.findOne({
+      where : {
+        email : email
+      },
+      attributes : [
+        "id",
+        "email",
+        "api_token",
+        "user_photo",
+        "is_login",
+        "RefUserInternal.username",
+
+      ],
+      include : [
+        {
+          model : RefUserInternal,
+          as : "RefUserInternal"
+        }
+      ],
+      raw : true,
+      nest : true
+    })
+
+    if(!exUser) throw new CustomError(httpCode.unauthorized, "error", "Email dan Password Tidak Ditemukan")
+
+    const exist = await db.query(`
+      SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, a.status,  CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
+        a.url, a.url_token
+        FROM ref_aplikasi as a
+        JOIN ref_group as b ON b.kode_aplikasi = a.kode_aplikasi
+        JOIN trx_group_user as c ON c.kode_group = b.kode_group
+        WHERE c.id_user = (:id)
+        GROUP BY a.kode_aplikasi
+      `, {
+          replacements : {id : exUser.id},
+          type : QueryTypes.SELECT
+      })
+
+      if(exist.length === 0) throw new CustomError(httpCode.unauthorized,"error", "User Tidak Memiliki Akses Ke Aplikasi")
+
+      const aksesApp = [...exist]
+
+      const getPpk : any = await TrxJabatanUser.findOne({
+        where : {
+          id_user : exUser.id,
+          status_aktif : "aktif"
+        },
+        attributes : [
+          "kode_jabatan_user",
+          "kode_jabatan",
+          "sk_jabatan",
+          "RefJabatan.nama_jabatan"
+        ],
+        include : [
+          {
+            model : RefJabatan,
+            as : "RefJabatan",
+            attributes : ["nama_jabatan"]
+          }
+        ],
+      })
+
+      const data_hris = await getPegawaiByEmail(exUser.email)
+
+      const unit = data_hris[0]
+
+      let data
+
+      if(unit === null) {
+        data = {
+          token : exUser.api_token,
+          user  : {
+              id_user : exUser.id,
+              email : exUser.email,
+              username : exUser.username,
+              is_login : exUser.is_login,
+              kode_unit :  "",
+              kode_unit_baru :  "",
+              nama_unit :  "",
+              kode_jabatan : getPpk ? getPpk.kode_jabatan : "",
+              nama_jabatan : getPpk ? getPpk.RefJabatan.nama_jabatan : "",
+              user_photo : exUser.user_photo ? getConfig("USMAN_BASE_URL") + getConfig("PUBLIC_FILE_IMAGE_PROFIL") + exUser.user_photo : null
+          },
+          aplikasi : aksesApp
+        }       
+      } 
+      else {
+        data = {
+          token : exUser.api_token,
+          user  : {
+              id_user : exUser.id,
+              email : exUser.email,
+              is_login : exUser.is_login,
+              username : exUser.username,
+              kode_unit :   unit.TrxUnitKerjaPegawais[0].Unit.kode_unit ,
+              kode_unit_baru :  unit.TrxUnitKerjaPegawais[0].Unit.kode_unit_baru ,
+              nama_unit : unit.TrxUnitKerjaPegawais[0].Unit.nama_unit ,
+              kode_jabatan : getPpk ? getPpk.kode_jabatan : "",
+              nama_jabatan : getPpk ? getPpk.RefJabatan.nama_jabatan : "",
+              user_photo : unit.foto_pegawai ? unit.foto_pegawai : null 
+          },
+          aplikasi : aksesApp
+        }       
+      }
+
+      console.log(data)
+
+      return data
+
+  } 
+  catch (error) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code,error.status, error.message);
+    } else {
+      throw new CustomError(500,"error", "Internal server error.");
+    }
+  }
+}
+
+
+const loginExternal = async (
+  email:string) : Promise<any> => {
+  try {
+    const exUser : any = await RefUser.findOne({
+      where : {
+        email : email
+      }, 
+      include : [
+        {
+          model : RefUserExternal, 
+          as : "RefUserExternal"
+        }
+      ],
+      attributes : [
+        "id",
+        "email",
+        "api_token",
+        "user_photo",
+        "is_login",
+        "RefUserExternal.username",
+        "RefUserExternal.status_pengguna"
+      ],
+      raw : true,
+      nest : true
+    })
+
+    const exist = await db.query(`
+      SELECT a.nama_aplikasi, a.kode_aplikasi, a.keterangan, a.status,  CONCAT('${getConfig('USMAN_BASE_URL')}', '${getConfig('PUBLIC_FILE_IMAGE')}', a.images) as images,
+        a.url, a.url_token
+        FROM ref_aplikasi as a
+        JOIN ref_group as b ON b.kode_aplikasi = a.kode_aplikasi
+        JOIN trx_group_user as c ON c.kode_group = b.kode_group
+        WHERE c.id_user = (:id)
+        GROUP BY a.kode_aplikasi
+      `, {
+          replacements : {id : exUser.id},
+          type : QueryTypes.SELECT
+      })
+
+      if(exist.length === 0) throw new CustomError(httpCode.unauthorized,"error", "User Tidak Memiliki Akses Ke Aplikasi")
+
+        const aksesApp = [...exist]
+
+
+      let data = {
+        token : exUser.token,
+        user  : {
+            id_user : exUser.id,
+            email : exUser.email,
+            is_login : exUser.is_login,
+            username : exUser.username,
+            // kode_unit :  "",
+            // kode_unit_baru :  "",
+            // nama_unit :  "",
+            status_pengguna : exUser.status_pengguna
+        },
+        aplikasi : aksesApp
+      }
+
+      return data
+
+  } catch (error) {
+    if (error instanceof CustomError) {
+      throw new CustomError(error.code,error.status, error.message);
+    } else {
+      throw new CustomError(500,"error", "Internal server error.");
+    }
+  }
+}
+
+//===============================
 
 const getAplikasiByEmail = async (
   require:PayloadEmailAksesSchema["body"]) : Promise<any | null> => {
@@ -1519,5 +1807,8 @@ export default {
   roleByAplikasiEmail,
   registerExternal,
   checkOtp,
-  resetPassword
+  resetPassword,
+  loginAwal,
+  loginInternal,
+  loginExternal,
 }

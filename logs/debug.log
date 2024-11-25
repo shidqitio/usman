@@ -1,12 +1,11 @@
-[2024-09-12T10:21:13.146] [ERROR] default - Error
+[2024-11-22T16:26:05.466] [DEBUG] default - Error
     at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
     at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
+    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21) {
   name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
+  parent: error: kolom « nan » tidak ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -17,12 +16,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
+    length: 102,
     severity: 'ERROR',
-    code: '22P02',
+    code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '465',
+    position: '149',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -31,13 +30,13 @@
     column: undefined,
     dataType: undefined,
     constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+    file: 'parse_relation.c',
+    line: '3718',
+    routine: 'errorMissingColumn',
+    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
     parameters: undefined
   },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
+  original: error: kolom « nan » tidak ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -48,12 +47,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
+    length: 102,
     severity: 'ERROR',
-    code: '22P02',
+    code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '465',
+    position: '149',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -62,24 +61,23 @@
     column: undefined,
     dataType: undefined,
     constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+    file: 'parse_relation.c',
+    line: '3718',
+    routine: 'errorMissingColumn',
+    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
     parameters: undefined
   },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+  sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
   parameters: {}
 }
-[2024-09-12T10:23:34.722] [ERROR] default - Error
+[2024-11-22T16:26:54.884] [DEBUG] default - Error
     at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
     at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
+    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21) {
   name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
+  parent: error: kolom « nan » tidak ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -90,12 +88,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
+    length: 102,
     severity: 'ERROR',
-    code: '22P02',
+    code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '465',
+    position: '149',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -104,13 +102,13 @@
     column: undefined,
     dataType: undefined,
     constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+    file: 'parse_relation.c',
+    line: '3718',
+    routine: 'errorMissingColumn',
+    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
     parameters: undefined
   },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
+  original: error: kolom « nan » tidak ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -121,12 +119,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
+    length: 102,
     severity: 'ERROR',
-    code: '22P02',
+    code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '465',
+    position: '149',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -135,24 +133,23 @@
     column: undefined,
     dataType: undefined,
     constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+    file: 'parse_relation.c',
+    line: '3718',
+    routine: 'errorMissingColumn',
+    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
     parameters: undefined
   },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+  sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
   parameters: {}
 }
-[2024-09-12T10:24:06.331] [ERROR] default - Error
+[2024-11-22T16:27:35.511] [DEBUG] default - Error
     at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
     at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
+    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21) {
   name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
+  parent: error: kolom « nan » tidak ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -163,12 +160,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
+    length: 102,
     severity: 'ERROR',
-    code: '22P02',
+    code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '465',
+    position: '149',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -177,13 +174,13 @@
     column: undefined,
     dataType: undefined,
     constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+    file: 'parse_relation.c',
+    line: '3718',
+    routine: 'errorMissingColumn',
+    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
     parameters: undefined
   },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
+  original: error: kolom « nan » tidak ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -194,12 +191,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
+    length: 102,
     severity: 'ERROR',
-    code: '22P02',
+    code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '465',
+    position: '149',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -208,24 +205,23 @@
     column: undefined,
     dataType: undefined,
     constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+    file: 'parse_relation.c',
+    line: '3718',
+    routine: 'errorMissingColumn',
+    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
     parameters: undefined
   },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+  sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
   parameters: {}
 }
-[2024-09-12T10:24:10.041] [ERROR] default - Error
+[2024-11-22T16:28:12.836] [DEBUG] default - Error
     at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
     at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
+    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21) {
   name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
+  parent: error: kolom « nan » tidak ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -236,12 +232,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
+    length: 102,
     severity: 'ERROR',
-    code: '22P02',
+    code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '465',
+    position: '149',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -250,13 +246,13 @@
     column: undefined,
     dataType: undefined,
     constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+    file: 'parse_relation.c',
+    line: '3718',
+    routine: 'errorMissingColumn',
+    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
     parameters: undefined
   },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
+  original: error: kolom « nan » tidak ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -267,12 +263,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
+    length: 102,
     severity: 'ERROR',
-    code: '22P02',
+    code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '465',
+    position: '149',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -281,393 +277,12 @@
     column: undefined,
     dataType: undefined,
     constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+    file: 'parse_relation.c',
+    line: '3718',
+    routine: 'errorMissingColumn',
+    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
     parameters: undefined
   },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.04.01 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.04.01 ';`,
+  sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
   parameters: {}
-}
-[2024-09-12T10:35:22.422] [ERROR] default - Error
-    at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
-    at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
-  name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-  parameters: {}
-}
-[2024-09-12T10:37:43.356] [ERROR] default - Error
-    at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
-    at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
-  name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-  parameters: {}
-}
-[2024-09-12T10:38:28.380] [ERROR] default - Error
-    at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
-    at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
-  name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-  parameters: {}
-}
-[2024-09-12T10:39:10.464] [ERROR] default - Error
-    at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
-    at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
-  name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-  parameters: {}
-}
-[2024-09-12T10:39:43.996] [ERROR] default - Error
-    at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
-    at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21)
-    at async Function.findOne (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1998:12) {
-  name: 'SequelizeDatabaseError',
-  parent: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  original: error: sintaks masukan tidak valid untuk tipe integer : « :id1 »
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 129,
-    severity: 'ERROR',
-    code: '22P02',
-    detail: undefined,
-    hint: undefined,
-    position: '465',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'numutils.c',
-    line: '620',
-    routine: 'pg_strtoint32_safe',
-    sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-    parameters: undefined
-  },
-  sql: `SELECT "RefMenu1".* FROM (SELECT "RefMenu1"."kode_aplikasi", "RefMenu1"."kode_menu1", "RefMenu1"."kode_level", "RefMenu1"."nama_menu1", "RefMenu1"."keterangan_menu", "RefMenu1"."icon", "RefMenu1"."link", "RefMenu1"."status", "RefMenu1"."on_update", "RefMenu1"."on_create", "RefMenu1"."on_delete", "RefMenu1"."on_view", "RefMenu1"."ucr", "RefMenu1"."uch", "RefMenu1"."udcr", "RefMenu1"."udch" FROM "public"."ref_menu1" AS "RefMenu1" WHERE "RefMenu1"."kode_level" = ':id1' AND ( SELECT "kode_menu1" FROM "public"."ref_menu2" AS "Menu2" WHERE ("Menu2"."kode_menu2" = 'M00.02.01.02 ' AND "Menu2"."kode_menu1" = "RefMenu1"."kode_menu1") LIMIT 1 ) IS NOT NULL LIMIT 1) AS "RefMenu1" INNER JOIN "public"."ref_menu2" AS "Menu2" ON "RefMenu1"."kode_menu1" = "Menu2"."kode_menu1" AND "Menu2"."kode_menu2" = 'M00.02.01.02 ';`,
-  parameters: {}
-}
-[2024-09-12T15:06:43.774] [ERROR] default - Error: Data Email Tidak Ditemukan di HRIS
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:290:37
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 404,
-  status: 'success'
-}
-[2024-09-12T15:08:57.673] [ERROR] default - Error: Data Email Tidak Ditemukan di HRIS
-    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:290:37
-    at Generator.next (<anonymous>)
-    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refUser-api.ts:5:58)
-    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  code: 404,
-  status: 'success'
 }
