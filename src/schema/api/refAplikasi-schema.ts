@@ -22,6 +22,9 @@ const payload = {
         keterangan : z.string({
             invalid_type_error : "Keterangan harus huruf"
         }).nullable(),
+        kode_metode_pengadaan : z.string({
+            invalid_type_error : "Kode Metode Pengadaan Harus Angka"
+        }).optional(),
         url : z.string({
             required_error : "url tidak boleh kosong",
             invalid_type_error : "url harus huruf"

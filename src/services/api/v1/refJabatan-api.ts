@@ -4,6 +4,7 @@ import db from "@config/database";
 import { httpCode } from "@utils/prefix";
 import { Op } from "sequelize";
 import { debugLogger } from "@config/logger";
+import PBJ from "@models/refPbj-model";
 
 import {
     PayloadJabatanSchema,
@@ -16,12 +17,18 @@ const getJabatanPpk = async () : Promise<RefJabatan[]> => {
         const ppk : RefJabatan[] = await RefJabatan.findAll({
             where : {
                 kode_jabatan_atasan : {
-                    [Op.not] : null
+                    [Op.is] : null
                 }
             },
             attributes : {
                 exclude : ["ucr","uch","udcr","udch"]
-            }
+            },
+            include : [
+                {
+                    model : PBJ,
+                    as : "PBJ"
+                }
+            ]
         })
 
         return ppk

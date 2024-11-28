@@ -18,6 +18,7 @@ import refUser from "@routes/api/refUser-route"
 import refLevel from "@routes/api/refLevel-routes"
 import jabatan from "@routes/api/refJabatan-route"
 import threeshold from "@routes/api/threeshold-route"
+import metodePengadaan from "@routes/api/refMetodePengadaan-route"
 import {auth, authSecretKey} from "@middleware/auth";
 // routes.use("/v1", example);
 
@@ -40,6 +41,8 @@ routes.use(vers + "/trx-groupuser", auth, trxGroupUser)
 routes.use(vers + "/trx-groupmenu", auth,trxGroupMenu)
 
 routes.use(vers + "/jabatan", auth, jabatan )
+
+routes.use(vers + "/metode-pengadaan", auth, metodePengadaan)
 
 routes.use(vers + "/akses", akses)
 

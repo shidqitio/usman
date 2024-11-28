@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
+import MetodePengadaan from "./refMetodePengadaan-model";
 
 export enum Status {
 	Tampil = "1",
@@ -18,6 +19,7 @@ interface IRefAplikasiAttributes {
 	path_folder_pdf_encrypt: string | null | undefined;
 	path_folder_img_asli: string | null | undefined;
 	path_folder_img_encrypt: string | null | undefined;
+	kode_metode_pengadaan : number | undefined
 	ucr: string | null | undefined;
 	uch: string | null | undefined;
 	udcr: Date | null;
@@ -33,6 +35,7 @@ export type RefAplikasiInput = Optional<
 	"path_folder_pdf_encrypt" |
 	"path_folder_img_asli" |
 	"path_folder_img_encrypt" |
+	"kode_metode_pengadaan" |
 	"udcr" |
 	"udch" |
 	"ucr" |
@@ -45,6 +48,7 @@ export type RefAplikasiInputUpdate = Optional<
 	"path_folder_pdf_asli" |
 	"path_folder_pdf_encrypt" |
 	"path_folder_img_asli" |
+	"kode_metode_pengadaan"|
 	"path_folder_img_encrypt"
 >;
 
@@ -67,6 +71,7 @@ class RefAplikasi
 	declare path_folder_pdf_encrypt: string | null | undefined;
 	declare path_folder_img_asli: string | null | undefined;
 	declare path_folder_img_encrypt: string | null | undefined;
+	declare kode_metode_pengadaan: number | undefined;
 	declare ucr: string | null | undefined;
 	declare uch: string | null | undefined;
 	declare udcr: Date | null;
@@ -103,6 +108,10 @@ RefAplikasi.init(
 		url_token: {
 			type: DataTypes.STRING(),
 			allowNull: true
+		},
+		kode_metode_pengadaan : {
+			type : DataTypes.INTEGER(),
+			allowNull : true
 		},
 		path_folder_pdf_asli: {
 			type: DataTypes.STRING(),
@@ -146,5 +155,15 @@ RefAplikasi.init(
 		updatedAt: "udch"
 	}
 )
+
+RefAplikasi.belongsTo(MetodePengadaan, {
+	foreignKey : "kode_metode_pengadaan",
+	as : "RefMetodePengadaan"
+})
+
+MetodePengadaan.hasMany(RefAplikasi, {
+	foreignKey : "kode_metode_pengadaan",
+	as : "RefAplikasi"
+})
 
 export default RefAplikasi

@@ -1,5 +1,6 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
+import PBJ from "./refPbj-model";
 
 
 export enum jabatan {
@@ -12,7 +13,8 @@ interface IRefJabatanAttributes {
     kode_jabatan : string,
     kode_jabatan_atasan : string | undefined | null,
     nama_jabatan : string | undefined | null,
-    jabatan : jabatan
+    jabatan : jabatan,
+    kode_pbj : string | undefined | null
     ucr : string | undefined | null,
     uch : string | undefined | null,
     udcr : Date | undefined,
@@ -25,6 +27,7 @@ export type RefJabatanInput = Optional <
     "kode_jabatan" | 
     "kode_jabatan_atasan" |
     "jabatan" |
+    "kode_pbj" |
     "ucr" | 
     "uch" |
     "udch" | 
@@ -45,6 +48,7 @@ class RefJabatan
     declare kode_jabatan_atasan : string | undefined | null;
     declare nama_jabatan : string | undefined | null;
     declare jabatan: jabatan;
+    declare kode_pbj: string | null | undefined;
     declare ucr : string | undefined | null;
     declare uch : string | undefined | null;
     declare udcr : Date | undefined;
@@ -67,6 +71,10 @@ RefJabatan.init(
             allowNull : true
         },
         jabatan : {
+            type : DataTypes.STRING,
+            allowNull : true
+        },
+        kode_pbj : {
             type : DataTypes.STRING,
             allowNull : true
         },
@@ -96,5 +104,15 @@ RefJabatan.init(
 		updatedAt : "udch"
 	}
 )
+
+RefJabatan.belongsTo(PBJ,{
+    foreignKey : "kode_pbj",
+    as : "PBJ"
+})
+
+PBJ.hasMany(RefJabatan, {
+    foreignKey : "kode_pbj",
+    as : "RefJabatan"
+})
 
 export default RefJabatan

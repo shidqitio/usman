@@ -137,11 +137,29 @@ const deleteAplikasi = async (
     }
 }
 
+const updateMetodePengadaan = async (
+    req:Request,
+    res:Response,
+    next:NextFunction) : Promise<void> => {
+    try {
+        const id = req.params.id
+
+        const kode_metode_pengadaan = req.body.kode_metode_pengadaan
+
+        const response = await refAplikasiService.updateMetodePengadaan(id, kode_metode_pengadaan)
+
+        responseSuccess(res, httpCode.ok, "Berhasil Update Metode Pengadaan")
+    } catch (error) {
+        next(error)
+    }
+}
+
 export default {
     store,
     index,
     getByKodeAplikasi,
     updateAplikasi,
     deleteAplikasi,
-    getAplikasiByNamaAplikasi
+    getAplikasiByNamaAplikasi,
+    updateMetodePengadaan
 }

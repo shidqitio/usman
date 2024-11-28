@@ -25,4 +25,6 @@ routes.put("/:id", uploadImage.single("file"), validate(updatedRefAplikasiSchema
 
 routes.delete("/:id", validate(getRefAplikasiSchema), refAplikasiController.deleteAplikasi)
 
+routes.put("/metode-pengadaan/:id", refAplikasiController.updateMetodePengadaan)
+
 export default routes

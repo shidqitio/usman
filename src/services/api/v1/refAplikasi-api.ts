@@ -20,6 +20,7 @@ import { Sequelize } from "sequelize";
 
 import MetodePengadaan from "@models/refMetodePengadaan-model";
 import Threeshold from "@models/refThreeshold-model";
+import { debugLogger } from "@config/logger";
 
 
 const index = async (): Promise<RefAplikasiOutput[]> => {
@@ -45,12 +46,12 @@ const index = async (): Promise<RefAplikasiOutput[]> => {
                     include : [
                         {
                             model : Threeshold,
-                            as : "Threeshold",
-
+                            as : "Threeshold"
                         }
                     ]
                 }
             ],
+            order : [["kode_aplikasi","ASC"]]
         })
 
         if (refAplikasi.length === 0) {
@@ -117,13 +118,13 @@ const store = async (
             console.log(publicFileImages)
         }
 
-        console.log(publicFileImages)
 
-        const aplikasiInput: RefAplikasiInput = {
+        const aplikasiInput: any = {
             kode_aplikasi: kodeAplikasi,
             nama_aplikasi: request.nama_aplikasi,
             keterangan: request.keterangan,
             status: Status.Tampil, //Default
+            kode_metode_pengadaan : request.kode_metode_pengadaan,
             url: request.url,
             url_token: request.url_token,
             images: publicFileImages,
@@ -192,7 +193,7 @@ const updateAplikasi = async (
         if (!refAplikasi) throw new CustomError(httpCode.notFound, "success", "Data Tidak Ada")
 
         refAplikasi.nama_aplikasi = request.nama_aplikasi,
-            refAplikasi.keterangan = request.keterangan
+        refAplikasi.keterangan = request.keterangan
         refAplikasi.status = request.status
         refAplikasi.url = request.url
         refAplikasi.url_token = request.url_token
@@ -292,6 +293,31 @@ const countRefAplikasi = async (): Promise<any> => {
     }
 }
 
+const updateMetodePengadaan = async (id:string, kode_metode_pengadaan : number) : Promise<RefAplikasi> => {
+    try {
+        const exAplikasi : RefAplikasi | null = await RefAplikasi.findByPk(id)
+    
+        if(!exAplikasi) throw new CustomError(httpCode.unprocessableEntity, "error", "Kode Aplikasi Tidak Tersedia")
+    
+        exAplikasi.kode_metode_pengadaan = kode_metode_pengadaan
+    
+        const updateFile = await exAplikasi.save()
+    
+        if(!updateAplikasi) throw new CustomError(httpCode.unprocessableEntity, "error", "Gagal Update Metode Pengadaan")
+    
+        return updateFile
+        
+    } catch (error) {
+        if (error instanceof CustomError) {
+            throw new CustomError(error.code, error.status, error.message)
+        }
+        else {
+            debugLogger.debug(error)
+            throw new CustomError(500, "error", "Internal server error.")
+        }
+    }
+}
+
 
 
 
@@ -302,5 +328,6 @@ export default {
     updateAplikasi,
     deleteAplikasi,
     countRefAplikasi,
-    getAplikasiByNamaAplikasi
+    getAplikasiByNamaAplikasi,
+    updateMetodePengadaan
 }

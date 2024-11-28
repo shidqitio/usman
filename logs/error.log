@@ -122,3 +122,53 @@
   code: 500,
   status: 'error'
 }
+[2024-11-28T14:17:13.051] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:27)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-28T14:50:51.753] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:67:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-11-28T15:10:54.813] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:27)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-28T15:27:56.487] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:27)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
