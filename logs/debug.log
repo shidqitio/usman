@@ -1,11 +1,19 @@
-[2024-11-22T16:26:05.466] [DEBUG] default - Error
+[2024-11-28T10:41:09.579] [DEBUG] default - TES ERROR :  Error [SequelizeEagerLoadingError]: MetodePengadaan is associated to Threeshold using an alias. You've included an alias (RefMetodePengadaan), but it does not match the alias(es) defined in your association (RefMetodePengumuman).
+    at Function._getIncludedAssociation (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:751:15)
+    at Function._validateIncludedElement (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:646:53)
+    at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-28T10:42:01.608] [DEBUG] default - TES ERROR :  Error
     at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
     at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
     at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21) {
   name: 'SequelizeDatabaseError',
-  parent: error: kolom « nan » tidak ada
+  parent: error: kolom Threeshold.kode_metode_pengumuman belum ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -16,12 +24,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 102,
+    length: 127,
     severity: 'ERROR',
     code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '149',
+    position: '2172',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -33,10 +41,10 @@
     file: 'parse_relation.c',
     line: '3718',
     routine: 'errorMissingColumn',
-    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
+    sql: 'SELECT "Threeshold"."kode_threeshold", "Threeshold"."nilai_min", "Threeshold"."nilai_max", "Threeshold"."kode_jenis_pengadaan", "RefJenisPengadaan"."jenis_pengadaan", "Threeshold"."penanggung_jawab", "RefMetodePengadaan"."kode_metode_pengadaan" AS "RefMetodePengadaan.kode_metode_pengadaan", "RefMetodePengadaan"."metode_pengadaan" AS "RefMetodePengadaan.metode_pengadaan", "RefMetodePengadaan"."kode_aplikasi" AS "RefMetodePengadaan.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."kode_aplikasi" AS "RefMetodePengadaan.RefAplikasi.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."nama_aplikasi" AS "RefMetodePengadaan.RefAplikasi.nama_aplikasi", "RefMetodePengadaan->RefAplikasi"."keterangan" AS "RefMetodePengadaan.RefAplikasi.keterangan", "RefMetodePengadaan->RefAplikasi"."status" AS "RefMetodePengadaan.RefAplikasi.status", "RefMetodePengadaan->RefAplikasi"."images" AS "RefMetodePengadaan.RefAplikasi.images", "RefMetodePengadaan->RefAplikasi"."url" AS "RefMetodePengadaan.RefAplikasi.url", "RefMetodePengadaan->RefAplikasi"."url_token" AS "RefMetodePengadaan.RefAplikasi.url_token", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_encrypt", "RefMetodePengadaan->RefAplikasi"."path_folder_img_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_img_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_encrypt", "RefMetodePengadaan->RefAplikasi"."ucr" AS "RefMetodePengadaan.RefAplikasi.ucr", "RefMetodePengadaan->RefAplikasi"."uch" AS "RefMetodePengadaan.RefAplikasi.uch", "RefMetodePengadaan->RefAplikasi"."udcr" AS "RefMetodePengadaan.RefAplikasi.udcr", "RefMetodePengadaan->RefAplikasi"."udch" AS "RefMetodePengadaan.RefAplikasi.udch" FROM "public"."ref_threeshold" AS "Threeshold" LEFT OUTER JOIN "public"."ref_jenis_pengadaan" AS "RefJenisPengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefJenisPengadaan"."kode_jenis_pengadaan" LEFT OUTER JOIN "public"."ref_metode_pengadaan" AS "RefMetodePengadaan" ON "Threeshold"."kode_metode_pengumuman" = "RefMetodePengadaan"."kode_metode_pengadaan" LEFT OUTER JOIN "public"."ref_aplikasi" AS "RefMetodePengadaan->RefAplikasi" ON "RefMetodePengadaan"."kode_aplikasi" = "RefMetodePengadaan->RefAplikasi"."kode_aplikasi";',
     parameters: undefined
   },
-  original: error: kolom « nan » tidak ada
+  original: error: kolom Threeshold.kode_metode_pengumuman belum ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -47,12 +55,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 102,
+    length: 127,
     severity: 'ERROR',
     code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '149',
+    position: '2172',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -64,20 +72,20 @@
     file: 'parse_relation.c',
     line: '3718',
     routine: 'errorMissingColumn',
-    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
+    sql: 'SELECT "Threeshold"."kode_threeshold", "Threeshold"."nilai_min", "Threeshold"."nilai_max", "Threeshold"."kode_jenis_pengadaan", "RefJenisPengadaan"."jenis_pengadaan", "Threeshold"."penanggung_jawab", "RefMetodePengadaan"."kode_metode_pengadaan" AS "RefMetodePengadaan.kode_metode_pengadaan", "RefMetodePengadaan"."metode_pengadaan" AS "RefMetodePengadaan.metode_pengadaan", "RefMetodePengadaan"."kode_aplikasi" AS "RefMetodePengadaan.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."kode_aplikasi" AS "RefMetodePengadaan.RefAplikasi.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."nama_aplikasi" AS "RefMetodePengadaan.RefAplikasi.nama_aplikasi", "RefMetodePengadaan->RefAplikasi"."keterangan" AS "RefMetodePengadaan.RefAplikasi.keterangan", "RefMetodePengadaan->RefAplikasi"."status" AS "RefMetodePengadaan.RefAplikasi.status", "RefMetodePengadaan->RefAplikasi"."images" AS "RefMetodePengadaan.RefAplikasi.images", "RefMetodePengadaan->RefAplikasi"."url" AS "RefMetodePengadaan.RefAplikasi.url", "RefMetodePengadaan->RefAplikasi"."url_token" AS "RefMetodePengadaan.RefAplikasi.url_token", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_encrypt", "RefMetodePengadaan->RefAplikasi"."path_folder_img_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_img_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_encrypt", "RefMetodePengadaan->RefAplikasi"."ucr" AS "RefMetodePengadaan.RefAplikasi.ucr", "RefMetodePengadaan->RefAplikasi"."uch" AS "RefMetodePengadaan.RefAplikasi.uch", "RefMetodePengadaan->RefAplikasi"."udcr" AS "RefMetodePengadaan.RefAplikasi.udcr", "RefMetodePengadaan->RefAplikasi"."udch" AS "RefMetodePengadaan.RefAplikasi.udch" FROM "public"."ref_threeshold" AS "Threeshold" LEFT OUTER JOIN "public"."ref_jenis_pengadaan" AS "RefJenisPengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefJenisPengadaan"."kode_jenis_pengadaan" LEFT OUTER JOIN "public"."ref_metode_pengadaan" AS "RefMetodePengadaan" ON "Threeshold"."kode_metode_pengumuman" = "RefMetodePengadaan"."kode_metode_pengadaan" LEFT OUTER JOIN "public"."ref_aplikasi" AS "RefMetodePengadaan->RefAplikasi" ON "RefMetodePengadaan"."kode_aplikasi" = "RefMetodePengadaan->RefAplikasi"."kode_aplikasi";',
     parameters: undefined
   },
-  sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
+  sql: 'SELECT "Threeshold"."kode_threeshold", "Threeshold"."nilai_min", "Threeshold"."nilai_max", "Threeshold"."kode_jenis_pengadaan", "RefJenisPengadaan"."jenis_pengadaan", "Threeshold"."penanggung_jawab", "RefMetodePengadaan"."kode_metode_pengadaan" AS "RefMetodePengadaan.kode_metode_pengadaan", "RefMetodePengadaan"."metode_pengadaan" AS "RefMetodePengadaan.metode_pengadaan", "RefMetodePengadaan"."kode_aplikasi" AS "RefMetodePengadaan.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."kode_aplikasi" AS "RefMetodePengadaan.RefAplikasi.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."nama_aplikasi" AS "RefMetodePengadaan.RefAplikasi.nama_aplikasi", "RefMetodePengadaan->RefAplikasi"."keterangan" AS "RefMetodePengadaan.RefAplikasi.keterangan", "RefMetodePengadaan->RefAplikasi"."status" AS "RefMetodePengadaan.RefAplikasi.status", "RefMetodePengadaan->RefAplikasi"."images" AS "RefMetodePengadaan.RefAplikasi.images", "RefMetodePengadaan->RefAplikasi"."url" AS "RefMetodePengadaan.RefAplikasi.url", "RefMetodePengadaan->RefAplikasi"."url_token" AS "RefMetodePengadaan.RefAplikasi.url_token", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_encrypt", "RefMetodePengadaan->RefAplikasi"."path_folder_img_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_img_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_encrypt", "RefMetodePengadaan->RefAplikasi"."ucr" AS "RefMetodePengadaan.RefAplikasi.ucr", "RefMetodePengadaan->RefAplikasi"."uch" AS "RefMetodePengadaan.RefAplikasi.uch", "RefMetodePengadaan->RefAplikasi"."udcr" AS "RefMetodePengadaan.RefAplikasi.udcr", "RefMetodePengadaan->RefAplikasi"."udch" AS "RefMetodePengadaan.RefAplikasi.udch" FROM "public"."ref_threeshold" AS "Threeshold" LEFT OUTER JOIN "public"."ref_jenis_pengadaan" AS "RefJenisPengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefJenisPengadaan"."kode_jenis_pengadaan" LEFT OUTER JOIN "public"."ref_metode_pengadaan" AS "RefMetodePengadaan" ON "Threeshold"."kode_metode_pengumuman" = "RefMetodePengadaan"."kode_metode_pengadaan" LEFT OUTER JOIN "public"."ref_aplikasi" AS "RefMetodePengadaan->RefAplikasi" ON "RefMetodePengadaan"."kode_aplikasi" = "RefMetodePengadaan->RefAplikasi"."kode_aplikasi";',
   parameters: {}
 }
-[2024-11-22T16:26:54.884] [DEBUG] default - Error
+[2024-11-28T10:42:52.060] [DEBUG] default - TES ERROR :  Error
     at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
     at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
     at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21) {
   name: 'SequelizeDatabaseError',
-  parent: error: kolom « nan » tidak ada
+  parent: error: kolom RefMetodePengadaan->RefAplikasi.path_folder_pdf_asli belum ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -88,12 +96,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 102,
+    length: 146,
     severity: 'ERROR',
     code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '149',
+    position: '1096',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -105,10 +113,10 @@
     file: 'parse_relation.c',
     line: '3718',
     routine: 'errorMissingColumn',
-    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
+    sql: 'SELECT "Threeshold"."kode_threeshold", "Threeshold"."nilai_min", "Threeshold"."nilai_max", "Threeshold"."kode_jenis_pengadaan", "RefJenisPengadaan"."jenis_pengadaan", "Threeshold"."penanggung_jawab", "RefMetodePengadaan"."kode_metode_pengadaan" AS "RefMetodePengadaan.kode_metode_pengadaan", "RefMetodePengadaan"."metode_pengadaan" AS "RefMetodePengadaan.metode_pengadaan", "RefMetodePengadaan"."kode_aplikasi" AS "RefMetodePengadaan.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."kode_aplikasi" AS "RefMetodePengadaan.RefAplikasi.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."nama_aplikasi" AS "RefMetodePengadaan.RefAplikasi.nama_aplikasi", "RefMetodePengadaan->RefAplikasi"."keterangan" AS "RefMetodePengadaan.RefAplikasi.keterangan", "RefMetodePengadaan->RefAplikasi"."status" AS "RefMetodePengadaan.RefAplikasi.status", "RefMetodePengadaan->RefAplikasi"."images" AS "RefMetodePengadaan.RefAplikasi.images", "RefMetodePengadaan->RefAplikasi"."url" AS "RefMetodePengadaan.RefAplikasi.url", "RefMetodePengadaan->RefAplikasi"."url_token" AS "RefMetodePengadaan.RefAplikasi.url_token", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_encrypt", "RefMetodePengadaan->RefAplikasi"."path_folder_img_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_img_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_encrypt", "RefMetodePengadaan->RefAplikasi"."ucr" AS "RefMetodePengadaan.RefAplikasi.ucr", "RefMetodePengadaan->RefAplikasi"."uch" AS "RefMetodePengadaan.RefAplikasi.uch", "RefMetodePengadaan->RefAplikasi"."udcr" AS "RefMetodePengadaan.RefAplikasi.udcr", "RefMetodePengadaan->RefAplikasi"."udch" AS "RefMetodePengadaan.RefAplikasi.udch" FROM "public"."ref_threeshold" AS "Threeshold" LEFT OUTER JOIN "public"."ref_jenis_pengadaan" AS "RefJenisPengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefJenisPengadaan"."kode_jenis_pengadaan" LEFT OUTER JOIN "public"."ref_metode_pengadaan" AS "RefMetodePengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefMetodePengadaan"."kode_metode_pengadaan" LEFT OUTER JOIN "public"."ref_aplikasi" AS "RefMetodePengadaan->RefAplikasi" ON "RefMetodePengadaan"."kode_aplikasi" = "RefMetodePengadaan->RefAplikasi"."kode_aplikasi";',
     parameters: undefined
   },
-  original: error: kolom « nan » tidak ada
+  original: error: kolom RefMetodePengadaan->RefAplikasi.path_folder_pdf_asli belum ada
       at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
       at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
       at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
@@ -119,12 +127,12 @@
       at readableAddChunk (node:internal/streams/readable:297:9)
       at Socket.Readable.push (node:internal/streams/readable:234:10)
       at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 102,
+    length: 146,
     severity: 'ERROR',
     code: '42703',
     detail: undefined,
     hint: undefined,
-    position: '149',
+    position: '1096',
     internalPosition: undefined,
     internalQuery: undefined,
     where: undefined,
@@ -136,153 +144,9 @@
     file: 'parse_relation.c',
     line: '3718',
     routine: 'errorMissingColumn',
-    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
+    sql: 'SELECT "Threeshold"."kode_threeshold", "Threeshold"."nilai_min", "Threeshold"."nilai_max", "Threeshold"."kode_jenis_pengadaan", "RefJenisPengadaan"."jenis_pengadaan", "Threeshold"."penanggung_jawab", "RefMetodePengadaan"."kode_metode_pengadaan" AS "RefMetodePengadaan.kode_metode_pengadaan", "RefMetodePengadaan"."metode_pengadaan" AS "RefMetodePengadaan.metode_pengadaan", "RefMetodePengadaan"."kode_aplikasi" AS "RefMetodePengadaan.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."kode_aplikasi" AS "RefMetodePengadaan.RefAplikasi.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."nama_aplikasi" AS "RefMetodePengadaan.RefAplikasi.nama_aplikasi", "RefMetodePengadaan->RefAplikasi"."keterangan" AS "RefMetodePengadaan.RefAplikasi.keterangan", "RefMetodePengadaan->RefAplikasi"."status" AS "RefMetodePengadaan.RefAplikasi.status", "RefMetodePengadaan->RefAplikasi"."images" AS "RefMetodePengadaan.RefAplikasi.images", "RefMetodePengadaan->RefAplikasi"."url" AS "RefMetodePengadaan.RefAplikasi.url", "RefMetodePengadaan->RefAplikasi"."url_token" AS "RefMetodePengadaan.RefAplikasi.url_token", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_encrypt", "RefMetodePengadaan->RefAplikasi"."path_folder_img_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_img_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_encrypt", "RefMetodePengadaan->RefAplikasi"."ucr" AS "RefMetodePengadaan.RefAplikasi.ucr", "RefMetodePengadaan->RefAplikasi"."uch" AS "RefMetodePengadaan.RefAplikasi.uch", "RefMetodePengadaan->RefAplikasi"."udcr" AS "RefMetodePengadaan.RefAplikasi.udcr", "RefMetodePengadaan->RefAplikasi"."udch" AS "RefMetodePengadaan.RefAplikasi.udch" FROM "public"."ref_threeshold" AS "Threeshold" LEFT OUTER JOIN "public"."ref_jenis_pengadaan" AS "RefJenisPengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefJenisPengadaan"."kode_jenis_pengadaan" LEFT OUTER JOIN "public"."ref_metode_pengadaan" AS "RefMetodePengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefMetodePengadaan"."kode_metode_pengadaan" LEFT OUTER JOIN "public"."ref_aplikasi" AS "RefMetodePengadaan->RefAplikasi" ON "RefMetodePengadaan"."kode_aplikasi" = "RefMetodePengadaan->RefAplikasi"."kode_aplikasi";',
     parameters: undefined
   },
-  sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
-  parameters: {}
-}
-[2024-11-22T16:27:35.511] [DEBUG] default - Error
-    at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
-    at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21) {
-  name: 'SequelizeDatabaseError',
-  parent: error: kolom « nan » tidak ada
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 102,
-    severity: 'ERROR',
-    code: '42703',
-    detail: undefined,
-    hint: undefined,
-    position: '149',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'parse_relation.c',
-    line: '3718',
-    routine: 'errorMissingColumn',
-    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
-    parameters: undefined
-  },
-  original: error: kolom « nan » tidak ada
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 102,
-    severity: 'ERROR',
-    code: '42703',
-    detail: undefined,
-    hint: undefined,
-    position: '149',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'parse_relation.c',
-    line: '3718',
-    routine: 'errorMissingColumn',
-    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
-    parameters: undefined
-  },
-  sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
-  parameters: {}
-}
-[2024-11-22T16:28:12.836] [DEBUG] default - Error
-    at Query.run (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
-    at D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\sequelize.js:650:28
-    at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
-    at async Function.findAll (D:\Dev SIPPP\PMO\usman\node_modules\sequelize\src\model.js:1824:21) {
-  name: 'SequelizeDatabaseError',
-  parent: error: kolom « nan » tidak ada
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 102,
-    severity: 'ERROR',
-    code: '42703',
-    detail: undefined,
-    hint: undefined,
-    position: '149',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'parse_relation.c',
-    line: '3718',
-    routine: 'errorMissingColumn',
-    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
-    parameters: undefined
-  },
-  original: error: kolom « nan » tidak ada
-      at Parser.parseErrorMessage (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:369:69)
-      at Parser.handlePacket (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:188:21)
-      at Parser.parse (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\parser.ts:103:30)
-      at Socket.<anonymous> (D:\Dev SIPPP\PMO\usman\node_modules\pg-protocol\src\index.ts:7:48)
-      at Socket.emit (node:events:513:28)
-      at Socket.emit (node:domain:489:12)
-      at addChunk (node:internal/streams/readable:324:12)
-      at readableAddChunk (node:internal/streams/readable:297:9)
-      at Socket.Readable.push (node:internal/streams/readable:234:10)
-      at TCP.onStreamRead (node:internal/stream_base_commons:190:23) {
-    length: 102,
-    severity: 'ERROR',
-    code: '42703',
-    detail: undefined,
-    hint: undefined,
-    position: '149',
-    internalPosition: undefined,
-    internalQuery: undefined,
-    where: undefined,
-    schema: undefined,
-    table: undefined,
-    column: undefined,
-    dataType: undefined,
-    constraint: undefined,
-    file: 'parse_relation.c',
-    line: '3718',
-    routine: 'errorMissingColumn',
-    sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
-    parameters: undefined
-  },
-  sql: 'SELECT "kode_jabatan", "kode_jabatan_atasan", "nama_jabatan" FROM "public"."ref_jabatan" AS "RefJabatan" WHERE "RefJabatan"."kode_jabatan_atasan" = NaN;',
+  sql: 'SELECT "Threeshold"."kode_threeshold", "Threeshold"."nilai_min", "Threeshold"."nilai_max", "Threeshold"."kode_jenis_pengadaan", "RefJenisPengadaan"."jenis_pengadaan", "Threeshold"."penanggung_jawab", "RefMetodePengadaan"."kode_metode_pengadaan" AS "RefMetodePengadaan.kode_metode_pengadaan", "RefMetodePengadaan"."metode_pengadaan" AS "RefMetodePengadaan.metode_pengadaan", "RefMetodePengadaan"."kode_aplikasi" AS "RefMetodePengadaan.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."kode_aplikasi" AS "RefMetodePengadaan.RefAplikasi.kode_aplikasi", "RefMetodePengadaan->RefAplikasi"."nama_aplikasi" AS "RefMetodePengadaan.RefAplikasi.nama_aplikasi", "RefMetodePengadaan->RefAplikasi"."keterangan" AS "RefMetodePengadaan.RefAplikasi.keterangan", "RefMetodePengadaan->RefAplikasi"."status" AS "RefMetodePengadaan.RefAplikasi.status", "RefMetodePengadaan->RefAplikasi"."images" AS "RefMetodePengadaan.RefAplikasi.images", "RefMetodePengadaan->RefAplikasi"."url" AS "RefMetodePengadaan.RefAplikasi.url", "RefMetodePengadaan->RefAplikasi"."url_token" AS "RefMetodePengadaan.RefAplikasi.url_token", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_pdf_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_pdf_encrypt", "RefMetodePengadaan->RefAplikasi"."path_folder_img_asli" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_asli", "RefMetodePengadaan->RefAplikasi"."path_folder_img_encrypt" AS "RefMetodePengadaan.RefAplikasi.path_folder_img_encrypt", "RefMetodePengadaan->RefAplikasi"."ucr" AS "RefMetodePengadaan.RefAplikasi.ucr", "RefMetodePengadaan->RefAplikasi"."uch" AS "RefMetodePengadaan.RefAplikasi.uch", "RefMetodePengadaan->RefAplikasi"."udcr" AS "RefMetodePengadaan.RefAplikasi.udcr", "RefMetodePengadaan->RefAplikasi"."udch" AS "RefMetodePengadaan.RefAplikasi.udch" FROM "public"."ref_threeshold" AS "Threeshold" LEFT OUTER JOIN "public"."ref_jenis_pengadaan" AS "RefJenisPengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefJenisPengadaan"."kode_jenis_pengadaan" LEFT OUTER JOIN "public"."ref_metode_pengadaan" AS "RefMetodePengadaan" ON "Threeshold"."kode_metode_pengadaan" = "RefMetodePengadaan"."kode_metode_pengadaan" LEFT OUTER JOIN "public"."ref_aplikasi" AS "RefMetodePengadaan->RefAplikasi" ON "RefMetodePengadaan"."kode_aplikasi" = "RefMetodePengadaan->RefAplikasi"."kode_aplikasi";',
   parameters: {}
 }

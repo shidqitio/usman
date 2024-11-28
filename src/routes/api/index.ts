@@ -17,12 +17,15 @@ import akses from "@routes/api/akses-route"
 import refUser from "@routes/api/refUser-route"
 import refLevel from "@routes/api/refLevel-routes"
 import jabatan from "@routes/api/refJabatan-route"
+import threeshold from "@routes/api/threeshold-route"
 import {auth, authSecretKey} from "@middleware/auth";
 // routes.use("/v1", example);
 
 routes.use(vers + "/aplikasi", auth, refAplikasi)
 
 routes.use(vers + "/aplikasi-key", authSecretKey, refAplikasiKey)
+
+routes.use(vers + "/threeshold-key", authSecretKey, threeshold)
 
 routes.use(vers + "/group", auth, refGroup);
 
