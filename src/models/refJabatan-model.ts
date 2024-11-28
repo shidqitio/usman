@@ -2,10 +2,17 @@ import { DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
 
 
+export enum jabatan {
+    PPk = "PPK",
+    PP = "PP",
+    PK = "PK"
+}
+
 interface IRefJabatanAttributes {
     kode_jabatan : string,
     kode_jabatan_atasan : string | undefined | null,
     nama_jabatan : string | undefined | null,
+    jabatan : jabatan
     ucr : string | undefined | null,
     uch : string | undefined | null,
     udcr : Date | undefined,
@@ -17,6 +24,7 @@ export type RefJabatanInput = Optional <
     IRefJabatanAttributes,
     "kode_jabatan" | 
     "kode_jabatan_atasan" |
+    "jabatan" |
     "ucr" | 
     "uch" |
     "udch" | 
@@ -36,6 +44,7 @@ class RefJabatan
     declare kode_jabatan : string;
     declare kode_jabatan_atasan : string | undefined | null;
     declare nama_jabatan : string | undefined | null;
+    declare jabatan: jabatan;
     declare ucr : string | undefined | null;
     declare uch : string | undefined | null;
     declare udcr : Date | undefined;
@@ -54,6 +63,10 @@ RefJabatan.init(
             allowNull : true
         },
         nama_jabatan : {
+            type : DataTypes.STRING,
+            allowNull : true
+        },
+        jabatan : {
             type : DataTypes.STRING,
             allowNull : true
         },

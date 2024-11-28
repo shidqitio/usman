@@ -18,6 +18,8 @@ import { removeFile, removeFileName, removeByLastNameAplikasi } from "@utils/rem
 import path from "path";
 import { Sequelize } from "sequelize";
 
+import MetodePengadaan from "@models/refMetodePengadaan-model";
+import Threeshold from "@models/refThreeshold-model";
 
 
 const index = async (): Promise<RefAplikasiOutput[]> => {
@@ -36,6 +38,17 @@ const index = async (): Promise<RefAplikasiOutput[]> => {
                     model: RefGroup,
                     as: "Group",
                     attributes: { exclude: ["kode_aplikasi", "ucr", "uch", "udcr", "udch"] }
+                },
+                {
+                    model : MetodePengadaan,
+                    as : "RefMetodePengadaan",
+                    include : [
+                        {
+                            model : Threeshold,
+                            as : "Threeshold",
+
+                        }
+                    ]
                 }
             ],
         })
@@ -49,6 +62,8 @@ const index = async (): Promise<RefAplikasiOutput[]> => {
         if (error instanceof CustomError) {
             throw new CustomError(error.code, error.status, error.message);
         } else {
+            console.log(error);
+            
             throw new CustomError(500, "error", "Internal server error.");
         }
     }

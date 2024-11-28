@@ -56,7 +56,7 @@ MetodePengadaan.belongsTo(RefAplikasi, {
     as : "RefAplikasi"
 })
 
-RefAplikasi.hasMany(MetodePengadaan, {
+RefAplikasi.hasOne(MetodePengadaan, {
     foreignKey : "kode_aplikasi",
     as : "RefMetodePengadaan"
 })

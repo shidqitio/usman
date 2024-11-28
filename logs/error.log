@@ -76,3 +76,49 @@
   code: 500,
   status: 'error'
 }
+[2024-11-28T13:50:43.671] [ERROR] error - testing error login Awal Error: Email dan Password Tidak Ditemukan
+[2024-11-28T13:50:43.672] [ERROR] error - Error: Email dan Password Tidak Ditemukan
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:531:13
+    at Generator.next (<anonymous>)
+    at fulfilled (D:\Dev SIPPP\PMO\usman\src\services\api\v1\aksesSippp-api.ts:28:58) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-28T13:50:57.623] [ERROR] error - Error: [2] Token Unauthorized
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:27:19
+    at Generator.next (<anonymous>)
+    at D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:4:12)
+    at auth (D:\Dev SIPPP\PMO\usman\src\middleware\auth.ts:14:27)
+    at Layer.handle [as handle_request] (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:328:13)
+    at D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (D:\Dev SIPPP\PMO\usman\node_modules\express\lib\router\index.js:346:12) {
+  code: 401,
+  status: 'error'
+}
+[2024-11-28T13:51:05.806] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:58:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-11-28T13:51:38.015] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:60:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
+[2024-11-28T13:56:39.999] [ERROR] error - Error: Internal server error.
+    at D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:66:19
+    at Generator.throw (<anonymous>)
+    at rejected (D:\Dev SIPPP\PMO\usman\src\services\api\v1\refAplikasi-api.ts:29:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 500,
+  status: 'error'
+}
