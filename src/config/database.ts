@@ -9,7 +9,7 @@ const db: Sequelize = new Sequelize(
     host: getConfig("DB_HOST") as string,
     port: parseInt(getConfig("DB_PORT") as string, 10),
     dialect: "postgres",
-    logging: false,
+    logging: console.log,
     schema : "public",
     pool: {
       max: 100,

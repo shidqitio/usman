@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import db from "@config/database";
-import JenisPengadaan from "./refjenisPengadaan-model";
+import JenisPengadaan from "./refJenisPengadaan-model";
 import MetodePengadaan from "./refMetodePengadaan-model";
 
 interface IRefThreesholdAttributes {
@@ -51,7 +51,7 @@ Threeshold.init(
         },
         kode_jenis_pengadaan : {
             type : DataTypes.INTEGER,
-            allowNull : true
+            allowNull : true,
         },
         kode_metode_pengadaan : {
             type : DataTypes.INTEGER,
@@ -72,12 +72,12 @@ Threeshold.init(
 )
 
 Threeshold.belongsTo(JenisPengadaan, {
-    foreignKey : "kode_metode_pengadaan",
+    foreignKey : "kode_jenis_pengadaan",
     as : "RefJenisPengadaan"
 })
 
 JenisPengadaan.hasMany(Threeshold, {
-    foreignKey : "kode_metode_pengadaan",
+    foreignKey : "kode_jenis_pengadaan",
     as : "Threeshold"
 })
 

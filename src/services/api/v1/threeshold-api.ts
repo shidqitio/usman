@@ -1,5 +1,5 @@
 import Threeshold from "@models/refThreeshold-model";
-import JenisPengadaan from "@models/refjenisPengadaan-model";
+import JenisPengadaan from "@models/refJenisPengadaan-model";
 import MetodePengadaan from "@models/refMetodePengadaan-model";
 import RefAplikasi from "@models/refAplikasi-model";
 
@@ -13,15 +13,19 @@ import {
  ParameterSchema
 } from "@schema/api/threeshold-schema"
 
-const getThreesholdByNominal = async (nominal:number) : Promise<Threeshold[]> => {
+import db from "@config/database";
+import { QueryTypes } from "sequelize";
+
+const getThreesholdByNominal = async (nominal:number) : Promise<any> => {
     try {
         const exThreeshold = await Threeshold.findAll({
             attributes : [
                 "kode_threeshold",
-                "nilai_min",
-                "nilai_max",
                 "kode_jenis_pengadaan",
                 "RefJenisPengadaan.jenis_pengadaan",
+                "kode_metode_pengadaan",
+                "nilai_min",
+                "nilai_max",
                 "penanggung_jawab"
             ],
             include : [
@@ -46,13 +50,17 @@ const getThreesholdByNominal = async (nominal:number) : Promise<Threeshold[]> =>
                     ]
                 }
             ],
-            raw : true,
+            raw : true, 
             nest : true
         })
+
+        
 
         const dataRows = exThreeshold.filter(
             (item : any) => nominal >= item.nilai_min && nominal <= item.nilai_max
         )
+
+        console.log(dataRows)
 
         return dataRows
     } catch (error) {
